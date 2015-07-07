@@ -1,5 +1,5 @@
 {
-    "name": "serendipity_hq/php-value-objects",
+    "name": "serendipity_hq/php_value_objects",
     "description": "A set of value objects to manage composite values",
     "license": "MIT",
     "keywords": ["value objects"],
