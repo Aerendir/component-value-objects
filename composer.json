@@ -1,0 +1,25 @@
+{
+    "name": "serendipity_hq/value_objects",
+    "description": "A set of value objects to manage composite values",
+    "license": "MIT",
+    "keywords": ["value objects"],
+    "authors": [
+        {
+            "name": "Adamo Aerendir Crespi",
+            "email": "hello@aerendir.me"
+        }
+    ],
+    "require": {
+      "zendframework/zend-uri": "*@stable"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "*@stable",
+      "squizlabs/php_codesniffer": "*@stable",
+      "phpdocumentor/phpdocumentor": "*@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "SerendipityHQ\\Framework\\ValueObjects\\": "src"
+        }
+    }
+}
