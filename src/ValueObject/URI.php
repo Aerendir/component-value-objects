@@ -4,5 +4,7 @@ namespace \SerendipityHQ\Framework\ValueObjects\ValueObject;
 
 use \Zend\Uri\Uri as BaseUri;
 
-class URI extends BaseUri
+use SerendipityHQ\Framework\ValueObjects\Model\UriInterface;
+
+class Uri extends BaseUri implements UriInterface
 {}
