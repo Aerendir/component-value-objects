@@ -28,4 +28,6 @@ class Uri extends BaseUri implements UriInterface
     {
         parent::__construct($uri);
     }
+
+    public function __set($field, $value){}
 }
