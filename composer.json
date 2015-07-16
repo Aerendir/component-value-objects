@@ -11,7 +11,9 @@
     ],
     "require": {
       "zendframework/zend-uri": "*@stable",
-      "egulias/email-validator": "~1.2"
+      "egulias/email-validator": "~1.2",
+      "commerceguys/intl": "~0",
+      "commerceguys/addressing": "~0"
     },
     "require-dev": {
       "phpunit/phpunit": "*@stable",
