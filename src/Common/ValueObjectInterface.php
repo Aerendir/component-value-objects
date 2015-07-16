@@ -1,7 +1,7 @@
 <?PHP
 
 /**
- *  An Uri value object
+ *  A common interface for all value objects.
  *
  * @package  Serendipity\Framework
  * @subpackage ValueObjects
@@ -11,9 +11,10 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Uri;
+namespace SerendipityHQ\Framework\ValueObjects\Common;
 
-use \Zend\Uri\UriInterface as BaseUri;
-
-interface UriInterface extends BaseUri
-{}
+interface ValueObjectInterface
+{
+    public function __toString();
+    public function __set($field, $value);
+}

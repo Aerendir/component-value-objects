@@ -13,11 +13,12 @@
 
 namespace SerendipityHQ\Framework\ValueObjects\Email;
 
-interface EmailInterface
+use SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
+
+interface EmailInterface extends ValueObjectInterface
 {
     public function getEmail();
     public function getMailBox();
     public function getHost();
     public function changeMailBox($newMailBox);
-    public function __toString();
 }

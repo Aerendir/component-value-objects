@@ -21,8 +21,9 @@ namespace SerendipityHQ\Framework\ValueObjects\Uri;
 use \Zend\Uri\Uri as BaseUri;
 
 use \SerendipityHQ\Framework\ValueObjects\Uri\UriInterface;
+use \SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
 
-class Uri extends BaseUri implements UriInterface
+class Uri extends BaseUri implements UriInterface, ValueObjectInterface
 {
     public function __construct($uri = null)
     {
