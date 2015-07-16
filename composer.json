@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-      "zendframework/zend-uri": "*@stable"
+      "zendframework/zend-uri": "*@stable",
+      "egulias/email-validator": "~1.2"
     },
     "require-dev": {
       "phpunit/phpunit": "*@stable",
