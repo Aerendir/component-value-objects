@@ -11,11 +11,16 @@
  *  @license     MIT License
  */
 
-namespace \SerendipityHQ\Framework\ValueObjects\Uri;
+namespace SerendipityHQ\Framework\ValueObjects\Uri;
 
 use \Zend\Uri\Uri as BaseUri;
 
-use SerendipityHQ\Framework\ValueObjects\Uri\UriInterface;
+use \SerendipityHQ\Framework\ValueObjects\Uri\UriInterface;
 
 class Uri extends BaseUri implements UriInterface
-{}
+{
+    public function __construct($uri = null)
+    {
+        parent::__construct($uri);
+    }
+}

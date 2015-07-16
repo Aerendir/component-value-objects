@@ -11,9 +11,11 @@
  *  @license     MIT License
  */
 
-namespace \SerendipityHQ\Framework\ValueObjects\Uri;
+namespace SerendipityHQ\Framework\ValueObjects\Uri;
 
 use \Zend\Uri\UriInterface as BaseUri;
 
 interface UriInterface extends BaseUri
-{}
+{
+    public function __toString();
+}
