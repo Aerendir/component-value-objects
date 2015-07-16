@@ -1,7 +1,10 @@
 <?PHP
 
 /**
- *  An Uri value object
+ *  An Uri value object.
+ *  This is just a wrapper for Zend Uri.
+ *
+ * @link https://github.com/zendframework/zend-uri
  *
  * @package  Serendipity\Framework
  * @subpackage ValueObjects
