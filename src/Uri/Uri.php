@@ -6,7 +6,7 @@
  *
  * @link https://github.com/zendframework/zend-uri
  *
- * @todo This has to be a Guzzle Uri
+ * @todo This has to be a Guzzle Uri or https://github.com/mvdbos/vdb-uri
  *
  * @package  Serendipity\Framework
  * @subpackage ValueObjects
