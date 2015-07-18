@@ -18,10 +18,14 @@
 
 namespace SerendipityHQ\Framework\ValueObjects\Tests\Uri;
 
+use SerendipityHQ\Framework\ValueObjects\Uri\Uri;
+
 class UriTest extends \PHPUnit_Framework_TestCase
 {
     public function testUri()
     {
-        $this->markTestIncomplete();
+        $test = 'http://example.com';
+
+        $resource = new Uri($test);
     }
 }
