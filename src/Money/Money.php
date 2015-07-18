@@ -28,6 +28,10 @@ class Money extends BaseMoney implements MoneyInterface
      */
     public function __construct($amount, CurrencyInterface $currency)
     {
+        // Set as integer to avoid throwing the exception from sebastian's money library
+        if (!is_int($amount))
+            $amount = (int) $amount;
+
         parent::__construct($amount, $currency);
     }
 
