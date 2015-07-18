@@ -16,11 +16,17 @@
 
 namespace SerendipityHQ\Framework\ValueObjects\Money;
 
+use SerendipityHQ\Framework\ValueObjects\Currency\CurrencyInterface;
+
 use SebastianBergmann\Money\Money as BaseMoney;
 
 class Money extends BaseMoney implements MoneyInterface
 {
-    public function __construct($amount, $currency)
+    /**
+     * @param int               $amount
+     * @param CurrencyInterface $currency
+     */
+    public function __construct($amount, CurrencyInterface $currency)
     {
         parent::__construct($amount, $currency);
     }
