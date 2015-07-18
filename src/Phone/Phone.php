@@ -25,7 +25,7 @@ class Phone extends PhoneNumber implements PhoneInterface
 {
     protected $phone;
 
-    public function __construct($phone = null, $region = 'EN')
+    public function __construct($phone = null, $region = 'IT')
     {
         if (is_string($phone))
         {

@@ -16,10 +16,14 @@
 
 namespace SerendipityHQ\Framework\ValueObjects\Tests\Phone;
 
+use SerendipityHQ\Framework\ValueObjects\Phone\Phone;
+
 class PhoneTest extends \PHPUnit_Framework_TestCase
 {
     public function testPhone()
     {
-        $this->markTestIncomplete();
+        $test = '3331234567';
+
+        $resource = new Phone($test);
     }
 }
