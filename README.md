@@ -28,4 +28,4 @@ This library follows the http://semver.org/ versioning conventions.
 
 As this library uses sebastian/money, you are required to install the Intl PHP extension in order to use it.
 
-You can find [here](http://aerendir.me/?p=452) instruction about how to do this on a Mac with MAMP
+You can find [here](http://aerendir.me/?p=452) instruction about how to do this on a Mac with MAMP.
