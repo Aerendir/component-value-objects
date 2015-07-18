@@ -16,10 +16,17 @@
 
 namespace SerendipityHQ\Framework\ValueObjects\Tests\Money;
 
+use SerendipityHQ\Framework\ValueObjects\Money\Money;
+
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {
     public function testMoney()
     {
-        $this->markTestIncomplete();
+        $test = [
+            'amount' => 100,
+            'currency' => 'EUR'
+            ];
+
+        $resource = new Money($test['amount'], $test['currency']);
     }
 }

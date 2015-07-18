@@ -20,10 +20,9 @@ use SebastianBergmann\Money\Money as BaseMoney;
 
 class Money extends BaseMoney implements MoneyInterface
 {
-    protected $money;
-
-    public function __construct($options = null)
+    public function __construct($amount, $currency)
     {
+        parent::__construct($amount, $currency);
     }
 
     public function __toString()
