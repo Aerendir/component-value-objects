@@ -4,7 +4,8 @@
  *  An Email value object.
  *
  * This is inspired by the wowo Email Value Object
- * (https://gist.github.com/wowo/b49ac45b975d5c489214)
+ * @link https://gist.github.com/wowo/b49ac45b975d5c489214
+ * @link https://github.com/egulias/EmailValidator
  *
  * @package  Serendipity\Framework
  * @subpackage ValueObjects

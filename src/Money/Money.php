@@ -4,7 +4,7 @@
  *  A Money value object.
  *
  * This is a simple wrapper for giggsey/libphonenumber-for-php
- * (https://github.com/giggsey/libphonenumber-for-php)
+ * @link https://github.com/sebastianbergmann/money
  *
  * @package  Serendipity\Framework
  * @subpackage ValueObjects

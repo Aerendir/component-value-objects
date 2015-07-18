@@ -4,7 +4,7 @@
  *  An Address value object.
  *
  * This Value Object use commerceguys/addressing library
- * (https://github.com/commerceguys/addressing).
+ * @link https://github.com/commerceguys/addressing
  *
  * Other useful libraries:
  * - https://github.com/black-project/Address
