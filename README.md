@@ -1,5 +1,5 @@
 # PHP Value Objects
-A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage composite values
+A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage composite values.
 
 ## Available Value Objects
 
