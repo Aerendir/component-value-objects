@@ -14,7 +14,8 @@
       "egulias/email-validator": "~1.2",
       "commerceguys/intl": "~0",
       "commerceguys/addressing": "~0",
-      "giggsey/libphonenumber-for-php": "~7.0"
+      "giggsey/libphonenumber-for-php": "~7.0",
+      "sebastian/money": "1.6.*"
     },
     "require-dev": {
       "phpunit/phpunit": "*@stable",

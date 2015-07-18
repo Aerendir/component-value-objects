@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "089649e8296f563882f4d5a16a6de72b",
+    "hash": "bd7a3155371e6f2024ae96477a38bf13",
     "packages": [
         {
             "name": "commerceguys/addressing",
@@ -384,6 +384,52 @@
                 "validation"
             ],
             "time": "2015-07-14 21:36:08"
+        },
+        {
+            "name": "sebastian/money",
+            "version": "v1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/money.git",
+                "reference": "19e8660d60e7b39ee6769b09b91eb3e35b2470ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/money/zipball/19e8660d60e7b39ee6769b09b91eb3e35b2470ec",
+                "reference": "19e8660d60e7b39ee6769b09b91eb3e35b2470ec",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Value Object that represents a monetary value (using a currency's smallest unit)",
+            "homepage": "http://www.github.com/sebastianbergmann/money",
+            "keywords": [
+                "money"
+            ],
+            "time": "2015-06-24 19:59:23"
         },
         {
             "name": "zendframework/zend-escaper",
