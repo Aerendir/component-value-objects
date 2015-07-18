@@ -1,8 +1,10 @@
 {
     "name": "serendipity_hq/php_value_objects",
     "description": "A set of value objects to manage composite values",
+    "type": "library",
     "license": "MIT",
     "keywords": ["value objects"],
+    "homepage": "https://github.com/Aerendir/PHPValueObjects",
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
@@ -20,7 +22,8 @@
     "require-dev": {
       "phpunit/phpunit": "*@stable",
       "squizlabs/php_codesniffer": "*@stable",
-      "phpdocumentor/phpdocumentor": "*@stable"
+      "phpdocumentor/phpdocumentor": "*@stable",
+      "codeclimate/php-test-reporter": "dev-master"
     },
     "autoload": {
         "psr-4": {
