@@ -16,10 +16,16 @@
 
 namespace SerendipityHQ\Framework\ValueObjects\Tests\Email;
 
+use SerendipityHQ\Framework\ValueObjects\Email\Email;
+
 class EmailTest extends \PHPUnit_Framework_TestCase
 {
     public function testEmail()
     {
-        $this->markTestIncomplete();
+        $test = 'user@example.com';
+
+        $resource = new Email($test);
+
+        $this->assertEquals($test, $resource->getEmail());
     }
 }
