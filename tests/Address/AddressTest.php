@@ -26,6 +26,12 @@ class AddressTest extends \PHPUnit_Framework_TestCase
 {
     public function testAddress()
     {
-        $this->markTestIncomplete();
+        $options = [
+            'locale' => 'en_EN'
+            ];
+
+        $resource = new Address($options);
+
+        $this->assertEquals($options['locale'], $resource->getLocale());
     }
 }
