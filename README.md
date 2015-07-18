@@ -1,3 +1,5 @@
+[![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects) [![License](https://poser.pugx.org/serendipity_hq/php_value_objects/license.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
+
 # PHP Value Objects
 A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage composite values.
 
