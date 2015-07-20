@@ -37,8 +37,6 @@ class Email implements EmailInterface
         $this->email = $email;
 
         list($this->mailBox, $this->host) = explode('@', $this->email);
-
-        $this->host = new Uri($this->host);
     }
 
     public function getEmail()
