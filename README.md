@@ -26,8 +26,12 @@ or, in your composer.json
 
 This library follows the http://semver.org/ versioning conventions.
 
-# ! ! ! IMPORTANT NOTES ! ! !
+### ! ! ! IMPORTANT NOTES ! ! !
 
 As this library uses sebastian/money, you are required to install the Intl PHP extension in order to use it.
 
 You can find [here](http://aerendir.me/?p=452) instruction about how to do this on a Mac with MAMP.
+
+## About Email value object
+
+The Email object doesn't return Uri objects for the host part of the email as we don't know its real schema (especially if it is http or https), so we don't need an object to manage it but it is sufficient to use a property to manage it.
