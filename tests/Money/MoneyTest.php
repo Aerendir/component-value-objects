@@ -18,13 +18,18 @@ namespace SerendipityHQ\Framework\ValueObjects\Tests\Money;
 
 use SerendipityHQ\Framework\ValueObjects\Money\Money;
 
+
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {
     public function testMoney()
     {
+        $mocks['currency'] = $this->getMockBuilder('\SerendipityHQ\Framework\ValueObjects\Currency\Currency')
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $test = [
             'amount' => 100,
-            'currency' => 'EUR'
+            'currency' => $mocks['currency']
             ];
 
         $resource = new Money($test['amount'], $test['currency']);
