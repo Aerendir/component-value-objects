@@ -27,7 +27,7 @@ class Currency extends BaseCurrency implements CurrencyInterface
 
     public function __toString()
     {
-        return '';
+        return self::getCurrencyCode();
     }
 
     public function __set($field, $value){}
