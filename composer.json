@@ -5,6 +5,9 @@
     "license": "MIT",
     "keywords": ["value objects"],
     "homepage": "https://github.com/Aerendir/PHPValueObjects",
+    "require": {
+        "php": ">=5.5.0"
+    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
