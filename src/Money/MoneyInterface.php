@@ -16,4 +16,6 @@ namespace SerendipityHQ\Framework\ValueObjects\Money;
 use SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
 
 interface MoneyInterface extends ValueObjectInterface
-{}
+{
+    public function getConvertedAmount();
+}
