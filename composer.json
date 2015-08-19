@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SerendipityHQ\\Framework\\ValueObjects\\": "src"
+            "SerendipityHQ\\Component\\ValueObjects\\": "src"
         }
     }
 }
