@@ -11,7 +11,7 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Uri;
+namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use \Zend\Uri\UriInterface as BaseUri;
 

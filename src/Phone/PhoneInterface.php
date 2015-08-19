@@ -11,9 +11,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Phone;
+namespace SerendipityHQ\Component\ValueObjects\Phone;
 
-use SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 interface PhoneInterface extends ValueObjectInterface
 {}

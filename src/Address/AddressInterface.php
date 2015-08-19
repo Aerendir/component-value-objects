@@ -11,9 +11,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Address;
+namespace SerendipityHQ\Component\ValueObjects\Address;
 
-use SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 interface AddressInterface extends ValueObjectInterface
 {}

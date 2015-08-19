@@ -14,9 +14,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Tests\Email;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Email;
 
-use SerendipityHQ\Framework\ValueObjects\Email\Email;
+use SerendipityHQ\Component\ValueObjects\Email\Email;
 
 class EmailTest extends \PHPUnit_Framework_TestCase
 {

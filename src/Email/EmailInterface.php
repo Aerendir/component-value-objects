@@ -11,9 +11,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Email;
+namespace SerendipityHQ\Component\ValueObjects\Email;
 
-use SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 interface EmailInterface extends ValueObjectInterface
 {

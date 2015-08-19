@@ -11,7 +11,7 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Common;
+namespace SerendipityHQ\Component\ValueObjects\Common;
 
 interface ValueObjectInterface
 {

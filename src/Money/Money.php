@@ -14,9 +14,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Money;
+namespace SerendipityHQ\Component\ValueObjects\Money;
 
-use SerendipityHQ\Framework\ValueObjects\Currency\CurrencyInterface;
+use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
 
 use SebastianBergmann\Money\Money as BaseMoney;
 

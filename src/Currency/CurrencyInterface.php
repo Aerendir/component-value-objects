@@ -11,9 +11,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Currency;
+namespace SerendipityHQ\Component\ValueObjects\Currency;
 
-use SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 interface CurrencyInterface extends ValueObjectInterface
 {}

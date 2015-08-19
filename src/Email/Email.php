@@ -15,9 +15,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Email;
+namespace SerendipityHQ\Component\ValueObjects\Email;
 
-use SerendipityHQ\Framework\ValueObjects\Uri\Uri;
+use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use Egulias\EmailValidator\EmailValidator;
 
 class Email implements EmailInterface

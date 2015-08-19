@@ -14,16 +14,16 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Tests\Money;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Money;
 
-use SerendipityHQ\Framework\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {
     public function testMoney()
     {
-        $mocks['currency'] = $this->getMockBuilder('\SerendipityHQ\Framework\ValueObjects\Currency\Currency')
+        $mocks['currency'] = $this->getMockBuilder('\SerendipityHQ\Component\ValueObjects\Currency\Currency')
             ->disableOriginalConstructor()
             ->getMock();
 

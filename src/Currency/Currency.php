@@ -14,7 +14,7 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Currency;
+namespace SerendipityHQ\Component\ValueObjects\Currency;
 
 use SebastianBergmann\Money\Currency as BaseCurrency;
 

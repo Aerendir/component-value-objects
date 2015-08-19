@@ -16,9 +16,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Tests\Uri;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Uri;
 
-use SerendipityHQ\Framework\ValueObjects\Uri\Uri;
+use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 
 class UriTest extends \PHPUnit_Framework_TestCase
 {

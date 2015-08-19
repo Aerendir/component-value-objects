@@ -14,9 +14,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Tests\Phone;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Phone;
 
-use SerendipityHQ\Framework\ValueObjects\Phone\Phone;
+use SerendipityHQ\Component\ValueObjects\Phone\Phone;
 
 class PhoneTest extends \PHPUnit_Framework_TestCase
 {

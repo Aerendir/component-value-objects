@@ -18,9 +18,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Tests\Address;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Address;
 
-use SerendipityHQ\Framework\ValueObjects\Address\Address;
+use SerendipityHQ\Component\ValueObjects\Address\Address;
 
 class AddressTest extends \PHPUnit_Framework_TestCase
 {

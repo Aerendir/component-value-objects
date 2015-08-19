@@ -14,9 +14,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Phone;
+namespace SerendipityHQ\Component\ValueObjects\Phone;
 
-use SerendipityHQ\Framework\ValueObjects\Phone\PhoneInterface;
+use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
 
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;

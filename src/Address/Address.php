@@ -18,7 +18,7 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Address;
+namespace SerendipityHQ\Component\ValueObjects\Address;
 
 use CommerceGuys\Addressing\Model\Address as BaseAddress;
 

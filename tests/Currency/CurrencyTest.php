@@ -14,9 +14,9 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Tests\Currency;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Currency;
 
-use SerendipityHQ\Framework\ValueObjects\Currency\Currency;
+use SerendipityHQ\Component\ValueObjects\Currency\Currency;
 
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {

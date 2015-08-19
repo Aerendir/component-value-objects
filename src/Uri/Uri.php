@@ -16,12 +16,12 @@
  *  @license     MIT License
  */
 
-namespace SerendipityHQ\Framework\ValueObjects\Uri;
+namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use \Zend\Uri\Uri as BaseUri;
 
-use \SerendipityHQ\Framework\ValueObjects\Uri\UriInterface;
-use \SerendipityHQ\Framework\ValueObjects\Common\ValueObjectInterface;
+use \SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
+use \SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 class Uri extends BaseUri implements UriInterface, ValueObjectInterface
 {
