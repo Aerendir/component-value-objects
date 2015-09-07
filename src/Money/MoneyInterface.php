@@ -17,5 +17,25 @@ use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 interface MoneyInterface extends ValueObjectInterface
 {
+    /**
+     * Returns the monetary value represented by this object.
+     *
+     * @return integer
+     */
+    public function getAmount();
+
+    /**
+     * return the monetary value represented by this object converted to its base units
+     *
+     * @return float
+     */
     public function getConvertedAmount();
+
+    /**
+     * Returns the currency of the monetary value represented by this
+     * object.
+     *
+     * @return \SebastianBergmann\Money\Currency
+     */
+    public function getCurrency();
 }

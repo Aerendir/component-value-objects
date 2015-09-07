@@ -16,4 +16,7 @@ namespace SerendipityHQ\Component\ValueObjects\Currency;
 use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 interface CurrencyInterface extends ValueObjectInterface
-{}
+{
+
+    public function getCurrencyCode();
+}
