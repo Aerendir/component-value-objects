@@ -6,14 +6,11 @@
  * This is a simple wrapper for giggsey/libphonenumber-for-php
  * (https://github.com/giggsey/libphonenumber-for-php)
  *
- * @package  Serendipity\Framework
- * @subpackage ValueObjects
  *
  *  @author      Adamo Crespi <hello@aerendir.me>
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Tests\Phone;
 
 use SerendipityHQ\Component\ValueObjects\Phone\Phone;

@@ -1,16 +1,13 @@
 <?PHP
 
 /**
- *  A Phone value object
+ *  A Phone value object.
  *
- * @package  Serendipity\Framework
- * @subpackage ValueObjects
  *
  *  @author      Adamo Crespi <hello@aerendir.me>
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
@@ -20,12 +17,12 @@ interface MoneyInterface extends ValueObjectInterface
     /**
      * Returns the monetary value represented by this object.
      *
-     * @return integer
+     * @return int
      */
     public function getAmount();
 
     /**
-     * return the monetary value represented by this object converted to its base units
+     * return the monetary value represented by this object converted to its base units.
      *
      * @return float
      */

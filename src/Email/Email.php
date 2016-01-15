@@ -4,20 +4,16 @@
  *  An Email value object.
  *
  * This is inspired by the wowo Email Value Object
+ *
  * @link https://gist.github.com/wowo/b49ac45b975d5c489214
  * @link https://github.com/egulias/EmailValidator
- *
- * @package  Serendipity\Framework
- * @subpackage ValueObjects
  *
  *  @author      Adamo Crespi <hello@aerendir.me>
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Email;
 
-use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use Egulias\EmailValidator\EmailValidator;
 
 class Email implements EmailInterface
@@ -28,11 +24,13 @@ class Email implements EmailInterface
 
     public function __construct($email = null, $validator = null)
     {
-        if (null === $validator)
+        if (null === $validator) {
             $validator = new EmailValidator();
+        }
 
-        if (!$validator->isValid($email))
+        if (!$validator->isValid($email)) {
             throw new \InvalidArgumentException('This does not look like an email');
+        }
 
         $this->email = $email;
 
@@ -67,5 +65,7 @@ class Email implements EmailInterface
         return sprintf('%s@%s', $this->mailBox, $this->host);
     }
 
-    public function __set($field, $value){}
+    public function __set($field, $value)
+    {
+    }
 }

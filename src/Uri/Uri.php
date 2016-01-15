@@ -8,20 +8,15 @@
  *
  * @todo This has to be a Guzzle Uri or https://github.com/mvdbos/vdb-uri
  *
- * @package  Serendipity\Framework
- * @subpackage ValueObjects
- *
  *  @author      Adamo Crespi <hello@aerendir.me>
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
-use \Zend\Uri\Uri as BaseUri;
-
-use \SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
-use \SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
+use Zend\Uri\Uri as BaseUri;
 
 class Uri extends BaseUri implements UriInterface, ValueObjectInterface
 {
@@ -30,5 +25,7 @@ class Uri extends BaseUri implements UriInterface, ValueObjectInterface
         parent::__construct($uri);
     }
 
-    public function __set($field, $value){}
+    public function __set($field, $value)
+    {
+    }
 }
