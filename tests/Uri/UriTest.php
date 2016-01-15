@@ -23,5 +23,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $test = 'http://example.com';
 
         $resource = new Uri($test);
+
+        $this->assertInstanceOf('\SerendipityHQ\Component\ValueObjects\Uri\Uri', $resource);
     }
 }

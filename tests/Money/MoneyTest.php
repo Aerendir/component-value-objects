@@ -29,5 +29,7 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
             ];
 
         $resource = new Money($test['amount'], $test['currency']);
+
+        $this->assertInstanceOf('\SerendipityHQ\Component\ValueObjects\Money\Money', $resource);
     }
 }

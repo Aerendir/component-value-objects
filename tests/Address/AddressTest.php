@@ -28,5 +28,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase
             ];
 
         $resource = new Address($options);
+
+        $this->assertInstanceOf('\SerendipityHQ\Component\ValueObjects\Address\Address', $resource);
     }
 }
