@@ -31,7 +31,5 @@ class AddressTest extends \PHPUnit_Framework_TestCase
             ];
 
         $resource = new Address($options);
-
-        $this->assertEquals($options['locale'], $resource->getLocale());
     }
 }
