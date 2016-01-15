@@ -28,7 +28,7 @@ Currently, this ibrary supports the following Value Objects:
 or, in your composer.json
 
     "require": {
-      "serendipity_hq/php_value_objects": "~0.0"
+      "serendipity_hq/php_value_objects": "~1"
     }
   
 
