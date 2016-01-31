@@ -7,6 +7,7 @@
 [![Issue Count](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/issue_count.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![StyleCI](https://styleci.io/repos/38658138/shield)](https://styleci.io/repos/38658138)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
+[![Dependency Status](https://www.versioneye.com/user/projects/56ae29e27e03c7003ba4150d/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae29e27e03c7003ba4150d)
 
 # PHP Value Objects
 A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage composite values.
