@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^5.6|^7.0",
+        "php": "^5.4|^7.0",
         "zendframework/zend-uri": "*@stable",
         "egulias/email-validator": "~1.2",
         "commerceguys/intl": "~0",
@@ -21,8 +21,10 @@
         "sebastian/money": "1.6.*"
     },
     "require-dev": {
+        "codeclimate/php-test-reporter": "dev-master",
+        "fabpot/php-cs-fixer": "*",
         "phpunit/phpunit": "*",
-        "codeclimate/php-test-reporter": "dev-master"
+        "satooshi/php-coveralls": "*@dev"
     },
     "autoload": {
         "psr-4": {
