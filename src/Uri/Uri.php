@@ -22,6 +22,9 @@ class Uri extends BaseUri implements UriInterface, ValueObjectInterface
 {
     public function __construct($uri = null)
     {
+        // Remove the trailing slash
+        $uri = rtrim($uri, '/');
+
         parent::__construct($uri);
     }
 
