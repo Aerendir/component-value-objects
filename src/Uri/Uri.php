@@ -15,7 +15,6 @@
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 use Zend\Uri\Uri as BaseUri;
 
 class Uri extends BaseUri implements UriInterface, ValueObjectInterface
