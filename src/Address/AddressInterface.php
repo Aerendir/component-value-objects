@@ -10,8 +10,12 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
+use \CommerceGuys\Addressing\Model\AddressInterface as BaseAddressInterface;
 use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
-interface AddressInterface extends ValueObjectInterface
+/**
+ * {@inheritdoc}
+ */
+interface AddressInterface extends BaseAddressInterface, ValueObjectInterface
 {
 }
