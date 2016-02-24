@@ -23,6 +23,9 @@ use CommerceGuys\Addressing\Repository\AddressFormatRepository;
 use CommerceGuys\Addressing\Repository\CountryRepository;
 use CommerceGuys\Addressing\Repository\SubdivisionRepository;
 
+/**
+ * {@inheritdoc}
+ */
 class Address extends BaseAddress implements AddressInterface
 {
     /**
