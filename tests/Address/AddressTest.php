@@ -17,7 +17,9 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Tests\Address;
 
+use \CommerceGuys\Addressing\Model\AddressInterface as BaseAddressInterface;
 use SerendipityHQ\Component\ValueObjects\Address\Address;
+use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 
 class AddressTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,6 +31,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase
 
         $resource = new Address($options);
 
-        $this->assertInstanceOf('\SerendipityHQ\Component\ValueObjects\Address\Address', $resource);
+        $this->assertInstanceOf(AddressInterface::class, $resource);
+        $this->assertInstanceOf(BaseAddressInterface::class, $resource);
     }
 }
