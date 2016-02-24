@@ -13,12 +13,13 @@
     ],
     "require": {
         "php": "^5.4|^7.0",
-        "zendframework/zend-uri": "*@stable",
-        "egulias/email-validator": "~1.2",
         "commerceguys/intl": "~0",
         "commerceguys/addressing": "~0",
+        "egulias/email-validator": "~1.2",
         "giggsey/libphonenumber-for-php": "~7.0",
-        "sebastian/money": "1.6.*"
+        "sebastian/money": "1.6.*",
+        "serendipity_hq/php-value-object-tax": "*",
+        "zendframework/zend-uri": "*@stable"
     },
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
@@ -28,7 +29,8 @@
     },
     "autoload": {
         "psr-4": {
-            "SerendipityHQ\\Component\\ValueObjects\\": "src"
+            "SerendipityHQ\\Component\\ValueObjects\\": "src",
+            "SerendipityHQ\\Component\\ValueObjects\\Tests\\": "tests"
         }
     }
 }
