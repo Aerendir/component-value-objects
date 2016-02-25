@@ -22,8 +22,9 @@ Currently, this library supports the following Value Objects:
 * **Email**: A basic class derived from [Wowo's gist EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements [egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
 * **IP**: Just a proxy for the library [darsyn/ip](https://github.com/darsyn/ip);
 * **Money**: Just a proxy for the library [sebastian/money](https://github.com/sebastianbergmann/money);
+* **Payment**: Built-in
 * **Phone**: Just a proxy for the library [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php);
-* **Tax**: 
+* **Tax**: Buil-it
 * **Uri**: Just a proxy for the library [Zend\Uri](https://github.com/zendframework/zend-uri).
 
 ## Relevant alternatives

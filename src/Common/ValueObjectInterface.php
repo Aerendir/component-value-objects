@@ -12,7 +12,22 @@ namespace SerendipityHQ\Component\ValueObjects\Common;
 
 interface ValueObjectInterface
 {
+    /**
+     * The string representation of the object.
+     *
+     * @return string
+     */
     public function __toString();
 
+    /**
+     * Disable the __set magic method.
+     *
+     * Implement this way:
+     *
+     *     public function __set($field, $value){}
+     *
+     * @param mixed $field
+     * @param mixed $value
+     */
     public function __set($field, $value);
 }
