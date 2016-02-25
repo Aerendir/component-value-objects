@@ -1,33 +1,118 @@
-<?PHP
+<?php
 
 /**
- *  An Uri value object.
- *  This is just a wrapper for Zend Uri.
- *
- * @link https://github.com/zendframework/zend-uri
- *
- * @todo This has to be a Guzzle Uri or https://github.com/mvdbos/vdb-uri
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ *    @author      Aerendir <hello@aerendir.me>
+ *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved.
+ *    @license     MIT
  */
 namespace SerendipityHQ\Component\ValueObjects\Tax;
 
-use \SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Tax\TaxInterface;
-use \SerendipityHQ\ValueObject\Tax\Tax as BaseTax;
+use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
- * {@inheritdoc}
+ * Default implementation of a Tax Value object.
+ *
+ * @todo $compound: This is a value returned by WooCommerce API: I don't know yet what it contains.
  */
-class Tax extends BaseTax implements TaxInterface, ValueObjectInterface
+class Tax implements TaxInterface
 {
-    public function __toString()
+    /** @var Money $amount The paid amount of taxes */
+    private $amount;
+
+    /** @var string $code A string that identifies uniquely the tax on the Remote system */
+    private $code;
+
+    /** @var Money $compound The amount of taxes */
+    private $compound;
+
+    /** @var float $rate The rate of the tax */
+    private $rate;
+
+    /** @var string $title The title of the tax on the Remote system */
+    private $title;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAmount()
     {
+        return $this->amount;
     }
 
-    public function __set($field, $value)
+    /**
+     * {@inheritdoc}
+     */
+    public function getCode()
     {
+        return $this->code;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCompound()
+    {
+        return $this->compound;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setAmount(Money $amount)
+    {
+        $this->amount = $amount;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCompound(Money $compound)
+    {
+        $this->compound = $compound;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRate($rate)
+    {
+        if (false === is_float($rate)) {
+            throw new \InvalidArgumentException(
+                sprintf('The Rate MUST be a float. "%s" passed.', gettype($rate))
+            );
+        }
+        $this->rate = $rate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 }

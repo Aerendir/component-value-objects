@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a74876e1947e19f09086b0d463b742d9",
-    "content-hash": "4c84677586f6752d7d94a118f19f4f2c",
+    "hash": "3ad8674261ec63e71b6c452e20cedaa4",
+    "content-hash": "d22dc2d77b07000599aec81f4c85e171",
     "packages": [
         {
             "name": "commerceguys/addressing",
@@ -509,53 +509,6 @@
                 "money"
             ],
             "time": "2015-06-24 19:59:23"
-        },
-        {
-            "name": "serendipity_hq/php-value-object-tax",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Aerendir/PHPValueObjectTax.git",
-                "reference": "f7b8c5b031d724ff0c1432d1707bc4d10040b317"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Aerendir/PHPValueObjectTax/zipball/f7b8c5b031d724ff0c1432d1707bc4d10040b317",
-                "reference": "f7b8c5b031d724ff0c1432d1707bc4d10040b317",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6|^7.0",
-                "serendipity_hq/php_value_objects": "*"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "dev-master",
-                "phpunit/phpunit": "*",
-                "serendipity_hq/phpunit_helper": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SerendipityHQ\\ValueObject\\Tax\\": "src",
-                    "SerendipityHQ\\ValueObject\\Tax\\Tests\\": "tests"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adamo Aerendir Crespi",
-                    "email": "hello@aerendir.me"
-                }
-            ],
-            "description": "A value object to manage a Tax",
-            "keywords": [
-                "tax",
-                "value objects"
-            ],
-            "time": "2016-02-24 14:09:33"
         },
         {
             "name": "zendframework/zend-escaper",

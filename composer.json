@@ -19,7 +19,6 @@
         "egulias/email-validator": "~1.2",
         "giggsey/libphonenumber-for-php": "~7.0",
         "sebastian/money": "1.6.*",
-        "serendipity_hq/php-value-object-tax": "*",
         "zendframework/zend-uri": "*@stable"
     },
     "require-dev": {
