@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98d9f3fb8bfd334d59bebccc4fc127b3",
-    "content-hash": "f0e248b03a1985301754bbfa5ac14f8f",
+    "hash": "a74876e1947e19f09086b0d463b742d9",
+    "content-hash": "4c84677586f6752d7d94a118f19f4f2c",
     "packages": [
         {
             "name": "commerceguys/addressing",
@@ -179,6 +179,54 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "time": "2014-12-30 15:22:37"
+        },
+        {
+            "name": "darsyn/ip",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/darsyn/ip.git",
+                "reference": "56e40c30950310ab922dbd273328673f40b54c8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/darsyn/ip/zipball/56e40c30950310ab922dbd273328673f40b54c8d",
+                "reference": "56e40c30950310ab922dbd273328673f40b54c8d",
+                "shasum": ""
+            },
+            "require-dev": {
+                "doctrine/dbal": "~2.3",
+                "humbug/humbug": "*",
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Darsyn\\IP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zander Baldwin",
+                    "email": "hello@zanderbaldwin.com",
+                    "homepage": "http://zanderbaldwin.com/"
+                }
+            ],
+            "description": "An immutable IP Address value object that provides several different notations, including helper functions.",
+            "homepage": "https://github.com/darsyn/ip",
+            "keywords": [
+                "IP",
+                "immutable",
+                "ipv4",
+                "ipv6",
+                "library",
+                "value-object"
+            ],
+            "time": "2015-08-22 20:27:40"
         },
         {
             "name": "doctrine/collections",
