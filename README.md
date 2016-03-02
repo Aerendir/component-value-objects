@@ -51,12 +51,18 @@ This library follows the http://semver.org/ versioning conventions.
 
 Currently, this library supports the following Value Objects:
 
-* **[Address](docs/Address.md)**: Just a proxy for the library [commerceguys/addressing](https://github.com/commerceguys/addressing);
-* **[Currency](docs/Currency.md)**: Just a proxy for the class provided in library [sebastian/money](https://github.com/sebastianbergmann/money);
-* **[Email](docs/Email.md)**: A basic class derived from [Wowo's gist EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements [egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
-* **[IP]((docs/Ip.md)**: Just a proxy for the library [darsyn/ip](https://github.com/darsyn/ip);
-* **[Money](docs/Money.md)**: Just a proxy for the library [sebastian/money](https://github.com/sebastianbergmann/money);
+* **[Address](docs/Address.md)**: Just a proxy for the library
+ [commerceguys/addressing](https://github.com/commerceguys/addressing);
+* **[Currency](docs/Currency.md)**: Just a proxy for the class provided in library
+ [sebastian/money](https://github.com/sebastianbergmann/money);
+* **[Email](docs/Email.md)**: A basic class derived from [Wowo's gist
+ EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements
+ [egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
+* **[IP](docs/Ip.md)**: Just a proxy for the library [darsyn/ip](https://github.com/darsyn/ip);
+* **[Money](docs/Money.md)**: Just a proxy for the library
+ [sebastian/money](https://github.com/sebastianbergmann/money);
 * **[Payment](docs/Payment.md)**: Built-in
-* **[Phone](docs/Phone.md)**: Just a proxy for the library [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php);
+* **[Phone](docs/Phone.md)**: Just a proxy for the library
+ [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php);
 * **[Tax](docs/Tax.md)**: Buil-it
 * **[Uri](docs/Uri.md)**: Just a proxy for the library [Zend\Uri](https://github.com/zendframework/zend-uri).

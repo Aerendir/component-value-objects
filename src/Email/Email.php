@@ -15,57 +15,90 @@
 namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use Egulias\EmailValidator\EmailValidator;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
+/**
+ * {@inheritdoc}
+ */
 class Email implements EmailInterface
 {
-    protected $email;
-    protected $mailBox;
-    protected $host;
+    use DisableWritingMethodsTrait;
 
-    public function __construct($email = null, $validator = null)
+    /** @var string $email */
+    private $email;
+
+    /** @var  string $mailBox */
+    private $mailBox;
+
+    /** @var  string $host */
+    private $host;
+
+    /**
+     * {@inheritdoc}
+     * @param string $value The email to set in the object
+     */
+    public function __construct($value)
     {
-        if (null === $validator) {
-            $validator = new EmailValidator();
+        $validator = new EmailValidator();
+
+        if (!$validator->isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an email.', $value));
         }
 
-        if (!$validator->isValid($email)) {
-            throw new \InvalidArgumentException('This does not look like an email');
-        }
-
-        $this->email = $email;
+        $this->email = $value;
 
         list($this->mailBox, $this->host) = explode('@', $this->email);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getHost()
     {
         return $this->host;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getMailBox()
     {
         return $this->mailBox;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function changeMailBox($newMailbox)
     {
         $copy = clone $this;
         $copy->mailBox = $newMailbox;
+        $copy->email = $copy->mailBox . '@' . $copy->host;
 
         return $copy;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        return $this->__toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
         return sprintf('%s@%s', $this->mailBox, $this->host);
-    }
-
-    public function __set($field, $value)
-    {
     }
 }
