@@ -41,12 +41,11 @@ or, in your composer.json
 
 This library follows the http://semver.org/ versioning conventions.
 
-### ! ! ! IMPORTANT NOTES ! ! !
+### Requirements
 
-As this library uses sebastian/money, you are required to install the
- [Intl PHP extension](http://php.net/manual/en/book.intl.php) in order to use it.
-
-You can find [here](http://aerendir.me/?p=452) instruction about how to do this on a Mac with MAMP.
+- PHP: >= 5.6
+- [Intl PHP extension](http://php.net/manual/en/book.intl.php)
+ ([instructions for MAMP on Mac](http://aerendir.me/?p=452))
 
 ## Available Value Objects
 
