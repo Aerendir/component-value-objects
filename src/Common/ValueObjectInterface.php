@@ -27,7 +27,10 @@ interface ValueObjectInterface
      *
      * Implement this way:
      *
-     *     public function __set($field, $value){}
+     *     public function __set($field, $value)
+     *     {
+     *         // Body MUST BE EMPTY
+     *     }
      *
      * @param mixed $field
      * @param mixed $value
