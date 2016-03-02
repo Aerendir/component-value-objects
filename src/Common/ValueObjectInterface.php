@@ -18,6 +18,15 @@ interface ValueObjectInterface
     /**
      * The string representation of the object.
      *
+     * This method can accept options to refine the string returned.
+     *
+     * @return string
+     */
+    public function toString(array $options = []);
+
+    /**
+     * The string representation of the object.
+     *
      * @return string
      */
     public function __toString();
