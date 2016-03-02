@@ -25,7 +25,8 @@
         "codeclimate/php-test-reporter": "dev-master",
         "fabpot/php-cs-fixer": "*",
         "phpunit/phpunit": "*",
-        "satooshi/php-coveralls": "*@dev"
+        "satooshi/php-coveralls": "*@dev",
+        "symfony/var-dumper": "*"
     },
     "autoload": {
         "psr-4": {
