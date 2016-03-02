@@ -10,12 +10,13 @@ Extends [Currency](https://github.com/sebastianbergmann/money/blob/master/src/Cu
 
 ```php
 // vendor/sebastian/money/src/Currency.php
+
 /**
-     * @param string $currencyCode
-     *
-     * @throws \SebastianBergmann\Money\InvalidArgumentException
-     */
-    public function __construct($currencyCode)
+ * @param string $currencyCode
+ *
+ * @throws \SebastianBergmann\Money\InvalidArgumentException
+ */
+public function __construct($currencyCode)
 ```
 
 ## How to use the object
@@ -23,7 +24,7 @@ Extends [Currency](https://github.com/sebastianbergmann/money/blob/master/src/Cu
 See the working example: [examples/Currency.php](examples/Currency.php).
 
 ```php
-$value = 'EUR';
+$value = 'user@example.com';
 
 $currency = new Currency($value);
 dump($currency);

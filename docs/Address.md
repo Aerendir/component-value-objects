@@ -9,6 +9,7 @@ Extends [commerceguys/addressing](https://github.com/commerceguys/addressing).
 
 ```php
 // vendor/commerceguys/addressing/src/Model/Address.php
+
 /**
  * Creates an Address instance.
  *
