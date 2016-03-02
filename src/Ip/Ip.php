@@ -14,10 +14,33 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
+use \Darsyn\IP\IP as BaseIp;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
+
 /**
  * {@inheritdoc}
  */
-class Ip extends \Darsyn\IP\IP implements IpInterface
+class Ip extends BaseIp implements IpInterface
 {
-    public function __set($field, $value){}
+    use DisableWritingMethodsTrait;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct($value)
+    {
+        if (!BaseIp::validate($value)) {
+            throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an IP.', $value));
+        }
+
+        parent::__construct($value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        return $this->__toString();
+    }
 }

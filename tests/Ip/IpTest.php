@@ -13,20 +13,36 @@ namespace SerendipityHQ\Component\ValueObjects\Tests\Ip;
 use Darsyn\IP\IP as BaseIp;
 use SerendipityHQ\Component\ValueObjects\Ip\Ip;
 use SerendipityHQ\Component\ValueObjects\Ip\IpInterface;
+use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
+/**
+ * Tests the Ip class.
+ */
 class IpTest extends \PHPUnit_Framework_TestCase
 {
-    public function testIpImplementsIpInterface()
+    public function testIp()
     {
-        $resource = new Ip('127.0.0.1');
+        $test = '127.0.0.1';
 
+        $resource = new Ip($test);
+
+        // Test the value object direct interface
         $this->assertInstanceOf(IpInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+
+        // Test inherits the base object
+        $this->assertInstanceOf(BaseIp::class, $resource);
+
+        $this->assertTrue(is_string($resource->toString()));
     }
 
-    public function testIpExtendsIp()
+    public function testIpThrowsAnExceptionIfIpIsInvalid()
     {
-        $resource = new Ip('127.0.0.1');
+        $test = 'invalid-ip';
 
-        $this->assertInstanceOf(BaseIp::class, $resource);
+        $this->expectException(\InvalidArgumentException::class);
+        $resource = new Ip($test);
     }
 }

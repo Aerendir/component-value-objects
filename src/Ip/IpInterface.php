@@ -10,8 +10,13 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
-interface IpInterface extends ValueObjectInterface
+/**
+ * Defines the minimum requirements of an IP object.
+ *
+ * {@inheritdoc}
+ */
+interface IpInterface extends SimpleValueObjectInterface
 {
 }
