@@ -10,6 +10,9 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Common;
 
+/**
+ * Defines the minimum requisites of Value Objects.
+ */
 interface ValueObjectInterface
 {
     /**
