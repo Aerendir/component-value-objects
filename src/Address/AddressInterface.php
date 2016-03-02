@@ -10,12 +10,14 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
-use \CommerceGuys\Addressing\Model\AddressInterface as BaseAddressInterface;
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
+use CommerceGuys\Addressing\Model\ImmutableAddressInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 /**
+ * Defines the minimum requisites of an Address object.
+ *
  * {@inheritdoc}
  */
-interface AddressInterface extends BaseAddressInterface, ValueObjectInterface
+interface AddressInterface extends ImmutableAddressInterface, ComplexValueObjectInterface
 {
 }
