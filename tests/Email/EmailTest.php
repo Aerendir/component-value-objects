@@ -17,6 +17,9 @@ use SerendipityHQ\Component\ValueObjects\Email\Email;
 use SerendipityHQ\Component\ValueObjects\Email\EmailInterface;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
+/**
+ * Tests the Email class.
+ */
 class EmailTest extends \PHPUnit_Framework_TestCase
 {
     public function testEmail()
