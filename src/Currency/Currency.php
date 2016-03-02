@@ -14,20 +14,36 @@
 namespace SerendipityHQ\Component\ValueObjects\Currency;
 
 use SebastianBergmann\Money\Currency as BaseCurrency;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
+/**
+ * {@inheritdoc}
+ */
 class Currency extends BaseCurrency implements CurrencyInterface
 {
-    public function __construct($currencyCode)
+    use DisableWritingMethodsTrait;
+
+    /**
+     * @param string $currencyCode
+     */
+    public function __construct($value)
     {
-        parent::__construct($currencyCode);
+        parent::__construct($value);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        return self::__toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function __toString()
     {
-        return self::getCurrencyCode();
-    }
-
-    public function __set($field, $value)
-    {
+        return parent::__toString();
     }
 }

@@ -14,6 +14,9 @@
 namespace SerendipityHQ\Component\ValueObjects\Tests\Currency;
 
 use SerendipityHQ\Component\ValueObjects\Currency\Currency;
+use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
+use SebastianBergmann\Money\Currency as BaseCurrency;
+use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
 class CurrencyTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,6 +26,16 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
 
         $resource = new Currency($test);
 
-        $this->assertInstanceOf('\SerendipityHQ\Component\ValueObjects\Currency\Currency', $resource);
+        // Test the value object direct interface
+        $this->assertInstanceOf(CurrencyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+
+        // Test inherits the base object
+        $this->assertInstanceOf(BaseCurrency::class, $resource);
+
+        $this->assertTrue(is_string($resource->__toString()));
+        $this->assertTrue(is_string($resource->toString()));
     }
 }

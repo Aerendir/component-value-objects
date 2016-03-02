@@ -10,9 +10,15 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Currency;
 
+use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
-interface CurrencyInterface extends ValueObjectInterface
+/**
+ * Defines the minimum requisites of a Currency object.
+ *
+ * {@inheritdoc}
+ */
+interface CurrencyInterface extends SimpleValueObjectInterface
 {
     public function getCurrencyCode();
 }
