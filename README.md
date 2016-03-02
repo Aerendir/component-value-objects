@@ -11,36 +11,31 @@
 [![Coverage Status](https://coveralls.io/repos/github/Aerendir/PHPValueObjects/badge.svg?branch=master)](https://coveralls.io/github/Aerendir/PHPValueObjects?branch=master)
 
 # PHP Value Objects
-A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage composite values.
+A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage simple and composite values.
 
-## Available Value Objects
+## What are Value Objects
 
-Currently, this library supports the following Value Objects:
+Value Objects are PHP [`objects`](http://php.net/manual/en/language.types.object.php) that represent and manage simple
+ or complex values. Once set, the value object cannot be modified without changing its identity.
 
-* **Address**: Just a proxy for the library [commerceguys/addressing](https://github.com/commerceguys/addressing);
-* **Currency**: Just a proxy for the class provided in library [sebastian/money](https://github.com/sebastianbergmann/money);
-* **Email**: A basic class derived from [Wowo's gist EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements [egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
-* **IP**: Just a proxy for the library [darsyn/ip](https://github.com/darsyn/ip);
-* **Money**: Just a proxy for the library [sebastian/money](https://github.com/sebastianbergmann/money);
-* **Payment**: Built-in
-* **Phone**: Just a proxy for the library [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php);
-* **Tax**: Buil-it
-* **Uri**: Just a proxy for the library [Zend\Uri](https://github.com/zendframework/zend-uri).
+**Simple value objects** represent a simple value, like an email.
+**Complex value objects** represent complex values, that, in order to really represent a value, need more than one
+value, like a price that needs an amount and a currency to be understandable and have a sense.
 
-## Relevant alternatives
+PHP supports only one value object: the [`DateTime`](http://php.net/manual/en/class.datetime.php) object.
 
-**IP**:
+This library gives support for other kind of values, differentiating them between complex and simple.
 
-* [rlanvin/php-ip](https://github.com/rlanvin/php-ip)
+To better understand the concepts behind the value objects, you can [read this post](http://aerendir.me/?p=396).
 
-## Install via Composer
+## Install PHPValueObjects via Composer
 
     $ composer require serendipity_hq/php_value_objects
 
 or, in your composer.json
 
     "require": {
-      "serendipity_hq/php_value_objects": "~1"
+      "serendipity_hq/php_value_objects": "~2"
     }
   
 
@@ -48,10 +43,21 @@ This library follows the http://semver.org/ versioning conventions.
 
 ### ! ! ! IMPORTANT NOTES ! ! !
 
-As this library uses sebastian/money, you are required to install the Intl PHP extension in order to use it.
+As this library uses sebastian/money, you are required to install the
+ [Intl PHP extension](http://php.net/manual/en/book.intl.php) in order to use it.
 
 You can find [here](http://aerendir.me/?p=452) instruction about how to do this on a Mac with MAMP.
 
-## About Email value object
+## Available Value Objects
 
-The Email object doesn't return Uri objects for the host part of the email as we don't know its real schema (especially if it is http or https), so we don't need an object to manage it but it is sufficient to use a property to manage it.
+Currently, this library supports the following Value Objects:
+
+* **[Address](docs/Address.md)**: Just a proxy for the library [commerceguys/addressing](https://github.com/commerceguys/addressing);
+* **[Currency](docs/Currency.md)**: Just a proxy for the class provided in library [sebastian/money](https://github.com/sebastianbergmann/money);
+* **[Email](docs/Email.md)**: A basic class derived from [Wowo's gist EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements [egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
+* **[IP]((docs/Ip.md)**: Just a proxy for the library [darsyn/ip](https://github.com/darsyn/ip);
+* **[Money](docs/Money.md)**: Just a proxy for the library [sebastian/money](https://github.com/sebastianbergmann/money);
+* **[Payment](docs/Payment.md)**: Built-in
+* **[Phone](docs/Phone.md)**: Just a proxy for the library [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php);
+* **[Tax](docs/Tax.md)**: Buil-it
+* **[Uri](docs/Uri.md)**: Just a proxy for the library [Zend\Uri](https://github.com/zendframework/zend-uri).

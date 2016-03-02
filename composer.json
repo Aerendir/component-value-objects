@@ -1,6 +1,6 @@
 {
     "name": "serendipity_hq/php_value_objects",
-    "description": "A set of value objects to manage composite values",
+    "description": "A set of value objects to manage simple and composite values",
     "type": "library",
     "license": "MIT",
     "keywords": ["value objects"],
