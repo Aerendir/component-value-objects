@@ -7,6 +7,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Tests\Tax;
 
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Tax\Tax;
 use SerendipityHQ\Component\ValueObjects\Tax\TaxInterface;
@@ -18,22 +19,6 @@ use SerendipityHQ\Component\ValueObjects\Tax\TaxInterface;
  */
 class TaxTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var  Tax $resource The testing object. */
-    private $resource;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setUp()
-    {
-        $this->resource = new Tax();
-    }
-
-    public function testTaxImplementsTaxInterface()
-    {
-        $this->assertInstanceOf(TaxInterface::class, $this->resource, 'Tax doesn\'t implement TaxInterface but should.');
-    }
-
     public function testTax()
     {
         $testData = [
@@ -44,31 +29,34 @@ class TaxTest extends \PHPUnit_Framework_TestCase
             'title'    => 'IVA IT',
         ];
 
-        $this->resource->setAmount($testData['amount']);
-        $this->resource->setCode($testData['code']);
-        $this->resource->setCompound($testData['compound']);
-        $this->resource->setRate($testData['rate']);
-        $this->resource->setTitle($testData['title']);
+        $resource = new Tax($testData);
 
-        $this->assertEquals($testData['amount'],   $this->resource->getAmount());
-        $this->assertEquals($testData['code'],     $this->resource->getCode());
-        $this->assertEquals($testData['compound'], $this->resource->getCompound());
-        $this->assertEquals($testData['rate'],     $this->resource->getRate());
-        $this->assertEquals($testData['title'],    $this->resource->getTitle());
+        // Test the value object direct interface
+        $this->assertInstanceOf(TaxInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        
+        $this->assertEquals($testData['amount'],   $resource->getAmount());
+        $this->assertEquals($testData['code'],     $resource->getCode());
+        $this->assertEquals($testData['compound'], $resource->getCompound());
+        $this->assertEquals($testData['rate'],     $resource->getRate());
+        $this->assertEquals($testData['title'],    $resource->getTitle());
+        $this->assertTrue(is_string($resource->__toString()));
+        $this->assertTrue(is_string($resource->toString()));
     }
 
     public function testSetRateAcceptsOnlyFloats()
     {
+        $testData = [
+            'amount'   => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'code'     => 'IVA IT',
+            'compound' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'rate'     => 22,
+            'title'    => 'IVA IT',
+        ];
+        
         $this->expectException(\InvalidArgumentException::class);
-        $this->resource->setRate(33);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function tearDown()
-    {
-        parent::tearDown();
-        unset($this->resource);
+        $resource = new Tax($testData);
     }
 }

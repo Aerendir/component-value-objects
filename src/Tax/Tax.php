@@ -7,6 +7,8 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Tax;
 
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
@@ -16,6 +18,11 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
  */
 class Tax implements TaxInterface
 {
+    use ComplexValueObjectTrait {
+        __construct as traitConstruct;
+    }
+    use DisableWritingMethodsTrait;
+
     /** @var Money $amount The paid amount of taxes */
     private $amount;
 
@@ -74,31 +81,55 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function setAmount(Money $amount)
+    public function toString(array $options = [])
+    {
+        return $this->__toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->code . ' ' . $this->amount;
+    }
+
+    /**
+     * Method to set the paid amount of taxes.
+     *
+     * @param Money $amount
+     */
+    protected function setAmount(Money $amount)
     {
         $this->amount = $amount;
     }
 
     /**
-     * {@inheritdoc}
+     * Sets the code of the Tax on the remote system.
+     *
+     * @param string $code Is a string that identifies the Tax on the Remote System
      */
-    public function setCode($code)
+    protected function setCode($code)
     {
         $this->code = $code;
     }
 
     /**
-     * {@inheritdoc}
+     * Method to set the compound amount of taxes.
+     *
+     * @param Money $compound
      */
-    public function setCompound(Money $compound)
+    protected function setCompound(Money $compound)
     {
         $this->compound = $compound;
     }
 
     /**
-     * {@inheritdoc}
+     * Method to set the rate of the tax.
+     *
+     * @param float $rate The rate of the tax
      */
-    public function setRate($rate)
+    protected function setRate($rate)
     {
         if (false === is_float($rate)) {
             throw new \InvalidArgumentException(
@@ -109,9 +140,11 @@ class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Sets the title of the Tax on the remote system.
+     *
+     * @param string $title The title of the Tax on the Remote system
      */
-    public function setTitle($title)
+    protected function setTitle($title)
     {
         $this->title = $title;
     }
