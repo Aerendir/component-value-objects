@@ -8,7 +8,7 @@ echo '<h1>Example usage of PHPValueObjects Money.</h1>';
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'amount'   => 300,
+    'amount' => 300,
     'currency' => 'EUR'
 ];
 
@@ -22,7 +22,7 @@ echo 'Converted amount: ' . $money->getConvertedAmount() . "<br />\n";
 echo 'Currency: ' . $money->getCurrency()->getCurrencyCode();
 
 $newValues = [
-    'amount'   => 200,
+    'amount' => 200,
     'currency' => $money->getCurrency()
 ];
 $newMoney = new Money($newValues);

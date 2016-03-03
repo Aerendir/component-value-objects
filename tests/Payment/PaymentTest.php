@@ -5,7 +5,6 @@
  *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
  *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
  */
-
 namespace SerendipityHQ\Component\ValueObjects\tests\Payment;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -21,7 +20,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
     {
         // Of AddressModel
         $testData = [
-            'name'   => 'PayPal',
+            'name' => 'PayPal',
             'status' => 'A random status',
         ];
 
@@ -33,7 +32,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this->assertEquals($testData['name'],   $resource->getName());
+        $this->assertEquals($testData['name'], $resource->getName());
         $this->assertEquals($testData['status'], $resource->getStatus());
         $this->assertTrue(is_string($resource->__toString()));
         $this->assertTrue(is_string($resource->toString()));

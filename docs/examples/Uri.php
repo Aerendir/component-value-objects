@@ -6,7 +6,7 @@ use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use Zend\Uri\Uri as BaseUri;
 use Zend\Uri\UriFactory;
 
-$uri   = 'http://example.com';
+$uri = 'http://example.com';
 $email = 'ciao@example.com';
 
 echo '<h1>Example usage of PHPValueObjects Uri.</h1>';
@@ -42,8 +42,8 @@ echo '<h2>WITH FACTORY AND MAILTO</h2>' . "\n\n";
 dump(UriFactory::factory('mailto:' . $email));
 
 echo '<h2>Make relative</h2>' . "\n\n";
-$base     = 'http://example.com/dir/subdir/';
-$url      = 'http://example.com/dir/subdir/more/file1.txt';
+$base = 'http://example.com/dir/subdir/';
+$url = 'http://example.com/dir/subdir/more/file1.txt';
 $expected = 'more/file1.txt';
 
 $resource = new BaseUri($url);

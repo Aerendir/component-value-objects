@@ -5,7 +5,6 @@
  *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
  *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Payment;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -24,7 +23,7 @@ class Payment implements PaymentInterface
     use DisableWritingMethodsTrait;
 
     /** @var string $name The payment name or title. */
-    private $name  = null;
+    private $name = null;
 
     /** @var string $status Status of the payment: paid or not? Or in which status?*/
     private $status = null;

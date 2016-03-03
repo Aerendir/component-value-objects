@@ -12,7 +12,6 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use Egulias\EmailValidator\EmailValidator;
@@ -81,9 +80,9 @@ class Email implements EmailInterface
      */
     public function changeMailBox($newMailbox)
     {
-        $copy          = clone $this;
+        $copy = clone $this;
         $copy->mailBox = $newMailbox;
-        $copy->email   = $copy->mailBox . '@' . $copy->host;
+        $copy->email = $copy->mailBox . '@' . $copy->host;
 
         return $copy;
     }

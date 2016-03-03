@@ -10,18 +10,18 @@ echo '<h1>Example usage of PHPValueObjects Address.</h1>';
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'countryCode'        => 'IT',
+    'countryCode' => 'IT',
     'AdministrativeArea' => 'SA',
-    'Locality'           => 'Nocera Inferiore',
-    'dependentLocality'  => '',
-    'PostalCode'         => '84014',
-    'SortingCode'        => '',
-    'AddressLine1'       => 'Piazza la bomba e scappa',
-    'AddressLine2'       => 'Non ce l\'hai fatta',
-    'Organization'       => 'Aerendir Company',
+    'Locality' => 'Nocera Inferiore',
+    'dependentLocality' => '',
+    'PostalCode' => '84014',
+    'SortingCode' => '',
+    'AddressLine1' => 'Piazza la bomba e scappa',
+    'AddressLine2' => 'Non ce l\'hai fatta',
+    'Organization' => 'Aerendir Company',
     // Recipient's name and surname
-    'Recipient'          => 'Adamo Crespi',
-    'locale'             => 'it'
+    'Recipient' => 'Adamo Crespi',
+    'locale' => 'it'
 ];
 
 $address = new Address($values);
@@ -45,18 +45,18 @@ echo '<h1>Example usage of PHPValueObjects Address with chineese addresses.</h1>
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'countryCode'        => 'CN',
+    'countryCode' => 'CN',
     'AdministrativeArea' => 'Taiwan',
-    'Locality'           => 'Taichung City',
-    'dependentLocality'  => 'Xitun District',
-    'PostalCode'         => '407',
-    'SortingCode'        => '',
-    'AddressLine1'       => 'Jingcheng Road, 27',
-    'AddressLine2'       => 'Lane 50',
-    'Organization'       => 'Aerendir Company',
+    'Locality' => 'Taichung City',
+    'dependentLocality' => 'Xitun District',
+    'PostalCode' => '407',
+    'SortingCode' => '',
+    'AddressLine1' => 'Jingcheng Road, 27',
+    'AddressLine2' => 'Lane 50',
+    'Organization' => 'Aerendir Company',
     // Recipient's name and surname
-    'Recipient'          => 'Adamo Crespi',
-    'locale'             => 'it'
+    'Recipient' => 'Adamo Crespi',
+    'locale' => 'it'
 ];
 
 $address = new Address($values);
@@ -67,7 +67,7 @@ echo $address->toString(['locale' => 'IT']);
 
 echo '<h1>Some other useful features of the CommerceGuys/Addressing library</h1>';
 $addressFormatRepository = new AddressFormatRepository();
-$subdivisionRepository   = new SubdivisionRepository();
+$subdivisionRepository = new SubdivisionRepository();
 
 // Get the address format for Brazil.
 $addressFormat = $addressFormatRepository->get('IT');

@@ -17,8 +17,8 @@ dump($phone);
 
 echo '<h2>Keep Raw Input</h2>';
 $values = [
-    'number'       => '3493534998',
-    'region'       => 'IT',
+    'number' => '3493534998',
+    'region' => 'IT',
     'keepRawInput' => true
 ];
 

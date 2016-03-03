@@ -5,7 +5,6 @@
  *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved.
  *    @license     MIT
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Tax;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;

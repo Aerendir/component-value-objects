@@ -5,7 +5,6 @@
  *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
  *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
  */
-
 namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -23,11 +22,11 @@ class TaxTest extends \PHPUnit_Framework_TestCase
     public function testTax()
     {
         $testData = [
-            'amount'   => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'code'     => 'IVA IT',
+            'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'code' => 'IVA IT',
             'compound' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'rate'     => 22.0,
-            'title'    => 'IVA IT',
+            'rate' => 22.0,
+            'title' => 'IVA IT',
         ];
 
         $resource = new Tax($testData);
@@ -38,11 +37,11 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this->assertEquals($testData['amount'],   $resource->getAmount());
-        $this->assertEquals($testData['code'],     $resource->getCode());
+        $this->assertEquals($testData['amount'], $resource->getAmount());
+        $this->assertEquals($testData['code'], $resource->getCode());
         $this->assertEquals($testData['compound'], $resource->getCompound());
-        $this->assertEquals($testData['rate'],     $resource->getRate());
-        $this->assertEquals($testData['title'],    $resource->getTitle());
+        $this->assertEquals($testData['rate'], $resource->getRate());
+        $this->assertEquals($testData['title'], $resource->getTitle());
         $this->assertTrue(is_string($resource->__toString()));
         $this->assertTrue(is_string($resource->toString()));
     }
@@ -50,11 +49,11 @@ class TaxTest extends \PHPUnit_Framework_TestCase
     public function testSetRateAcceptsOnlyFloats()
     {
         $testData = [
-            'amount'   => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'code'     => 'IVA IT',
+            'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'code' => 'IVA IT',
             'compound' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'rate'     => 22,
-            'title'    => 'IVA IT',
+            'rate' => 22,
+            'title' => 'IVA IT',
         ];
 
         $this->expectException(\InvalidArgumentException::class);
