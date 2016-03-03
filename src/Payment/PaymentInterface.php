@@ -6,24 +6,17 @@
  *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
  */
 namespace SerendipityHQ\Component\ValueObjects\Payment;
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 /**
  * Defines the minimum requisites of a Payment Object.
+ *
+ * {@inheritdoc}
+ *
+ * @todo Define a list of possible statuses
  */
-interface PaymentInterface extends ValueObjectInterface
+interface PaymentInterface extends ComplexValueObjectInterface
 {
-    /**
-     * Sets the payment name.
-     *
-     * @param string $name The payment name
-     *
-     * @return $this
-     *
-     * @since Alpha
-     */
-    public function setName($name);
-
     /**
      * Returns the payment name.
      *
@@ -32,19 +25,6 @@ interface PaymentInterface extends ValueObjectInterface
      * @since Alpha
      */
     public function getName();
-
-    /**
-     * Sets the payment status.
-     *
-     * @param string $status The actual status of the payment
-     *
-     * @return $this
-     *
-     * @since Alpha
-     *
-     * @todo Define a list of possible statuses
-     */
-    public function setStatus($status);
 
     /**
      * Returns the payment status.

@@ -7,7 +7,8 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Payment;
 
-use SerendipityHQ\Component\ValueObjects\Payment\PaymentInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
  * Defines the minimum requisites of a Payment Object.
@@ -16,6 +17,11 @@ use SerendipityHQ\Component\ValueObjects\Payment\PaymentInterface;
  */
 class Payment implements PaymentInterface
 {
+    use ComplexValueObjectTrait {
+        __construct as traitConstruct;
+    }
+    use DisableWritingMethodsTrait;
+
     /** @var string $name The payment name or title. */
     private $name  = null;
 
@@ -41,7 +47,7 @@ class Payment implements PaymentInterface
     /**
      * @param string $name The payment name
      */
-    public function setName($name)
+    private function setName($name)
     {
         $this->name = $name;
     }
@@ -49,9 +55,17 @@ class Payment implements PaymentInterface
     /**
      * @param string $status The actual status of the payment
      */
-    public function setStatus($status)
+    private function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        return $this->__toString();
     }
 
     /**
@@ -61,9 +75,4 @@ class Payment implements PaymentInterface
     {
         return $this->name . ': ' . $this->status;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __set($field, $value){}
 }

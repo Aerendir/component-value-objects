@@ -7,6 +7,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Tests\Payment;
 
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Payment\Payment;
 use SerendipityHQ\Component\ValueObjects\Payment\PaymentInterface;
 
@@ -15,13 +16,6 @@ use SerendipityHQ\Component\ValueObjects\Payment\PaymentInterface;
  */
 class PaymentTest extends \PHPUnit_Framework_TestCase
 {
-    public function testPaymentImplementsPaymentInterface()
-    {
-        $resource = new Payment();
-
-        $this->assertInstanceOf(PaymentInterface::class, $resource, 'Payment doesn\'t implement PaymentInterface but should.');
-    }
-
     public function testPayment()
     {
         // Of AddressModel
@@ -30,12 +24,17 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
             'status' => 'A random status',
         ];
 
-        $resource = new Payment();
+        $resource = new Payment($testData);
 
-        $resource->setName($testData['name']);
-        $resource->setStatus($testData['status']);
+        // Test the value object direct interface
+        $this->assertInstanceOf(PaymentInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         $this->assertEquals($testData['name'],   $resource->getName());
         $this->assertEquals($testData['status'], $resource->getStatus());
+        $this->assertTrue(is_string($resource->__toString()));
+        $this->assertTrue(is_string($resource->toString()));
     }
 }
