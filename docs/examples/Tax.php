@@ -9,11 +9,11 @@ echo '<h1>Example usage of PHPValueObjects Tax.</h1>';
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'amount'   => new Money(['amount' => 200, 'currency' => 'EUR']),
-    'code'     => 'IVA IT',
+    'amount' => new Money(['amount' => 200, 'currency' => 'EUR']),
+    'code' => 'IVA IT',
     'compound' => new Money(['amount' => 100, 'currency' => 'EUR']),
-    'rate'     => 22.0,
-    'title'    => 'IVA Italiana'
+    'rate' => 22.0,
+    'title' => 'IVA Italiana'
 ];
 
 $tax = new Tax($values);

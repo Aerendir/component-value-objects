@@ -15,7 +15,6 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
 use CommerceGuys\Addressing\Formatter\DefaultFormatter;
@@ -53,16 +52,16 @@ class Address extends BaseAddress implements AddressInterface
         $defaultOptions = [
             'locale' => null,
             // From DefaultFormatter::getDefaultOptions()
-            'html'            => true,
-            'html_tag'        => 'p',
+            'html' => true,
+            'html_tag' => 'p',
             'html_attributes' => ['translate' => 'no']
         ];
 
         $options += $defaultOptions;
         $addressFormatRepository = new AddressFormatRepository();
-        $countryRepository       = new CountryRepository();
-        $subdivisionRepository   = new SubdivisionRepository();
-        $formatter               = new DefaultFormatter($addressFormatRepository, $countryRepository, $subdivisionRepository, $options['locale'], $options);
+        $countryRepository = new CountryRepository();
+        $subdivisionRepository = new SubdivisionRepository();
+        $formatter = new DefaultFormatter($addressFormatRepository, $countryRepository, $subdivisionRepository, $options['locale'], $options);
 
         // Options passed to the constructor or setOption / setOptions allow turning
         // off html rendering, customizing the wrapper element and its attributes.

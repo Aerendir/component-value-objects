@@ -8,7 +8,7 @@ echo '<h1>Example usage of PHPValueObjects Payment.</h1>';
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'name'   => 'PayPal',
+    'name' => 'PayPal',
     'status' => 'Paid'
 ];
 

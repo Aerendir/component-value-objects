@@ -11,7 +11,6 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\tests\Money;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -30,7 +29,7 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $mocks['currency']->method('getDefaultFractionDigits')->willReturn(2);
 
         $test = [
-            'amount'   => 100,
+            'amount' => 100,
             'currency' => $mocks['currency'],
             ];
 
@@ -51,7 +50,7 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
     public function testMoneyTransformsStringsInIntAndStringsInCurrency()
     {
         $test = [
-            'amount'   => '100',
+            'amount' => '100',
             'currency' => 'EUR',
         ];
 
@@ -70,12 +69,12 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $mocks['currency']->method('getDefaultFractionDigits')->willReturn(2);
 
         $test = [
-            'amount'   => 100,
+            'amount' => 100,
             'currency' => $mocks['currency'],
         ];
 
         $resource = new Money($test);
-        $toAdd    = new Money($test);
+        $toAdd = new Money($test);
 
         $result = $resource->add($toAdd);
 
@@ -98,12 +97,12 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $mocks['currency']->method('getDefaultFractionDigits')->willReturn(2);
 
         $test = [
-            'amount'   => 100,
+            'amount' => 100,
             'currency' => $mocks['currency'],
         ];
 
         $resource = new Money($test);
-        $toAdd    = new Money($test);
+        $toAdd = new Money($test);
 
         $result = $resource->subtract($toAdd);
 

@@ -8,7 +8,6 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\Common;
 
 /**
@@ -25,7 +24,7 @@ trait ComplexValueObjectTrait
     {
         foreach ($values as $property => $value) {
             $setter = 'set' . ucfirst($property);
-            $adder  = 'add' . ucfirst($property);
+            $adder = 'add' . ucfirst($property);
 
             if (true === method_exists($this, $setter)) {
                 $this->$setter($value);

@@ -8,7 +8,6 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\tests\Ip;
 
 use Darsyn\IP\IP as BaseIp;

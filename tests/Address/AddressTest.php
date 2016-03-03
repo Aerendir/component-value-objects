@@ -15,7 +15,6 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-
 namespace SerendipityHQ\Component\ValueObjects\tests\Address;
 
 use \CommerceGuys\Addressing\Model\Address as BaseAddress;
@@ -32,18 +31,18 @@ class AddressTest extends \PHPUnit_Framework_TestCase
     public function testAddress()
     {
         $values = [
-            'countryCode'        => 'CN',
+            'countryCode' => 'CN',
             'AdministrativeArea' => 'Taiwan',
-            'Locality'           => 'Taichung City',
-            'dependentLocality'  => 'Xitun District',
-            'PostalCode'         => '407',
-            'SortingCode'        => '',
-            'AddressLine1'       => 'Jingcheng Road, 27',
-            'AddressLine2'       => 'Lane 50',
-            'Organization'       => 'Aerendir Company',
+            'Locality' => 'Taichung City',
+            'dependentLocality' => 'Xitun District',
+            'PostalCode' => '407',
+            'SortingCode' => '',
+            'AddressLine1' => 'Jingcheng Road, 27',
+            'AddressLine2' => 'Lane 50',
+            'Organization' => 'Aerendir Company',
             // Recipient's name and surname
-            'Recipient'          => 'Adamo Crespi',
-            'locale'             => 'it'
+            'Recipient' => 'Adamo Crespi',
+            'locale' => 'it'
         ];
 
         $resource = new Address($values);
