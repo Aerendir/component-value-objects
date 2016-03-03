@@ -25,7 +25,7 @@ return Symfony\CS\Config\Config::create()
         //'long_array_syntax',
         'multiline_spaces_before_semicolon',
         'newline_after_open_tag',
-        //'no_blanklines_before_namespace',
+        'no_blanklines_before_namespace',
         'ordered_use',
         //'php4_constructor',
         'phpdoc_order',
@@ -68,7 +68,7 @@ return Symfony\CS\Config\Config::create()
         'array_element_white_space_after_comma',
         'blankline_after_open_tag',
         //'concat_without_spaces',
-        //'double_arrow_multiline_whitespaces', Check again
+        'double_arrow_multiline_whitespaces', // Check again
         'duplicate_semicolon',
         'empty_return',
         'extra_empty_lines',
