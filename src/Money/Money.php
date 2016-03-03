@@ -13,7 +13,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
-use SebastianBergmann\Money\Money as BaseMoney;
+use \SebastianBergmann\Money\Money as BaseMoney;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 use SerendipityHQ\Component\ValueObjects\Currency\Currency;
@@ -47,7 +47,20 @@ class Money implements MoneyInterface
         // Set values in the object
         $this->traitConstruct($values);
 
-        $this->valueObject = new BaseMoney($this->amount, $this->currency);
+        if (is_string($this->amount)) {
+            $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
+        }
+        elseif (is_float($this->amount)) {
+            $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
+        }
+        elseif (is_int($this->amount)) {
+            // Maybe is int: leave to BaseMoney other checks
+            $this->valueObject = new BaseMoney($this->amount, $this->currency);
+        }
+        else {
+            throw new \InvalidArgumentException('The amount has to be a string or a float (ex.: 35.5 Euros) or an int in'
+                . 'the base form (355 = 35.5 Euros)');
+        }
     }
 
     /**
@@ -121,10 +134,6 @@ class Money implements MoneyInterface
      */
     private function setAmount($amount)
     {
-        if (!is_int($amount)) {
-            $amount = (int) $amount;
-        }
-
         $this->amount = $amount;
     }
 
