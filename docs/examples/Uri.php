@@ -6,7 +6,7 @@ use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use Zend\Uri\Uri as BaseUri;
 use Zend\Uri\UriFactory;
 
-$uri = 'http://example.com';
+$uri   = 'http://example.com';
 $email = 'ciao@example.com';
 
 echo '<h1>Example usage of PHPValueObjects Uri.</h1>';
@@ -28,22 +28,22 @@ echo 'Path: ' . $uri->getPath() . "<br />\n";
 echo 'Query string: ' . $uri->getQuery() . "<br />\n";
 echo 'Fragment: ' . $uri->getFragment() . "<br />\n";
 
-echo '<h1>Test original zend\Uri</h1>'."\n\n";
-echo '<h2>WITHOUT FACTORY</h2>'."\n\n";
+echo '<h1>Test original zend\Uri</h1>' . "\n\n";
+echo '<h2>WITHOUT FACTORY</h2>' . "\n\n";
 $email = 'ciao@example.com';
 dump(new BaseUri($value));
 dump(new BaseUri($email));
 
-echo '<h2>WITH FACTORY</h2>'."\n\n";
+echo '<h2>WITH FACTORY</h2>' . "\n\n";
 dump(UriFactory::factory($value));
 dump(UriFactory::factory($email));
 
-echo '<h2>WITH FACTORY AND MAILTO</h2>'."\n\n";
-dump(UriFactory::factory('mailto:'.$email));
+echo '<h2>WITH FACTORY AND MAILTO</h2>' . "\n\n";
+dump(UriFactory::factory('mailto:' . $email));
 
-echo '<h2>Make relative</h2>'."\n\n";
-$base = 'http://example.com/dir/subdir/';
-$url = 'http://example.com/dir/subdir/more/file1.txt';
+echo '<h2>Make relative</h2>' . "\n\n";
+$base     = 'http://example.com/dir/subdir/';
+$url      = 'http://example.com/dir/subdir/more/file1.txt';
 $expected = 'more/file1.txt';
 
 $resource = new BaseUri($url);

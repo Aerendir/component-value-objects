@@ -11,11 +11,12 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Email;
 
+namespace SerendipityHQ\Component\ValueObjects\tests\Email;
+
+use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
 use SerendipityHQ\Component\ValueObjects\Email\EmailInterface;
-use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
 /**
  * Tests the Email class.

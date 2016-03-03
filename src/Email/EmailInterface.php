@@ -8,10 +8,10 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 /**
  * Defines the minimum requisites of an Email value object.
@@ -34,6 +34,7 @@ interface EmailInterface extends SimpleValueObjectInterface
 
     /**
      * Return the host part of the email (box@host.com).
+     *
      * @return string
      */
     public function getHost();
@@ -44,6 +45,7 @@ interface EmailInterface extends SimpleValueObjectInterface
      * This returns a new Email object.
      *
      * @param $newMailBox
+     *
      * @return $this
      */
     public function changeMailBox($newMailBox);

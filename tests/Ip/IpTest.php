@@ -8,12 +8,13 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Ip;
+
+namespace SerendipityHQ\Component\ValueObjects\tests\Ip;
 
 use Darsyn\IP\IP as BaseIp;
+use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Ip\Ip;
 use SerendipityHQ\Component\ValueObjects\Ip\IpInterface;
-use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
 /**
  * Tests the Ip class.

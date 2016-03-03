@@ -12,7 +12,8 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Uri;
+
+namespace SerendipityHQ\Component\ValueObjects\tests\Uri;
 
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
@@ -84,8 +85,8 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testMakeRelative()
     {
-        $base = 'http://example.com/dir/subdir/';
-        $url = 'http://example.com/dir/subdir/more/file1.txt';
+        $base     = 'http://example.com/dir/subdir/';
+        $url      = 'http://example.com/dir/subdir/more/file1.txt';
         $expected = 'more/file1.txt';
 
         $resource = new Uri($url);

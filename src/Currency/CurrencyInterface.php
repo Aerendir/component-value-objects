@@ -8,10 +8,10 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Currency;
 
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 /**
  * Defines the minimum requisites of a Currency object.

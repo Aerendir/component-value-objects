@@ -5,7 +5,8 @@
  *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
  *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Tax;
+
+namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
@@ -36,7 +37,7 @@ class TaxTest extends \PHPUnit_Framework_TestCase
 
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        
+
         $this->assertEquals($testData['amount'],   $resource->getAmount());
         $this->assertEquals($testData['code'],     $resource->getCode());
         $this->assertEquals($testData['compound'], $resource->getCompound());
@@ -55,7 +56,7 @@ class TaxTest extends \PHPUnit_Framework_TestCase
             'rate'     => 22,
             'title'    => 'IVA IT',
         ];
-        
+
         $this->expectException(\InvalidArgumentException::class);
         $resource = new Tax($testData);
     }

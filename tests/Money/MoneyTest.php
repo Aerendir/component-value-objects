@@ -11,12 +11,13 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Money;
 
+namespace SerendipityHQ\Component\ValueObjects\tests\Money;
+
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
-use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 class MoneyTest extends \PHPUnit_Framework_TestCase
 {
@@ -74,7 +75,7 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         ];
 
         $resource = new Money($test);
-        $toAdd = new Money($test);
+        $toAdd    = new Money($test);
 
         $result = $resource->add($toAdd);
 
@@ -102,7 +103,7 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         ];
 
         $resource = new Money($test);
-        $toAdd = new Money($test);
+        $toAdd    = new Money($test);
 
         $result = $resource->subtract($toAdd);
 

@@ -5,6 +5,7 @@
  *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
  *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Payment;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;

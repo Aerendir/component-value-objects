@@ -2,14 +2,13 @@
 
 require '../../vendor/autoload.php';
 
-use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Payment\Payment;
 
 echo '<h1>Example usage of PHPValueObjects Payment.</h1>';
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'name' => 'PayPal',
+    'name'   => 'PayPal',
     'status' => 'Paid'
 ];
 

@@ -15,10 +15,11 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Address;
 
-use \CommerceGuys\Addressing\Model\AddressInterface as BaseAddressInterface;
+namespace SerendipityHQ\Component\ValueObjects\tests\Address;
+
 use \CommerceGuys\Addressing\Model\Address as BaseAddress;
+use \CommerceGuys\Addressing\Model\AddressInterface as BaseAddressInterface;
 use SerendipityHQ\Component\ValueObjects\Address\Address;
 use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;

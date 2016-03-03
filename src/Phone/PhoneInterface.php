@@ -8,6 +8,7 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -19,5 +20,4 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  */
 interface PhoneInterface extends ComplexValueObjectInterface
 {
-
 }

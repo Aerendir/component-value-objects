@@ -8,10 +8,10 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
 
 /**
  * Defines the minimum requirements of a Money object.
@@ -22,6 +22,7 @@ interface MoneyInterface extends ComplexValueObjectInterface
 {
     /**
      * @param Money $other
+     *
      * @return static
      */
     public function add(Money $other);
@@ -50,6 +51,7 @@ interface MoneyInterface extends ComplexValueObjectInterface
 
     /**
      * @param Money $other
+     *
      * @return static
      */
     public function subtract(Money $other);

@@ -11,13 +11,13 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use SebastianBergmann\Money\Money as BaseMoney;
-use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Currency\Currency;
-use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
+use SerendipityHQ\Component\ValueObjects\Currency\Currency;
 
 /**
  * The class doesn't extend the base money object has it has private properties and methods that make difficult the

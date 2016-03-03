@@ -11,6 +11,7 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
 use libphonenumber\PhoneNumber;
@@ -41,7 +42,7 @@ class Phone extends PhoneNumber implements PhoneInterface
         $keepRawInput = isset($values['keepRawInput']) ? $values['keepRawInput'] : false;
 
         if (is_string($this->number)) {
-            $phoneUtil = PhoneNumberUtil::getInstance();
+            $phoneUtil    = PhoneNumberUtil::getInstance();
             $this->number = $phoneUtil->parse($this->number, $this->region, null, $keepRawInput);
         }
 

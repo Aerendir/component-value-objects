@@ -11,12 +11,13 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Currency;
 
-use SerendipityHQ\Component\ValueObjects\Currency\Currency;
-use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
+namespace SerendipityHQ\Component\ValueObjects\tests\Currency;
+
 use SebastianBergmann\Money\Currency as BaseCurrency;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Currency\Currency;
+use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
 
 /**
  * Tests the Currency class.

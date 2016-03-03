@@ -8,6 +8,7 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
 use CommerceGuys\Addressing\Model\ImmutableAddressInterface;

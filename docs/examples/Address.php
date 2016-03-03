@@ -2,9 +2,9 @@
 
 require '../../vendor/autoload.php';
 
-use SerendipityHQ\Component\ValueObjects\Address\Address;
 use CommerceGuys\Addressing\Repository\AddressFormatRepository;
 use CommerceGuys\Addressing\Repository\SubdivisionRepository;
+use SerendipityHQ\Component\ValueObjects\Address\Address;
 
 echo '<h1>Example usage of PHPValueObjects Address.</h1>';
 
@@ -67,7 +67,7 @@ echo $address->toString(['locale' => 'IT']);
 
 echo '<h1>Some other useful features of the CommerceGuys/Addressing library</h1>';
 $addressFormatRepository = new AddressFormatRepository();
-$subdivisionRepository = new SubdivisionRepository();
+$subdivisionRepository   = new SubdivisionRepository();
 
 // Get the address format for Brazil.
 $addressFormat = $addressFormatRepository->get('IT');

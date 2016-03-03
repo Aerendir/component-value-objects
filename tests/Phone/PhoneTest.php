@@ -11,12 +11,13 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
-namespace SerendipityHQ\Component\ValueObjects\Tests\Phone;
 
+namespace SerendipityHQ\Component\ValueObjects\tests\Phone;
+
+use libphonenumber\PhoneNumber as BasePhone;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Phone\Phone;
 use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
-use libphonenumber\PhoneNumber as BasePhone;
 
 /**
  * Tests the Phone class.

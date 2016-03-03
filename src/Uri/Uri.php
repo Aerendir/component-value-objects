@@ -12,6 +12,7 @@
  *  @copyright   Copyright (c) 2015, Adamo Crespi
  *  @license     MIT License
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
@@ -151,6 +152,7 @@ class Uri implements UriInterface
     public function makeRelative($baseUri)
     {
         $this->valueObject->makeRelative($baseUri);
+
         return $this;
     }
 
@@ -160,6 +162,7 @@ class Uri implements UriInterface
     public function normalize()
     {
         $this->valueObject->normalize();
+
         return $this;
     }
 
