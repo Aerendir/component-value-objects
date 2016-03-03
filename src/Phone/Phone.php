@@ -15,24 +15,70 @@ namespace SerendipityHQ\Component\ValueObjects\Phone;
 
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
+/**
+ * Default implementation of a Phone object.
+ */
 class Phone extends PhoneNumber implements PhoneInterface
 {
-    protected $phone;
+    use ComplexValueObjectTrait {
+        __construct as traitConstruct;
+    }
+    use DisableWritingMethodsTrait;
 
-    public function __construct($phone = null, $region = 'IT')
+    private $number;
+    private $region;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct(array $values)
     {
-        if (is_string($phone)) {
+        $this->traitConstruct($values);
+
+        $keepRawInput = isset($values['keepRawInput']) ? $values['keepRawInput'] : false;
+
+        if (is_string($this->number)) {
             $phoneUtil = PhoneNumberUtil::getInstance();
-            $phone = $phoneUtil->parse($phone, $region);
+            $this->number = $phoneUtil->parse($this->number, $this->region, null, $keepRawInput);
         }
 
-        if ($phone instanceof PhoneNumber) {
-            $this->mergeFrom($phone);
+        if ($this->number instanceof PhoneNumber) {
+            $this->mergeFrom($this->number);
         }
     }
 
-    public function __set($field, $value)
+    /**
+     * @param string|Phone $number
+     */
+    private function setNumber($number)
     {
+        $this->number = $number;
+    }
+
+    /**
+     * @param string $region
+     */
+    private function setRegion($region)
+    {
+        $this->region = $region;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        return $this->__toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return parent::__toString();
     }
 }

@@ -13,16 +13,35 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Tests\Phone;
 
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Phone\Phone;
+use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
+use libphonenumber\PhoneNumber as BasePhone;
 
+/**
+ * Tests the Phone class.
+ */
 class PhoneTest extends \PHPUnit_Framework_TestCase
 {
     public function testPhone()
     {
-        $test = '3331234567';
+        $test = [
+            'number' => '3331234567',
+            'region' => 'IT'
+        ];
 
         $resource = new Phone($test);
 
-        $this->assertInstanceOf('\SerendipityHQ\Component\ValueObjects\Phone\Phone', $resource);
+        // Test the value object direct interface
+        $this->assertInstanceOf(PhoneInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        // Test inherits the base object
+        $this->assertInstanceOf(BasePhone::class, $resource);
+
+        $this->assertTrue(is_string($resource->__toString()));
+        $this->assertTrue(is_string($resource->toString()));
     }
 }

@@ -10,8 +10,14 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
-use SerendipityHQ\Component\ValueObjects\Common\ValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
-interface PhoneInterface extends ValueObjectInterface
+/**
+ * Defines the minimum requisites of a Phone Object.
+ *
+ * {@inheritdoc}
+ */
+interface PhoneInterface extends ComplexValueObjectInterface
 {
+
 }
