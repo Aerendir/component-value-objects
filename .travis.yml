@@ -10,9 +10,6 @@ cache:
     directories:
         - $HOME/.composer/cache
 
-before_install:
-    - 'if [ "$SYMFONY_VERSION" != "" ]; then sed -i "s/\"symfony\/\([^\"]*\)\": \"[^\"]*\"/\"symfony\/\1\": \"$SYMFONY_VERSION\"/g" composer.json; fi'
-
 install:
     - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction
 
