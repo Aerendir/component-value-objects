@@ -48,7 +48,7 @@ class Money implements MoneyInterface
         $this->traitConstruct($values);
 
         if (is_string($this->amount)) {
-            $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
+            $this->valueObject = BaseMoney::fromString($this->amount, $this->currency);
         }
         elseif (is_float($this->amount)) {
             $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
