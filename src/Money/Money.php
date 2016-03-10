@@ -58,8 +58,8 @@ class Money implements MoneyInterface
             $this->valueObject = new BaseMoney($this->amount, $this->currency);
         }
         else {
-            throw new \InvalidArgumentException('The amount has to be a string or a float (ex.: 35.5 Euros) or an int in'
-                . 'the base form (355 = 35.5 Euros)');
+            throw new \InvalidArgumentException(sprintf('The amount has to be a string or a float (ex.: 35.5 Euros) or'
+            . ' an int in the base form (355 = 35.5 Euros). %s given.', gettype($this->amount)));
         }
     }
 
