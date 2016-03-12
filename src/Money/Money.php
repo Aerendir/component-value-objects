@@ -49,15 +49,12 @@ class Money implements MoneyInterface
 
         if (is_string($this->amount)) {
             $this->valueObject = BaseMoney::fromString($this->amount, $this->currency);
-        }
-        elseif (is_float($this->amount)) {
+        } elseif (is_float($this->amount)) {
             $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
-        }
-        elseif (is_int($this->amount)) {
+        } elseif (is_int($this->amount)) {
             // Maybe is int: leave to BaseMoney other checks
             $this->valueObject = new BaseMoney($this->amount, $this->currency);
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf('The amount has to be a string or a float (ex.: 35.5 Euros) or'
             . ' an int in the base form (355 = 35.5 Euros). %s given.', gettype($this->amount)));
         }
