@@ -721,12 +721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeclimate/php-test-reporter.git",
-                "reference": "9ec2098c9e9839840176c46d9cdab3a57c26ca1c"
+                "reference": "a026a4bc86867129e760b95dca44b8cd10819333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeclimate/php-test-reporter/zipball/9ec2098c9e9839840176c46d9cdab3a57c26ca1c",
-                "reference": "9ec2098c9e9839840176c46d9cdab3a57c26ca1c",
+                "url": "https://api.github.com/repos/codeclimate/php-test-reporter/zipball/a026a4bc86867129e760b95dca44b8cd10819333",
+                "reference": "a026a4bc86867129e760b95dca44b8cd10819333",
                 "shasum": ""
             },
             "require": {
@@ -771,7 +771,7 @@
                 "codeclimate",
                 "coverage"
             ],
-            "time": "2016-02-16 14:58:21"
+            "time": "2016-03-11 15:58:25"
         },
         {
             "name": "doctrine/instantiator",
