@@ -13,8 +13,6 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
  * Default implementation of a Tax Value object.
- *
- * @todo $compound: This is a value returned by WooCommerce API: I don't know yet what it contains.
  */
 class Tax implements TaxInterface
 {
@@ -29,7 +27,7 @@ class Tax implements TaxInterface
     /** @var string $code A string that identifies uniquely the tax on the Remote system */
     private $code;
 
-    /** @var Money $compound The amount of taxes */
+    /** @var bool $compound If the tax is compound or not */
     private $compound;
 
     /** @var float $rate The rate of the tax */
@@ -119,9 +117,9 @@ class Tax implements TaxInterface
      *
      * @param Money $compound
      */
-    protected function setCompound(Money $compound)
+    protected function setCompound($compound)
     {
-        $this->compound = $compound;
+        $this->compound = (bool) $compound;
     }
 
     /**

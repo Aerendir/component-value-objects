@@ -30,9 +30,9 @@ interface TaxInterface extends ComplexValueObjectInterface
     public function getCode();
 
     /**
-     * Method to get the compound amount of taxes.
+     * If the Tax is compounded returns true, false instead.
      *
-     * @return Money
+     * @return bool
      */
     public function getCompound();
 

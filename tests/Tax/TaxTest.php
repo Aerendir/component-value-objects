@@ -24,7 +24,7 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         $testData = [
             'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'code' => 'IVA IT',
-            'compound' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'compound' => false,
             'rate' => 22.0,
             'title' => 'IVA IT',
         ];
@@ -51,7 +51,7 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         $testData = [
             'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'code' => 'IVA IT',
-            'compound' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'compound' => false,
             'rate' => 22,
             'title' => 'IVA IT',
         ];
