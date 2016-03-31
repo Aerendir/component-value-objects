@@ -7,7 +7,10 @@ use SerendipityHQ\Component\ValueObjects\Currency\Currency;
 echo '<h1>Example usage of PHPValueObjects Currency.</h1>';
 
 // ucfirst is applied automatically to find the right setter
-$value = 'EUR';
+$value = [
+    'IsoCode' => 'EUR',
+    'ConversionRate' => 1.1174
+];
 
 $currency = new Currency($value);
 dump($currency);
@@ -19,3 +22,4 @@ echo 'Default fraction digit: ' . $currency->getDefaultFractionDigits() . "<br /
 echo 'Display name: ' . $currency->getDisplayName() . "<br />\n";
 echo 'Numeric code: ' . $currency->getNumericCode() . "<br />\n";
 echo 'Sub unit: ' . $currency->getSubUnit() . "<br />\n";
+echo 'Conversion rate: ' . $currency->getConversionRate() . "<br />\n";

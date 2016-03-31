@@ -142,7 +142,7 @@ class Money implements MoneyInterface
     private function setCurrency($currency)
     {
         if (is_string($currency)) {
-            $currency = new Currency($currency);
+            $currency = new Currency(['IsoCode' => $currency]);
         }
 
         $this->currency = $currency;

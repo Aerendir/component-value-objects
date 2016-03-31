@@ -47,6 +47,49 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(is_string($resource->toString()));
     }
 
+    public function testConstructHandlesFloats()
+    {
+        $mocks['currency'] = $this->getMockBuilder('\SerendipityHQ\Component\ValueObjects\Currency\Currency')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $mocks['currency']->method('getSubUnit')->willReturn(100);
+        $mocks['currency']->method('getDefaultFractionDigits')->willReturn(2);
+
+        $test = [
+            'amount' => 100.30,
+            'currency' => $mocks['currency'],
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this->assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this->assertSame(10030, $resource->getAmount());
+        $this->assertSame(100.3, $resource->getConvertedAmount());
+        $this->assertTrue(is_string($resource->__toString()));
+        $this->assertTrue(is_string($resource->toString()));
+    }
+
+    public function testConstructAcceptsOnlyFloatsIntsAndStrings()
+    {
+        $mocks['currency'] = $this->getMockBuilder('\SerendipityHQ\Component\ValueObjects\Currency\Currency')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $test = [
+            // Pass an array
+            'amount' => [],
+            'currency' => $mocks['currency'],
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $resource = new Money($test);
+    }
+    
     public function testMoneyTransformsStringsInIntAndStringsInCurrency()
     {
         $test = [

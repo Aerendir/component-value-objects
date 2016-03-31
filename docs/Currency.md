@@ -1,4 +1,4 @@
-Currency Simple Value Object
+Currency Complex Value Object
 ============================
 
 Represents a currency value. Offers some helping methods to manage currencies.
@@ -16,7 +16,7 @@ Extends [Currency](https://github.com/sebastianbergmann/money/blob/master/src/Cu
  *
  * @throws \SebastianBergmann\Money\InvalidArgumentException
  */
-public function __construct($currencyCode)
+public function __construct(array $values)
 ```
 
 ## How to use the object
@@ -24,7 +24,10 @@ public function __construct($currencyCode)
 See the working example: [examples/Currency.php](examples/Currency.php).
 
 ```php
-$value = 'user@example.com';
+$value = [
+    'IsoCode' => 'EUR',
+    'ConversionRate' => 1.1174
+];
 
 $currency = new Currency($value);
 dump($currency);

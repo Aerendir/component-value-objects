@@ -14,7 +14,7 @@
 namespace SerendipityHQ\Component\ValueObjects\tests\Currency;
 
 use SebastianBergmann\Money\Currency as BaseCurrency;
-use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Currency\Currency;
 use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
 
@@ -25,7 +25,10 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
 {
     public function testCurrency()
     {
-        $test = 'EUR';
+        $test = [
+            'ConversionRate' => 1.1174,
+            'IsoCode' => 'EUR',
+        ];
 
         $resource = new Currency($test);
 
@@ -33,12 +36,37 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(CurrencyInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         // Test inherits the base object
         $this->assertInstanceOf(BaseCurrency::class, $resource);
 
         $this->assertTrue(is_string($resource->__toString()));
         $this->assertTrue(is_string($resource->toString()));
+        $this->assertSame($test['ConversionRate'], $resource->getConversionRate());
+        $this->assertSame($test['IsoCode'], $resource->getIsoCode());
+    }
+    
+    public function testConstructorThrowsInvalidArgumentExceptionIfIsoCodeIsMissed()
+    {
+        $test = [
+            // This is an integer
+            'ConversionRate' => 1.1174,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $resource = new Currency($test);
+    }
+
+    public function testSetConversionRateAcceptsOnlyFloats()
+    {
+        $test = [
+            'IsoCode' => 'EUR',
+            // This is an integer
+            'ConversionRate' => 11174,
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $resource = new Currency($test);
     }
 }

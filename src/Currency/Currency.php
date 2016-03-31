@@ -14,6 +14,7 @@
 namespace SerendipityHQ\Component\ValueObjects\Currency;
 
 use SebastianBergmann\Money\Currency as BaseCurrency;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
@@ -21,14 +22,43 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  */
 class Currency extends BaseCurrency implements CurrencyInterface
 {
+    use ComplexValueObjectTrait {
+        __construct as traitConstruct;
+    }
     use DisableWritingMethodsTrait;
 
+    private $conversionRate;
+
     /**
-     * @param string $currencyCode
+     * @param array $values
      */
-    public function __construct($value)
+    public function __construct(array $values)
     {
-        parent::__construct($value);
+        if (false === isset($values['IsoCode'])) {
+            throw new \InvalidArgumentException('Missing IsoCode of the Currency. It is required.');
+        }
+
+        $isoCode = $values['IsoCode'];
+        unset($values['IsoCode']);
+
+        $this->traitConstruct($values);
+        parent::__construct($isoCode);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getConversionRate()
+    {
+        return $this->conversionRate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getIsoCode()
+    {
+        return $this->getCurrencyCode();
     }
 
     /**
@@ -45,5 +75,19 @@ class Currency extends BaseCurrency implements CurrencyInterface
     public function __toString()
     {
         return parent::__toString();
+    }
+
+    /**
+     * Set the conversion rate of the currency.
+     *
+     * @param float $conversionRate
+     */
+    protected function setConversionRate($conversionRate)
+    {
+        if (false === is_float($conversionRate)) {
+            throw new \InvalidArgumentException(sprintf('ConversionRate has to be a float. %s given.', $conversionRate));
+        }
+
+        $this->conversionRate = $conversionRate;
     }
 }
