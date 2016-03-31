@@ -46,7 +46,7 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($test['ConversionRate'], $resource->getConversionRate());
         $this->assertSame($test['IsoCode'], $resource->getIsoCode());
     }
-    
+
     public function testConstructorThrowsInvalidArgumentExceptionIfIsoCodeIsMissed()
     {
         $test = [

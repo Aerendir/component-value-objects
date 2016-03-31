@@ -21,25 +21,26 @@ interface CurrencyInterface extends ComplexValueObjectInterface
 {
     /**
      * Get the conversion rate.
-     * 
+     *
      * This is not retrieved from some sources but set when creating the object.
      * So it may be not updated.
-     * 
+     *
      * @return float
      */
     public function getConversionRate();
-    
+
     /**
-     * The currency code
+     * The currency code.
+     *
      * @return string
      */
     public function getCurrencyCode();
 
     /**
      * The currency code.
-     * 
+     *
      * This is a wrapper for getCurrencyCode().
-     * 
+     *
      * @return string
      */
     public function getIsoCode();

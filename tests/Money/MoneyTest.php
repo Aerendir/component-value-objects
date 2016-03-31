@@ -89,7 +89,7 @@ class MoneyTest extends \PHPUnit_Framework_TestCase
         $this->expectException(\InvalidArgumentException::class);
         $resource = new Money($test);
     }
-    
+
     public function testMoneyTransformsStringsInIntAndStringsInCurrency()
     {
         $test = [
