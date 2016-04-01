@@ -33,6 +33,8 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     private $to;
 
     /**
+     * Constructor.
+     *
      * Required parameters are:
      * 
      * - From: The Currency in which the amount is;
