@@ -43,18 +43,6 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     public function __construct(array $values)
     {
-        if (false === isset($values['From'])) {
-            throw new \InvalidArgumentException('Missing From Currency. It is required.');
-        }
-
-        if (false === isset($values['To'])) {
-            throw new \InvalidArgumentException('Missing To Currency. It is required.');
-        }
-
-        if (false === isset($values['ExchangeRate'])) {
-            throw new \InvalidArgumentException('Missing Exchange Rate. It is required.');
-        }
-
         $this->traitConstruct($values);
     }
 

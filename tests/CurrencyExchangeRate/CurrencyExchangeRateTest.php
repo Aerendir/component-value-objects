@@ -48,42 +48,6 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($test['ExchangeRateDate'], $resource->getExchangeRateDate());
     }
 
-    public function testCurrencyFromIsMandatory()
-    {
-        $test = [
-            'To'   => new Currency('USD'),
-            'ExchangeRate' => 1.1174,
-            'ExchangeRateDate' => new \DateTime()
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new CurrencyExchangeRate($test);
-    }
-
-    public function testToIsMandatory()
-    {
-        $test = [
-            'From' => new Currency('EUR'),
-            'ExchangeRate' => 1.1174,
-            'ExchangeRateDate' => new \DateTime()
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new CurrencyExchangeRate($test);
-    }
-
-    public function testExchangeRateIsMandatory()
-    {
-        $test = [
-            'From' => new Currency('EUR'),
-            'To'   => new Currency('USD'),
-            'ExchangeRateDate' => new \DateTime()
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new CurrencyExchangeRate($test);
-    }
-
     public function testToStringThrowsABadMethodCallException()
     {
         $test = [
