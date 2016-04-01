@@ -26,9 +26,9 @@ class Currency extends BaseCurrency implements CurrencyInterface
     /**
      * @param string $currencyCode
      */
-    public function __construct($value)
+    public function __construct($currencyCode)
     {
-        parent::__construct($value);
+        parent::__construct($currencyCode);
     }
 
     /**
