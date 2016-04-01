@@ -27,10 +27,10 @@ class Email implements EmailInterface
     /** @var string $email */
     private $email;
 
-    /** @var  string $mailBox */
+    /** @var string $mailBox */
     private $mailBox;
 
-    /** @var  string $host */
+    /** @var string $host */
     private $host;
 
     /**

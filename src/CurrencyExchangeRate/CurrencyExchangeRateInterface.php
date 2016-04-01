@@ -39,14 +39,14 @@ interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
 
     /**
      * Get the base Currency the amount is in.
-     * 
+     *
      * @return CurrencyInterface
      */
     public function getFrom();
 
     /**
      * Get the Currency in which convert the amount.
-     * 
+     *
      * @return CurrencyInterface
      */
     public function getTo();

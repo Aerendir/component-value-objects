@@ -25,7 +25,7 @@ class Payment implements PaymentInterface
     /** @var string $name The payment name or title. */
     private $name = null;
 
-    /** @var string $status Status of the payment: paid or not? Or in which status?*/
+    /** @var string $status Status of the payment: paid or not? Or in which status? */
     private $status = null;
 
     /**

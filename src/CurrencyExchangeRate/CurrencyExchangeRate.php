@@ -36,11 +36,11 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      * Constructor.
      *
      * Required parameters are:
-     * 
+     *
      * - From: The Currency in which the amount is;
      * - To: The Currency in which the amount is converted/exchanged;
      * - ExchangeRate: The rate of the exchanging/conversion.
-     * 
+     *
      * @param array $values
      */
     public function __construct(array $values)
@@ -117,7 +117,6 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     protected function setExchangeRateDate(\DateTime $exchangeRateDate)
     {
-
         $this->exchangeRateDate = $exchangeRateDate;
     }
 
@@ -133,7 +132,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * The Currency in which the base amount has to be converted.
-     * 
+     *
      * @param CurrencyInterface $to
      */
     protected function setTo(CurrencyInterface $to)

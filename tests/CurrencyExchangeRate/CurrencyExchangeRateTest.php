@@ -13,10 +13,8 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Currency;
 
-use SebastianBergmann\Money\Currency as BaseCurrency;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Currency\Currency;
-use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
 use SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate\CurrencyExchangeRate;
 use SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate\CurrencyExchangeRateInterface;
 
@@ -29,7 +27,7 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
     {
         $test = [
             'From' => new Currency('EUR'),
-            'To'   => new Currency('USD'),
+            'To' => new Currency('USD'),
             'ExchangeRate' => 1.1174,
             'ExchangeRateDate' => new \DateTime()
         ];
@@ -41,7 +39,7 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
 
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        
+
         $this->assertSame($test['From'], $resource->getFrom());
         $this->assertSame($test['To'], $resource->getTo());
         $this->assertSame($test['ExchangeRate'], $resource->getExchangeRate());
@@ -52,7 +50,7 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
     {
         $test = [
             'From' => new Currency('EUR'),
-            'To'   => new Currency('USD'),
+            'To' => new Currency('USD'),
             'ExchangeRate' => 1.1174,
             'ExchangeRateDate' => new \DateTime()
         ];
@@ -61,12 +59,12 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
         $this->expectException(\BadMethodCallException::class);
         $resource->toString();
     }
-    
+
     public function testCurrencySetConversionRateAcceptsOnlyFloats()
     {
         $test = [
             'From' => new Currency('EUR'),
-            'To'   => new Currency('USD'),
+            'To' => new Currency('USD'),
             // This is an integer
             'ExchangeRate' => 11174,
             'ExchangeRateDate' => new \DateTime()

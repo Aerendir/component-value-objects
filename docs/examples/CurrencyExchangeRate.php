@@ -10,7 +10,7 @@ echo '<h1>Example usage of PHPValueObjects Currency.</h1>';
 // ucfirst is applied automatically to find the right setter
 $values = [
     'From' => new Currency('EUR'),
-    'To'   => new Currency('USD'),
+    'To' => new Currency('USD'),
     'ExchangeRate' => 1.1174,
     'ExchangeRateDate' => new \DateTime()
 ];
