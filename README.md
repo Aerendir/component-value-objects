@@ -55,6 +55,7 @@ Currently, this library supports the following Value Objects:
  [commerceguys/addressing](https://github.com/commerceguys/addressing);
 * **[Currency](docs/Currency.md)**: Just a proxy for the class provided in library
  [sebastian/money](https://github.com/sebastianbergmann/money);
+* **[CurrencyExchangeRate](docs/CurrencyExchangeRate.md)**: Built-in;
 * **[Email](docs/Email.md)**: A basic class derived from [Wowo's gist
  EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements
  [egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
