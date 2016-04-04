@@ -17,7 +17,7 @@ trait ComplexValueObjectTrait
 {
     /** @var array Contains the data for which a property were not found */
     private $otherData = [];
-    
+
     /**
      * Accepts an array containing the values to set in the object.
      *
@@ -39,14 +39,14 @@ trait ComplexValueObjectTrait
                 unset($values[$property]);
             }
         }
-        
+
         // Add remaining value to $otherData
         $this->otherData = $values;
     }
 
     /**
      * Get other data if present, null instead.
-     * 
+     *
      * @return array|null
      */
     public function getOtherData()
