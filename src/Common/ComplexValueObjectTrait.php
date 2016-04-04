@@ -15,6 +15,9 @@ namespace SerendipityHQ\Component\ValueObjects\Common;
  */
 trait ComplexValueObjectTrait
 {
+    /** @var array Contains the data for which a property were not found */
+    private $otherData = [];
+    
     /**
      * Accepts an array containing the values to set in the object.
      *
@@ -28,11 +31,26 @@ trait ComplexValueObjectTrait
 
             if (true === method_exists($this, $setter)) {
                 $this->$setter($value);
+                unset($values[$property]);
             }
 
             if (true === method_exists($this, $adder)) {
                 $this->$adder($value);
+                unset($values[$property]);
             }
         }
+        
+        // Add remaining value to $otherData
+        $this->otherData = $values;
+    }
+
+    /**
+     * Get other data if present, null instead.
+     * 
+     * @return array|null
+     */
+    public function getOtherData()
+    {
+        return (true === empty($this->otherData)) ? null : $this->otherData;
     }
 }

@@ -13,6 +13,11 @@
 # PHP Value Objects
 A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage simple and composite values.
 
+It supports `SimpleValueObjects` and `ComplexValueObjects`.
+
+Complex value objects are hydrated passing an array. If a key of the array isn't recognized as property of the object it
+ is added to the `$otherData` array so it isn't lost.
+
 ## What are Value Objects
 
 Value Objects are PHP [`objects`](http://php.net/manual/en/language.types.object.php) that represent and manage simple

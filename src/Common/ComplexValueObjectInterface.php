@@ -27,4 +27,11 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
      * @param array $values
      */
     public function __construct(array $values);
+
+    /**
+     * Get other data if present, null instead.
+     *
+     * @return array|null
+     */
+    public function getOtherData();
 }
