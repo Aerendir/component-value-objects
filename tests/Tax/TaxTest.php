@@ -22,10 +22,10 @@ class TaxTest extends \PHPUnit_Framework_TestCase
     public function testTax()
     {
         $testData = [
-            'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'code' => 'IVA IT',
             'compound' => false,
             'rate' => 22.0,
+            'taxAmount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'title' => 'IVA IT',
         ];
 
@@ -36,11 +36,11 @@ class TaxTest extends \PHPUnit_Framework_TestCase
 
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-
-        $this->assertEquals($testData['amount'], $resource->getAmount());
+        
         $this->assertEquals($testData['code'], $resource->getCode());
         $this->assertEquals($testData['compound'], $resource->getCompound());
         $this->assertEquals($testData['rate'], $resource->getRate());
+        $this->assertEquals($testData['taxAmount'], $resource->getTaxAmount());
         $this->assertEquals($testData['title'], $resource->getTitle());
         $this->assertTrue(is_string($resource->__toString()));
         $this->assertTrue(is_string($resource->toString()));
@@ -49,10 +49,10 @@ class TaxTest extends \PHPUnit_Framework_TestCase
     public function testSetRateAcceptsOnlyFloats()
     {
         $testData = [
-            'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'code' => 'IVA IT',
             'compound' => false,
             'rate' => 22,
+            'taxAmount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'title' => 'IVA IT',
         ];
 

@@ -21,9 +21,6 @@ class Tax implements TaxInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var Money $amount The paid amount of taxes */
-    private $amount;
-
     /** @var string $code A string that identifies uniquely the tax on the Remote system */
     private $code;
 
@@ -33,16 +30,11 @@ class Tax implements TaxInterface
     /** @var float $rate The rate of the tax */
     private $rate;
 
+    /** @var Money $taxAmount The paid amount of taxes */
+    private $taxAmount;
+    
     /** @var string $title The title of the tax on the Remote system */
     private $title;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
 
     /**
      * {@inheritdoc}
@@ -71,6 +63,14 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
+    public function getTaxAmount()
+    {
+        return $this->taxAmount;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
     public function getTitle()
     {
         return $this->title;
@@ -89,17 +89,7 @@ class Tax implements TaxInterface
      */
     public function __toString()
     {
-        return $this->code . ' ' . $this->amount;
-    }
-
-    /**
-     * Method to set the paid amount of taxes.
-     *
-     * @param Money $amount
-     */
-    protected function setAmount(Money $amount)
-    {
-        $this->amount = $amount;
+        return $this->code . ' ' . $this->taxAmount;
     }
 
     /**
@@ -137,6 +127,16 @@ class Tax implements TaxInterface
         $this->rate = $rate;
     }
 
+    /**
+     * Method to set the paid amount of taxes.
+     *
+     * @param Money $taxAmount
+     */
+    protected function setTaxAmount(Money $taxAmount)
+    {
+        $this->taxAmount = $taxAmount;
+    }
+    
     /**
      * Sets the title of the Tax on the remote system.
      *

@@ -16,13 +16,6 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
 interface TaxInterface extends ComplexValueObjectInterface
 {
     /**
-     * Method to get the amount of taxes paid.
-     *
-     * @return Money
-     */
-    public function getAmount();
-
-    /**
      * Method to retrieve the code of the Tax on the remote system.
      *
      * @return string The unqie code of the tax on the Remote System.
@@ -43,6 +36,13 @@ interface TaxInterface extends ComplexValueObjectInterface
      */
     public function getRate();
 
+    /**
+     * Method to get the amount of taxes paid.
+     *
+     * @return Money
+     */
+    public function getTaxAmount();
+    
     /**
      * Method to retrieve the Remote title of the Tax stored in the object.
      *
