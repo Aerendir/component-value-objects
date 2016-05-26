@@ -16,9 +16,9 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
 interface TaxInterface extends ComplexValueObjectInterface
 {
     /**
-     * Method to retrieve the code of the Tax on the remote system.
+     * Method to retrieve the code of the Tax on the system.
      *
-     * @return string The unqie code of the tax on the Remote System.
+     * @return string The unique code of the tax on the System.
      */
     public function getCode();
 
