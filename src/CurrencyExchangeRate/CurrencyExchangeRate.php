@@ -29,8 +29,8 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     private $exchangeRate;
     private $exchangeRateDate;
-    private $from;
-    private $to;
+    private $fromCurrency;
+    private $toCurrency;
 
     /**
      * Constructor.
@@ -67,17 +67,17 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getFrom()
+    public function getFromCurrency()
     {
-        return $this->from;
+        return $this->fromCurrency;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getTo()
+    public function getToCurrency()
     {
-        return $this->to;
+        return $this->toCurrency;
     }
 
     /**
@@ -123,20 +123,20 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * The Currency in which the base amount is.
      *
-     * @param CurrencyInterface $from
+     * @param CurrencyInterface $fromCurrency
      */
-    protected function setFrom(CurrencyInterface $from)
+    protected function setFromCurrency(CurrencyInterface $fromCurrency)
     {
-        $this->from = $from;
+        $this->fromCurrency = $fromCurrency;
     }
 
     /**
      * The Currency in which the base amount has to be converted.
      *
-     * @param CurrencyInterface $to
+     * @param CurrencyInterface $toCurrency
      */
-    protected function setTo(CurrencyInterface $to)
+    protected function setToCurrency(CurrencyInterface $toCurrency)
     {
-        $this->to = $to;
+        $this->toCurrency = $toCurrency;
     }
 }

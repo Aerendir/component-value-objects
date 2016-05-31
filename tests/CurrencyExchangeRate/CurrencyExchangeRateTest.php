@@ -26,8 +26,8 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
     public function testCurrencyConversionRate()
     {
         $test = [
-            'From' => new Currency('EUR'),
-            'To' => new Currency('USD'),
+            'FromCurrency' => new Currency('EUR'),
+            'ToCurrency' => new Currency('USD'),
             'ExchangeRate' => 1.1174,
             'ExchangeRateDate' => new \DateTime()
         ];
@@ -40,8 +40,8 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this->assertSame($test['From'], $resource->getFrom());
-        $this->assertSame($test['To'], $resource->getTo());
+        $this->assertSame($test['FromCurrency'], $resource->getFromCurrency());
+        $this->assertSame($test['ToCurrency'], $resource->getToCurrency());
         $this->assertSame($test['ExchangeRate'], $resource->getExchangeRate());
         $this->assertSame($test['ExchangeRateDate'], $resource->getExchangeRateDate());
     }
@@ -49,8 +49,8 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
     public function testToStringThrowsABadMethodCallException()
     {
         $test = [
-            'From' => new Currency('EUR'),
-            'To' => new Currency('USD'),
+            'FromCurrency' => new Currency('EUR'),
+            'ToCurrency' => new Currency('USD'),
             'ExchangeRate' => 1.1174,
             'ExchangeRateDate' => new \DateTime()
         ];
@@ -63,8 +63,8 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
     public function testCurrencySetConversionRateAcceptsOnlyFloats()
     {
         $test = [
-            'From' => new Currency('EUR'),
-            'To' => new Currency('USD'),
+            'FromCurrency' => new Currency('EUR'),
+            'ToCurrency' => new Currency('USD'),
             // This is an integer
             'ExchangeRate' => 11174,
             'ExchangeRateDate' => new \DateTime()
