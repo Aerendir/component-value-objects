@@ -93,7 +93,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     public function __toString()
     {
-        throw new \BadMethodCallException('Cannot convert a conversion rate to a string.');
+        return '1 ' . $this->getFromCurrency() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getToCurrency() . ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
     }
 
     /**
