@@ -15,7 +15,7 @@
         "php": "^5.6|^7.0",
         "commerceguys/intl": "~0",
         "commerceguys/addressing": "~0",
-        "darsyn/ip": "*",
+        "darsyn/ip": "2.0.2",
         "egulias/email-validator": "~1.2",
         "giggsey/libphonenumber-for-php": "~7.0",
         "sebastian/money": "1.6.*",
