@@ -46,20 +46,6 @@ class CurrencyExchangeRateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($test['ExchangeRateDate'], $resource->getExchangeRateDate());
     }
 
-    public function testToStringThrowsABadMethodCallException()
-    {
-        $test = [
-            'FromCurrency' => new Currency('EUR'),
-            'ToCurrency' => new Currency('USD'),
-            'ExchangeRate' => 1.1174,
-            'ExchangeRateDate' => new \DateTime()
-        ];
-
-        $resource = new CurrencyExchangeRate($test);
-        $this->expectException(\BadMethodCallException::class);
-        $resource->toString();
-    }
-
     public function testCurrencySetConversionRateAcceptsOnlyFloats()
     {
         $test = [
