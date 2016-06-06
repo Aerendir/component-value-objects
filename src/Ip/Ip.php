@@ -25,11 +25,29 @@ class Ip extends BaseIp implements IpInterface
     use DisableWritingMethodsTrait;
 
     /**
+     * Validate IP Address
+     *
+     * This is only a static helper method, it is not used internally.
+     *
+     * Method taken from the version 2.0.2 of the Darsyn\Ip value object.
+     * @See https://github.com/darsyn/ip/blob/2.0.2/src/IP.php#L30-L46
+     *
+     * @param  string $ip
+     * @return boolean
+     */
+    public static function validate($ip)
+    {
+        // Check that the IP address supplied is either 16 bytes long (binary notation) or validates as IPv4 or IPv6
+        // notation via PHP's in-built validator.
+        return is_string($ip) && (strlen($ip) === 16 || filter_var($ip, FILTER_VALIDATE_IP));
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function __construct($value)
     {
-        if (!BaseIp::validate($value)) {
+        if (!self::validate($value)) {
             throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an IP.', $value));
         }
 
