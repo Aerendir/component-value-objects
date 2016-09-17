@@ -71,5 +71,6 @@ Currently, this library supports the following Value Objects:
 * **[Phone](docs/Phone.md)**: Just a proxy for the library
  [giggsey/libphonenumber-for-php](https://github.com/giggsey/libphonenumber-for-php);
 * **[Tax](docs/Tax.md)**: Buil-in
-* **[VatNumber](docs/VatNumber.md)**: Buil-in
 * **[Uri](docs/Uri.md)**: Just a proxy for the library [Zend\Uri](https://github.com/zendframework/zend-uri).
+* **[VatNumber](docs/VatNumber.md)**: Buil-in
+* **[Vat](docs/Vat.md)**: Buil-in
