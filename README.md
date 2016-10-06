@@ -18,6 +18,8 @@ It supports `SimpleValueObjects` and `ComplexValueObjects`.
 Complex value objects are hydrated passing an array. If a key of the array isn't recognized as property of the object it
  is added to the `$otherData` array so it isn't lost.
 
+Some of those value objects support also the persistence in Doctrine providing [custom mapping types](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/custom-mapping-types.html) (See below).
+
 ## What are Value Objects
 
 Value Objects are PHP [`objects`](http://php.net/manual/en/language.types.object.php) that represent and manage simple
@@ -74,3 +76,12 @@ Currently, this library supports the following Value Objects:
 * **[Uri](docs/Uri.md)**: Just a proxy for the library [Zend\Uri](https://github.com/zendframework/zend-uri).
 * **[Vat](docs/Vat.md)**: Built-in
 * **[VatNumber](docs/VatNumber.md)**: Built-in
+
+## Supported Custom Mapping Types
+
+* `EmailType`
+* `MoneyType`
+
+To use the custom mapping types, you have to manually register them.
+
+If you are using Symfony, read [Registering custom Mapping Types](https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types)
