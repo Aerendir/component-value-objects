@@ -1,4 +1,5 @@
 <?php
+
 namespace SerendipityHQ\Component\ValueObjects\Money\Persistence;
 
 use Doctrine\DBAL\Types\Type;

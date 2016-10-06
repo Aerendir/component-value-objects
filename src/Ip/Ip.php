@@ -25,15 +25,17 @@ class Ip extends BaseIp implements IpInterface
     use DisableWritingMethodsTrait;
 
     /**
-     * Validate IP Address
+     * Validate IP Address.
      *
      * This is only a static helper method, it is not used internally.
      *
      * Method taken from the version 2.0.2 of the Darsyn\Ip value object.
+     *
      * @See https://github.com/darsyn/ip/blob/2.0.2/src/IP.php#L30-L46
      *
-     * @param  string $ip
-     * @return boolean
+     * @param string $ip
+     *
+     * @return bool
      */
     public static function validate($ip)
     {

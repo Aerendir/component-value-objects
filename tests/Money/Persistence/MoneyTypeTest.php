@@ -13,11 +13,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Money\Persistence;
 
-use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
-use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
-use SerendipityHQ\Component\ValueObjects\Money\Persistence\EmailType;
 
 /**
  * @author Adamo Crespi <hello@aerendir.me>

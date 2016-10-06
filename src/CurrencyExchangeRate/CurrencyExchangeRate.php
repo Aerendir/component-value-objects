@@ -94,8 +94,9 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     public function __toString()
     {
         $string = '1 ' . $this->getFromCurrency() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getToCurrency();
-        if (false === is_null($this->getExchangeRateDate()))
+        if (false === is_null($this->getExchangeRateDate())) {
             $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
+        }
 
         return $string;
     }

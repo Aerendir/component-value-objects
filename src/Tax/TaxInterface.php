@@ -2,8 +2,8 @@
 
 /**
  *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
- *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
+ *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved
+ *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text
  */
 namespace SerendipityHQ\Component\ValueObjects\Tax;
 
@@ -18,7 +18,7 @@ interface TaxInterface extends ComplexValueObjectInterface
     /**
      * Method to retrieve the code of the Tax on the system.
      *
-     * @return string The unique code of the tax on the System.
+     * @return string The unique code of the tax on the System
      */
     public function getCode();
 
@@ -42,11 +42,11 @@ interface TaxInterface extends ComplexValueObjectInterface
      * @return Money
      */
     public function getTaxAmount();
-    
+
     /**
      * Method to retrieve the Remote title of the Tax stored in the object.
      *
-     * @return string The title of the tax on the Remote System.
+     * @return string The title of the tax on the Remote System
      */
     public function getTitle();
 }

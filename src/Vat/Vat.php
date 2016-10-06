@@ -2,7 +2,7 @@
 
 /**
  *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved.
+ *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved
  *    @license     MIT
  */
 namespace SerendipityHQ\Component\ValueObjects\Vat;
@@ -23,7 +23,7 @@ class Vat implements VatInterface
         'IT' => 22.0000
     ];
 
-    /** @var  string $country The country for which this object represents the VAT */
+    /** @var string $country The country for which this object represents the VAT */
     private $country;
 
     /**
@@ -31,8 +31,9 @@ class Vat implements VatInterface
      */
     public function __construct($countryCode)
     {
-        if (false === key_exists($countryCode, $this->countries))
+        if (false === array_key_exists($countryCode, $this->countries)) {
             throw new \InvalidArgumentException('The passed Country isn\'t supported by this value object');
+        }
 
         $this->country = $countryCode;
     }

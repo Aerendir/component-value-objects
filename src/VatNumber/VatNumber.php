@@ -2,7 +2,7 @@
 
 /**
  *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved.
+ *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved
  *    @license     MIT
  */
 namespace SerendipityHQ\Component\ValueObjects\VatNumber;
@@ -23,10 +23,10 @@ class VatNumber implements VatNumberInterface
     /** @var string $code The country code of the VAT number */
     private $countryCode;
 
-    /** @var  int $number The number part of the VAT number */
+    /** @var int $number The number part of the VAT number */
     private $number;
-    
-    /** @var  string $vatNumber The full VAT Number, with country ISO code */
+
+    /** @var string $vatNumber The full VAT Number, with country ISO code */
     private $vatNumber;
 
     /**
@@ -60,7 +60,7 @@ class VatNumber implements VatNumberInterface
     {
         return $this->__toString();
     }
-    
+
     /**
      * {@inheritdoc}
      */
