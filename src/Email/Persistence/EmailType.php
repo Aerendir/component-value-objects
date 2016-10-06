@@ -54,8 +54,9 @@ class EmailType extends Type
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        if ($value instanceof Email)
+        if ($value instanceof Email) {
             return $value->getEmail();
+        }
 
         // Validate the $value as a valid email
         $validator = new EmailValidator();
