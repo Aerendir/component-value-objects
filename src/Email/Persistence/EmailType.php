@@ -1,6 +1,6 @@
 <?php
 
-namespace SerendipityHQ\Component\ValueObjects\Money\Persistence;
+namespace SerendipityHQ\Component\ValueObjects\Email\Persistence;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
