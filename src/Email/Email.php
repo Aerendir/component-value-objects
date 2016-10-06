@@ -15,6 +15,7 @@
 namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\RFCValidation;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
@@ -42,7 +43,7 @@ class Email implements EmailInterface
     {
         $validator = new EmailValidator();
 
-        if (!$validator->isValid($value)) {
+        if (!$validator->isValid($value, new RFCValidation())) {
             throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an email.', $value));
         }
 
