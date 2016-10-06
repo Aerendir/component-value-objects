@@ -4,6 +4,8 @@ namespace SerendipityHQ\Component\ValueObjects\Email\Persistence;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\RFCValidation;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
 
 /**
@@ -36,7 +38,13 @@ class EmailType extends Type
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return new Email($value);
+        try {
+            // Try to create an object
+            return new Email($value);
+        } catch (\InvalidArgumentException $e) {
+            // If it is not possible to create the object, simply return the value as is
+            return $value;
+        }
     }
 
     /**
@@ -46,7 +54,17 @@ class EmailType extends Type
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value->getEmail();
+        if ($value instanceof Email)
+            return $value->getEmail();
+
+        // Validate the $value as a valid email
+        $validator = new EmailValidator();
+
+        if (!$validator->isValid($value, new RFCValidation())) {
+            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email address. The value "%s" is not a valid email.', $value));
+        }
+
+        return $value;
     }
 
     /**
