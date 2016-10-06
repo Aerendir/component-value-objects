@@ -2,16 +2,14 @@
 
 /**
  *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
- *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
+ *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved
+ *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
 
-use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Tax\Tax;
-use SerendipityHQ\Component\ValueObjects\Tax\TaxInterface;
 use SerendipityHQ\Component\ValueObjects\Vat\Vat;
 use SerendipityHQ\Component\ValueObjects\Vat\VatInterface;
 
@@ -26,7 +24,7 @@ class VatTest extends \PHPUnit_Framework_TestCase
     {
         $testData = [
             'countryCode' => 'IT',
-            'percentage'  => 22.0000
+            'percentage' => 22.0000
         ];
 
         $resource = new Vat($testData['countryCode']);
@@ -36,7 +34,7 @@ class VatTest extends \PHPUnit_Framework_TestCase
 
         // Test the type of value object interface
         $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
-        
+
         $this->assertEquals($testData['countryCode'], $resource->getCountryCode());
         $this->assertEquals($testData['percentage'], $resource->getPercentage());
         $this->assertTrue(is_string($resource->__toString()));

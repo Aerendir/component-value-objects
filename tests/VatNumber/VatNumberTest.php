@@ -2,13 +2,12 @@
 
 /**
  *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved.
- *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text.
+ *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved
+ *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\VatNumber;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumber;
 use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumberInterface;
 
@@ -34,7 +33,7 @@ class VatNumberTest extends \PHPUnit_Framework_TestCase
 
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        
+
         $this->assertEquals($testData['countryCode'], $resource->getCountryCode());
         $this->assertEquals($testData['number'], $resource->getNumber());
         $this->assertEquals($testData['vatNumber'], $resource->getVatNumber());

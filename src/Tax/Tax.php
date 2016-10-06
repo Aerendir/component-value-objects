@@ -2,7 +2,7 @@
 
 /**
  *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved.
+ *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved
  *    @license     MIT
  */
 namespace SerendipityHQ\Component\ValueObjects\Tax;
@@ -32,7 +32,7 @@ class Tax implements TaxInterface
 
     /** @var Money $taxAmount The paid amount of taxes */
     private $taxAmount;
-    
+
     /** @var string $title The title of the tax on the Remote system */
     private $title;
 
@@ -67,7 +67,7 @@ class Tax implements TaxInterface
     {
         return $this->taxAmount;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -136,7 +136,7 @@ class Tax implements TaxInterface
     {
         $this->taxAmount = $taxAmount;
     }
-    
+
     /**
      * Sets the title of the Tax on the remote system.
      *
