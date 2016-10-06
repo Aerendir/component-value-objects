@@ -24,6 +24,3 @@ after_script:
 addons:
   code_climate:
     repo_token: 8e0cd1566d8bcf657043858efb02e60ac953b34ee1ee4f5a19c5a9f4432c2d73
-
-after_success:
-    - php vendor/bin/coveralls -v

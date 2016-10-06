@@ -8,7 +8,6 @@
 [![StyleCI](https://styleci.io/repos/38658138/shield)](https://styleci.io/repos/38658138)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 [![Dependency Status](https://www.versioneye.com/user/projects/56ae29e27e03c700377e0087/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae29e27e03c700377e0087)
-[![Coverage Status](https://coveralls.io/repos/github/Aerendir/PHPValueObjects/badge.svg?branch=master)](https://coveralls.io/github/Aerendir/PHPValueObjects?branch=master)
 
 # PHP Value Objects
 A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage simple and composite values.
