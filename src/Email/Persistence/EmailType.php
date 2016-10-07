@@ -38,17 +38,11 @@ class EmailType extends Type
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        if (null === $value || '' === $value) {
+        if (null === $value) {
             return $value;
         }
 
-        try {
-            // Try to create an object
-            return new Email($value);
-        } catch (\InvalidArgumentException $e) {
-            // If it is not possible to create the object, simply return the value as is
-            return $value;
-        }
+        return new Email($value);
     }
 
     /**
@@ -58,15 +52,14 @@ class EmailType extends Type
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        if ($value instanceof Email) {
-            return $value->getEmail();
-        }
+        if (!$value instanceof Email)
+            throw new \InvalidArgumentException('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Email\Email to use the Doctrine type EmailType.');
 
         // Validate the $value as a valid email
         $validator = new EmailValidator();
 
         if (!$validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email address. The value "%s" is not a valid email.', $value));
+            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
         }
 
         return $value;
