@@ -38,7 +38,7 @@ class EmailType extends Type
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        if (null === $value) {
+        if (null === $value || '' === $value) {
             return $value;
         }
 
@@ -52,8 +52,13 @@ class EmailType extends Type
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        if (!$value instanceof Email)
+        if (null === $value || '' === $value) {
+            return $value;
+        }
+
+        if (!$value instanceof Email) {
             throw new \InvalidArgumentException('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Email\Email to use the Doctrine type EmailType.');
+        }
 
         // Validate the $value as a valid email
         $validator = new EmailValidator();
