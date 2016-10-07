@@ -73,6 +73,14 @@ class EmailType extends Type
     /**
      * {@inheritdoc}
      */
+    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    {
+        return !parent::requiresSQLCommentHint($platform);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return self::EMAIL;
