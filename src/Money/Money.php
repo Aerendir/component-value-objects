@@ -33,10 +33,20 @@ class Money implements MoneyInterface
     }
     use DisableWritingMethodsTrait;
 
+    /**
+     * This represents the amount as Money intends it: in its base units.
+     *
+     * 10 = 00.1 {CURRENCY}
+     * 100 = 1.00 {CURRENCY}
+     *
+     * @var int
+     */
     private $amount;
 
+    /** @var  Currency */
     private $currency;
 
+    /** @var BaseMoney  */
     private $valueObject;
 
     /**
@@ -129,7 +139,7 @@ class Money implements MoneyInterface
      *
      * @param int $amount
      */
-    private function setAmount($amount)
+    protected function setAmount($amount)
     {
         $this->amount = $amount;
     }
@@ -139,7 +149,7 @@ class Money implements MoneyInterface
      *
      * @param \SebastianBergmann\Money\Currency|string|\SerendipityHQ\Component\ValueObjects\Currency\Currency $currency
      */
-    private function setCurrency($currency)
+    protected function setCurrency($currency)
     {
         if (is_string($currency)) {
             $currency = new Currency($currency);
