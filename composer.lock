@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ba4ba32fa5f528fe5996067d78897b53",
-    "content-hash": "eb00127e644898458b59aed467fa1fda",
+    "hash": "7b31967bfed97a373681d9f70800fb67",
+    "content-hash": "3f4bd7432f37c01e6158916f03f6fd08",
     "packages": [
         {
             "name": "commerceguys/addressing",
@@ -1244,82 +1244,6 @@
             "time": "2015-06-14 21:17:01"
         },
         {
-            "name": "doctrine/orm",
-            "version": "v2.5.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "73e4be7c7b3ba26f96b781a40b33feba4dfa6d45"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/73e4be7c7b3ba26f96b781a40b33feba4dfa6d45",
-                "reference": "73e4be7c7b3ba26f96b781a40b33feba4dfa6d45",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/cache": "~1.4",
-                "doctrine/collections": "~1.2",
-                "doctrine/common": ">=2.5-dev,<2.7-dev",
-                "doctrine/dbal": ">=2.5-dev,<2.6-dev",
-                "doctrine/instantiator": "~1.0.1",
-                "ext-pdo": "*",
-                "php": ">=5.4",
-                "symfony/console": "~2.5|~3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0",
-                "symfony/yaml": "~2.3|~3.0"
-            },
-            "suggest": {
-                "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
-            },
-            "bin": [
-                "bin/doctrine",
-                "bin/doctrine.php"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\ORM\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                }
-            ],
-            "description": "Object-Relational-Mapper for PHP",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database",
-                "orm"
-            ],
-            "time": "2016-09-10 18:51:13"
-        },
-        {
             "name": "friendsofphp/php-cs-fixer",
             "version": "v1.12.2",
             "source": {
@@ -2075,16 +1999,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.5.7",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3f67cee782c9abfaee5e32fd2f57cdd54bc257ba"
+                "reference": "60c32c5b5e79c2248001efa2560f831da11cc2d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3f67cee782c9abfaee5e32fd2f57cdd54bc257ba",
-                "reference": "3f67cee782c9abfaee5e32fd2f57cdd54bc257ba",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/60c32c5b5e79c2248001efa2560f831da11cc2d7",
+                "reference": "60c32c5b5e79c2248001efa2560f831da11cc2d7",
                 "shasum": ""
             },
             "require": {
@@ -2118,7 +2042,6 @@
                 "ext-pdo": "*"
             },
             "suggest": {
-                "ext-tidy": "*",
                 "ext-xdebug": "*",
                 "phpunit/php-invoker": "~1.1"
             },
@@ -2128,7 +2051,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.5.x-dev"
+                    "dev-master": "5.6.x-dev"
                 }
             },
             "autoload": {
@@ -2154,20 +2077,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-10-03 13:04:15"
+            "time": "2016-10-07 13:03:26"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902"
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/03500345483e1e17b52e2e4d34a89c9408ab2902",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
                 "shasum": ""
             },
             "require": {
@@ -2213,20 +2136,20 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-10-04 11:03:26"
+            "time": "2016-10-09 07:01:45"
         },
         {
             "name": "psr/log",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
             "require": {
@@ -2260,7 +2183,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-09-19 16:02:08"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "satooshi/php-coveralls",
