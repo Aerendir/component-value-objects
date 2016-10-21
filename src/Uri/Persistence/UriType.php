@@ -58,7 +58,8 @@ class UriType extends Type
         }
 
         if (!$value instanceof UriInterface) {
-            throw new \InvalidArgumentException('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType.');
+            $type = is_object($value) ? get_class($value) : gettype($value);
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
         }
 
         return $value->__toString();
