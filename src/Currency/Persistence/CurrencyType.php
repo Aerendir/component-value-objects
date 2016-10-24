@@ -76,6 +76,6 @@ class CurrencyType extends Type
      */
     public function getName()
     {
-        return self::EMAIL;
+        return self::CURRENCY;
     }
 }
