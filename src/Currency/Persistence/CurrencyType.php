@@ -1,21 +1,19 @@
 <?php
 
-namespace SerendipityHQ\Component\ValueObjects\Email\Persistence;
+namespace SerendipityHQ\Component\ValueObjects\Currency\Persistence;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Egulias\EmailValidator\EmailValidator;
-use Egulias\EmailValidator\Validation\RFCValidation;
-use SerendipityHQ\Component\ValueObjects\Email\Email;
+use SerendipityHQ\Component\ValueObjects\Currency\Currency;
 
 /**
- * A custom datatype to persist an Email Value Object with Doctrine.
+ * A custom datatype to persist a Currency Value Object with Doctrine.
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class EmailType extends Type
+class CurrencyType extends Type
 {
-    const EMAIL = 'email';
+    const CURRENCY = 'currency';
 
     /**
      * {@inheritdoc}
@@ -42,7 +40,7 @@ class EmailType extends Type
             return $value;
         }
 
-        return new Email($value);
+        return new Currency($value);
     }
 
     /**
@@ -56,16 +54,9 @@ class EmailType extends Type
             return $value;
         }
 
-        if (!$value instanceof Email) {
+        if (!$value instanceof Currency) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Email\Email to use the Doctrine type EmailType. "%s" passed instead.', $type));
-        }
-
-        // Validate the $value as a valid email
-        $validator = new EmailValidator();
-
-        if (!$validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Currency\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
 
         // The value is automatically transformed into a string thans to the __toString() method

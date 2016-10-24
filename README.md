@@ -74,6 +74,7 @@ Currently, this library supports the following Value Objects:
 
 ## Supported Custom Mapping Types
 
+* `CurrencyType`
 * `EmailType`
 * `MoneyType`
 * `UriType`
