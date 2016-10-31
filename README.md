@@ -79,6 +79,32 @@ Currently, this library supports the following Value Objects:
 * `MoneyType`
 * `UriType`
 
+## Supported Value Objects
+
+* `Address`
+
+### To use them with Symfony
+
+    # Doctrine Configuration
+    doctrine:
+        dbal:
+            ...
+            types:
+                email: SerendipityHQ\Component\ValueObjects\Email\Persistence\EmailType
+                money: SerendipityHQ\Component\ValueObjects\Money\Persistence\MoneyType
+
+        orm:
+            auto_generate_proxy_classes: "%kernel.debug%"
+            auto_mapping: true
+            mappings:
+                mapping_name:
+                    mapping: true
+                    type: annotation
+                    dir: "%kernel.root_dir%/../vendor/serendipity_hq/php_value_objects/src"
+                    alias: Address
+                    prefix: SerendipityHQ\Component\ValueObjects
+                    is_bundle: false
+
 To use the custom mapping types, you have to manually register them.
 
 If you are using Symfony, read [Registering custom Mapping Types](https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types)

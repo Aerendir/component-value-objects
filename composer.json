@@ -24,6 +24,7 @@
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
         "doctrine/dbal": "~2.5",
+        "doctrine/orm": "~2.5",
         "friendsofphp/php-cs-fixer": "*",
         "phpunit/phpunit": "*",
         "symfony/var-dumper": "*"
