@@ -15,18 +15,20 @@ $values = [
     'Locality' => 'Nocera Inferiore',
     'dependentLocality' => '',
     'PostalCode' => '84014',
-    'SortingCode' => '',
-    'AddressLine1' => 'Piazza la bomba e scappa',
-    'AddressLine2' => 'Non ce l\'hai fatta',
-    'Organization' => 'Aerendir Company',
-    // Recipient's name and surname
-    'Recipient' => 'Adamo Crespi',
-    'locale' => 'it'
+    'Street' => 'Piazza la bomba e scappa',
+    'ExtraLine' => 'Non ce l\'hai fatta'
 ];
 
 $address = new Address($values);
 dump($address);
 
+/**
+ * As the Value Object doesn't extend Commerceguys/Address library anymore, these features are not longer avaialable.
+ *
+ * To get them, use commerceguys/addressing and commerceguys/intl.
+ */
+
+/*
 echo '<h1>Format the address: US</h1>';
 
 echo '<h2>Default options</h2>';
@@ -83,3 +85,4 @@ $states = $subdivisionRepository->getAll('IT', 0, 'fr');
 foreach ($states as $state) {
     echo $state->getName();
 }
+*/

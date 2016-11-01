@@ -17,8 +17,6 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Address;
 
-use \CommerceGuys\Addressing\Model\Address as BaseAddress;
-use \CommerceGuys\Addressing\Model\AddressInterface as BaseAddressInterface;
 use SerendipityHQ\Component\ValueObjects\Address\Address;
 use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -36,13 +34,8 @@ class AddressTest extends \PHPUnit_Framework_TestCase
             'Locality' => 'Taichung City',
             'dependentLocality' => 'Xitun District',
             'PostalCode' => '407',
-            'SortingCode' => '',
-            'AddressLine1' => 'Jingcheng Road, 27',
-            'AddressLine2' => 'Lane 50',
-            'Organization' => 'Aerendir Company',
-            // Recipient's name and surname
-            'Recipient' => 'Adamo Crespi',
-            'locale' => 'it'
+            'Street' => 'Jingcheng Road, 27',
+            'extraLine' => 'Lane 50',
         ];
 
         $resource = new Address($values);
@@ -53,13 +46,20 @@ class AddressTest extends \PHPUnit_Framework_TestCase
         // Test the type of value object interface
         $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        // Test inherits the base object interface
-        $this->assertInstanceOf(BaseAddressInterface::class, $resource);
+        $this::assertSame($values['countryCode'], $resource->getCountryCode());
+        $this::assertSame($values['AdministrativeArea'], $resource->getAdministrativeArea());
+        $this::assertSame($values['Locality'], $resource->getLocality());
+        $this::assertSame($values['dependentLocality'], $resource->getDependentLocality());
+        $this::assertSame($values['PostalCode'], $resource->getPostalCode());
+        $this::assertSame($values['Street'], $resource->getStreet());
+        $this::assertSame($values['extraLine'], $resource->getExtraLine());
+    }
 
-        // Test inherits the base object
-        $this->assertInstanceOf(BaseAddress::class, $resource);
+    public function testToStringThrowsAnException()
+    {
+        $resource = new Address([]);
 
-        $toString = $resource->__toString();
-        $this->assertTrue(is_string($toString));
+        $this::expectException(\RuntimeException::class);
+        $resource->__toString();
     }
 }

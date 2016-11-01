@@ -57,8 +57,7 @@ This library follows the http://semver.org/ versioning conventions.
 
 Currently, this library supports the following Value Objects:
 
-* **[Address](docs/Address.md)**: Just a proxy for the library
- [`commerceguys/addressing`](https://github.com/commerceguys/addressing);
+* **[Address](docs/Address.md)**: Built-in. A more advanced value object is [`commerceguys/addressing`](https://github.com/commerceguys/addressing) (but it more suited for shipping addresses than for addresses themself);
 * **[Currency](docs/Currency.md)**: Just a proxy for the class provided in library
  [`sebastian/money`](https://github.com/sebastianbergmann/money) (**DEPRECATED**: this library is deprecated. Use [`moneyphp/money`](https://github.com/moneyphp/money) instead - see [Issue #18](https://github.com/Aerendir/PHPValueObjects/issues/18));
 * **[CurrencyExchangeRate](docs/CurrencyExchangeRate.md)**: Built-in;
@@ -72,14 +71,14 @@ Currently, this library supports the following Value Objects:
 * **[Vat](docs/Vat.md)**: Built-in
 * **[VatNumber](docs/VatNumber.md)**: Built-in
 
-## Supported Custom Mapping Types
+## Supported Doctrine's Custom Mapping Types
 
 * `CurrencyType`
 * `EmailType`
 * `MoneyType`
 * `UriType`
 
-## Supported Value Objects
+## Supported Doctrine's Embeddables
 
 * `Address`
 
@@ -105,6 +104,6 @@ Currently, this library supports the following Value Objects:
                     prefix: SerendipityHQ\Component\ValueObjects
                     is_bundle: false
 
-To use the custom mapping types, you have to manually register them.
+To use the Doctrine's custom mapping types, you have to manually register them.
 
 If you are using Symfony, read [Registering custom Mapping Types](https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types)

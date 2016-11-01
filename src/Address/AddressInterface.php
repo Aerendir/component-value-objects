@@ -18,6 +18,40 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  *
  * {@inheritdoc}
  */
-interface AddressInterface extends ImmutableAddressInterface, ComplexValueObjectInterface
+interface AddressInterface extends ComplexValueObjectInterface
 {
+    /**
+     * @return string
+     */
+    public function getAdministrativeArea();
+
+    /**
+     * @return string
+     */
+    public function getCountryCode();
+
+    /**
+     * @return string
+     */
+    public function getDependentLocality();
+
+    /**
+     * @return string
+     */
+    public function getLocality();
+
+    /**
+     * @return string
+     */
+    public function getPostalCode();
+
+    /**
+     * @return string
+     */
+    public function getStreet();
+
+    /**
+     * @return string
+     */
+    public function getExtraLine();
 }

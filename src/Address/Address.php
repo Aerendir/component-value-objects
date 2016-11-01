@@ -17,11 +17,6 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
-use CommerceGuys\Addressing\Formatter\DefaultFormatter;
-use CommerceGuys\Addressing\Model\Address as BaseAddress;
-use CommerceGuys\Addressing\Repository\AddressFormatRepository;
-use CommerceGuys\Addressing\Repository\CountryRepository;
-use CommerceGuys\Addressing\Repository\SubdivisionRepository;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,7 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Embeddable
  */
-class Address extends BaseAddress implements AddressInterface
+class Address implements AddressInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;
@@ -39,34 +34,17 @@ class Address extends BaseAddress implements AddressInterface
     use DisableWritingMethodsTrait;
 
     /**
+     * The two-letter country code.
+     *
      * @var string
      *
-     * @ORM\Column(name="line1", type="string", nullable=true)
+     * @ORM\Column(name="country_code", type="string", nullable=true)
      */
-    protected $addressLine1;
+    protected $countryCode;
 
     /**
-     * @var string
+     * The top-level administrative subdivision of the country.
      *
-     * @ORM\Column(name="line2", type="string", nullable=true)
-     */
-    protected $addressLine2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postal_code", type="string", nullable=true)
-     */
-    protected $postalCode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="locality", type="string", nullable=true)
-     */
-    protected $locality;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="administrative_area", type="string", nullable=true)
@@ -74,11 +52,49 @@ class Address extends BaseAddress implements AddressInterface
     protected $administrativeArea;
 
     /**
+     * The locality (i.e. city).
+     *
      * @var string
      *
-     * @ORM\Column(name="country_code", type="string", nullable=true)
+     * @ORM\Column(name="locality", type="string", nullable=true)
      */
-    protected $countryCode;
+    protected $locality;
+
+    /**
+     * The dependent locality (i.e. neighbourhood).
+     *
+     * @var string
+     *
+     * @ORM\Column(name="dependent_locality", type="string", nullable=true)
+     */
+    protected $dependentLocality;
+
+    /**
+     * The postal code.
+     *
+     * @var string
+     *
+     * @ORM\Column(name="postal_code", type="string", nullable=true)
+     */
+    protected $postalCode;
+
+    /**
+     * The first line of the address block.
+     *
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", nullable=true)
+     */
+    protected $street;
+
+    /**
+     * The second line of the address block.
+     *
+     * @var string
+     *
+     * @ORM\Column(name="extra_line", type="string", nullable=true)
+     */
+    protected $extraLine;
 
     /**
      * {@inheritdoc}
@@ -92,25 +108,66 @@ class Address extends BaseAddress implements AddressInterface
     /**
      * {@inheritdoc}
      */
+    public function getAdministrativeArea()
+    {
+        return $this->administrativeArea;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCountryCode()
+    {
+        return $this->countryCode;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDependentLocality()
+    {
+        return $this->dependentLocality;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getExtraLine()
+    {
+        return $this->extraLine;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLocality()
+    {
+        return $this->locality;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toString(array $options = [])
     {
-        $defaultOptions = [
-            'locale' => null,
-            // From DefaultFormatter::getDefaultOptions()
-            'html' => true,
-            'html_tag' => 'p',
-            'html_attributes' => ['translate' => 'no']
-        ];
-
-        $options += $defaultOptions;
-        $addressFormatRepository = new AddressFormatRepository();
-        $countryRepository = new CountryRepository();
-        $subdivisionRepository = new SubdivisionRepository();
-        $formatter = new DefaultFormatter($addressFormatRepository, $countryRepository, $subdivisionRepository, $options['locale'], $options);
-
-        // Options passed to the constructor or setOption / setOptions allow turning
-        // off html rendering, customizing the wrapper element and its attributes.
-        return $formatter->format($this);
+        // @todo Add formatters for the address. @see https://github.com/commerceguys/addressing
+        throw new \RuntimeException('Method not implemented. See the @todo in the code.');
     }
 
     /**
@@ -119,22 +176,6 @@ class Address extends BaseAddress implements AddressInterface
     public function __toString()
     {
         return $this->toString();
-    }
-
-    /**
-     * @param string $addressLine1
-     */
-    protected function setAddressLine1($addressLine1)
-    {
-        $this->addressLine1 = $addressLine1;
-    }
-
-    /**
-     * @param string $addressLine2
-     */
-    protected function setAddressLine2($addressLine2)
-    {
-        $this->addressLine2 = $addressLine2;
     }
 
     /**
@@ -162,11 +203,19 @@ class Address extends BaseAddress implements AddressInterface
     }
 
     /**
-     * @param string $locale
+     * @param string $street
      */
-    protected function setLocale($locale)
+    protected function setStreet($street)
     {
-        $this->locale = $locale;
+        $this->street = $street;
+    }
+
+    /**
+     * @param string $extraLine
+     */
+    protected function setExtraLine($extraLine)
+    {
+        $this->extraLine = $extraLine;
     }
 
     /**
@@ -178,26 +227,10 @@ class Address extends BaseAddress implements AddressInterface
     }
 
     /**
-     * @param string $organization
-     */
-    protected function setOrganization($organization)
-    {
-        $this->organization = $organization;
-    }
-
-    /**
      * @param string $postalCode
      */
     protected function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
-    }
-
-    /**
-     * @param string $recipient
-     */
-    protected function setRecipient($recipient)
-    {
-        $this->recipient = $recipient;
     }
 }
