@@ -82,6 +82,10 @@ Currently, this library supports the following Value Objects:
 
 * `Address`
 
+## Supported Symfony Form Types
+
+* `Address`
+
 ### To use them with Symfony
 
     # Doctrine Configuration
@@ -107,3 +111,65 @@ Currently, this library supports the following Value Objects:
 To use the Doctrine's custom mapping types, you have to manually register them.
 
 If you are using Symfony, read [Registering custom Mapping Types](https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types)
+
+To use the form types, in `services.yml` add:
+
+    address_type:
+       class: SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\Type\AddressType
+       tags:
+          -  { name: form.type }
+
+Then in your form type:
+
+    class YourCustomType extends AbstractType
+    {
+        /**
+         * {@inheritdoc}
+         */
+        public function buildForm(FormBuilderInterface $builder, array $options)
+        {
+            $builder
+                ...
+                ->add('address', AddressType::class, ['data_class' => Address::class])
+                ...
+        }
+    }
+
+To translate the form types, copy the translation files from `Address/Resources/translations` in `AppBundle/Resources/translations` and in `Twig` render the form in this way:
+
+    <div class="form-group">
+        {{ form_errors(form.address.countryCode) }}
+        {{ form_label(form.address.countryCode, 'address.form.country_code.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.countryCode, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.address.administrativeArea) }}
+        {{ form_label(form.address.administrativeArea, 'company.form.address.administrative_area.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.administrativeArea, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.address.locality) }}
+        {{ form_label(form.address.locality, 'company.form.address.city.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.locality, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.address.dependentLocality) }}
+        {{ form_label(form.address.dependentLocality, 'company.form.address.dependent_locality.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.dependentLocality, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.address.postalCode) }}
+        {{ form_label(form.address.postalCode, 'company.form.address.postal_code.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.postalCode, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.address.street) }}
+        {{ form_label(form.address.street, 'company.form.address.street.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.street, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_errors(form.address.extraLine) }}
+        {{ form_label(form.address.extraLine, 'company.form.address.extra_line.label'|trans({}, 'address')) }}
+        {{ form_widget(form.address.extraLine, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+

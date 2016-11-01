@@ -31,7 +31,7 @@ class Ip extends BaseIp implements IpInterface
      *
      * Method taken from the version 2.0.2 of the Darsyn\Ip value object.
      *
-     * @See https://github.com/darsyn/ip/blob/2.0.2/src/IP.php#L30-L46
+     * @see https://github.com/darsyn/ip/blob/2.0.2/src/IP.php#L30-L46
      *
      * @param string $ip
      *
