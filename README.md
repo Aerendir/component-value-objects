@@ -130,10 +130,12 @@ Then in your form type:
         {
             $builder
                 ...
-                ->add('address', AddressType::class, ['data_class' => Address::class])
+                ->add('address', AddressType::class, ['data_class' => AddressEmbeddable::class])
                 ...
         }
     }
+
+Note the use of `AddressEmbeddable` insetead of simply `Address`: `AddressEmbeddable` has public methods set as `public` and also if this way the immutability is lost, this is the only way to use it with Symfony's Forms as they are not able to populate the entity if it hasn't public setters.
 
 To translate the form types, copy the translation files from `Address/Resources/translations` in `AppBundle/Resources/translations` and in `Twig` render the form in this way:
 
