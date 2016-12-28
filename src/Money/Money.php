@@ -73,7 +73,7 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
-    public function add(Money $other)
+    public function add(MoneyInterface $other)
     {
         $toAdd = new BaseMoney($other->getAmount(), $other->getCurrency());
 
@@ -109,7 +109,7 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
-    public function subtract(Money $other)
+    public function subtract(MoneyInterface $other)
     {
         $toSub = new BaseMoney($other->getAmount(), $other->getCurrency());
 
