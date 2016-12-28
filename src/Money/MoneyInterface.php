@@ -20,11 +20,11 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface MoneyInterface extends ComplexValueObjectInterface
 {
     /**
-     * @param Money $other
+     * @param MoneyInterface $other
      *
      * @return static
      */
-    public function add(Money $other);
+    public function add(MoneyInterface $other);
 
     /**
      * Returns the monetary value represented by this object.
@@ -49,9 +49,9 @@ interface MoneyInterface extends ComplexValueObjectInterface
     public function getCurrency();
 
     /**
-     * @param Money $other
+     * @param MoneyInterface $other
      *
      * @return static
      */
-    public function subtract(Money $other);
+    public function subtract(MoneyInterface $other);
 }
