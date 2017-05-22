@@ -21,9 +21,9 @@ class AddressType extends AbstractType
             ->add('countryCode', CountryType::class, ['label' => 'address.form.country_code.label', 'translation_domain' => 'address'])
             ->add('administrativeArea', TextType::class)
             ->add('locality', TextType::class)
-            ->add('dependentLocality', TextType::class)
+            ->add('dependentLocality', TextType::class, ['required' => false])
             ->add('postalCode', TextType::class)
             ->add('street', TextType::class)
-            ->add('extraLine', TextType::class);
+            ->add('extraLine', TextType::class, ['required' => false]);
     }
 }
