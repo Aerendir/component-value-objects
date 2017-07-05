@@ -2,3 +2,4 @@ phpunit.xml
 phpdoc.xml
 vendor
 build
+composer.lock
