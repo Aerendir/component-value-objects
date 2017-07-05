@@ -4,7 +4,7 @@ namespace SerendipityHQ\Component\ValueObjects\Currency\Persistence;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use SerendipityHQ\Component\ValueObjects\Currency\Currency;
+use Money\Currency;
 
 /**
  * A custom datatype to persist a Currency Value Object with Doctrine.
@@ -28,7 +28,7 @@ class CurrencyType extends Type
      */
     public function getDefaultLength(AbstractPlatform $platform)
     {
-        return $platform->getVarcharDefaultLength();
+        return 3;
     }
 
     /**
@@ -56,7 +56,7 @@ class CurrencyType extends Type
 
         if (!$value instanceof Currency) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Currency\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
 
         // The value is automatically transformed into a string thans to the __toString() method

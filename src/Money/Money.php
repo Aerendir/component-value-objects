@@ -13,10 +13,12 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
-use \SebastianBergmann\Money\Money as BaseMoney;
+use Money\Currencies\ISOCurrencies;
+use \Money\Money as BaseMoney;
+use Money\Parser\DecimalMoneyParser;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use SerendipityHQ\Component\ValueObjects\Currency\Currency;
+use Money\Currency;
 
 /**
  * The class doesn't extend the base money object has it has private properties and methods that make difficult the
@@ -57,6 +59,7 @@ class Money implements MoneyInterface
         // Set values in the object
         $this->traitConstruct($values);
 
+        /**
         if (is_string($this->amount)) {
             $this->valueObject = BaseMoney::fromString($this->amount, $this->currency);
         } elseif (is_float($this->amount)) {
@@ -68,6 +71,13 @@ class Money implements MoneyInterface
             throw new \InvalidArgumentException(sprintf('The amount has to be a string or a float (ex.: 35.5 Euros) or'
             . ' an int in the base form (355 = 35.5 Euros). %s given.', gettype($this->amount)));
         }
+         */
+
+        $currencies = new ISOCurrencies();
+
+        $moneyParser = new DecimalMoneyParser($currencies);
+
+        $this->valueObject = $moneyParser->parse($this->amount, $this->currency);
     }
 
     /**
@@ -131,7 +141,7 @@ class Money implements MoneyInterface
      */
     public function __toString()
     {
-        return (string) $this->amount . ' ' . $this->getCurrency()->getDisplayName();
+        return (string) $this->valueObject->getAmount() . ' ' . $this->valueObject->getCurrency()->getCode();
     }
 
     /**
@@ -141,18 +151,18 @@ class Money implements MoneyInterface
      */
     protected function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (string) $amount;
     }
 
     /**
      * Sets the currency.
      *
-     * @param \SebastianBergmann\Money\Currency|string|\SerendipityHQ\Component\ValueObjects\Currency\Currency $currency
+     * @param \Money\Currency|string $currency
      */
     protected function setCurrency($currency)
     {
-        if (is_string($currency)) {
-            $currency = new Currency($currency);
+        if ($currency instanceof Currency) {
+            $currency = $currency->getCode();
         }
 
         $this->currency = $currency;
