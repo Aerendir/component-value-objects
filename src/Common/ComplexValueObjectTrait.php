@@ -53,4 +53,13 @@ trait ComplexValueObjectTrait
     {
         return (true === empty($this->otherData)) ? null : $this->otherData;
     }
+
+    /**
+     * Returns the built value object or null if no one is present.
+     * @return mixed
+     */
+    public function getValueObject()
+    {
+        return $this->valueObject;
+    }
 }
