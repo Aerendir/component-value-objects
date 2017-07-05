@@ -103,29 +103,9 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
-    public function getConvertedAmount()
-    {
-        return $this->valueObject->getConvertedAmount();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getCurrency()
     {
         return $this->valueObject->getCurrency();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function subtract(MoneyInterface $other)
-    {
-        $toSub = new BaseMoney($other->getAmount(), $other->getCurrency());
-
-        $result = $this->valueObject->subtract($toSub);
-
-        return new static(['amount' => $result->getAmount(), 'currency' => $this->currency]);
     }
 
     /**

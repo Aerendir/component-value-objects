@@ -34,24 +34,10 @@ interface MoneyInterface extends ComplexValueObjectInterface
     public function getAmount();
 
     /**
-     * return the monetary value represented by this object converted to its base units.
-     *
-     * @return float
-     */
-    public function getConvertedAmount();
-
-    /**
      * Returns the currency of the monetary value represented by this
      * object.
      *
-     * @return \SebastianBergmann\Money\Currency
+     * @return \Money\Currency
      */
     public function getCurrency();
-
-    /**
-     * @param MoneyInterface $other
-     *
-     * @return static
-     */
-    public function subtract(MoneyInterface $other);
 }
