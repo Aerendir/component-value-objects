@@ -13,13 +13,15 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Email\Persistence;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class EmailTypeTest extends \PHPUnit_Framework_TestCase
+class EmailTypeTest extends TestCase
 {
     public function testEmailType()
     {
-        $this->markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');
+        $this::markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');
     }
 }

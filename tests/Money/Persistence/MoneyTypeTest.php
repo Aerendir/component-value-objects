@@ -13,15 +13,16 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Money\Persistence;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class MoneyTypeTest extends \PHPUnit_Framework_TestCase
+class MoneyTypeTest extends TestCase
 {
     public function testMoneyType()
     {
-        $this->markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');
+        $this::markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');
     }
 }

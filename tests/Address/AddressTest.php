@@ -17,6 +17,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Address;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Address\Address;
 use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -24,7 +25,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Tests the Address class.
  */
-class AddressTest extends \PHPUnit_Framework_TestCase
+class AddressTest extends TestCase
 {
     public function testAddress()
     {
@@ -41,10 +42,10 @@ class AddressTest extends \PHPUnit_Framework_TestCase
         $resource = new Address($values);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(AddressInterface::class, $resource);
+        $this::assertInstanceOf(AddressInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         $this::assertSame($values['countryCode'], $resource->getCountryCode());
         $this::assertSame($values['AdministrativeArea'], $resource->getAdministrativeArea());

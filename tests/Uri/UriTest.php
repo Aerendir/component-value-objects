@@ -14,12 +14,13 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Uri;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 use Zend\Uri\Exception\InvalidArgumentException;
 
-class UriTest extends \PHPUnit_Framework_TestCase
+class UriTest extends TestCase
 {
     public function testUri()
     {
@@ -28,17 +29,17 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $resource = new Uri($test);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(UriInterface::class, $resource);
+        $this::assertInstanceOf(UriInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this->assertTrue(is_string($resource->__toString()));
-        $this->assertTrue(is_string($resource->toString()));
-        $this->assertTrue(is_array($resource->getQueryAsArray()));
-        $this->assertTrue(is_bool($resource->isAbsolute()));
-        $this->assertTrue(is_bool($resource->isValid()));
-        $this->assertTrue(is_bool($resource->isValidRelative()));
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+        $this::assertTrue(is_array($resource->getQueryAsArray()));
+        $this::assertTrue(is_bool($resource->isAbsolute()));
+        $this::assertTrue(is_bool($resource->isValid()));
+        $this::assertTrue(is_bool($resource->isValidRelative()));
     }
 
     public function testUriCanMergeAnotherUri()
@@ -50,13 +51,13 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $resource = new Uri($toMerge);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(UriInterface::class, $resource);
+        $this::assertInstanceOf(UriInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this->assertTrue(is_string($resource->__toString()));
-        $this->assertTrue(is_string($resource->toString()));
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
     }
 
     public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject()
@@ -76,7 +77,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
 
         $resource->normalize();
 
-        $this->assertSame('/to/parent/folder', $resource->getPath());
+        $this::assertSame('/to/parent/folder', $resource->getPath());
     }
 
     /**
@@ -91,6 +92,6 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $resource = new Uri($url);
 
         $resource->makeRelative($base);
-        $this->assertSame($expected, $resource->toString());
+        $this::assertSame($expected, $resource->toString());
     }
 }

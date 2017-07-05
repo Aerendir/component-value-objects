@@ -7,6 +7,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Tax\Tax;
@@ -18,7 +19,7 @@ use SerendipityHQ\Component\ValueObjects\Vat\VatInterface;
  *
  * @since Alpha
  */
-class VatTest extends \PHPUnit_Framework_TestCase
+class VatTest extends TestCase
 {
     public function testTax()
     {
@@ -30,15 +31,15 @@ class VatTest extends \PHPUnit_Framework_TestCase
         $resource = new Vat($testData['countryCode']);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(VatInterface::class, $resource);
+        $this::assertInstanceOf(VatInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this->assertEquals($testData['countryCode'], $resource->getCountryCode());
-        $this->assertEquals($testData['percentage'], $resource->getPercentage());
-        $this->assertTrue(is_string($resource->__toString()));
-        $this->assertTrue(is_string($resource->toString()));
+        $this::assertEquals($testData['countryCode'], $resource->getCountryCode());
+        $this::assertEquals($testData['percentage'], $resource->getPercentage());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
     }
 
     public function testSetRateAcceptsOnlyFloats()

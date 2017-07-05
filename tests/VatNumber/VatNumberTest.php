@@ -7,6 +7,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\VatNumber;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumber;
 use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumberInterface;
@@ -16,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumberInterface;
  *
  * @since 2.3
  */
-class VatNumberTest extends \PHPUnit_Framework_TestCase
+class VatNumberTest extends TestCase
 {
     public function testVatNumber()
     {
@@ -29,16 +30,16 @@ class VatNumberTest extends \PHPUnit_Framework_TestCase
         $resource = new VatNumber($testData);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(VatNumberInterface::class, $resource);
+        $this::assertInstanceOf(VatNumberInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this->assertEquals($testData['countryCode'], $resource->getCountryCode());
-        $this->assertEquals($testData['number'], $resource->getNumber());
-        $this->assertEquals($testData['vatNumber'], $resource->getVatNumber());
-        $this->assertTrue(is_string($resource->__toString()));
-        $this->assertTrue(is_string($resource->toString()));
+        $this::assertEquals($testData['countryCode'], $resource->getCountryCode());
+        $this::assertEquals($testData['number'], $resource->getNumber());
+        $this::assertEquals($testData['vatNumber'], $resource->getVatNumber());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
     }
 
     public function testSetNumberAcceptsOnlyStrings()

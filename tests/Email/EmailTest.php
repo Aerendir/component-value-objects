@@ -13,6 +13,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Email;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
 use SerendipityHQ\Component\ValueObjects\Email\EmailInterface;
@@ -20,7 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Email\EmailInterface;
 /**
  * Tests the Email class.
  */
-class EmailTest extends \PHPUnit_Framework_TestCase
+class EmailTest extends TestCase
 {
     public function testEmail()
     {
@@ -29,15 +30,15 @@ class EmailTest extends \PHPUnit_Framework_TestCase
         $resource = new Email($test);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(EmailInterface::class, $resource);
+        $this::assertInstanceOf(EmailInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this->assertEquals($test, $resource->getEmail());
-        $this->assertEquals('user', $resource->getMailBox());
-        $this->assertEquals('example.com', $resource->getHost());
-        $this->assertTrue(is_string($resource->toString()));
+        $this::assertEquals($test, $resource->getEmail());
+        $this::assertEquals('user', $resource->getMailBox());
+        $this::assertEquals('example.com', $resource->getHost());
+        $this::assertTrue(is_string($resource->toString()));
     }
 
     public function testInvalidEmailThrowsAnException()
@@ -56,7 +57,7 @@ class EmailTest extends \PHPUnit_Framework_TestCase
 
         $result = $resource->changeMailBox('user2');
 
-        $this->assertSame('user2@example.com', $result->getEmail());
-        $this->assertNotSame($resource, $result);
+        $this::assertSame('user2@example.com', $result->getEmail());
+        $this::assertNotSame($resource, $result);
     }
 }

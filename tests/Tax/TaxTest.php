@@ -7,6 +7,7 @@
  */
 namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
 
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Tax\Tax;
@@ -17,7 +18,7 @@ use SerendipityHQ\Component\ValueObjects\Tax\TaxInterface;
  *
  * @since Alpha
  */
-class TaxTest extends \PHPUnit_Framework_TestCase
+class TaxTest extends TestCase
 {
     public function testTax()
     {
@@ -32,18 +33,18 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         $resource = new Tax($testData);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(TaxInterface::class, $resource);
+        $this::assertInstanceOf(TaxInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this->assertEquals($testData['code'], $resource->getCode());
-        $this->assertEquals($testData['compound'], $resource->getCompound());
-        $this->assertEquals($testData['rate'], $resource->getRate());
-        $this->assertEquals($testData['taxAmount'], $resource->getTaxAmount());
-        $this->assertEquals($testData['title'], $resource->getTitle());
-        $this->assertTrue(is_string($resource->__toString()));
-        $this->assertTrue(is_string($resource->toString()));
+        $this::assertEquals($testData['code'], $resource->getCode());
+        $this::assertEquals($testData['compound'], $resource->getCompound());
+        $this::assertEquals($testData['rate'], $resource->getRate());
+        $this::assertEquals($testData['taxAmount'], $resource->getTaxAmount());
+        $this::assertEquals($testData['title'], $resource->getTitle());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
     }
 
     public function testSetRateAcceptsOnlyFloats()

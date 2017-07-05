@@ -14,6 +14,7 @@
 namespace SerendipityHQ\Component\ValueObjects\tests\Phone;
 
 use libphonenumber\PhoneNumber as BasePhone;
+use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Phone\Phone;
 use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
@@ -21,7 +22,7 @@ use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
 /**
  * Tests the Phone class.
  */
-class PhoneTest extends \PHPUnit_Framework_TestCase
+class PhoneTest extends TestCase
 {
     public function testPhone()
     {
@@ -33,15 +34,15 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
         $resource = new Phone($test);
 
         // Test the value object direct interface
-        $this->assertInstanceOf(PhoneInterface::class, $resource);
+        $this::assertInstanceOf(PhoneInterface::class, $resource);
 
         // Test the type of value object interface
-        $this->assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         // Test inherits the base object
-        $this->assertInstanceOf(BasePhone::class, $resource);
+        $this::assertInstanceOf(BasePhone::class, $resource);
 
-        $this->assertTrue(is_string($resource->__toString()));
-        $this->assertTrue(is_string($resource->toString()));
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
     }
 }
