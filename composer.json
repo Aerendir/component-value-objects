@@ -16,7 +16,7 @@
         "darsyn/ip": "*",
         "egulias/email-validator": "~2",
         "giggsey/libphonenumber-for-php": "~7.0",
-        "mathiasverraes/money": "*",
+        "moneyphp/money": "~3.0",
         "zendframework/zend-uri": "*@stable"
     },
     "require-dev": {
