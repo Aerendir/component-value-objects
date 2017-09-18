@@ -1,16 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  A Currency value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This is a simple wrapper for giggsey/libphonenumber-for-php
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @link https://github.com/sebastianbergmann/money
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -89,19 +88,6 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        $string = '1 ' . $this->getFromCurrency() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getToCurrency();
-        if (false === is_null($this->getExchangeRateDate())) {
-            $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
-        }
-
-        return $string;
-    }
-
-    /**
      * Set the conversion rate of the currency.
      *
      * @param float $exchangeRate
@@ -143,5 +129,18 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     protected function setToCurrency(CurrencyInterface $toCurrency)
     {
         $this->toCurrency = $toCurrency;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        $string = '1 ' . $this->getFromCurrency() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getToCurrency();
+        if (false === is_null($this->getExchangeRateDate())) {
+            $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
+        }
+
+        return $string;
     }
 }

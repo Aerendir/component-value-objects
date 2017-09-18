@@ -1,17 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An Email value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This is inspired by the wowo Email Value Object
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @link https://gist.github.com/wowo/b49ac45b975d5c489214
- * @link https://github.com/egulias/EmailValidator
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use Egulias\EmailValidator\EmailValidator;
@@ -43,13 +41,13 @@ class Email implements EmailInterface
     {
         $validator = new EmailValidator();
 
-        if (!$validator->isValid($value, new RFCValidation())) {
+        if ( ! $validator->isValid($value, new RFCValidation())) {
             throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an email.', $value));
         }
 
         $this->email = $value;
 
-        list($this->mailBox, $this->host) = explode('@', $this->email);
+        [$this->mailBox, $this->host] = explode('@', $this->email);
     }
 
     /**
@@ -81,9 +79,9 @@ class Email implements EmailInterface
      */
     public function changeMailBox($newMailbox)
     {
-        $copy = clone $this;
+        $copy          = clone $this;
         $copy->mailBox = $newMailbox;
-        $copy->email = $copy->mailBox . '@' . $copy->host;
+        $copy->email   = $copy->mailBox . '@' . $copy->host;
 
         return $copy;
     }

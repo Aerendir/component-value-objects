@@ -1,13 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An Uri value object.
+/*
+ * This file is part of PHP Value Objects.
  *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
@@ -88,7 +90,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *  If the two URIs do not intersect (e.g. the original URI is not in any
      *  way related to the base URI) the URI will not be modified.
      *
-     * @param Uri|string $baseUri
+     * @param string|Uri $baseUri
      *
      * @return Uri
      *
@@ -259,7 +261,7 @@ interface UriInterface extends SimpleValueObjectInterface
      * query string. Array values will be represented in the query string using
      * PHP's common square bracket notation.
      *
-     * @param string|array $query
+     * @param array|string $query
      *
      * @return Uri
      *

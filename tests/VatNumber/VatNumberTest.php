@@ -1,10 +1,15 @@
 <?php
 
-/**
- *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved
- *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\VatNumber;
 
 use PHPUnit\Framework\TestCase;
@@ -23,8 +28,8 @@ class VatNumberTest extends TestCase
     {
         $testData = [
             'countryCode' => 'IT',
-            'number' => '01234567891',
-            'vatNumber' => 'IT01234567891'
+            'number'      => '01234567891',
+            'vatNumber'   => 'IT01234567891',
         ];
 
         $resource = new VatNumber($testData);
@@ -46,8 +51,8 @@ class VatNumberTest extends TestCase
     {
         $testData = [
             'countryCode' => 'IT',
-            'number' => 12345678900,
-            'vatNumber' => 'IT01234567891'
+            'number'      => 12345678900,
+            'vatNumber'   => 'IT01234567891',
         ];
 
         $this->expectException(\InvalidArgumentException::class);
@@ -58,8 +63,8 @@ class VatNumberTest extends TestCase
     {
         $testData = [
             'countryCode' => 'IT',
-            'number' => 'IT01234567891',
-            'vatNumber' => 12345678900
+            'number'      => 'IT01234567891',
+            'vatNumber'   => 12345678900,
         ];
 
         $this->expectException(\InvalidArgumentException::class);

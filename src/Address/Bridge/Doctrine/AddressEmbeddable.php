@@ -1,24 +1,19 @@
-<?PHP
+<?php
 
-/**
- *  An Address value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This Value Object use commerceguys/addressing library
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @link https://github.com/commerceguys/addressing
- *
- * Other useful libraries:
- * - https://github.com/black-project/Address
- * - https://github.com/adamlc/address-format
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Address\Bridge\Doctrine;
 
-use SerendipityHQ\Component\ValueObjects\Address\Address;
 use Doctrine\ORM\Mapping as ORM;
+use SerendipityHQ\Component\ValueObjects\Address\Address;
 
 /**
  * {@inheritdoc}

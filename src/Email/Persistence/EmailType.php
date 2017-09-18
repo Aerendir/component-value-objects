@@ -1,9 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
+ */
+
 namespace SerendipityHQ\Component\ValueObjects\Email\Persistence;
 
-use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\Type;
 use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
@@ -56,7 +66,7 @@ class EmailType extends Type
             return $value;
         }
 
-        if (!$value instanceof Email) {
+        if ( ! $value instanceof Email) {
             $type = is_object($value) ? get_class($value) : gettype($value);
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Email\Email to use the Doctrine type EmailType. "%s" passed instead.', $type));
         }
@@ -64,7 +74,7 @@ class EmailType extends Type
         // Validate the $value as a valid email
         $validator = new EmailValidator();
 
-        if (!$validator->isValid($value, new RFCValidation())) {
+        if ( ! $validator->isValid($value, new RFCValidation())) {
             throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
         }
 
@@ -77,7 +87,7 @@ class EmailType extends Type
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
-        return !parent::requiresSQLCommentHint($platform);
+        return ! parent::requiresSQLCommentHint($platform);
     }
 
     /**

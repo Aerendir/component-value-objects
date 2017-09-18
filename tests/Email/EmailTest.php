@@ -1,16 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An Email value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This is inspired by the wowo Email Value Object
- * (https://gist.github.com/wowo/b49ac45b975d5c489214)
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\Email;
 
 use PHPUnit\Framework\TestCase;

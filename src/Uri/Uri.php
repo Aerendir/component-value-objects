@@ -1,17 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An Uri value object.
- *  This is just a wrapper for Zend Uri.
+/*
+ * This file is part of PHP Value Objects.
  *
- * @link https://github.com/zendframework/zend-uri
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @todo This has to be a Guzzle Uri or https://github.com/mvdbos/vdb-uri
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
@@ -49,7 +47,7 @@ class Uri implements UriInterface
             $this->setPath($uri->getPath());
             $this->setQuery($uri->getQuery());
             $this->setFragment($uri->getFragment());
-        } elseif ($uri !== null) {
+        } elseif (null !== $uri) {
             throw new InvalidArgumentException(sprintf(
                 'Expecting a string or a URI object, received "%s"',
                 (is_object($uri) ? get_class($uri) : gettype($uri))

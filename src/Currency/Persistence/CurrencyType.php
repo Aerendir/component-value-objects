@@ -1,9 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
+ */
+
 namespace SerendipityHQ\Component\ValueObjects\Currency\Persistence;
 
-use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\Type;
 use Money\Currency;
 
 /**
@@ -54,7 +64,7 @@ class CurrencyType extends Type
             return $value;
         }
 
-        if (!$value instanceof Currency) {
+        if ( ! $value instanceof Currency) {
             $type = is_object($value) ? get_class($value) : gettype($value);
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
@@ -68,7 +78,7 @@ class CurrencyType extends Type
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
-        return !parent::requiresSQLCommentHint($platform);
+        return ! parent::requiresSQLCommentHint($platform);
     }
 
     /**

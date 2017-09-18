@@ -1,20 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An Address value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This Value Object use commerceguys/addressing library
- * (https://github.com/commerceguys/addressing).
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * Other useful libraries:
- * - https://github.com/black-project/Address
- * - https://github.com/adamlc/address-format
- *
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\Address;
 
 use PHPUnit\Framework\TestCase;
@@ -30,13 +25,13 @@ class AddressTest extends TestCase
     public function testAddress()
     {
         $values = [
-            'countryCode' => 'CN',
+            'countryCode'        => 'CN',
             'AdministrativeArea' => 'Taiwan',
-            'Locality' => 'Taichung City',
-            'dependentLocality' => 'Xitun District',
-            'PostalCode' => '407',
-            'Street' => 'Jingcheng Road, 27',
-            'extraLine' => 'Lane 50',
+            'Locality'           => 'Taichung City',
+            'dependentLocality'  => 'Xitun District',
+            'PostalCode'         => '407',
+            'Street'             => 'Jingcheng Road, 27',
+            'extraLine'          => 'Lane 50',
         ];
 
         $resource = new Address($values);

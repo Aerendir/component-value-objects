@@ -1,17 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An Uri value object.
- *  This is just a wrapper for Zend Uri.
+/*
+ * This file is part of PHP Value Objects.
  *
- * @link https://github.com/zendframework/zend-uri
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @todo This has to be a Guzzle Uri or https://github.com/mvdbos/vdb-uri
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\Uri;
 
 use PHPUnit\Framework\TestCase;
@@ -81,12 +79,12 @@ class UriTest extends TestCase
     }
 
     /**
-     * @link https://github.com/zendframework/zend-uri/blob/master/test/UriTest.php#L725-L735
+     * @see https://github.com/zendframework/zend-uri/blob/master/test/UriTest.php#L725-L735
      */
     public function testMakeRelative()
     {
-        $base = 'http://example.com/dir/subdir/';
-        $url = 'http://example.com/dir/subdir/more/file1.txt';
+        $base     = 'http://example.com/dir/subdir/';
+        $url      = 'http://example.com/dir/subdir/more/file1.txt';
         $expected = 'more/file1.txt';
 
         $resource = new Uri($url);

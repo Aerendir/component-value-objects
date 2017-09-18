@@ -1,10 +1,15 @@
 <?php
 
-/**
- *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved
- *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\Payment;
 
 use PHPUnit\Framework\TestCase;
@@ -21,7 +26,7 @@ class PaymentTest extends TestCase
     {
         // Of AddressModel
         $testData = [
-            'name' => 'PayPal',
+            'name'   => 'PayPal',
             'status' => 'A random status',
         ];
 

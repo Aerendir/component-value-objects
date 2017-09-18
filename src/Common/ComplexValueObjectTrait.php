@@ -1,13 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  A common interface for all value objects.
+/*
+ * This file is part of PHP Value Objects.
  *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Common;
 
 /**
@@ -27,7 +29,7 @@ trait ComplexValueObjectTrait
     {
         foreach ($values as $property => $value) {
             $setter = 'set' . ucfirst($property);
-            $adder = 'add' . ucfirst($property);
+            $adder  = 'add' . ucfirst($property);
 
             if (true === method_exists($this, $setter)) {
                 $this->$setter($value);
@@ -56,6 +58,7 @@ trait ComplexValueObjectTrait
 
     /**
      * Returns the built value object or null if no one is present.
+     *
      * @return mixed
      */
     public function getValueObject()

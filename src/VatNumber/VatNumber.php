@@ -1,10 +1,15 @@
 <?php
 
-/**
- *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved
- *    @license     MIT
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\VatNumber;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -62,14 +67,6 @@ class VatNumber implements VatNumberInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->countryCode . ' ' . $this->number;
-    }
-
-    /**
      * Sets the country code of the VatNumber.
      *
      * @param string $countryCode
@@ -107,5 +104,13 @@ class VatNumber implements VatNumberInterface
             );
         }
         $this->vatNumber = $vatNumber;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->countryCode . ' ' . $this->number;
     }
 }

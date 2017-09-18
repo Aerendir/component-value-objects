@@ -1,16 +1,17 @@
-<?PHP
+<?php
 
-/**
- *  An Address value object.
+/*
+ * This file is part of PHP Value Objects.
  *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
-use CommerceGuys\Addressing\Model\ImmutableAddressInterface;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 /**

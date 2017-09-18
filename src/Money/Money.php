@@ -1,25 +1,24 @@
-<?PHP
+<?php
 
-/**
- *  A Money value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This is a simple wrapper for giggsey/libphonenumber-for-php
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @link https://github.com/sebastianbergmann/money
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use Money\Currencies\ISOCurrencies;
+use Money\Currency;
 use Money\Formatter\DecimalMoneyFormatter;
-use \Money\Money as BaseMoney;
+use Money\Money as BaseMoney;
 use Money\Parser\DecimalMoneyParser;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use Money\Currency;
 
 /**
  * The class doesn't extend the base money object has it has private properties and methods that make difficult the
@@ -46,10 +45,10 @@ class Money implements MoneyInterface
      */
     private $amount;
 
-    /** @var  Currency */
+    /** @var Currency */
     private $currency;
 
-    /** @var BaseMoney  */
+    /** @var BaseMoney */
     private $valueObject;
 
     /**
@@ -61,19 +60,18 @@ class Money implements MoneyInterface
         $this->traitConstruct($values);
 
         /**
-        if (is_string($this->amount)) {
-        $this->valueObject = BaseMoney::fromString($this->amount, $this->currency);
-        } elseif (is_float($this->amount)) {
-        $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
-        } elseif (is_int($this->amount)) {
-        // Maybe is int: leave to BaseMoney other checks
-        $this->valueObject = new BaseMoney($this->amount, $this->currency);
-        } else {
-        throw new \InvalidArgumentException(sprintf('The amount has to be a string or a float (ex.: 35.5 Euros) or'
-        . ' an int in the base form (355 = 35.5 Euros). %s given.', gettype($this->amount)));
-        }
+         * if (is_string($this->amount)) {
+         * $this->valueObject = BaseMoney::fromString($this->amount, $this->currency);
+         * } elseif (is_float($this->amount)) {
+         * $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
+         * } elseif (is_int($this->amount)) {
+         * // Maybe is int: leave to BaseMoney other checks
+         * $this->valueObject = new BaseMoney($this->amount, $this->currency);
+         * } else {
+         * throw new \InvalidArgumentException(sprintf('The amount has to be a string or a float (ex.: 35.5 Euros) or'
+         * . ' an int in the base form (355 = 35.5 Euros). %s given.', gettype($this->amount)));
+         * }.
          */
-
         $currencies = new ISOCurrencies();
 
         $moneyParser = new DecimalMoneyParser($currencies);
@@ -118,16 +116,6 @@ class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        $currencies = new ISOCurrencies();
-        $formatter = new DecimalMoneyFormatter($currencies);
-        return $formatter->format($this->valueObject);
-    }
-
-    /**
      * Sets the amount.
      *
      * @param int $amount
@@ -149,5 +137,16 @@ class Money implements MoneyInterface
         }
 
         $this->currency = $currency;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        $currencies = new ISOCurrencies();
+        $formatter  = new DecimalMoneyFormatter($currencies);
+
+        return $formatter->format($this->valueObject);
     }
 }

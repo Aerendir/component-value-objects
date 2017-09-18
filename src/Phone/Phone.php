@@ -1,16 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  A Phone value object.
+/*
+ * This file is part of PHP Value Objects.
  *
- * This is a simple wrapper for giggsey/libphonenumber-for-php
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- * @link https://github.com/giggsey/libphonenumber-for-php
- *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
 use libphonenumber\PhoneNumber;
@@ -41,7 +40,7 @@ class Phone extends PhoneNumber implements PhoneInterface
         $keepRawInput = isset($values['keepRawInput']) ? $values['keepRawInput'] : false;
 
         if (is_string($this->number)) {
-            $phoneUtil = PhoneNumberUtil::getInstance();
+            $phoneUtil    = PhoneNumberUtil::getInstance();
             $this->number = $phoneUtil->parse($this->number, $this->region, null, $keepRawInput);
         }
 
@@ -51,7 +50,15 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
-     * @param string|Phone $number
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        return $this->__toString();
+    }
+
+    /**
+     * @param Phone|string $number
      */
     private function setNumber($number)
     {
@@ -64,14 +71,6 @@ class Phone extends PhoneNumber implements PhoneInterface
     private function setRegion($region)
     {
         $this->region = $region;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function toString(array $options = [])
-    {
-        return $this->__toString();
     }
 
     /**

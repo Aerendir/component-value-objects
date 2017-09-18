@@ -1,10 +1,15 @@
 <?php
 
-/**
- *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2016 SerendipityHQ. All rights reserved
- *    @license     MIT
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Tax;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -85,14 +90,6 @@ class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->code . ' ' . $this->taxAmount;
-    }
-
-    /**
      * Sets the code of the Tax on the remote system.
      *
      * @param string $code Is a string that identifies the Tax on the Remote System
@@ -145,5 +142,13 @@ class Tax implements TaxInterface
     protected function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->code . ' ' . $this->taxAmount;
     }
 }

@@ -1,13 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  A common interface for all value objects.
+/*
+ * This file is part of PHP Value Objects.
  *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
  *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\Common;
 
 /**
@@ -17,7 +19,7 @@ namespace SerendipityHQ\Component\ValueObjects\Common;
  *
  * The values can be of any type supported by PHP.
  *
- * @link http://php.net/manual/en/types.comparisons.php
+ * @see http://php.net/manual/en/types.comparisons.php
  */
 interface ComplexValueObjectInterface extends ValueObjectInterface
 {

@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
+ */
+
 namespace SerendipityHQ\Component\ValueObjects\Uri\Persistence;
 
-use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use SerendipityHQ\Component\ValueObjects\Currency\Currency;
+use Doctrine\DBAL\Types\Type;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
@@ -57,7 +66,7 @@ class UriType extends Type
             return $value;
         }
 
-        if (!$value instanceof UriInterface) {
+        if ( ! $value instanceof UriInterface) {
             $type = is_object($value) ? get_class($value) : gettype($value);
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
         }
@@ -70,7 +79,7 @@ class UriType extends Type
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
-        return !parent::requiresSQLCommentHint($platform);
+        return ! parent::requiresSQLCommentHint($platform);
     }
 
     /**

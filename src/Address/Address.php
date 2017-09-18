@@ -1,27 +1,32 @@
-<?PHP
+<?php
+
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
+ */
+
+namespace SerendipityHQ\Component\ValueObjects\Address;
+
+use Doctrine\ORM\Mapping as ORM;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
+use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
- *  An Address value object.
+ * An Address value object.
  *
  * This Value Object use commerceguys/addressing library
  *
- * @link https://github.com/commerceguys/addressing
+ * @see https://github.com/commerceguys/addressing
  *
  * Other useful libraries:
  * - https://github.com/black-project/Address
  * - https://github.com/adamlc/address-format
  *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
- */
-namespace SerendipityHQ\Component\ValueObjects\Address;
-
-use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
-use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use Doctrine\ORM\Mapping as ORM;
-
-/**
  * {@inheritdoc}
  *
  * @ORM\Embeddable
@@ -171,14 +176,6 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->toString();
-    }
-
-    /**
      * @param string $administrativeArea
      */
     protected function setAdministrativeArea($administrativeArea)
@@ -232,5 +229,13 @@ class Address implements AddressInterface
     protected function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->toString();
     }
 }

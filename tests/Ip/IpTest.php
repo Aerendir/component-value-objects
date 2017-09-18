@@ -1,13 +1,15 @@
-<?PHP
+<?php
 
-/**
- *  An IP value object.
- *  This is just a wrapper for Darsyn\IP\IP.
+/*
+ * This file is part of PHP Value Objects.
  *
- *  @author      Adamo Crespi <hello@aerendir.me>
- *  @copyright   Copyright (c) 2015, Adamo Crespi
- *  @license     MIT License
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\Ip;
 
 use Darsyn\IP\IP as BaseIp;

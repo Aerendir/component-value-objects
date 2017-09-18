@@ -1,10 +1,15 @@
 <?php
 
-/**
- *    @author      Aerendir <hello@aerendir.me>
- *    @copyright   Copyright (C) 2014 SerendipityHQ. All rights reserved
- *    @license     SECRETED. No distribution, no copy, no derivative or any other activity or action that could disclose this text
+/*
+ * This file is part of PHP Value Objects.
+ *
+ * Copyright Adamo Aerendir Crespi 2015-2017.
+ *
+ * @author    Adamo Aerendir Crespi <hello@aerendir.me>
+ * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @license   MIT
  */
+
 namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
 
 use PHPUnit\Framework\TestCase;
@@ -23,11 +28,11 @@ class TaxTest extends TestCase
     public function testTax()
     {
         $testData = [
-            'code' => 'IVA IT',
-            'compound' => false,
-            'rate' => 22.0,
+            'code'      => 'IVA IT',
+            'compound'  => false,
+            'rate'      => 22.0,
             'taxAmount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'title' => 'IVA IT',
+            'title'     => 'IVA IT',
         ];
 
         $resource = new Tax($testData);
@@ -50,11 +55,11 @@ class TaxTest extends TestCase
     public function testSetRateAcceptsOnlyFloats()
     {
         $testData = [
-            'code' => 'IVA IT',
-            'compound' => false,
-            'rate' => 22,
+            'code'      => 'IVA IT',
+            'compound'  => false,
+            'rate'      => 22,
             'taxAmount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'title' => 'IVA IT',
+            'title'     => 'IVA IT',
         ];
 
         $this->expectException(\InvalidArgumentException::class);
