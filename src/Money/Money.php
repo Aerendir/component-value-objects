@@ -45,6 +45,16 @@ class Money implements MoneyInterface
      */
     private $amount;
 
+    /**
+     * This represents the amount as a Human intends it: in its converted form.
+     *
+     * 00.1 {CURRENCY} = 10 units
+     * 1.00 {CURRENCY} = 100 units
+     *
+     * @var
+     */
+    private $convertedAmount;
+
     /** @var Currency */
     private $currency;
 
@@ -59,24 +69,24 @@ class Money implements MoneyInterface
         // Set values in the object
         $this->traitConstruct($values);
 
-        /**
-         * if (is_string($this->amount)) {
-         * $this->valueObject = BaseMoney::fromString($this->amount, $this->currency);
-         * } elseif (is_float($this->amount)) {
-         * $this->valueObject = BaseMoney::fromString((string) $this->amount, $this->currency);
-         * } elseif (is_int($this->amount)) {
-         * // Maybe is int: leave to BaseMoney other checks
-         * $this->valueObject = new BaseMoney($this->amount, $this->currency);
-         * } else {
-         * throw new \InvalidArgumentException(sprintf('The amount has to be a string or a float (ex.: 35.5 Euros) or'
-         * . ' an int in the base form (355 = 35.5 Euros). %s given.', gettype($this->amount)));
-         * }.
-         */
-        $currencies = new ISOCurrencies();
+        // Only one between convertedAmount and amount can be set
+        if (null !== $this->amount && null !== $this->convertedAmount) {
+            throw new \InvalidArgumentException('You can pass only one between "amount" and "convertedAmount". Both passed.');
+        }
 
-        $moneyParser = new DecimalMoneyParser($currencies);
+        // If the converted amount were given...
+        if (null !== $this->convertedAmount) {
+            // Process it
+            $currencies = new ISOCurrencies();
 
-        $this->valueObject = $moneyParser->parse($this->amount, $this->currency);
+            $moneyParser = new DecimalMoneyParser($currencies);
+
+            $this->valueObject = $moneyParser->parse($this->amount, $this->currency);
+        }
+
+        if (null !== $this->amount) {
+            $this->valueObject = new \Money\Money($this->amount, new Currency($this->currency));
+        }
     }
 
     /**
@@ -123,6 +133,14 @@ class Money implements MoneyInterface
     protected function setAmount($amount)
     {
         $this->amount = (string) $amount;
+    }
+
+    /**
+     * @param $amount
+     */
+    protected function setConvertedAmount($amount)
+    {
+        $this->convertedAmount = $amount;
     }
 
     /**
