@@ -58,12 +58,11 @@ This library follows the http://semver.org/ versioning conventions.
 Currently, this library supports the following Value Objects:
 
 * **[Address](docs/Address.md)**: Built-in. A more advanced value object is [`commerceguys/addressing`](https://github.com/commerceguys/addressing) (but it more suited for shipping addresses than for addresses themself);
-* **[Currency](docs/Currency.md)**: Just a proxy for the class provided in library
- [`sebastian/money`](https://github.com/sebastianbergmann/money) (**DEPRECATED**: this library is deprecated. Use [`moneyphp/money`](https://github.com/moneyphp/money) instead - see [Issue #18](https://github.com/Aerendir/PHPValueObjects/issues/18));
+* **[Currency](docs/Currency.md)**: Supported only as a Doctrine Type as the `\Money\Currency` class is `final` and so not extendable;
 * **[CurrencyExchangeRate](docs/CurrencyExchangeRate.md)**: Built-in;
 * **[Email](docs/Email.md)**: A basic class derived from [Wowo's gist EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements [`egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
 * **[IP](docs/Ip.md)**: Just a proxy for the library [`darsyn/ip`](https://github.com/darsyn/ip);
-* **[Money](docs/Money.md)**: Just a proxy for the library [`sebastian/money`](https://github.com/sebastianbergmann/money) (**DEPRECATED**: this library is deprecated. Use [`moneyphp/money`](https://github.com/moneyphp/money) instead - see [Issue #18](https://github.com/Aerendir/PHPValueObjects/issues/18));
+* **[Money](docs/Money.md)**: Just a proxy for the library [`moneyphp/money`](https://github.com/moneyphp/money);
 * **[Payment](docs/Payment.md)**: Built-in
 * **[Phone](docs/Phone.md)**: Just a proxy for the library [`giggsey/libphonenumber-for-php`](https://github.com/giggsey/libphonenumber-for-php);
 * **[Tax](docs/Tax.md)**: Built-in
