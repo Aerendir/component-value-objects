@@ -5,7 +5,6 @@
 [![Code Climate](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/gpa.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![Test Coverage](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/coverage.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![Issue Count](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/issue_count.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
-[![StyleCI](https://styleci.io/repos/38658138/shield)](https://styleci.io/repos/38658138)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 [![Dependency Status](https://www.versioneye.com/user/projects/56ae29e27e03c700377e0087/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56ae29e27e03c700377e0087)
 
