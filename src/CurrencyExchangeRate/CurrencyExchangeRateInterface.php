@@ -13,7 +13,7 @@
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
+use Money\Currency;
 
 /**
  * Defines the minimum requisites of a Currency object.
@@ -42,14 +42,14 @@ interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
     /**
      * Get the base Currency the amount is in.
      *
-     * @return CurrencyInterface
+     * @return Currency
      */
-    public function getFromCurrency();
+    public function getFrom();
 
     /**
      * Get the Currency in which convert the amount.
      *
-     * @return CurrencyInterface
+     * @return Currency
      */
-    public function getToCurrency();
+    public function getTo();
 }

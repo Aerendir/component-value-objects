@@ -14,7 +14,7 @@ namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use SerendipityHQ\Component\ValueObjects\Currency\CurrencyInterface;
+use Money\Currency;
 
 /**
  * {@inheritdoc}
@@ -28,8 +28,8 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     private $exchangeRate;
     private $exchangeRateDate;
-    private $fromCurrency;
-    private $toCurrency;
+    private $from;
+    private $to;
 
     /**
      * Constructor.
@@ -66,17 +66,17 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getFromCurrency()
+    public function getFrom()
     {
-        return $this->fromCurrency;
+        return $this->from;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getToCurrency()
+    public function getTo()
     {
-        return $this->toCurrency;
+        return $this->to;
     }
 
     /**
@@ -114,21 +114,21 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * The Currency in which the base amount is.
      *
-     * @param CurrencyInterface $fromCurrency
+     * @param Currency $from
      */
-    protected function setFromCurrency(CurrencyInterface $fromCurrency)
+    protected function setFrom(Currency $from)
     {
-        $this->fromCurrency = $fromCurrency;
+        $this->from = $from;
     }
 
     /**
      * The Currency in which the base amount has to be converted.
      *
-     * @param CurrencyInterface $toCurrency
+     * @param Currency $to
      */
-    protected function setToCurrency(CurrencyInterface $toCurrency)
+    protected function setTo(Currency $to)
     {
-        $this->toCurrency = $toCurrency;
+        $this->to = $to;
     }
 
     /**
@@ -136,7 +136,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     public function __toString()
     {
-        $string = '1 ' . $this->getFromCurrency() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getToCurrency();
+        $string = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
         if (false === is_null($this->getExchangeRateDate())) {
             $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
         }
