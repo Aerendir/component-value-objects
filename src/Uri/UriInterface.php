@@ -184,7 +184,7 @@ interface UriInterface extends SimpleValueObjectInterface
      * You can check if a scheme is valid before setting it using the
      * validateScheme() method.
      *
-     * @param string $scheme
+     * @param string|null $scheme
      *
      * @throws \Zend\Uri\Exception\InvalidUriPartException
      *
@@ -192,12 +192,12 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setScheme(string $scheme): UriInterface;
+    public function setScheme(?string $scheme): UriInterface;
 
     /**
      * Set the URI User-info part (usually user:password).
      *
-     * @param string $userInfo
+     * @param string|null $userInfo
      *
      * @throws \Zend\Uri\Exception\InvalidUriPartException If the schema definition
      *                                                     does not have this part
@@ -206,7 +206,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setUserInfo(string $userInfo): UriInterface;
+    public function setUserInfo(?string $userInfo): UriInterface;
 
     /**
      * Set the URI host.
@@ -222,7 +222,7 @@ interface UriInterface extends SimpleValueObjectInterface
      * example the HTTP RFC clearly states that only IPv4 and valid DNS names
      * are allowed in HTTP URIs.
      *
-     * @param string $host
+     * @param string|null $host
      *
      * @throws \Zend\Uri\Exception\InvalidUriPartException
      *
@@ -230,29 +230,29 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setHost(string $host): UriInterface;
+    public function setHost(?string $host): UriInterface;
 
     /**
      * Set the port part of the URI.
      *
-     * @param int $port
+     * @param int|null $port
      *
      * @return UriInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setPort(int $port): UriInterface;
+    public function setPort(?int $port): UriInterface;
 
     /**
      * Set the path.
      *
-     * @param string $path
+     * @param string|null $path
      *
      * @return UriInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setPath(string $path): UriInterface;
+    public function setPath(?string $path): UriInterface;
 
     /**
      * Set the query string.
@@ -261,7 +261,7 @@ interface UriInterface extends SimpleValueObjectInterface
      * query string. Array values will be represented in the query string using
      * PHP's common square bracket notation.
      *
-     * @param array|string $query
+     * @param array|string|null $query
      *
      * @return UriInterface
      *
@@ -272,7 +272,7 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Set the URI fragment part.
      *
-     * @param string $fragment
+     * @param string|null $fragment
      *
      * @throws \Zend\Uri\Exception\InvalidUriPartException If the schema definition
      *                                                     does not have this part
@@ -281,5 +281,5 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setFragment(string $fragment): UriInterface;
+    public function setFragment(?string $fragment): UriInterface;
 }

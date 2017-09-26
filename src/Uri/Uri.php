@@ -176,7 +176,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function setFragment(string $fragment): UriInterface
+    public function setFragment(?string $fragment): UriInterface
     {
         $this->valueObject->setFragment($fragment);
 
@@ -186,7 +186,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function setHost(string $host): UriInterface
+    public function setHost(?string $host): UriInterface
     {
         $this->valueObject->setHost($host);
 
@@ -196,7 +196,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function setPath(string $path): UriInterface
+    public function setPath(?string $path): UriInterface
     {
         $this->valueObject->setPath($path);
 
@@ -206,7 +206,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function setPort(int $port): UriInterface
+    public function setPort(?int $port): UriInterface
     {
         $this->valueObject->setPort($port);
 
@@ -226,7 +226,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function setScheme(string $scheme): UriInterface
+    public function setScheme(?string $scheme): UriInterface
     {
         $this->valueObject->setScheme($scheme);
 
@@ -236,7 +236,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function setUserInfo(string $userInfo): UriInterface
+    public function setUserInfo(?string $userInfo): UriInterface
     {
         $this->valueObject->setUserInfo($userInfo);
 
