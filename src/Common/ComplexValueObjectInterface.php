@@ -35,5 +35,5 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
      *
      * @return array|null
      */
-    public function getOtherData();
+    public function getOtherData(): ?array;
 }

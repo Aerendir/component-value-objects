@@ -37,7 +37,7 @@ class VatNumber implements VatNumberInterface
     /**
      * {@inheritdoc}
      */
-    public function getCountryCode()
+    public function getCountryCode(): string
     {
         return $this->countryCode;
     }
@@ -45,7 +45,7 @@ class VatNumber implements VatNumberInterface
     /**
      * {@inheritdoc}
      */
-    public function getNumber()
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -53,7 +53,7 @@ class VatNumber implements VatNumberInterface
     /**
      * {@inheritdoc}
      */
-    public function getVatNumber()
+    public function getVatNumber(): string
     {
         return $this->vatNumber;
     }
@@ -61,7 +61,7 @@ class VatNumber implements VatNumberInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }
@@ -71,7 +71,7 @@ class VatNumber implements VatNumberInterface
      *
      * @param string $countryCode
      */
-    protected function setCountryCode($countryCode)
+    protected function setCountryCode(string $countryCode): void
     {
         $this->countryCode = $countryCode;
     }
@@ -81,7 +81,7 @@ class VatNumber implements VatNumberInterface
      *
      * @param string $number
      */
-    protected function setNumber($number)
+    protected function setNumber(string $number): void
     {
         if (false === is_string($number)) {
             throw new \InvalidArgumentException(
@@ -96,7 +96,7 @@ class VatNumber implements VatNumberInterface
      *
      * @param string $vatNumber The full VAT number, with country ISO code
      */
-    protected function setVatNumber($vatNumber)
+    protected function setVatNumber(string $vatNumber): void
     {
         if (false === is_string($vatNumber)) {
             throw new \InvalidArgumentException(

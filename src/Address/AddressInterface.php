@@ -24,35 +24,35 @@ interface AddressInterface extends ComplexValueObjectInterface
     /**
      * @return string
      */
-    public function getAdministrativeArea();
+    public function getAdministrativeArea(): ?string;
 
     /**
      * @return string
      */
-    public function getCountryCode();
+    public function getCountryCode(): ?string;
 
     /**
      * @return string
      */
-    public function getDependentLocality();
+    public function getDependentLocality(): ?string;
 
     /**
      * @return string
      */
-    public function getLocality();
+    public function getLocality(): ?string;
 
     /**
      * @return string
      */
-    public function getPostalCode();
+    public function getPostalCode(): ?string;
 
     /**
      * @return string
      */
-    public function getStreet();
+    public function getStreet(): ?string;
 
     /**
      * @return string
      */
-    public function getExtraLine();
+    public function getExtraLine(): ?string;
 }

@@ -46,7 +46,7 @@ class VatRate implements VatRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getCountryCode()
+    public function getCountryCode(): string
     {
         return $this->country;
     }
@@ -54,7 +54,7 @@ class VatRate implements VatRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getPercentage()
+    public function getPercentage(): float
     {
         return $this->countries[$this->country];
     }
@@ -62,7 +62,7 @@ class VatRate implements VatRateInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }

@@ -44,25 +44,11 @@ class TaxTest extends TestCase
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         $this::assertEquals($testData['code'], $resource->getCode());
-        $this::assertEquals($testData['compound'], $resource->getCompound());
+        $this::assertFalse($resource->isCompound());
         $this::assertEquals($testData['rate'], $resource->getRate());
         $this::assertEquals($testData['amount'], $resource->getAmount());
         $this::assertEquals($testData['title'], $resource->getTitle());
         $this::assertTrue(is_string($resource->__toString()));
         $this::assertTrue(is_string($resource->toString()));
-    }
-
-    public function testSetRateAcceptsOnlyFloats()
-    {
-        $testData = [
-            'code'      => 'IVA IT',
-            'compound'  => false,
-            'rate'      => 22,
-            'taxAmount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'title'     => 'IVA IT',
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new Tax($testData);
     }
 }

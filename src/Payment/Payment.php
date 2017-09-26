@@ -34,17 +34,17 @@ class Payment implements PaymentInterface
     private $status;
 
     /**
-     * @return string The payment name
+     * {@inheritdoc}
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
 
     /**
-     * @return string The payment status
+     * {@inheritdoc}
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
@@ -52,7 +52,7 @@ class Payment implements PaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }
@@ -60,7 +60,7 @@ class Payment implements PaymentInterface
     /**
      * @param string $name The payment name
      */
-    protected function setMethod($name)
+    protected function setMethod(string $name): void
     {
         $this->method = $name;
     }
@@ -68,7 +68,7 @@ class Payment implements PaymentInterface
     /**
      * @param string $status The actual status of the payment
      */
-    protected function setStatus($status)
+    protected function setStatus(string $status): void
     {
         $this->status = $status;
     }

@@ -30,7 +30,7 @@ interface PaymentInterface extends ComplexValueObjectInterface
      *
      * @since Alpha
      */
-    public function getMethod();
+    public function getMethod(): string;
 
     /**
      * Returns the payment status.
@@ -39,5 +39,5 @@ interface PaymentInterface extends ComplexValueObjectInterface
      *
      * @since Alpha
      */
-    public function getStatus();
+    public function getStatus(): ?string;
 }

@@ -58,7 +58,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getFragment()
+    public function getFragment(): ?string
     {
         return $this->valueObject->getFragment();
     }
@@ -66,7 +66,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getHost()
+    public function getHost(): ?string
     {
         return $this->valueObject->getHost();
     }
@@ -74,7 +74,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getPath()
+    public function getPath(): ?string
     {
         return $this->valueObject->getPath();
     }
@@ -82,7 +82,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getPort()
+    public function getPort(): ?int
     {
         return $this->valueObject->getPort();
     }
@@ -90,7 +90,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getQuery()
+    public function getQuery(): ?string
     {
         return $this->valueObject->getQuery();
     }
@@ -98,7 +98,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getQueryAsArray()
+    public function getQueryAsArray(): array
     {
         return $this->valueObject->getQueryAsArray();
     }
@@ -106,7 +106,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getScheme()
+    public function getScheme(): ?string
     {
         return $this->valueObject->getScheme();
     }
@@ -114,7 +114,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function getUserInfo()
+    public function getUserInfo(): ?string
     {
         return $this->valueObject->getUserInfo();
     }
@@ -122,7 +122,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function isAbsolute()
+    public function isAbsolute(): bool
     {
         return $this->valueObject->isAbsolute();
     }
@@ -130,7 +130,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return $this->valueObject->isValid();
     }
@@ -138,7 +138,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function isValidRelative()
+    public function isValidRelative(): bool
     {
         return $this->valueObject->isValidRelative();
     }
@@ -146,7 +146,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function makeRelative($baseUri)
+    public function makeRelative($baseUri): UriInterface
     {
         $this->valueObject->makeRelative($baseUri);
 
@@ -156,7 +156,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function normalize()
+    public function normalize(): UriInterface
     {
         $this->valueObject->normalize();
 
@@ -166,71 +166,87 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      */
-    public function parse($uri)
+    public function parse(string $uri): UriInterface
     {
         $this->valueObject->parse($uri);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setFragment($fragment)
+    public function setFragment(string $fragment): UriInterface
     {
-        return $this->valueObject->setFragment($fragment);
+        $this->valueObject->setFragment($fragment);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setHost($host)
+    public function setHost(string $host): UriInterface
     {
-        return $this->valueObject->setHost($host);
+        $this->valueObject->setHost($host);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setPath($path)
+    public function setPath(string $path): UriInterface
     {
-        return $this->valueObject->setPath($path);
+        $this->valueObject->setPath($path);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setPort($port)
+    public function setPort(int $port): UriInterface
     {
-        return $this->valueObject->setPort($port);
+        $this->valueObject->setPort($port);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setQuery($query)
+    public function setQuery($query): UriInterface
     {
-        return $this->valueObject->setQuery($query);
+        $this->valueObject->setQuery($query);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setScheme($scheme)
+    public function setScheme(string $scheme): UriInterface
     {
-        return $this->valueObject->setScheme($scheme);
+        $this->valueObject->setScheme($scheme);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setUserInfo($userInfo)
+    public function setUserInfo(string $userInfo): UriInterface
     {
-        return $this->valueObject->setUserInfo($userInfo);
+        $this->valueObject->setUserInfo($userInfo);
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }

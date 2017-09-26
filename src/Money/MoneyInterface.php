@@ -12,6 +12,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
+use Money\Currency;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 /**
@@ -39,21 +40,21 @@ interface MoneyInterface extends ComplexValueObjectInterface
      * Returns the currency of the monetary value represented by this
      * object.
      *
-     * @return \Money\Currency
+     * @return Currency
      */
-    public function getCurrency();
+    public function getCurrency(): Currency;
 
     /**
      * @param MoneyInterface $other
      *
-     * @return static
+     * @return MoneyInterface
      */
-    public function add(MoneyInterface $other);
+    public function add(MoneyInterface $other): MoneyInterface;
 
     /**
      * @param MoneyInterface $other
      *
-     * @return static
+     * @return MoneyInterface
      */
-    public function subtract(MoneyInterface $other);
+    public function subtract(MoneyInterface $other): MoneyInterface;
 }

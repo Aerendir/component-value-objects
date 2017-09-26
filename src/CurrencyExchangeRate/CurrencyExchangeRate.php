@@ -50,7 +50,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getExchangeRate()
+    public function getExchangeRate(): float
     {
         return $this->exchangeRate;
     }
@@ -58,7 +58,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getExchangeRateDate()
+    public function getExchangeRateDate(): \DateTime
     {
         return $this->exchangeRateDate;
     }
@@ -66,7 +66,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getFrom()
+    public function getFrom(): Currency
     {
         return $this->from;
     }
@@ -74,7 +74,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getTo()
+    public function getTo(): Currency
     {
         return $this->to;
     }
@@ -82,7 +82,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return self::__toString();
     }
@@ -92,7 +92,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      *
      * @param float $exchangeRate
      */
-    protected function setExchangeRate($exchangeRate)
+    protected function setExchangeRate(float $exchangeRate): void
     {
         if (false === is_float($exchangeRate)) {
             throw new \InvalidArgumentException(sprintf('ExchangeRate has to be a float. %s given.', gettype($exchangeRate)));
@@ -106,7 +106,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      *
      * @param \DateTime $exchangeRateDate
      */
-    protected function setExchangeRateDate(\DateTime $exchangeRateDate)
+    protected function setExchangeRateDate(\DateTime $exchangeRateDate): void
     {
         $this->exchangeRateDate = $exchangeRateDate;
     }
@@ -116,7 +116,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      *
      * @param Currency $from
      */
-    protected function setFrom(Currency $from)
+    protected function setFrom(Currency $from): void
     {
         $this->from = $from;
     }
@@ -126,7 +126,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      *
      * @param Currency $to
      */
-    protected function setTo(Currency $to)
+    protected function setTo(Currency $to): void
     {
         $this->to = $to;
     }

@@ -15,6 +15,7 @@ namespace SerendipityHQ\Component\ValueObjects\Tax;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
 /**
  * Default implementation of a Tax Value object.
@@ -44,7 +45,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -52,15 +53,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getCompound()
-    {
-        return $this->compound;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRate()
+    public function getRate(): float
     {
         return $this->rate;
     }
@@ -68,7 +61,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getAmount()
+    public function getAmount(): MoneyInterface
     {
         return $this->amount;
     }
@@ -76,7 +69,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -84,7 +77,15 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function isCompound(): bool
+    {
+        return $this->compound;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }
@@ -94,7 +95,7 @@ class Tax implements TaxInterface
      *
      * @param string $code Is a string that identifies the Tax on the Remote System
      */
-    protected function setCode($code)
+    protected function setCode(string $code): void
     {
         $this->code = $code;
     }
@@ -102,11 +103,11 @@ class Tax implements TaxInterface
     /**
      * Method to set the compound amount of taxes.
      *
-     * @param Money $compound
+     * @param bool $compound
      */
-    protected function setCompound($compound)
+    protected function setCompound(bool $compound): void
     {
-        $this->compound = (bool) $compound;
+        $this->compound = $compound;
     }
 
     /**
@@ -114,22 +115,17 @@ class Tax implements TaxInterface
      *
      * @param float $rate The rate of the tax
      */
-    protected function setRate($rate)
+    protected function setRate(float $rate): void
     {
-        if (false === is_float($rate)) {
-            throw new \InvalidArgumentException(
-                sprintf('The Rate MUST be a float. "%s" passed.', gettype($rate))
-            );
-        }
         $this->rate = $rate;
     }
 
     /**
      * Method to set the paid amount of taxes.
      *
-     * @param Money $amount
+     * @param MoneyInterface $amount
      */
-    protected function setAmount(Money $amount)
+    protected function setAmount(MoneyInterface $amount): void
     {
         $this->amount = $amount;
     }
@@ -139,7 +135,7 @@ class Tax implements TaxInterface
      *
      * @param string $title The title of the Tax on the Remote system
      */
-    protected function setTitle($title)
+    protected function setTitle(string $title): void
     {
         $this->title = $title;
     }

@@ -46,28 +46,4 @@ class VatNumberTest extends TestCase
         $this::assertTrue(is_string($resource->__toString()));
         $this::assertTrue(is_string($resource->toString()));
     }
-
-    public function testSetNumberAcceptsOnlyStrings()
-    {
-        $testData = [
-            'countryCode' => 'IT',
-            'number'      => 12345678900,
-            'vatNumber'   => 'IT01234567891',
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new VatNumber($testData);
-    }
-
-    public function testSetVatNumberAcceptsOnlyStrings()
-    {
-        $testData = [
-            'countryCode' => 'IT',
-            'number'      => 'IT01234567891',
-            'vatNumber'   => 12345678900,
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new VatNumber($testData);
-    }
 }

@@ -26,7 +26,7 @@ interface ValueObjectInterface
      *
      * @return string
      */
-    public function toString(array $options = []);
+    public function toString(array $options = []): string;
 
     /**
      * The string representation of the object.
@@ -45,8 +45,8 @@ interface ValueObjectInterface
      *         // Body MUST BE EMPTY
      *     }
      *
-     * @param mixed $field
-     * @param mixed $value
+     * @param string $field
+     * @param mixed  $value
      */
-    public function __set($field, $value);
+    public function __set(string $field, $value): void;
 }

@@ -162,7 +162,7 @@ class Money implements MoneyInterface
      *
      * @param int $baseAmount
      */
-    protected function setBaseAmount(int $baseAmount)
+    protected function setBaseAmount(int $baseAmount): void
     {
         $this->baseAmount = (string) $baseAmount;
     }
@@ -170,7 +170,7 @@ class Money implements MoneyInterface
     /**
      * @param float|int|string $amount
      */
-    protected function setHumanAmount($amount)
+    protected function setHumanAmount($amount): void
     {
         $this->humanAmount = $amount;
     }
@@ -180,7 +180,7 @@ class Money implements MoneyInterface
      *
      * @param \Money\Currency|string $currency
      */
-    protected function setCurrency($currency)
+    protected function setCurrency($currency): void
     {
         if ($currency instanceof Currency) {
             $currency = $currency->getCode();

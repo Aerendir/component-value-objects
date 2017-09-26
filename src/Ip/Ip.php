@@ -47,7 +47,7 @@ class Ip extends BaseIp implements IpInterface
      *
      * @return bool
      */
-    public static function validate($ip)
+    public static function validate(string $ip): bool
     {
         // Check that the IP address supplied is either 16 bytes long (binary notation) or validates as IPv4 or IPv6
         // notation via PHP's in-built validator.
@@ -57,7 +57,7 @@ class Ip extends BaseIp implements IpInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }

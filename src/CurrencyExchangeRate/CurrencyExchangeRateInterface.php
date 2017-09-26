@@ -30,26 +30,26 @@ interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
      *
      * @return float
      */
-    public function getExchangeRate();
+    public function getExchangeRate(): float;
 
     /**
      * The date on which the exchange rate were given.
      *
      * @return \DateTime
      */
-    public function getExchangeRateDate();
+    public function getExchangeRateDate(): \DateTime;
 
     /**
      * Get the base Currency the amount is in.
      *
      * @return Currency
      */
-    public function getFrom();
+    public function getFrom(): Currency;
 
     /**
      * Get the Currency in which convert the amount.
      *
      * @return Currency
      */
-    public function getTo();
+    public function getTo(): Currency;
 }

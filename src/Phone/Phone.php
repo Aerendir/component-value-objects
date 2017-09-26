@@ -52,7 +52,7 @@ class Phone extends PhoneNumber implements PhoneInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }
@@ -60,7 +60,7 @@ class Phone extends PhoneNumber implements PhoneInterface
     /**
      * @param Phone|string $number
      */
-    private function setNumber($number)
+    protected function setNumber($number): void
     {
         $this->number = $number;
     }
@@ -68,7 +68,7 @@ class Phone extends PhoneNumber implements PhoneInterface
     /**
      * @param string $region
      */
-    private function setRegion($region)
+    protected function setRegion(string $region): void
     {
         $this->region = $region;
     }

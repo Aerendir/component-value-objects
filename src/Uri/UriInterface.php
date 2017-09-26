@@ -17,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 /**
  * Defines the minimum requisites of an Uri Value Object.
  *
- * The methods are copied and pasted from Zend\Uri\UriInterface as there is a conflict on the toString() method
+ * The methods are copied and pasted from\Zend\Uri\UriInterface as there is a conflict on the toString() method
  * signature.
  *
  * {@inheritdoc}
@@ -31,38 +31,38 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return bool
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function isValid();
+    public function isValid(): bool;
 
     /**
      * Check if the URI is a valid relative URI.
      *
      * @return bool
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function isValidRelative();
+    public function isValidRelative(): bool;
 
     /**
      * Check if the URI is an absolute or relative URI.
      *
      * @return bool
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function isAbsolute();
+    public function isAbsolute(): bool;
 
     /**
      * Parse a URI string.
      *
      * @param string $uri
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function parse($uri);
+    public function parse(string $uri): UriInterface;
 
     /**
      * Normalize the URI.
@@ -75,11 +75,11 @@ interface UriInterface extends SimpleValueObjectInterface
      * Eventually, two normalized URLs pointing to the same resource should be
      * equal even if they were originally represented by two different strings
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function normalize();
+    public function normalize(): UriInterface;
 
     /**
      * Convert the link to a relative link by substracting a base URI.
@@ -92,65 +92,65 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|Uri $baseUri
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function makeRelative($baseUri);
+    public function makeRelative($baseUri): UriInterface;
 
     /**
      * Get the scheme part of the URI.
      *
      * @return string|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getScheme();
+    public function getScheme(): ?string;
 
     /**
      * Get the User-info (usually user:password) part.
      *
      * @return string|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getUserInfo();
+    public function getUserInfo(): ?string;
 
     /**
      * Get the URI host.
      *
      * @return string|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getHost();
+    public function getHost(): ?string;
 
     /**
      * Get the URI port.
      *
      * @return int|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getPort();
+    public function getPort(): ?int;
 
     /**
      * Get the URI path.
      *
      * @return string|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getPath();
+    public function getPath(): ?string;
 
     /**
      * Get the URI query.
      *
      * @return string|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getQuery();
+    public function getQuery(): ?string;
 
     /**
      * Return the query string as an associative array of key => value pairs.
@@ -160,25 +160,25 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return array
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getQueryAsArray();
+    public function getQueryAsArray(): array;
 
     /**
      * Get the URI fragment.
      *
      * @return string|null
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function getFragment();
+    public function getFragment(): ?string;
 
     /**
      * Set the URI scheme.
      *
      * If the scheme is not valid according to the generic scheme syntax or
      * is not acceptable by the specific URI class (e.g. 'http' or 'https' are
-     * the only acceptable schemes for the Zend\Uri\Http class) an exception
+     * the only acceptable schemes for the\Zend\Uri\Http class) an exception
      * will be thrown.
      *
      * You can check if a scheme is valid before setting it using the
@@ -188,11 +188,11 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @throws \Zend\Uri\Exception\InvalidUriPartException
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setScheme($scheme);
+    public function setScheme(string $scheme): UriInterface;
 
     /**
      * Set the URI User-info part (usually user:password).
@@ -202,11 +202,11 @@ interface UriInterface extends SimpleValueObjectInterface
      * @throws \Zend\Uri\Exception\InvalidUriPartException If the schema definition
      *                                                     does not have this part
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setUserInfo($userInfo);
+    public function setUserInfo(string $userInfo): UriInterface;
 
     /**
      * Set the URI host.
@@ -226,33 +226,33 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @throws \Zend\Uri\Exception\InvalidUriPartException
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setHost($host);
+    public function setHost(string $host): UriInterface;
 
     /**
      * Set the port part of the URI.
      *
      * @param int $port
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setPort($port);
+    public function setPort(int $port): UriInterface;
 
     /**
      * Set the path.
      *
      * @param string $path
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setPath($path);
+    public function setPath(string $path): UriInterface;
 
     /**
      * Set the query string.
@@ -263,11 +263,11 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param array|string $query
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setQuery($query);
+    public function setQuery($query): UriInterface;
 
     /**
      * Set the URI fragment part.
@@ -277,9 +277,9 @@ interface UriInterface extends SimpleValueObjectInterface
      * @throws \Zend\Uri\Exception\InvalidUriPartException If the schema definition
      *                                                     does not have this part
      *
-     * @return Uri
+     * @return UriInterface
      *
-     * @see Zend\Uri\UriInterface
+     * @see \Zend\Uri\UriInterface
      */
-    public function setFragment($fragment);
+    public function setFragment(string $fragment): UriInterface;
 }

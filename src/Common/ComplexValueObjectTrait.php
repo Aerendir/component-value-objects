@@ -51,7 +51,7 @@ trait ComplexValueObjectTrait
      *
      * @return array|null
      */
-    public function getOtherData()
+    public function getOtherData(): ?array
     {
         return (true === empty($this->otherData)) ? null : $this->otherData;
     }
@@ -59,9 +59,9 @@ trait ComplexValueObjectTrait
     /**
      * Returns the built value object or null if no one is present.
      *
-     * @return mixed
+     * @return object
      */
-    public function getValueObject()
+    public function getValueObject(): object
     {
         return $this->valueObject;
     }

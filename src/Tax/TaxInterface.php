@@ -13,7 +13,7 @@
 namespace SerendipityHQ\Component\ValueObjects\Tax;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
 /**
  * Defines the minimum requisites of a Tax Value Object.
@@ -25,33 +25,33 @@ interface TaxInterface extends ComplexValueObjectInterface
      *
      * @return string The unique code of the tax on the System
      */
-    public function getCode();
-
-    /**
-     * If the Tax is compounded returns true, false instead.
-     *
-     * @return bool
-     */
-    public function getCompound();
+    public function getCode(): string;
 
     /**
      * Method to retrieve the rate (percentage) of the tax.
      *
      * @return float The rate of the tax
      */
-    public function getRate();
+    public function getRate(): float;
 
     /**
      * Method to get the amount of taxes paid.
      *
-     * @return Money
+     * @return MoneyInterface
      */
-    public function getAmount();
+    public function getAmount(): MoneyInterface;
 
     /**
      * Method to retrieve the Remote title of the Tax stored in the object.
      *
      * @return string The title of the tax on the Remote System
      */
-    public function getTitle();
+    public function getTitle(): string;
+
+    /**
+     * If the Tax is compounded returns true, false instead.
+     *
+     * @return bool
+     */
+    public function isCompound(): bool;
 }

@@ -27,10 +27,10 @@ interface VatRateInterface extends SimpleValueObjectInterface
     /**
      * @return string
      */
-    public function getCountryCode();
+    public function getCountryCode(): string;
 
     /**
      * @return float
      */
-    public function getPercentage();
+    public function getPercentage(): float;
 }

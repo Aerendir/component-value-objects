@@ -24,21 +24,21 @@ interface EmailInterface extends SimpleValueObjectInterface
      *
      * @return string
      */
-    public function getEmail();
+    public function getEmail(): string;
 
     /**
      * The mail box part of the email (box@host.com).
      *
      * @return string
      */
-    public function getMailBox();
+    public function getMailBox(): string;
 
     /**
      * Return the host part of the email (box@host.com).
      *
      * @return string
      */
-    public function getHost();
+    public function getHost(): string;
 
     /**
      * Change the mailbox.
@@ -49,5 +49,5 @@ interface EmailInterface extends SimpleValueObjectInterface
      *
      * @return $this
      */
-    public function changeMailBox($newMailBox);
+    public function changeMailBox($newMailBox): EmailInterface;
 }

@@ -14,7 +14,6 @@ namespace SerendipityHQ\Component\ValueObjects\tests\Vat;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Tax\Tax;
 use SerendipityHQ\Component\ValueObjects\Vat\VatRate;
 use SerendipityHQ\Component\ValueObjects\Vat\VatRateInterface;
@@ -45,19 +44,5 @@ class VatRateTest extends TestCase
         $this::assertEquals($testData['percentage'], $resource->getPercentage());
         $this::assertTrue(is_string($resource->__toString()));
         $this::assertTrue(is_string($resource->toString()));
-    }
-
-    public function testSetRateAcceptsOnlyFloats()
-    {
-        $testData = [
-            'code'      => 'IVA IT',
-            'compound'  => false,
-            'rate'      => 22,
-            'taxAmount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
-            'title'     => 'IVA IT',
-        ];
-
-        $this->expectException(\InvalidArgumentException::class);
-        $resource = new Tax($testData);
     }
 }

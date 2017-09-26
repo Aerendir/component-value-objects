@@ -113,7 +113,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getAdministrativeArea()
+    public function getAdministrativeArea(): ?string
     {
         return $this->administrativeArea;
     }
@@ -121,7 +121,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
@@ -129,7 +129,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getDependentLocality()
+    public function getDependentLocality(): ?string
     {
         return $this->dependentLocality;
     }
@@ -137,7 +137,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getStreet()
+    public function getStreet(): ?string
     {
         return $this->street;
     }
@@ -145,7 +145,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getExtraLine()
+    public function getExtraLine(): ?string
     {
         return $this->extraLine;
     }
@@ -153,7 +153,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getLocality()
+    public function getLocality(): ?string
     {
         return $this->locality;
     }
@@ -161,7 +161,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function getPostalCode()
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
@@ -169,7 +169,7 @@ class Address implements AddressInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         // @todo Add formatters for the address. @see https://github.com/commerceguys/addressing
         throw new \RuntimeException('Method not implemented. See the @todo in the code.');
@@ -178,7 +178,7 @@ class Address implements AddressInterface
     /**
      * @param string $administrativeArea
      */
-    protected function setAdministrativeArea($administrativeArea)
+    protected function setAdministrativeArea(string $administrativeArea): void
     {
         $this->administrativeArea = $administrativeArea;
     }
@@ -186,7 +186,7 @@ class Address implements AddressInterface
     /**
      * @param string $countryCode
      */
-    protected function setCountryCode($countryCode)
+    protected function setCountryCode(string $countryCode): void
     {
         $this->countryCode = $countryCode;
     }
@@ -194,7 +194,7 @@ class Address implements AddressInterface
     /**
      * @param string $dependentLocality
      */
-    protected function setDependentLocality($dependentLocality)
+    protected function setDependentLocality(string $dependentLocality): void
     {
         $this->dependentLocality = $dependentLocality;
     }
@@ -202,7 +202,7 @@ class Address implements AddressInterface
     /**
      * @param string $street
      */
-    protected function setStreet($street)
+    protected function setStreet(string $street): void
     {
         $this->street = $street;
     }
@@ -210,7 +210,7 @@ class Address implements AddressInterface
     /**
      * @param string $extraLine
      */
-    protected function setExtraLine($extraLine)
+    protected function setExtraLine(string $extraLine): void
     {
         $this->extraLine = $extraLine;
     }
@@ -218,7 +218,7 @@ class Address implements AddressInterface
     /**
      * @param string $locality
      */
-    protected function setLocality($locality)
+    protected function setLocality(string $locality): void
     {
         $this->locality = $locality;
     }
@@ -226,7 +226,7 @@ class Address implements AddressInterface
     /**
      * @param string $postalCode
      */
-    protected function setPostalCode($postalCode)
+    protected function setPostalCode(string $postalCode): void
     {
         $this->postalCode = $postalCode;
     }

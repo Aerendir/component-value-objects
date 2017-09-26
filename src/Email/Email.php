@@ -53,7 +53,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -61,7 +61,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      */
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
@@ -69,7 +69,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      */
-    public function getMailBox()
+    public function getMailBox(): string
     {
         return $this->mailBox;
     }
@@ -77,7 +77,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      */
-    public function changeMailBox($newMailbox)
+    public function changeMailBox($newMailbox): EmailInterface
     {
         $copy          = clone $this;
         $copy->mailBox = $newMailbox;
@@ -89,7 +89,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }

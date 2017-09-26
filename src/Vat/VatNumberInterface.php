@@ -24,19 +24,19 @@ interface VatNumberInterface extends ComplexValueObjectInterface
      *
      * @return string The country code of the VAT Number
      */
-    public function getCountryCode();
+    public function getCountryCode(): string;
 
     /**
      * Returns the number part of the VAT Number.
      *
      * @return string
      */
-    public function getNumber();
+    public function getNumber(): string;
 
     /**
      * Method to get the full VAT Number, with ISC country code.
      *
      * @return string
      */
-    public function getVatNumber();
+    public function getVatNumber(): string;
 }
