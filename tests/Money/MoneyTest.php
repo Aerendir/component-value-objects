@@ -12,18 +12,22 @@
 
 namespace SerendipityHQ\Component\ValueObjects\tests\Money;
 
+use Money\Currency;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
+/**
+ * {@inheritdoc}
+ */
 class MoneyTest extends TestCase
 {
-    public function testMoney()
+    public function testBaseUnits()
     {
         $test = [
-            'amount'   => 100,
-            'currency' => 'EUR',
+            'baseAmount'   => 100,
+            'currency'     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -34,20 +38,234 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame('100', $resource->getAmount());
+        $this::assertSame(100, $resource->getBaseAmount());
+        $this::assertSame('1.00', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
         $this::assertTrue(is_string($resource->__toString()));
         $this::assertTrue(is_string($resource->toString()));
     }
 
-    public function testMoneyTransformsStringsInIntAndStringsInCurrency()
+    public function testHumanInt()
     {
         $test = [
-            'amount'   => '100',
-            'currency' => 'EUR',
+            'humanAmount'   => 10,
+            'currency'      => 'EUR',
         ];
 
         $resource = new Money($test);
 
-        $this::assertSame('100', $resource->getAmount());
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('10.00', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testHumanFloat()
+    {
+        $test = [
+            'humanAmount'   => 10.50,
+            'currency'      => 'EUR',
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1050, $resource->getBaseAmount());
+        $this::assertSame('10.50', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testHumanIntAsFloat()
+    {
+        $test = [
+            'humanAmount'   => 10.00,
+            'currency'      => 'EUR',
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('10.00', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testHumanIntAsString()
+    {
+        $test = [
+            'humanAmount'   => '10',
+            'currency'      => 'EUR',
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('10.00', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testHumanFloatAsString()
+    {
+        $test = [
+            'humanAmount'   => '12.34',
+            'currency'      => 'EUR',
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1234, $resource->getBaseAmount());
+        $this::assertSame('12.34', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testHumanIntAsFloatAsString()
+    {
+        $test = [
+            'humanAmount'   => '12.00',
+            'currency'      => 'EUR',
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1200, $resource->getBaseAmount());
+        $this::assertSame('12.00', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testHumanFloatAsStringWithComma()
+    {
+        $test = [
+            'humanAmount'   => '12,34',
+            'currency'      => 'EUR',
+        ];
+
+        $resource = new Money($test);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1234, $resource->getBaseAmount());
+        $this::assertSame('12.34', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testSum()
+    {
+        $first = [
+            // This represents 3.05 Euros
+            'humanAmount' => 12.45,
+            'currency'    => 'EUR',
+        ];
+        $firstMoney = new Money($first);
+
+        $second = [
+            'humanAmount' => '3,32',
+            'currency'    => 'EUR',
+        ];
+        $secondMoney = new Money($second);
+
+        $resource = $firstMoney->add($secondMoney);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(1577, $resource->getBaseAmount());
+        $this::assertSame('15.77', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
+    }
+
+    public function testSubtract()
+    {
+        $first = [
+            // This represents 3.05 Euros
+            'humanAmount' => 12.45,
+            'currency'    => 'EUR',
+        ];
+        $firstMoney = new Money($first);
+
+        $second = [
+            'humanAmount' => '3,32',
+            'currency'    => 'EUR',
+        ];
+        $secondMoney = new Money($second);
+
+        $resource = $firstMoney->subtract($secondMoney);
+
+        // Test the value object direct interface
+        $this::assertInstanceOf(MoneyInterface::class, $resource);
+
+        // Test the type of value object interface
+        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+
+        $this::assertSame(913, $resource->getBaseAmount());
+        $this::assertSame('9.13', $resource->getHumanAmount());
+        $this::assertInstanceOf(Currency::class, $resource->getCurrency());
+        $this::assertSame('EUR', $resource->getCurrency()->getCode());
+        $this::assertTrue(is_string($resource->__toString()));
+        $this::assertTrue(is_string($resource->toString()));
     }
 }

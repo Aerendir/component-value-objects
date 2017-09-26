@@ -43,7 +43,7 @@ class Money implements MoneyInterface
      *
      * @var int
      */
-    private $amount;
+    private $baseAmount;
 
     /**
      * This represents the amount as a Human intends it: in its converted form.
@@ -53,7 +53,7 @@ class Money implements MoneyInterface
      *
      * @var
      */
-    private $convertedAmount;
+    private $humanAmount;
 
     /** @var Currency */
     private $currency;
@@ -69,42 +69,42 @@ class Money implements MoneyInterface
         // Set values in the object
         $this->traitConstruct($values);
 
-        // Only one between convertedAmount and amount can be set
-        if (null !== $this->amount && null !== $this->convertedAmount) {
-            throw new \InvalidArgumentException('You can pass only one between "amount" and "convertedAmount". Both passed.');
+        // Only one between baseAmount and humanAmount can be set
+        if (null !== $this->baseAmount && null !== $this->humanAmount) {
+            throw new \InvalidArgumentException('You can pass only one between "humanAmount" and "baseAmount". Both passed.');
         }
 
-        // If the converted amount were given...
-        if (null !== $this->convertedAmount) {
+        // At least one between baseAmount and humanAmount MUST be set
+        if (null === $this->baseAmount && null === $this->humanAmount) {
+            throw new \InvalidArgumentException('You MUST pass one between "humanAmount" and "baseAmount". None passed.');
+        }
+
+        // If the base amount were given
+        if (null !== $this->baseAmount) {
+            $this->valueObject = new BaseMoney($this->baseAmount, new Currency($this->currency));
+        }
+
+        // If the human amount were given...
+        if (null !== $this->humanAmount) {
+            // Cast to string
+            $this->humanAmount = (string) $this->humanAmount;
+
+            // Replace "," with "."
+            $this->humanAmount = str_replace(',', '.', $this->humanAmount);
+
             // Process it
             $currencies = new ISOCurrencies();
 
             $moneyParser = new DecimalMoneyParser($currencies);
 
-            $this->valueObject = $moneyParser->parse($this->amount, $this->currency);
-        }
-
-        if (null !== $this->amount) {
-            $this->valueObject = new \Money\Money($this->amount, new Currency($this->currency));
+            $this->valueObject = $moneyParser->parse($this->humanAmount, $this->currency);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function add(MoneyInterface $other)
-    {
-        $toAdd = new BaseMoney($other->getAmount(), $other->getCurrency());
-
-        $result = $this->valueObject->add($toAdd);
-
-        return new static(['amount' => $result->getAmount(), 'currency' => $this->currency]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAmount()
+    public function getBaseAmount(): int
     {
         return $this->valueObject->getAmount();
     }
@@ -112,7 +112,7 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
-    public function getCurrency()
+    public function getCurrency(): Currency
     {
         return $this->valueObject->getCurrency();
     }
@@ -120,7 +120,39 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
-    public function toString(array $options = [])
+    public function getHumanAmount(): string
+    {
+        return $this->__toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function add(MoneyInterface $other): MoneyInterface
+    {
+        $toAdd = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
+
+        $result = $this->valueObject->add($toAdd);
+
+        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function subtract(MoneyInterface $other): MoneyInterface
+    {
+        $toAdd = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
+
+        $result = $this->valueObject->subtract($toAdd);
+
+        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = []): string
     {
         return $this->__toString();
     }
@@ -128,19 +160,19 @@ class Money implements MoneyInterface
     /**
      * Sets the amount.
      *
-     * @param int $amount
+     * @param int $baseAmount
      */
-    protected function setAmount($amount)
+    protected function setBaseAmount(int $baseAmount)
     {
-        $this->amount = (string) $amount;
+        $this->baseAmount = (string) $baseAmount;
     }
 
     /**
-     * @param $amount
+     * @param float|int|string $amount
      */
-    protected function setConvertedAmount($amount)
+    protected function setHumanAmount($amount)
     {
-        $this->convertedAmount = $amount;
+        $this->humanAmount = $amount;
     }
 
     /**

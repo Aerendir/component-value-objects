@@ -12,8 +12,8 @@
 
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
-use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use Money\Currency;
+use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 /**
  * Defines the minimum requisites of a Currency object.

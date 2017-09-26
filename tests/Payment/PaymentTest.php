@@ -27,7 +27,7 @@ class PaymentTest extends TestCase
         // Of AddressModel
         $testData = [
             'method'   => 'PayPal',
-            'status' => 'A random status',
+            'status'   => 'A random status',
         ];
 
         $resource = new Payment($testData);

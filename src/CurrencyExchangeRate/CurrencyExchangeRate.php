@@ -12,9 +12,9 @@
 
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
+use Money\Currency;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use Money\Currency;
 
 /**
  * {@inheritdoc}

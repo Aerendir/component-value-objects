@@ -22,18 +22,18 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface MoneyInterface extends ComplexValueObjectInterface
 {
     /**
-     * @param MoneyInterface $other
-     *
-     * @return static
-     */
-    public function add(MoneyInterface $other);
-
-    /**
      * Returns the monetary value represented by this object.
      *
      * @return int
      */
-    public function getAmount();
+    public function getBaseAmount(): int;
+
+    /**
+     * Returns the Money value in the human format, without the currency symbol.
+     *
+     * @return string
+     */
+    public function getHumanAmount(): string;
 
     /**
      * Returns the currency of the monetary value represented by this
@@ -42,4 +42,18 @@ interface MoneyInterface extends ComplexValueObjectInterface
      * @return \Money\Currency
      */
     public function getCurrency();
+
+    /**
+     * @param MoneyInterface $other
+     *
+     * @return static
+     */
+    public function add(MoneyInterface $other);
+
+    /**
+     * @param MoneyInterface $other
+     *
+     * @return static
+     */
+    public function subtract(MoneyInterface $other);
 }

@@ -31,7 +31,7 @@ class TaxTest extends TestCase
             'code'      => 'IVA IT',
             'compound'  => false,
             'rate'      => 22.0,
-            'amount' => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
+            'amount'    => $this->getMockBuilder(Money::class)->disableOriginalConstructor()->getMock(),
             'title'     => 'IVA IT',
         ];
 

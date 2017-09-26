@@ -74,7 +74,7 @@ class MoneyType extends Type
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
         }
 
-        return $value->getAmount() . '-' . $value->getCurrency()->getCode();
+        return $value->getBaseAmount() . '-' . $value->getCurrency()->getCode();
     }
 
     /**
