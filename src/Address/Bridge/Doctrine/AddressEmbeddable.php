@@ -25,7 +25,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $administrativeArea
      */
-    public function setAdministrativeArea($administrativeArea)
+    public function setAdministrativeArea(string $administrativeArea): void
     {
         parent::setAdministrativeArea($administrativeArea);
     }
@@ -33,7 +33,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $countryCode
      */
-    public function setCountryCode($countryCode)
+    public function setCountryCode(string $countryCode): void
     {
         parent::setCountryCode($countryCode);
     }
@@ -41,7 +41,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $dependentLocality
      */
-    public function setDependentLocality($dependentLocality)
+    public function setDependentLocality(string $dependentLocality): void
     {
         parent::setDependentLocality($dependentLocality);
     }
@@ -49,7 +49,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $street
      */
-    public function setStreet($street)
+    public function setStreet(string $street): void
     {
         parent::setStreet($street);
     }
@@ -57,7 +57,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $extraLine
      */
-    public function setExtraLine($extraLine)
+    public function setExtraLine(string $extraLine): void
     {
         parent::setExtraLine($extraLine);
     }
@@ -65,7 +65,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $locality
      */
-    public function setLocality($locality)
+    public function setLocality(string $locality): void
     {
         parent::setLocality($locality);
     }
@@ -73,7 +73,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $postalCode
      */
-    public function setPostalCode($postalCode)
+    public function setPostalCode(string $postalCode): void
     {
         parent::setPostalCode($postalCode);
     }

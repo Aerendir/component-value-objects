@@ -52,7 +52,10 @@ class MoneyFormatterExtension extends \Twig_Extension
         $formatter      = twig_get_number_formatter($locale, 'currency');
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 
-        return $moneyFormatter->format($money->getValueObject());
+        /** @var \Money\Money $money */
+        $money = $money->getValueObject();
+
+        return $moneyFormatter->format($money);
     }
 
     /**

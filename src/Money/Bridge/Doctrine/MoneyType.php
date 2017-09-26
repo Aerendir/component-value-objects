@@ -55,7 +55,7 @@ class MoneyType extends Type
 
         $currency = new Currency($objects[1]);
 
-        return new Money(['amount' => (int) $objects[0], 'currency' => $currency]);
+        return new Money(['baseAmount' => (int) $objects[0], 'currency' => $currency]);
     }
 
     /**
