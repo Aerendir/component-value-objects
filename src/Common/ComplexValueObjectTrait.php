@@ -59,9 +59,9 @@ trait ComplexValueObjectTrait
     /**
      * Returns the built value object or null if no one is present.
      *
-     * @return object
+     * @return mixed
      */
-    public function getValueObject(): object
+    public function getValueObject()
     {
         return $this->valueObject;
     }
