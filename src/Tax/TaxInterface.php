@@ -46,7 +46,7 @@ interface TaxInterface extends ComplexValueObjectInterface
      *
      * @return Money
      */
-    public function getTaxAmount();
+    public function getAmount();
 
     /**
      * Method to retrieve the Remote title of the Tax stored in the object.

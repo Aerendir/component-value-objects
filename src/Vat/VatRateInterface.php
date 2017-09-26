@@ -17,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 /**
  * Defines the minimum requisites of a Tax Value Object.
  */
-interface VatInterface extends SimpleValueObjectInterface
+interface VatRateInterface extends SimpleValueObjectInterface
 {
     /**
      * @param string $countryCode

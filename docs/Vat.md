@@ -1,12 +1,12 @@
-Vat Simple Value Object
+VatRate Simple Value Object
 =======================
 
 Represents a vat tax.
 
-## Base Vat signature
+## Base VatRate signature
 
 ```php
-// src/Vat/Vat.php
+// src/VatRate/VatRate.php
 
 /**
  * @param string $values
@@ -16,9 +16,9 @@ public function __construct($countryCode)
 
 ## How to use the object
 
-See the working example: [examples/Vat.php](examples/Vat.php).
+See the working example: [examples/VatRate.php](examples/Vat.php).
 
 ```php
-$vat = new Vat('IT');
+$vat = new VatRate('IT');
 dump($vatNumber);
 ```

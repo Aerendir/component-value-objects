@@ -10,21 +10,21 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Tax;
+namespace SerendipityHQ\Component\ValueObjects\tests\Vat;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Tax\Tax;
-use SerendipityHQ\Component\ValueObjects\Vat\Vat;
-use SerendipityHQ\Component\ValueObjects\Vat\VatInterface;
+use SerendipityHQ\Component\ValueObjects\Vat\VatRate;
+use SerendipityHQ\Component\ValueObjects\Vat\VatRateInterface;
 
 /**
  * Tests the Tax Class.
  *
  * @since Alpha
  */
-class VatTest extends TestCase
+class VatRateTest extends TestCase
 {
     public function testTax()
     {
@@ -33,10 +33,10 @@ class VatTest extends TestCase
             'percentage'  => 22.0000,
         ];
 
-        $resource = new Vat($testData['countryCode']);
+        $resource = new VatRate($testData['countryCode']);
 
         // Test the value object direct interface
-        $this::assertInstanceOf(VatInterface::class, $resource);
+        $this::assertInstanceOf(VatRateInterface::class, $resource);
 
         // Test the type of value object interface
         $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);

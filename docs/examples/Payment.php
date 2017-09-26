@@ -8,7 +8,7 @@ echo '<h1>Example usage of PHPValueObjects Payment.</h1>';
 
 // ucfirst is applied automatically to find the right setter
 $values = [
-    'name' => 'PayPal',
+    'method' => 'PayPal',
     'status' => 'Paid'
 ];
 
@@ -17,5 +17,5 @@ dump($payment);
 
 echo '<h2>Public methods</h2>';
 
-echo 'name: ' . $payment->getName() . "<br />\n";
+echo 'Method: ' . $payment->getMethod() . "<br />\n";
 echo 'Status: ' . $payment->getStatus() . "<br />\n";

@@ -27,8 +27,8 @@ class Payment implements PaymentInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var string $name The payment name or title. */
-    private $name;
+    /** @var string $method The payment name or title. */
+    private $method;
 
     /** @var string $status Status of the payment: paid or not? Or in which status? */
     private $status;
@@ -36,9 +36,9 @@ class Payment implements PaymentInterface
     /**
      * @return string The payment name
      */
-    public function getName()
+    public function getMethod()
     {
-        return $this->name;
+        return $this->method;
     }
 
     /**
@@ -60,15 +60,15 @@ class Payment implements PaymentInterface
     /**
      * @param string $name The payment name
      */
-    private function setName($name)
+    protected function setMethod($name)
     {
-        $this->name = $name;
+        $this->method = $name;
     }
 
     /**
      * @param string $status The actual status of the payment
      */
-    private function setStatus($status)
+    protected function setStatus($status)
     {
         $this->status = $status;
     }
@@ -78,6 +78,6 @@ class Payment implements PaymentInterface
      */
     public function __toString()
     {
-        return $this->name . ': ' . $this->status;
+        return $this->method . ': ' . $this->status;
     }
 }

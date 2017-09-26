@@ -26,7 +26,7 @@ class PaymentTest extends TestCase
     {
         // Of AddressModel
         $testData = [
-            'name'   => 'PayPal',
+            'method'   => 'PayPal',
             'status' => 'A random status',
         ];
 
@@ -38,7 +38,7 @@ class PaymentTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertEquals($testData['name'], $resource->getName());
+        $this::assertEquals($testData['method'], $resource->getMethod());
         $this::assertEquals($testData['status'], $resource->getStatus());
         $this::assertTrue(is_string($resource->__toString()));
         $this::assertTrue(is_string($resource->toString()));

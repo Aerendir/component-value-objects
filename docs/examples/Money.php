@@ -18,7 +18,7 @@ $baseMoney = new Money($baseValues);
 dump($baseMoney);
 
 echo 'Amount: ' . $baseMoney->getAmount() . "<br />\n";
-echo 'Converted amount: ' . $baseMoney->getConvertedAmount() . "<br />\n";
+echo 'Base amount: ' . $baseMoney->getBaseAmount() . "<br />\n";
 echo 'Currency: ' . $baseMoney->getCurrency()->getCurrencyCode();
 
 echo '<h2>String (\'12.34\').</h2>';
@@ -33,7 +33,7 @@ $stringMoney = new Money($stringValues);
 dump('string', $stringMoney);
 
 echo 'Amount: ' . $stringMoney->getAmount() . "<br />\n";
-echo 'Converted amount: ' . $stringMoney->getConvertedAmount() . "<br />\n";
+echo 'Base amount: ' . $stringMoney->getBaseAmount() . "<br />\n";
 echo 'Currency: ' . $stringMoney->getCurrency()->getCurrencyCode();
 
 echo '<h2>Float (30.50).</h2>';
@@ -48,7 +48,7 @@ $floatMoney = new Money($floatValues);
 dump($floatMoney);
 
 echo 'Amount: ' . $floatMoney->getAmount() . "<br />\n";
-echo 'Converted amount: ' . $floatMoney->getConvertedAmount() . "<br />\n";
+echo 'Base amount: ' . $floatMoney->getBaseAmount() . "<br />\n";
 echo 'Currency: ' . $floatMoney->getCurrency()->getCurrencyCode();
 
 echo '<h2>Public methods</h2>';
@@ -64,8 +64,8 @@ $money = new Money($values);
 dump($money);
 
 echo 'Amount: ' . $money->getAmount() . "<br />\n";
-echo 'Converted amount: ' . $money->getConvertedAmount() . "<br />\n";
-echo 'Currency: ' . $money->getCurrency()->getCurrencyCode();
+echo 'Base amount: ' . $money->getBaseAmount() . "<br />\n";
+echo 'Currency: ' . $money->getCurrency()->getCode();
 
 $newValues = [
     'amount' => 200,

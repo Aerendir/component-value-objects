@@ -10,12 +10,12 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\VatNumber;
+namespace SerendipityHQ\Component\ValueObjects\tests\Vat;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumber;
-use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumberInterface;
+use SerendipityHQ\Component\ValueObjects\Vat\VatNumber;
+use SerendipityHQ\Component\ValueObjects\Vat\VatNumberInterface;
 
 /**
  * Tests the VatNumber Class.

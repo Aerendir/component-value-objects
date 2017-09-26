@@ -8,12 +8,12 @@ Extends [sebastianbergman/money](https://github.com/sebastianbergmann/money).
 ## Base Money signature
 
 ```php
-// vendor/sebastian/money/src/Money.php
+// vendor/moneyphp/money/src/Money.php
 
 /**
- * @param  integer                                  $amount
- * @param  \SebastianBergmann\Money\Currency|string $currency
- * @throws \SebastianBergmann\Money\InvalidArgumentException
+ * @param  integer                $amount
+ * @param  \Money\Currency|string $currency
+ * @throws \Money\InvalidArgumentException
  */
 public function __construct($amount, $currency)
 ```
@@ -34,8 +34,8 @@ dump($money);
 
 ## NOTES
 
-This object is a wrapper for the Money object by Sebastian Bergman. As the original object ses private methods and properties, it isn't possible to extend it.
+This object is a wrapper for the Money object by PHPMoney.
 
-So this ValueObjects\Money object simply wraps an Sebastian\Money object, reimplementing all the public methods exposed by the Sebastian's Money object.
+As the original object is a `final` class, it is not possible to extend it.
 
-**The implementation of all of the methods isn't yet complete.**
+So this ValueObjects\Money object simply wraps an `\Money\Money` object.

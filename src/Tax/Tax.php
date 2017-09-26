@@ -35,8 +35,8 @@ class Tax implements TaxInterface
     /** @var float $rate The rate of the tax */
     private $rate;
 
-    /** @var Money $taxAmount The paid amount of taxes */
-    private $taxAmount;
+    /** @var Money $amount The paid amount of taxes */
+    private $amount;
 
     /** @var string $title The title of the tax on the Remote system */
     private $title;
@@ -68,9 +68,9 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getTaxAmount()
+    public function getAmount()
     {
-        return $this->taxAmount;
+        return $this->amount;
     }
 
     /**
@@ -127,11 +127,11 @@ class Tax implements TaxInterface
     /**
      * Method to set the paid amount of taxes.
      *
-     * @param Money $taxAmount
+     * @param Money $amount
      */
-    protected function setTaxAmount(Money $taxAmount)
+    protected function setAmount(Money $amount)
     {
-        $this->taxAmount = $taxAmount;
+        $this->amount = $amount;
     }
 
     /**
@@ -149,6 +149,6 @@ class Tax implements TaxInterface
      */
     public function __toString()
     {
-        return $this->code . ' ' . $this->taxAmount;
+        return $this->code . ' ' . $this->amount;
     }
 }

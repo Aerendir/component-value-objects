@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\VatNumber;
+namespace SerendipityHQ\Component\ValueObjects\Vat;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;

@@ -66,7 +66,7 @@ Currently, this library supports the following Value Objects:
 * **[Phone](docs/Phone.md)**: Just a proxy for the library [`giggsey/libphonenumber-for-php`](https://github.com/giggsey/libphonenumber-for-php);
 * **[Tax](docs/Tax.md)**: Built-in
 * **[Uri](docs/Uri.md)**: Just a proxy for the library [`Zend\Uri`](https://github.com/zendframework/zend-uri). A more advanced value object is [`League\Uri`](https://github.com/thephpleague/uri)
-* **[Vat](docs/Vat.md)**: Built-in
+* **[VatRate](docs/Vat.md)**: Built-in
 * **[VatNumber](docs/VatNumber.md)**: Built-in
 
 ## Supported Doctrine's Custom Mapping Types

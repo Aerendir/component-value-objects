@@ -17,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * Default implementation of a Tax Value object.
  */
-class Vat implements VatInterface
+class VatRate implements VatRateInterface
 {
     use DisableWritingMethodsTrait;
 

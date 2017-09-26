@@ -21,7 +21,8 @@ dump($tax);
 
 echo '<h2>Public methods</h2>';
 
-echo 'Amount: ' . $tax->getTaxAmount() . "<br />\n";
+echo 'Amount: ' . $tax->getAmount() . "<br />\n";
+echo 'Amount Currency: ' . $tax->getAmount()->getCurrency()->getCode() . "<br />\n";
 echo 'Code: ' . $tax->getCode() . "<br />\n";
 echo 'Compound: ' . $tax->getCompound() . "<br />\n";
 echo 'Rate: ' . $tax->getRate() . "<br />\n";

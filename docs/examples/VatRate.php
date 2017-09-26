@@ -2,11 +2,11 @@
 
 require '../../vendor/autoload.php';
 
-use SerendipityHQ\Component\ValueObjects\Vat\Vat;
+use SerendipityHQ\Component\ValueObjects\Vat\VatRate;
 
-echo '<h1>Example usage of PHPValueObjects Vat.</h1>';
+echo '<h1>Example usage of PHPValueObjects VatRate.</h1>';
 
-$vat = new Vat('IT');
+$vat = new VatRate('IT');
 dump($vat);
 
 echo '<h2>Public methods</h2>';

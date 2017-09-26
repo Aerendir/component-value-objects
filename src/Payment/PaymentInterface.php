@@ -30,7 +30,7 @@ interface PaymentInterface extends ComplexValueObjectInterface
      *
      * @since Alpha
      */
-    public function getName();
+    public function getMethod();
 
     /**
      * Returns the payment status.

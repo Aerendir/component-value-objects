@@ -20,7 +20,7 @@ See the working example: [examples/Payment.php](examples/Payment.php).
 
 ```php
 $values = [
-    'name' => 'PayPal',
+    'method' => 'PayPal',
     'status' => 'Paid'
 ];
 

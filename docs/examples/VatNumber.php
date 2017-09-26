@@ -2,7 +2,7 @@
 
 require '../../vendor/autoload.php';
 
-use SerendipityHQ\Component\ValueObjects\VatNumber\VatNumber;
+use SerendipityHQ\Component\ValueObjects\Vat\VatNumber;
 
 echo '<h1>Example usage of PHPValueObjects VatNumber.</h1>';
 
