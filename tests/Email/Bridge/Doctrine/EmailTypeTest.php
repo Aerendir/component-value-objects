@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Email\Persistence;
+namespace SerendipityHQ\Component\ValueObjects\tests\Email\Bridge\Doctrine;
 
 use PHPUnit\Framework\TestCase;
 

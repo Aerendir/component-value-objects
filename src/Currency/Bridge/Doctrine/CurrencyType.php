@@ -10,22 +10,20 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\Uri\Persistence;
+namespace SerendipityHQ\Component\ValueObjects\Currency\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
-use SerendipityHQ\Component\ValueObjects\Money\Money;
-use SerendipityHQ\Component\ValueObjects\Uri\Uri;
-use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
+use Money\Currency;
 
 /**
- * A custom datatype to persist an Uri Value Object with Doctrine.
+ * A custom datatype to persist a Currency Value Object with Doctrine.
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class UriType extends Type
+class CurrencyType extends Type
 {
-    const URI = 'uri';
+    const CURRENCY = 'currency';
 
     /**
      * {@inheritdoc}
@@ -40,7 +38,7 @@ class UriType extends Type
      */
     public function getDefaultLength(AbstractPlatform $platform)
     {
-        return $platform->getVarcharDefaultLength();
+        return 3;
     }
 
     /**
@@ -52,13 +50,13 @@ class UriType extends Type
             return $value;
         }
 
-        return new Uri($value);
+        return new Currency($value);
     }
 
     /**
      * {@inheritdoc}
      *
-     * @param Money $value
+     * @param Email $value
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -66,12 +64,13 @@ class UriType extends Type
             return $value;
         }
 
-        if ( ! $value instanceof UriInterface) {
+        if ( ! $value instanceof Currency) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
 
-        return $value->__toString();
+        // The value is automatically transformed into a string thans to the __toString() method
+        return $value;
     }
 
     /**
@@ -87,6 +86,6 @@ class UriType extends Type
      */
     public function getName()
     {
-        return self::URI;
+        return self::CURRENCY;
     }
 }

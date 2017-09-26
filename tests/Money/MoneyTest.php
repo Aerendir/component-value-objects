@@ -34,7 +34,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame('10000', $resource->getAmount());
+        $this::assertSame('100', $resource->getAmount());
         $this::assertTrue(is_string($resource->__toString()));
         $this::assertTrue(is_string($resource->toString()));
     }
@@ -48,6 +48,6 @@ class MoneyTest extends TestCase
 
         $resource = new Money($test);
 
-        $this::assertSame('10000', $resource->getAmount());
+        $this::assertSame('100', $resource->getAmount());
     }
 }

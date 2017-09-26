@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\Money\Twig;
+namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Twig;
 
 use Money\Currencies\ISOCurrencies;
 use Money\Formatter\IntlMoneyFormatter;
