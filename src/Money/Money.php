@@ -186,7 +186,7 @@ class Money implements MoneyInterface
             $currency = $currency->getCode();
         }
 
-        $this->currency = $currency;
+        $this->currency = strtoupper($currency);
     }
 
     /**
