@@ -27,7 +27,10 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
     use DisableWritingMethodsTrait;
 
+    /** @var PhoneNumber $number */
     private $number;
+
+    /** @var string $region */
     private $region;
 
     /**
@@ -47,6 +50,24 @@ class Phone extends PhoneNumber implements PhoneInterface
         if ($this->number instanceof PhoneNumber) {
             $this->mergeFrom($this->number);
         }
+
+        $this->valueObject = $this->number;
+    }
+
+    /**
+     * @return PhoneNumber
+     */
+    public function getNumber(): PhoneNumber
+    {
+        return $this->number;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegion(): string
+    {
+        return $this->region;
     }
 
     /**
