@@ -62,7 +62,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function parse(string $uri): UriInterface;
+    public function parse(string $uri): self;
 
     /**
      * Normalize the URI.
@@ -79,7 +79,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function normalize(): UriInterface;
+    public function normalize(): self;
 
     /**
      * Convert the link to a relative link by substracting a base URI.
@@ -96,7 +96,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function makeRelative($baseUri): UriInterface;
+    public function makeRelative($baseUri): self;
 
     /**
      * Get the scheme part of the URI.
@@ -192,7 +192,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setScheme(?string $scheme): UriInterface;
+    public function setScheme(?string $scheme): self;
 
     /**
      * Set the URI User-info part (usually user:password).
@@ -206,7 +206,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setUserInfo(?string $userInfo): UriInterface;
+    public function setUserInfo(?string $userInfo): self;
 
     /**
      * Set the URI host.
@@ -230,7 +230,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setHost(?string $host): UriInterface;
+    public function setHost(?string $host): self;
 
     /**
      * Set the port part of the URI.
@@ -241,7 +241,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setPort(?int $port): UriInterface;
+    public function setPort(?int $port): self;
 
     /**
      * Set the path.
@@ -252,7 +252,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setPath(?string $path): UriInterface;
+    public function setPath(?string $path): self;
 
     /**
      * Set the query string.
@@ -267,7 +267,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setQuery($query): UriInterface;
+    public function setQuery($query): self;
 
     /**
      * Set the URI fragment part.
@@ -281,5 +281,5 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @see \Zend\Uri\UriInterface
      */
-    public function setFragment(?string $fragment): UriInterface;
+    public function setFragment(?string $fragment): self;
 }

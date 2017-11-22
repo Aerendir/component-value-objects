@@ -49,12 +49,12 @@ interface MoneyInterface extends ComplexValueObjectInterface
      *
      * @return MoneyInterface
      */
-    public function add(MoneyInterface $other): MoneyInterface;
+    public function add(self $other): self;
 
     /**
      * @param MoneyInterface $other
      *
      * @return MoneyInterface
      */
-    public function subtract(MoneyInterface $other): MoneyInterface;
+    public function subtract(self $other): self;
 }
