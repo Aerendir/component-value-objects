@@ -38,16 +38,17 @@ class MoneyFormatterExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFilter('localizedmoney', [$this, 'localizeMoneyFilter']),
+            new \Twig_SimpleFilter('localizedmoneyfromarr', [$this, 'localizeMoneyFromArrFilter']),
         ];
     }
 
     /**
      * @param Money $money
-     * @param null  $locale
+     * @param null|string  $locale
      *
      * @return string
      */
-    public function localizeMoneyFilter(Money $money, $locale = null)
+    public function localizeMoneyFilter(Money $money, string $locale = null)
     {
         $formatter      = twig_get_number_formatter($locale, 'currency');
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
@@ -56,6 +57,23 @@ class MoneyFormatterExtension extends \Twig_Extension
         $money = $money->getValueObject();
 
         return $moneyFormatter->format($money);
+    }
+
+    /**
+     * @param array $money
+     * @param null|string  $locale
+     *
+     * @return string
+     */
+    public function localizeMoneyFromArrFilter(array $money, string $locale = null)
+    {
+        if (isset($money['humanAmount']) && isset($money['baseAmount'])) {
+            unset($money['humanAmount']);
+        }
+
+        $money = new Money($money);
+
+        return $this->localizeMoneyFilter($money, $locale);
     }
 
     /**
