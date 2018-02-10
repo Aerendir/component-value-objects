@@ -81,7 +81,7 @@ class Money implements MoneyInterface
 
         // If the base amount were given
         if (null !== $this->baseAmount) {
-            $this->valueObject = new BaseMoney($this->baseAmount, new Currency($this->currency));
+            $this->valueObject = new BaseMoney($this->baseAmount, $this->currency);
         }
 
         // If the human amount were given...
@@ -182,11 +182,11 @@ class Money implements MoneyInterface
      */
     protected function setCurrency($currency): void
     {
-        if ($currency instanceof Currency) {
-            $currency = $currency->getCode();
+        if (!$currency instanceof Currency) {
+            $currency = new Currency(strtoupper($currency));
         }
 
-        $this->currency = strtoupper($currency);
+        $this->currency = $currency;
     }
 
     /**
