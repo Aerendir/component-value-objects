@@ -182,7 +182,7 @@ class Money implements MoneyInterface
      */
     protected function setCurrency($currency): void
     {
-        if (!$currency instanceof Currency) {
+        if ( ! $currency instanceof Currency) {
             $currency = new Currency(strtoupper($currency));
         }
 

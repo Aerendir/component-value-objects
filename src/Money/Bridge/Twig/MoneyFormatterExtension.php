@@ -43,8 +43,8 @@ class MoneyFormatterExtension extends \Twig_Extension
     }
 
     /**
-     * @param Money $money
-     * @param null|string  $locale
+     * @param Money       $money
+     * @param string|null $locale
      *
      * @return string
      */
@@ -60,8 +60,8 @@ class MoneyFormatterExtension extends \Twig_Extension
     }
 
     /**
-     * @param array $money
-     * @param null|string  $locale
+     * @param array       $money
+     * @param string|null $locale
      *
      * @return string
      */
