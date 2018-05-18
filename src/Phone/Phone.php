@@ -95,6 +95,18 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
+     * @return array
+     */
+    public function __toArray(): array
+    {
+        return [
+            'countryCode' => $this->getCountryCode(),
+            'number'      => $this->getNationalNumber(),
+            'region'      => $this->getRegion(),
+        ];
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function __toString()
