@@ -199,4 +199,16 @@ class Money implements MoneyInterface
 
         return $formatter->format($this->valueObject);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toArray(): array
+    {
+        return [
+            'currency'    => $this->getCurrency()->getCode(),
+            'baseAmount'  => $this->getBaseAmount(),
+            'humanAmount' => $this->getHumanAmount(),
+        ];
+    }
 }
