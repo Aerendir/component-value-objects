@@ -152,6 +152,26 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
+    public function divide($divisor, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
+    {
+        $result = $this->valueObject->divide($divisor, $roundingMode);
+
+        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function multiply($multiplier, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
+    {
+        $result = $this->valueObject->multiply($multiplier, $roundingMode);
+
+        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
