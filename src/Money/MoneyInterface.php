@@ -13,6 +13,7 @@
 namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use Money\Currency;
+use Money\Money;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 
 /**
@@ -57,6 +58,22 @@ interface MoneyInterface extends ComplexValueObjectInterface
      * @return MoneyInterface
      */
     public function subtract(MoneyInterface $other): self;
+
+    /**
+     * @param float|int|string $divisor
+     * @param int              $roundingMode
+     *
+     * @return MoneyInterface
+     */
+    public function divide($divisor, $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
+
+    /**
+     * @param float|int|string $multiplier
+     * @param int              $roundingMode
+     *
+     * @return MoneyInterface
+     */
+    public function multiply($multiplier, $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
      * @return array

@@ -31,6 +31,13 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
     public function __construct(array $values);
 
     /**
+     * Returns the built value object or null if no one is present.
+     *
+     * @return mixed
+     */
+    public function getValueObject();
+
+    /**
      * Get other data if present, null instead.
      *
      * @return array|null
