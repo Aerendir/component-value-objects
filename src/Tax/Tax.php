@@ -45,7 +45,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getCode(): string
+    public function getCode(): ? string
     {
         return $this->code;
     }
@@ -53,7 +53,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getRate(): float
+    public function getRate(): ? float
     {
         return $this->rate;
     }
@@ -61,7 +61,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getAmount(): MoneyInterface
+    public function getAmount(): ? MoneyInterface
     {
         return $this->amount;
     }
@@ -69,7 +69,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function getTitle(): string
+    public function getTitle(): ? string
     {
         return $this->title;
     }
@@ -77,7 +77,7 @@ class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function isCompound(): bool
+    public function isCompound(): ? bool
     {
         return $this->compound;
     }
