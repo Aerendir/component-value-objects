@@ -77,7 +77,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      */
-    public function changeMailBox($newMailbox): EmailInterface
+    public function changeMailBox(string $newMailbox): EmailInterface
     {
         $copy          = clone $this;
         $copy->mailBox = $newMailbox;

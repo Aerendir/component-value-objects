@@ -45,9 +45,9 @@ interface EmailInterface extends SimpleValueObjectInterface
      *
      * This returns a new Email object.
      *
-     * @param $newMailBox
+     * @param string $newMailBox
      *
-     * @return $this
+     * @return EmailInterface
      */
-    public function changeMailBox($newMailBox): self;
+    public function changeMailBox(string $newMailBox): self;
 }

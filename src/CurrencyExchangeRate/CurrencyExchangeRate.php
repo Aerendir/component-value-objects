@@ -84,7 +84,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     public function toString(array $options = []): string
     {
-        return self::__toString();
+        return $this->__toString();
     }
 
     /**
@@ -94,7 +94,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     protected function setExchangeRate(float $exchangeRate): void
     {
-        if (false === is_float($exchangeRate)) {
+        if ( ! is_float($exchangeRate)) {
             throw new \InvalidArgumentException(sprintf('ExchangeRate has to be a float. %s given.', gettype($exchangeRate)));
         }
 
@@ -137,7 +137,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     public function __toString()
     {
         $string = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
-        if (false === is_null($this->getExchangeRateDate())) {
+        if (null !== $this->getExchangeRateDate()) {
             $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
         }
 

@@ -41,7 +41,7 @@ class Money implements MoneyInterface
      * 10 = 00.1 {CURRENCY}
      * 100 = 1.00 {CURRENCY}
      *
-     * @var int
+     * @var int|string
      */
     private $baseAmount;
 
@@ -51,15 +51,12 @@ class Money implements MoneyInterface
      * 00.1 {CURRENCY} = 10 units
      * 1.00 {CURRENCY} = 100 units
      *
-     * @var
+     * @var float|int|string
      */
     private $humanAmount;
 
     /** @var Currency */
     private $currency;
-
-    /** @var BaseMoney */
-    private $valueObject;
 
     /**
      * {@inheritdoc}

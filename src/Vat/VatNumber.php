@@ -45,7 +45,7 @@ class VatNumber implements VatNumberInterface
     /**
      * {@inheritdoc}
      */
-    public function getNumber(): string
+    public function getNumber(): int
     {
         return $this->number;
     }
@@ -79,15 +79,10 @@ class VatNumber implements VatNumberInterface
     /**
      * Method to set the number part of the VAT Number.
      *
-     * @param string $number
+     * @param int $number
      */
-    protected function setNumber(string $number): void
+    protected function setNumber(int $number): void
     {
-        if (false === is_string($number)) {
-            throw new \InvalidArgumentException(
-                sprintf('The Number MUST be a string. "%s" passed.', gettype($number))
-            );
-        }
         $this->number = $number;
     }
 
@@ -98,7 +93,7 @@ class VatNumber implements VatNumberInterface
      */
     protected function setVatNumber(string $vatNumber): void
     {
-        if (false === is_string($vatNumber)) {
+        if ( ! is_string($vatNumber)) {
             throw new \InvalidArgumentException(
                 sprintf('The VAT Number MUST be a string. "%s" passed.', gettype($vatNumber))
             );

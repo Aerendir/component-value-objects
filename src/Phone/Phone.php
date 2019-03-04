@@ -27,7 +27,7 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var PhoneNumber $number */
+    /** @var PhoneNumber|string $number */
     private $number;
 
     /** @var string $region */
@@ -35,16 +35,18 @@ class Phone extends PhoneNumber implements PhoneInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \libphonenumber\NumberParseException
      */
     public function __construct(array $values)
     {
         $this->traitConstruct($values);
 
-        $keepRawInput = isset($values['keepRawInput']) ? $values['keepRawInput'] : false;
+        $keepRawInput = $values['keepRawInput'] ?? false;
 
-        if (is_string($this->number)) {
+        if (is_string($values['number'])) {
             $phoneUtil    = PhoneNumberUtil::getInstance();
-            $this->number = $phoneUtil->parse($this->number, $this->region, null, $keepRawInput);
+            $this->number = $phoneUtil->parse($values['number'], $this->region, null, $keepRawInput);
         }
 
         if ($this->number instanceof PhoneNumber) {
@@ -59,6 +61,10 @@ class Phone extends PhoneNumber implements PhoneInterface
      */
     public function getNumber(): PhoneNumber
     {
+        if (is_string($this->number)) {
+            throw new \RuntimeException('The number is a string: something broken.');
+        }
+
         return $this->number;
     }
 
@@ -104,13 +110,5 @@ class Phone extends PhoneNumber implements PhoneInterface
             'number'      => $this->getNationalNumber(),
             'region'      => $this->getRegion(),
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return parent::__toString();
     }
 }

@@ -13,21 +13,22 @@
     ],
     "require": {
         "php": "^7.1",
-        "darsyn/ip": "^3.3",
+        "darsyn/ip": "^4",
         "egulias/email-validator": "^2.1",
         "giggsey/libphonenumber-for-php": "^8.8",
         "moneyphp/money": "^3.0",
-        "zendframework/zend-uri": "^2.5"
+        "zendframework/zend-uri": "^2.5",
+        "symfony/form": "^4.2"
     },
     "require-dev": {
         "doctrine/dbal": "^2.5",
         "doctrine/orm": "^2.5",
         "friendsofphp/php-cs-fixer": "^2.0",
-        "phpunit/phpunit": "^6",
-        "symfony/var-dumper": "^2.8||^3.0",
+        "phpunit/phpunit": "^6||^7||^8",
+        "symfony/var-dumper": "^2.8||^3.0||^4",
         "twig/twig": "^1.0||^2.0",
         "twig/extensions": "^1.0",
-        "sensiolabs/security-checker": "^4.1"
+        "sensiolabs/security-checker": "^4.1||^5"
     },
     "autoload": {
         "psr-4": {

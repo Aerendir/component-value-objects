@@ -14,7 +14,6 @@ namespace SerendipityHQ\Component\ValueObjects\Tax;
 
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
 /**
@@ -36,7 +35,7 @@ class Tax implements TaxInterface
     /** @var float $rate The rate of the tax */
     private $rate;
 
-    /** @var Money $amount The paid amount of taxes */
+    /** @var MoneyInterface $amount The paid amount of taxes */
     private $amount;
 
     /** @var string $title The title of the tax on the Remote system */

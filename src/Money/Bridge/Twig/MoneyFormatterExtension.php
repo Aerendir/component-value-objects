@@ -34,52 +34,56 @@ class MoneyFormatterExtension extends \Twig_Extension
     /**
      * {@inheritdoc}
      */
-    public function getFilters()
+    public function getFilters(): array
     {
-        return [
+        return array_merge(parent::getFilters(), [
             new \Twig_SimpleFilter('localizedmoney', [$this, 'localizeMoneyFilter']),
             new \Twig_SimpleFilter('localizedmoneyfromarr', [$this, 'localizeMoneyFromArrFilter']),
-        ];
+        ]);
     }
 
     /**
      * @param Money       $money
      * @param string|null $locale
      *
+     * @throws \Twig_Error_Syntax
+     *
      * @return string
      */
-    public function localizeMoneyFilter(Money $money, string $locale = null)
+    public function localizeMoneyFilter(Money $money, string $locale = null): string
     {
         $formatter      = twig_get_number_formatter($locale, 'currency');
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 
-        /** @var \Money\Money $money */
-        $money = $money->getValueObject();
+        /** @var \Money\Money $formattingMoney */
+        $formattingMoney = $money->getValueObject();
 
-        return $moneyFormatter->format($money);
+        return $moneyFormatter->format($formattingMoney);
     }
 
     /**
      * @param array       $money
      * @param string|null $locale
      *
+     * @throws \Twig_Error_Syntax
+     *
      * @return string
      */
-    public function localizeMoneyFromArrFilter(array $money, string $locale = null)
+    public function localizeMoneyFromArrFilter(array $money, string $locale = null): string
     {
-        if (isset($money['humanAmount']) && isset($money['baseAmount'])) {
+        if (isset($money['humanAmount'], $money['baseAmount'])) {
             unset($money['humanAmount']);
         }
 
-        $money = new Money($money);
+        $formattingMoney = new Money($money);
 
-        return $this->localizeMoneyFilter($money, $locale);
+        return $this->localizeMoneyFilter($formattingMoney, $locale);
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return 'localized_money';
     }

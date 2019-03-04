@@ -12,13 +12,13 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
-use Darsyn\IP\IP as BaseIp;
+use Darsyn\IP\Version\IPv4;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
  * {@inheritdoc}
  */
-class Ip extends BaseIp implements IpInterface
+class Ip extends IPv4 implements IpInterface
 {
     use DisableWritingMethodsTrait;
 
@@ -56,9 +56,23 @@ class Ip extends BaseIp implements IpInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Darsyn\IP\Exception\IpException
+     * @throws \Darsyn\IP\Exception\WrongVersionException
      */
     public function toString(array $options = []): string
     {
         return $this->__toString();
+    }
+
+    /**
+     * @throws \Darsyn\IP\Exception\IpException
+     * @throws \Darsyn\IP\Exception\WrongVersionException
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getDotAddress();
     }
 }
