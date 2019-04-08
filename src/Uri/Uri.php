@@ -23,6 +23,7 @@ class Uri implements UriInterface
 {
     use DisableWritingMethodsTrait;
 
+    /** @var BaseUri $valueObject */
     private $valueObject;
 
     /**
@@ -249,6 +250,14 @@ class Uri implements UriInterface
     public function toString(array $options = []): string
     {
         return $this->__toString();
+    }
+
+    /**
+     * @return BaseUri
+     */
+    public function getValueObject(): BaseUri
+    {
+        return $this->valueObject;
     }
 
     /**
