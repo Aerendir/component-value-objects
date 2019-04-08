@@ -6,6 +6,9 @@ use SerendipityHQ\Component\ValueObjects\Phone\Phone;
 
 echo '<h1>Example usage of PHPValueObjects Phone.</h1>';
 
+$phoneUtils = \libphonenumber\PhoneNumberUtil::getInstance();
+dd($phoneUtils->parse('+393493176188'));
+
 // ucfirst is applied automatically to find the right setter
 $values = [
     'number' => '3493534998',
