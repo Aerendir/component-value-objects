@@ -5,6 +5,8 @@ Represents a monetary value.
 
 Extends [sebastianbergman/money](https://github.com/sebastianbergmann/money).
 
+- [How to use the Doctrine's type `money`](Money/Money-Doctrine-Type.md)
+
 ## Base Money signature
 
 ```php

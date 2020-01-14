@@ -5,6 +5,8 @@ Represents an address value. Offers some helping formatters to display the addre
 
 Extends [commerceguys/addressing](https://github.com/commerceguys/addressing).
 
+- [How to use the Doctrine's embeddable `Address`](Address/Address-Embeddable.md)
+
 ## How to use the object
 
 See the working example: [examples/Address.php](examples/Address.php).
