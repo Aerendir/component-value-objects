@@ -2,3 +2,10 @@ parameters:
     level: max
     paths:
         - src
+    ignoreErrors:
+        -
+            message: '#Parameter \#1 \$baseUri of method Zend\\Uri\\Uri::makeRelative\(\) expects string|Zend\\Uri\\Uri, SerendipityHQ\\Component\\ValueObjects\\Uri\\UriInterface|string|Zend\\Uri\\Uri given.#'
+            path: %currentWorkingDirectory%/src
+        -
+            message: '#Function twig_get_number_formatter not found.#'
+            path: %currentWorkingDirectory%/src

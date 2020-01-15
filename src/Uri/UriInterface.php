@@ -90,7 +90,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *  If the two URIs do not intersect (e.g. the original URI is not in any
      *  way related to the base URI) the URI will not be modified.
      *
-     * @param string|Uri $baseUri
+     * @param string|UriInterface|\Zend\Uri\Uri $baseUri
      *
      * @return UriInterface
      *

@@ -149,6 +149,11 @@ class Uri implements UriInterface
      */
     public function makeRelative($baseUri): UriInterface
     {
+        if ($baseUri instanceof self) {
+            $baseUri = $baseUri->__toString();
+        }
+
+
         $this->valueObject->makeRelative($baseUri);
 
         return $this;
