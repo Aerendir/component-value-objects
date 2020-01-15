@@ -6,6 +6,8 @@ Represents a monetary value.
 Extends [sebastianbergman/money](https://github.com/sebastianbergmann/money).
 
 - [How to use the Doctrine's type `money`](Money/Money-Doctrine-Type.md)
+- [How to use the Twig extensions](Money/Money-Twig.md)
+- [How to use the Symfony Form type](Money/Money-Symfony-form-type.md)
 
 ## Base Money signature
 
