@@ -8,7 +8,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 
 # PHP Value Objects
-A set of [PHP Value Objects](http://aerendir.me/?p=396) to manage simple and composite values.
+A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.
 
 It supports `SimpleValueObjects` and `ComplexValueObjects`.
 

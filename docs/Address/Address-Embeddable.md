@@ -11,7 +11,7 @@ To use the Doctrine's embeddable, you have to follow those steps:
 
 ## STEP 1: Register the embeddable in your Symfony's configuation
 
-Open the file `/config/pckages/doctrine.yaml`.
+Open the file `/config/packages/doctrine.yaml`.
 
 Add the embeddable to the configuration:
 

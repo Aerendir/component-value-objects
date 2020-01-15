@@ -11,7 +11,7 @@ To use the Doctrine's type, you have to follow those steps:
 
 ## STEP 1: Register the type in your Symfony's configuration
 
-Open the file `/config/pckages/doctrine.yaml`.
+Open the file `/config/packages/doctrine.yaml`.
 
 Add the type to the configuration:
 
