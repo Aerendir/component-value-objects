@@ -6,6 +6,8 @@ Represents an email value.
 Inspired by a [Wowo's gist](https://gist.github.com/wowo/b49ac45b975d5c489214), it uses
  [egulias/email-validator](https://github.com/egulias/EmailValidator).
 
+- [How to use the Doctrine's type `email`](Email/Email-Doctrine-Type.md)
+
 ## Base Currency signature
 
 ```php
