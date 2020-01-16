@@ -158,7 +158,7 @@ interface UriInterface extends SimpleValueObjectInterface
      * This is an extension to RFC-3986 but is quite useful when working with
      * most common URI types
      *
-     * @return array
+     * @return array<string,string>
      *
      * @see \Zend\Uri\UriInterface
      */
@@ -261,7 +261,7 @@ interface UriInterface extends SimpleValueObjectInterface
      * query string. Array values will be represented in the query string using
      * PHP's common square bracket notation.
      *
-     * @param array|string|null $query
+     * @param array<string,string>|string|null $query
      *
      * @return UriInterface
      *

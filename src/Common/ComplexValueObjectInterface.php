@@ -26,7 +26,7 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
     /**
      * Accepts an array containing the values to set in the object.
      *
-     * @param array $values
+     * @param array<string, mixed> $values
      */
     public function __construct(array $values);
 
@@ -40,7 +40,7 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
     /**
      * Get other data if present, null instead.
      *
-     * @return array|null
+     * @return array<int|string,mixed>|null
      */
     public function getOtherData(): ?array;
 }

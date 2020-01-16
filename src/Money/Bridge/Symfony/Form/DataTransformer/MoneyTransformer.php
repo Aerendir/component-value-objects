@@ -24,11 +24,13 @@ use Symfony\Component\Form\DataTransformerInterface;
  */
 class MoneyTransformer implements DataTransformerInterface
 {
-    /** @var array $options */
+    /** @var array<string,mixed> $options */
     private $options;
 
     /**
-     * @param array $options
+     * @param array<string,mixed> $options = [
+     *                                     'currency' => 'EUR'
+     *                                     ]
      */
     public function __construct(array $options)
     {

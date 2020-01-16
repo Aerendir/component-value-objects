@@ -21,9 +21,7 @@ class VatRate implements VatRateInterface
 {
     use DisableWritingMethodsTrait;
 
-    /**
-     * @var array
-     */
+    /** @var array<string,float> $countries */
     private $countries = [
         'IT' => 22.0000,
     ];

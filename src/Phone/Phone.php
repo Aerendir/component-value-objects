@@ -101,7 +101,11 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
-     * @return array
+     * @return array<string,int|string|null> [
+     *                                       'countryCode' => $this->getCountryCode(),
+     *                                       'number'      => $this->getNationalNumber(),
+     *                                       'region'      => $this->getRegion(),
+     *                                       ];
      */
     public function __toArray(): array
     {

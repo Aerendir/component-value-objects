@@ -22,7 +22,7 @@ interface ValueObjectInterface
      *
      * This method can accept options to refine the string returned.
      *
-     * @param array $options Options to use to format the output strinarray
+     * @param array<string,mixed> $options Options to use to format the output strinarray
      *
      * @return string
      */

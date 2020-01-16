@@ -76,7 +76,11 @@ interface MoneyInterface extends ComplexValueObjectInterface
     public function multiply($multiplier, $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
-     * @return array
+     * @return array<string,float|int|string> [
+     *                                        'currency'    => $this->getCurrency()->getCode(),
+     *                                        'baseAmount'  => $this->getBaseAmount(),
+     *                                        'humanAmount' => $this->getHumanAmount(),
+     *                                        ];
      */
     public function __toArray(): array;
 }

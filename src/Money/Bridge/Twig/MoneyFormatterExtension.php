@@ -21,6 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
  */
 class MoneyFormatterExtension extends \Twig_Extension
 {
+    /** @var ISOCurrencies $currencies */
     private $currencies;
 
     /**
@@ -62,8 +63,8 @@ class MoneyFormatterExtension extends \Twig_Extension
     }
 
     /**
-     * @param array       $money
-     * @param string|null $locale
+     * @param array<string,float|int|string> $money
+     * @param string|null                    $locale
      *
      * @throws \Twig_Error_Syntax
      *

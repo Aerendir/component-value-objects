@@ -26,9 +26,16 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
     use DisableWritingMethodsTrait;
 
+    /** @var float $exchangeRate */
     private $exchangeRate;
+
+    /** @var \DateTime $exchangeRateDate */
     private $exchangeRateDate;
+
+    /** @var Currency $from */
     private $from;
+
+    /** @var Currency $to */
     private $to;
 
     /**
@@ -40,7 +47,12 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      * - To: The Currency in which the amount is converted/exchanged;
      * - ExchangeRate: The rate of the exchanging/conversion.
      *
-     * @param array $values
+     * @param array<string,Currency|\DateTime|float|int> $values = [
+     *                                                           'From' => new Currency(''),
+     *                                                           'To' => new Currency(''),
+     *                                                           'ExchangeRate' => 1.1,
+     *                                                           'ExchangeRateDate' => new \DateTime(),
+     *                                                           ]
      */
     public function __construct(array $values)
     {
