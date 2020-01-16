@@ -1,0 +1,33 @@
+name: PHPunit
+
+on: [push, pull_request]
+
+jobs:
+    compile_and_deploy_rector_phar:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest]
+                php: ['7.4']
+        name: PHP ${{ matrix.php }} on ${{ matrix.os }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v1
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none # disable xdebug, pcov
+                  tools: prestissimo
+
+            - name: Install Composer deps
+              run: |
+                  composer update --no-interaction --no-suggest
+
+            - name: Run PHPunit
+              run: |
+                  ./vendor/bin/phpunit --verbose --debug
+              env:
+                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors
