@@ -17,6 +17,7 @@
         "egulias/email-validator": "^2.1",
         "giggsey/libphonenumber-for-php": "^8.8",
         "moneyphp/money": "^3.0",
+        "thecodingmachine/safe": "^1.0",
         "zendframework/zend-uri": "^2.5"
     },
     "require-dev": {
