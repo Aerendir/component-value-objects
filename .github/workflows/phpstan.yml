@@ -23,6 +23,7 @@ jobs:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
                   tools: prestissimo, pecl
+                  extensions: intl
 
             - name: Install AST
               run: |
