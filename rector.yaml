@@ -1,0 +1,60 @@
+imports:
+    #- { resource: 'vendor/rector/rector/config/level/architecture/*' }
+    - { resource: 'vendor/rector/rector/config/set/php/php52.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/php/php53.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/php/php54.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/php/php56.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/php/php70.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/php/php71.yaml'}
+    #- { resource: 'vendor/rector/rector/config/level/php/php72.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/code-quality/*' }
+    # Reactivate - { resource: 'vendor/rector/rector/config/level/coding-style/*' }
+    - { resource: 'vendor/rector/rector/config/set/doctrine/doctrine25.yaml' }
+    #- { resource: 'vendor/rector/rector/config/set/phpstan/phpstan.yaml' }
+    - { resource: 'vendor/rector/rector/config/set/sensio/*' }
+    # Temporary disabled as throws errors
+    #- { resource: 'vendor/rector/rector/config/level/symfony/symfony-code-quality.yaml' }
+    - { resource: 'vendor/rector/rector/config/set/symfony/symfony-constructor-injection.yaml' }
+    - { resource: 'vendor/rector/rector/config/set/symfony/symfony42.yaml' }
+    # Disabled as it causes wrong changes in the code
+    #- { resource: 'vendor/rector/rector/config/level/symfony/symfony-constructor-injection.yaml' }
+    # Temporary disabled until https://github.com/thecodingmachine/safe/issues/116 is resolved
+    - { resource: 'vendor/thecodingmachine/safe/rector-migrate-0.6.yml' }
+
+parameters:
+    php_version_features: '7.2'
+    exclude_paths:
+        - '*/Migrations/*'
+    exclude_rectors:
+        # I don't like those
+        - 'Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector'
+        - 'Rector\CodeQuality\Rector\Concat\JoinStringConcatRector'
+        - 'Rector\CodingStyle\Rector\Identical\IdenticalFalseToBooleanNotRector'
+        - 'Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector'
+        - 'Rector\CodingStyle\Rector\ClassMethod\NewlineBeforeNewAssignSetRector'
+        - 'Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector'
+        - 'Rector\CodingStyle\Rector\Class_\AddArrayDefaultToArrayPropertyRector'
+        # This doesn't recognize the difference between classes and functions
+        # Waiting the fix https://github.com/rectorphp/rector/issues/1376
+        - 'Rector\CodingStyle\Rector\Namespace_\ImportFullyQualifiedNamesRector'
+        - 'Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector'
+        # See https://github.com/rectorphp/rector/issues/1504
+        # See https://github.com/rectorphp/rector/issues/1503
+        - 'Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector'
+        # See https://github.com/rectorphp/rector/issues/1537
+        - 'Rector\CodingStyle\Rector\Use_\RemoveUnusedAliasRector'
+        # See https://github.com/rectorphp/rector/issues/2305
+        - 'Rector\Renaming\Rector\Class_\RenameClassRector'
+        # Causes a lot of troubles. See https://github.com/rectorphp/rector/issues?utf8=%E2%9C%93&q=is%3Aissue+ImportFullyQualifiedNamesRector
+        - 'Rector\CodingStyle\Rector\Namespace_\ImportFullyQualifiedNamesRector'
+        # Seems has a bug: not yet reported
+        - 'Rector\Php70\Rector\MethodCall\ThisCallOnStaticMethodToStaticCallRector'
+        # Seems has a bug: not yet reported
+        - 'Rector\Php70\Rector\MethodCall\ThisCallOnStaticMethodToStaticCallRector'
+        # Seems has a bug: not yet reported (error raised in TrustBack.Me)
+        - 'Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector'
+
+# This seems to be ignored and doesn't work
+services:
+    Rector\CodingStyle\Rector\Namespace_\ImportFullyQualifiedNamesRector:
+        $shouldImportRootNamespaceClasses: false

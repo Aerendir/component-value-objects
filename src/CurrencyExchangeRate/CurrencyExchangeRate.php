@@ -95,7 +95,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     protected function setExchangeRate(float $exchangeRate): void
     {
         if ( ! is_float($exchangeRate)) {
-            throw new \InvalidArgumentException(sprintf('ExchangeRate has to be a float. %s given.', gettype($exchangeRate)));
+            throw new \InvalidArgumentException(\Safe\sprintf('ExchangeRate has to be a float. %s given.', gettype($exchangeRate)));
         }
 
         $this->exchangeRate = $exchangeRate;

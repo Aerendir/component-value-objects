@@ -94,9 +94,7 @@ class VatNumber implements VatNumberInterface
     protected function setVatNumber(string $vatNumber): void
     {
         if ( ! is_string($vatNumber)) {
-            throw new \InvalidArgumentException(
-                sprintf('The VAT Number MUST be a string. "%s" passed.', gettype($vatNumber))
-            );
+            throw new \InvalidArgumentException(\Safe\sprintf('The VAT Number MUST be a string. "%s" passed.', gettype($vatNumber)));
         }
         $this->vatNumber = $vatNumber;
     }

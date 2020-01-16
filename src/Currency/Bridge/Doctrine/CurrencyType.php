@@ -66,7 +66,7 @@ class CurrencyType extends Type
 
         if ( ! $value instanceof Currency) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(\Safe\sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
 
         // The value is automatically transformed into a string thans to the __toString() method

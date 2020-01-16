@@ -42,7 +42,7 @@ class Email implements EmailInterface
         $validator = new EmailValidator();
 
         if ( ! $validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an email.', $value));
+            throw new \InvalidArgumentException(\Safe\sprintf('The passed value "%s" does not look like an email.', $value));
         }
 
         $this->email = $value;
@@ -99,6 +99,6 @@ class Email implements EmailInterface
      */
     public function __toString()
     {
-        return sprintf('%s@%s', $this->mailBox, $this->host);
+        return \Safe\sprintf('%s@%s', $this->mailBox, $this->host);
     }
 }
