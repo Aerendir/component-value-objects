@@ -27,6 +27,7 @@ trait ComplexValueObjectTrait
      * Accepts an array containing the values to set in the object.
      *
      * @param array<string,mixed> $values
+     * @psalm-suppress MixedAssignment
      */
     public function __construct(array $values)
     {

@@ -168,6 +168,8 @@ class Address implements AddressInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \RuntimeException
      */
     public function toString(array $options = []): string
     {
@@ -233,6 +235,8 @@ class Address implements AddressInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \RuntimeException
      */
     public function __toString()
     {

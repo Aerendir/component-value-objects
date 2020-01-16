@@ -29,7 +29,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /** @var float $exchangeRate */
     private $exchangeRate;
 
-    /** @var \DateTime $exchangeRateDate */
+    /** @var \DateTime|null $exchangeRateDate */
     private $exchangeRateDate;
 
     /** @var Currency $from */
@@ -70,7 +70,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getExchangeRateDate(): \DateTime
+    public function getExchangeRateDate(): ? \DateTime
     {
         return $this->exchangeRateDate;
     }
@@ -108,10 +108,6 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      */
     protected function setExchangeRate(float $exchangeRate): void
     {
-        if ( ! is_float($exchangeRate)) {
-            throw new \InvalidArgumentException(\Safe\sprintf('ExchangeRate has to be a float. %s given.', gettype($exchangeRate)));
-        }
-
         $this->exchangeRate = $exchangeRate;
     }
 
@@ -147,12 +143,15 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress InvalidOperand
      */
     public function __toString()
     {
-        $string = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
-        if (null !== $this->getExchangeRateDate()) {
-            $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
+        $string       = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
+        $exchangeRate = $this->getExchangeRateDate();
+        if (null !== $exchangeRate) {
+            $string .= ' on ' . $exchangeRate->format('Y-m-d H:i:s');
         }
 
         return $string;

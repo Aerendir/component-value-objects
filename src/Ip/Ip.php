@@ -30,6 +30,7 @@ class Ip implements IpInterface
      *
      * @throws \Darsyn\IP\Exception\InvalidIpAddressException
      * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @psalm-suppress MixedArgument
      */
     public function __construct($value)
     {

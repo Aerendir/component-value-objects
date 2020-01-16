@@ -36,6 +36,9 @@ class Email implements EmailInterface
      * {@inheritdoc}
      *
      * @param string $value The email to set in the object
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Safe\Exceptions\StringsException
      */
     public function __construct($value)
     {
@@ -88,6 +91,8 @@ class Email implements EmailInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Safe\Exceptions\StringsException
      */
     public function toString(array $options = []): string
     {
@@ -96,6 +101,8 @@ class Email implements EmailInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Safe\Exceptions\StringsException
      */
     public function __toString()
     {

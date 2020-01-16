@@ -60,6 +60,9 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Money\Exception\ParserException
      */
     public function __construct(array $values = [])
     {
@@ -100,6 +103,9 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedReturnStatement
+     * @psalm-suppress MixedMethodCall
      */
     public function getBaseAmount(): string
     {
@@ -108,6 +114,9 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedReturnStatement
+     * @psalm-suppress MixedMethodCall
      */
     public function getCurrency(): Currency
     {
@@ -124,6 +133,10 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Money\Exception\ParserException
+     * @psalm-suppress MixedMethodCall
      */
     public function add(MoneyInterface $other): MoneyInterface
     {
@@ -136,6 +149,11 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @psalm-suppress MixedMethodCall
+     *
+     * @throws \Money\Exception\ParserException
      */
     public function subtract(MoneyInterface $other): MoneyInterface
     {
@@ -148,6 +166,11 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @psalm-suppress MixedMethodCall
+     *
+     * @throws \Money\Exception\ParserException
      */
     public function divide($divisor, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
@@ -158,6 +181,11 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedMethodCall
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Money\Exception\ParserException
      */
     public function multiply($multiplier, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
@@ -208,13 +236,15 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedArgument
      */
     public function __toString()
     {
         $currencies = new ISOCurrencies();
         $formatter  = new DecimalMoneyFormatter($currencies);
 
-        return $formatter->format($this->valueObject);
+        return (string) $formatter->format($this->valueObject);
     }
 
     /**

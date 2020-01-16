@@ -27,9 +27,12 @@ class Uri implements UriInterface
     private $valueObject;
 
     /**
-     * Copied and pasted from BaseUri.
-     *
      * {@inheritdoc}
+     *
+     * @throws \Safe\Exceptions\StringsException
+     * @throws \Zend\Uri\Exception\InvalidArgumentException
+     * @throws \Zend\Uri\Exception\InvalidUriPartException
+     * @throws \Zend\Uri\Exception\InvalidArgumentException
      */
     public function __construct($uri)
     {
@@ -95,6 +98,8 @@ class Uri implements UriInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedReturnTypeCoercion
      */
     public function getQueryAsArray(): array
     {
@@ -146,7 +151,7 @@ class Uri implements UriInterface
      */
     public function makeRelative($baseUri): UriInterface
     {
-        if ($baseUri instanceof self) {
+        if ($baseUri instanceof UriInterface) {
             $baseUri = $baseUri->__toString();
         }
 
@@ -247,6 +252,8 @@ class Uri implements UriInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Zend\Uri\Exception\InvalidUriException
      */
     public function toString(array $options = []): string
     {
@@ -263,6 +270,8 @@ class Uri implements UriInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Zend\Uri\Exception\InvalidUriException
      */
     public function __toString()
     {

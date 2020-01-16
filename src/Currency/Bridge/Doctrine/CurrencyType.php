@@ -43,6 +43,8 @@ class CurrencyType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedArgument
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -59,6 +61,7 @@ class CurrencyType extends Type
      * @param Currency $value
      *
      * @throws \Safe\Exceptions\StringsException
+     * @throws \InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

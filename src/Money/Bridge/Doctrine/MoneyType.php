@@ -44,6 +44,10 @@ class MoneyType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Money\Exception\ParserException
+     * @psalm-suppress MixedArgument
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -62,6 +66,9 @@ class MoneyType extends Type
      * {@inheritdoc}
      *
      * @param Money $value
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Safe\Exceptions\StringsException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -80,7 +87,7 @@ class MoneyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
@@ -88,7 +95,7 @@ class MoneyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return self::MONEY;
     }

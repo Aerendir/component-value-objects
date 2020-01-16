@@ -45,6 +45,11 @@ class EmailType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedArgument
+     *
+     * @throws \InvalidArgumentException
+     * @throws \Safe\Exceptions\StringsException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -59,6 +64,10 @@ class EmailType extends Type
      * {@inheritdoc}
      *
      * @param Email $value
+     *
+     * @throws \Safe\Exceptions\StringsException
+     * @throws \InvalidArgumentException
+     * @psalm-suppress MixedArgument
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -84,6 +93,8 @@ class EmailType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Safe\Exceptions\StringsException
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {

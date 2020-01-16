@@ -53,9 +53,11 @@ class MoneyFormatterExtension extends AbstractExtension
      * @throws SyntaxError
      *
      * @return string
+     * @psalm-suppress UndefinedFunction
      */
     public function localizeMoneyFilter(Money $money, string $locale = null): string
     {
+        /** @var \NumberFormatter $formatter */
         $formatter      = twig_get_number_formatter($locale, \NumberFormatter::CURRENCY);
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 
@@ -70,6 +72,8 @@ class MoneyFormatterExtension extends AbstractExtension
      * @param string|null                    $locale
      *
      * @throws SyntaxError
+     * @throws \InvalidArgumentException
+     * @throws \Money\Exception\ParserException
      *
      * @return string
      */

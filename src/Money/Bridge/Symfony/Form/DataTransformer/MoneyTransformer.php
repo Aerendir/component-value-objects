@@ -57,6 +57,9 @@ class MoneyTransformer implements DataTransformerInterface
      *
      * @param float|int|Money|string|null $money
      *
+     * @throws \InvalidArgumentException
+     * @throws \Money\Exception\ParserException
+     *
      * @return MoneyInterface|null
      */
     public function reverseTransform($money): ? MoneyInterface

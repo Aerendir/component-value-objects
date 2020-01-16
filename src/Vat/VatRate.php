@@ -31,6 +31,8 @@ class VatRate implements VatRateInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct($countryCode)
     {

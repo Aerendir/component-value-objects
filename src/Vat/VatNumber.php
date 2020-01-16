@@ -90,12 +90,12 @@ class VatNumber implements VatNumberInterface
      * Method to set the full VAT Number.
      *
      * @param string $vatNumber The full VAT number, with country ISO code
+     *
+     * @throws \Safe\Exceptions\StringsException
+     * @throws \InvalidArgumentException
      */
     protected function setVatNumber(string $vatNumber): void
     {
-        if ( ! is_string($vatNumber)) {
-            throw new \InvalidArgumentException(\Safe\sprintf('The VAT Number MUST be a string. "%s" passed.', gettype($vatNumber)));
-        }
         $this->vatNumber = $vatNumber;
     }
 
@@ -104,6 +104,6 @@ class VatNumber implements VatNumberInterface
      */
     public function __toString()
     {
-        return $this->countryCode . ' ' . $this->number;
+        return $this->countryCode . ' ' . (string) $this->number;
     }
 }

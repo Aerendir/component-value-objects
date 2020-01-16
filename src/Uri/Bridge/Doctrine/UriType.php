@@ -25,7 +25,7 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
  */
 class UriType extends Type
 {
-    const URI = 'uri';
+    public const URI = 'uri';
 
     /**
      * {@inheritdoc}
@@ -45,6 +45,9 @@ class UriType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Safe\Exceptions\StringsException
+     * @throws \Zend\Uri\Exception\InvalidArgumentException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -59,6 +62,9 @@ class UriType extends Type
      * {@inheritdoc}
      *
      * @param Money $value
+     *
+     * @throws \Safe\Exceptions\StringsException
+     * @throws \InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -77,7 +83,7 @@ class UriType extends Type
     /**
      * {@inheritdoc}
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
@@ -85,7 +91,7 @@ class UriType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return self::URI;
     }

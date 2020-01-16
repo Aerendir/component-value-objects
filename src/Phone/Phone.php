@@ -37,10 +37,15 @@ class Phone extends PhoneNumber implements PhoneInterface
      * {@inheritdoc}
      *
      * @throws \libphonenumber\NumberParseException
+     * @throws \InvalidArgumentException
      */
     public function __construct(array $values)
     {
         $this->traitConstruct($values);
+
+        if (false === is_bool($values['keepRawInput'])) {
+            throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
+        }
 
         $keepRawInput = $values['keepRawInput'] ?? false;
 
@@ -57,6 +62,8 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
+     * @throws \RuntimeException
+     *
      * @return PhoneNumber
      */
     public function getNumber(): PhoneNumber
