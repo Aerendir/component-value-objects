@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+vendor/bin/rector process src &&
+vendor/bin/php-cs-fixer fix --allow-risky yes -v

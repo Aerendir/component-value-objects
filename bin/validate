@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+bin/console doctrine:schema:validate &&
+bin/console lint:yaml config &&
+bin/console lint:twig templates &&
+bin/console lint:xliff translations
+vendor/bin/rector process src --dry-run &&
+vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
+vendor/bin/phpstan analyse src -c phpstan.neon --level max &&
+vendor/bin/phan --progress-bar --dead-code-detection &&
+vendor/bin/psalm &&
+vendor/bin/phpunit --verbose --debug &&
+bin/console security:check &&
+composer outdated &&
+composer validate --strict
