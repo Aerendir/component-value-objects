@@ -12,11 +12,11 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Tests\Uri;
 
+use Laminas\Uri\Exception\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
-use Zend\Uri\Exception\InvalidArgumentException;
 
 class UriTest extends TestCase
 {

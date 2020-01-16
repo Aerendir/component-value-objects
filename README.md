@@ -64,7 +64,7 @@ Currently, this library supports the following Value Objects:
 * **[Payment](docs/Payment.md)**: Built-in
 * **[Phone](docs/Phone.md)**: Just a proxy for the library [`giggsey/libphonenumber-for-php`](https://github.com/giggsey/libphonenumber-for-php);
 * **[Tax](docs/Tax.md)**: Built-in
-* **[Uri](docs/Uri.md)**: Just a proxy for the library [`Zend\Uri`](https://github.com/zendframework/zend-uri). A more advanced value object is [`League\Uri`](https://github.com/thephpleague/uri)
+* **[Uri](docs/Uri.md)**: Just a proxy for the library [`Laminas\Uri`](https://github.com/laminas/laminas-uri) (formerly Zend Uri). A more advanced value object is [`League\Uri`](https://github.com/thephpleague/uri)
 * **[VatRate](docs/Vat.md)**: Built-in
 * **[VatNumber](docs/VatNumber.md)**: Built-in
 

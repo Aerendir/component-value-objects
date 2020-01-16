@@ -12,9 +12,9 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
+use Laminas\Uri\Exception\InvalidArgumentException;
+use Laminas\Uri\Uri as BaseUri;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use Zend\Uri\Exception\InvalidArgumentException;
-use Zend\Uri\Uri as BaseUri;
 
 /**
  * Default implementation of an Uri value obeject.
@@ -30,9 +30,9 @@ class Uri implements UriInterface
      * {@inheritdoc}
      *
      * @throws \Safe\Exceptions\StringsException
-     * @throws \Zend\Uri\Exception\InvalidArgumentException
-     * @throws \Zend\Uri\Exception\InvalidUriPartException
-     * @throws \Zend\Uri\Exception\InvalidArgumentException
+     * @throws \Laminas\Uri\Exception\InvalidArgumentException
+     * @throws \Laminas\Uri\Exception\InvalidUriPartException
+     * @throws \Laminas\Uri\Exception\InvalidArgumentException
      */
     public function __construct($uri)
     {
@@ -253,7 +253,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Zend\Uri\Exception\InvalidUriException
+     * @throws \Laminas\Uri\Exception\InvalidUriException
      */
     public function toString(array $options = []): string
     {
@@ -271,7 +271,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Zend\Uri\Exception\InvalidUriException
+     * @throws \Laminas\Uri\Exception\InvalidUriException
      */
     public function __toString()
     {

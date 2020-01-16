@@ -47,7 +47,7 @@ class UriType extends Type
      * {@inheritdoc}
      *
      * @throws \Safe\Exceptions\StringsException
-     * @throws \Zend\Uri\Exception\InvalidArgumentException
+     * @throws \Laminas\Uri\Exception\InvalidArgumentException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {

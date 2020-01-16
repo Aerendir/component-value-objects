@@ -16,9 +16,9 @@
         "darsyn/ip": "^4",
         "egulias/email-validator": "^2.1",
         "giggsey/libphonenumber-for-php": "^8.8",
+        "laminas/laminas-uri": "^2.6.2",
         "moneyphp/money": "^3.0",
-        "thecodingmachine/safe": "^1.0",
-        "zendframework/zend-uri": "^2.5"
+        "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
         "doctrine/dbal": "^2.5",
