@@ -47,6 +47,7 @@ class Phone extends PhoneNumber implements PhoneInterface
             throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
         }
 
+        /** @var bool $keepRawInput */
         $keepRawInput = $values['keepRawInput'] ?? false;
 
         if (is_string($values['number'])) {
