@@ -13,7 +13,6 @@
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use Zend\Uri\Exception\InvalidArgumentException;
 use Zend\Uri\Uri as BaseUri;
 
 /**
