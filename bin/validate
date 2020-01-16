@@ -7,6 +7,6 @@ vendor/bin/phpstan analyse src -c phpstan.neon --level max &&
 vendor/bin/phan --progress-bar --dead-code-detection &&
 vendor/bin/psalm &&
 vendor/bin/phpunit --verbose --debug &&
-bin/console security:check &&
-composer outdated &&
+vendor/bin/security-checker security:check &&
+composer outdated --direct &&
 composer validate --strict
