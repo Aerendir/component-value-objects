@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="not.available">
+    <body>
+      <trans-unit id="737e9e4067ae613c81d5d0e526e7db57b9d8b273">
+        <source>shq.address.form.country_code.label</source>
+        <target>Country</target>
+      </trans-unit>
+      <trans-unit id="c8bb6b9a5e14bdee0b5ee90895014fe00771b551">
+        <source>shq.address.form.administrative_area.label</source>
+        <target>State/Province</target>
+      </trans-unit>
+      <trans-unit id="8a95cb3abc224a29bf018cc98f7ca4fa35bc4dbe">
+        <source>shq.address.form.locality.label</source>
+        <target>City</target>
+      </trans-unit>
+      <trans-unit id="5c3c0a45e2b1dfd3fc44f27149a60c30a9582864">
+        <source>shq.address.form.dependent_locality.label</source>
+        <target>Dependent locality</target>
+      </trans-unit>
+      <trans-unit id="794067d358e32628494d1f8fced0ea319c930370">
+        <source>shq.address.form.extra_line.label</source>
+        <target>Street, line 2</target>
+      </trans-unit>
+      <trans-unit id="365cb64f5c5770a6c6aef0f85f19413b10aeda32">
+        <source>shq.address.form.postal_code.label</source>
+        <target>Postal code</target>
+      </trans-unit>
+      <trans-unit id="456c4e41df54c5a180789e2d5d066ef6042aa163">
+        <source>shq.address.form.street.label</source>
+        <target>Street</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

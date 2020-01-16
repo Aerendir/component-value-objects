@@ -28,12 +28,12 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('countryCode', CountryType::class, ['label' => 'address.form.country_code.label', 'translation_domain' => 'address'])
-            ->add('administrativeArea', TextType::class)
-            ->add('locality', TextType::class)
-            ->add('dependentLocality', TextType::class, ['required' => false])
-            ->add('postalCode', TextType::class)
-            ->add('street', TextType::class)
-            ->add('extraLine', TextType::class, ['required' => false]);
+            ->add('countryCode', CountryType::class, ['label' => 'shq.address.form.country_code.label', 'translation_domain' => 'shq_address'])
+            ->add('administrativeArea', TextType::class, ['label' => 'shq.address.form.administrative_area.label', 'translation_domain' => 'shq_address'])
+            ->add('locality', TextType::class, ['label' => 'shq.address.form.locality.label', 'translation_domain' => 'shq_address'])
+            ->add('dependentLocality', TextType::class, ['required' => false, 'label' => 'shq.address.form.dependent_locality.label', 'translation_domain' => 'shq_address'])
+            ->add('postalCode', TextType::class, ['label' => 'shq.address.form.postal_code.label', 'translation_domain' => 'shq_address'])
+            ->add('street', TextType::class, ['label' => 'shq.address.form.street.label', 'translation_domain' => 'address'])
+            ->add('extraLine', TextType::class, ['required' => false, 'label' => 'shq.address.form.extra_line.label', 'translation_domain' => 'shq_address']);
     }
 }
