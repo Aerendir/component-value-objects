@@ -1,11 +1,26 @@
 imports:
-    #- { resource: 'vendor/rector/rector/config/level/architecture/*' }
+    # PHP sets
     - { resource: 'vendor/rector/rector/config/set/php/php52.yaml'}
     - { resource: 'vendor/rector/rector/config/set/php/php53.yaml'}
     - { resource: 'vendor/rector/rector/config/set/php/php54.yaml'}
     - { resource: 'vendor/rector/rector/config/set/php/php56.yaml'}
     - { resource: 'vendor/rector/rector/config/set/php/php70.yaml'}
     - { resource: 'vendor/rector/rector/config/set/php/php71.yaml'}
+    # PHPUnit sets
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-code-quality.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-exception.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-injector.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-mock.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-specific-method.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-yield-data-provider.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit50.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit60.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit70.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit75.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit80.yaml'}
+    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit80-dms.yaml'}
+    #- { resource: 'vendor/rector/rector/config/set/phpunit/phpunit90.yaml'}
+    #- { resource: 'vendor/rector/rector/config/level/architecture/*' }
     #- { resource: 'vendor/rector/rector/config/level/php/php72.yaml'}
     - { resource: 'vendor/rector/rector/config/set/code-quality/*' }
     # Reactivate - { resource: 'vendor/rector/rector/config/level/coding-style/*' }
@@ -23,6 +38,9 @@ imports:
 
 parameters:
     php_version_features: '7.2'
+    autoload_paths:
+        - 'vendor/autoload.php'
+        - 'tests'
     exclude_paths:
         - '*/Migrations/*'
     exclude_rectors:

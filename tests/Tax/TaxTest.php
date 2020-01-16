@@ -48,7 +48,7 @@ class TaxTest extends TestCase
         $this::assertEquals($testData['rate'], $resource->getRate());
         $this::assertEquals($testData['amount'], $resource->getAmount());
         $this::assertEquals($testData['title'], $resource->getTitle());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

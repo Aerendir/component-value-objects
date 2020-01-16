@@ -19,6 +19,9 @@ use PHPUnit\Framework\TestCase;
  */
 class MoneyTypeTest extends TestCase
 {
+    /**
+     * @doesNotPerformAssertion
+     */
     public function testMoneyType()
     {
         $this::markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');

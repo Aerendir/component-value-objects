@@ -42,7 +42,7 @@ class VatRateTest extends TestCase
 
         $this::assertEquals($testData['countryCode'], $resource->getCountryCode());
         $this::assertEquals($testData['percentage'], $resource->getPercentage());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

@@ -29,5 +29,6 @@ jobs:
             - name: Run Rector
               run: |
                   ./vendor/bin/rector process src --dry-run
+                  ./vendor/bin/rector process tests --dry-run
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors

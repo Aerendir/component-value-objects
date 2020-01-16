@@ -32,12 +32,12 @@ class UriTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
-        $this::assertTrue(is_array($resource->getQueryAsArray()));
-        $this::assertTrue(is_bool($resource->isAbsolute()));
-        $this::assertTrue(is_bool($resource->isValid()));
-        $this::assertTrue(is_bool($resource->isValidRelative()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
+        $this::assertIsArray($resource->getQueryAsArray());
+        $this::assertIsBool($resource->isAbsolute());
+        $this::assertIsBool($resource->isValid());
+        $this::assertIsBool($resource->isValidRelative());
     }
 
     public function testUriCanMergeAnotherUri()
@@ -54,8 +54,8 @@ class UriTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject()

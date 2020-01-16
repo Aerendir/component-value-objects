@@ -40,7 +40,7 @@ class PaymentTest extends TestCase
 
         $this::assertEquals($testData['method'], $resource->getMethod());
         $this::assertEquals($testData['status'], $resource->getStatus());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

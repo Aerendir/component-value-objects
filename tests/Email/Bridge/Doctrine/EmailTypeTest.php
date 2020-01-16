@@ -19,6 +19,9 @@ use PHPUnit\Framework\TestCase;
  */
 class EmailTypeTest extends TestCase
 {
+    /**
+     * @doesNotPerformAssertion
+     */
     public function testEmailType()
     {
         $this::markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');

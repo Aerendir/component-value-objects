@@ -41,7 +41,7 @@ class PhoneTest extends TestCase
         // Test inherits the base object
         $this::assertInstanceOf(BasePhone::class, $resource);
 
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

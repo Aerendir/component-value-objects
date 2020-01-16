@@ -42,8 +42,8 @@ class MoneyTest extends TestCase
         $this::assertSame('1.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanInt()
@@ -65,8 +65,8 @@ class MoneyTest extends TestCase
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanFloat()
@@ -88,8 +88,8 @@ class MoneyTest extends TestCase
         $this::assertSame('10.50', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanIntAsFloat()
@@ -111,8 +111,8 @@ class MoneyTest extends TestCase
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanIntAsString()
@@ -134,8 +134,8 @@ class MoneyTest extends TestCase
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanFloatAsString()
@@ -157,8 +157,8 @@ class MoneyTest extends TestCase
         $this::assertSame('12.34', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanIntAsFloatAsString()
@@ -180,8 +180,8 @@ class MoneyTest extends TestCase
         $this::assertSame('12.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanFloatAsStringWithComma()
@@ -203,8 +203,8 @@ class MoneyTest extends TestCase
         $this::assertSame('12.34', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testSum()
@@ -234,8 +234,8 @@ class MoneyTest extends TestCase
         $this::assertSame('15.77', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testSubtract()
@@ -265,7 +265,7 @@ class MoneyTest extends TestCase
         $this::assertSame('9.13', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

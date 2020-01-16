@@ -43,7 +43,7 @@ class VatNumberTest extends TestCase
         $this::assertEquals($testData['countryCode'], $resource->getCountryCode());
         $this::assertEquals($testData['number'], $resource->getNumber());
         $this::assertEquals($testData['vatNumber'], $resource->getVatNumber());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

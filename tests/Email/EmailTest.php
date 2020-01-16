@@ -37,7 +37,7 @@ class EmailTest extends TestCase
         $this::assertEquals($test, $resource->getEmail());
         $this::assertEquals('user', $resource->getMailBox());
         $this::assertEquals('example.com', $resource->getHost());
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->toString());
     }
 
     public function testInvalidEmailThrowsAnException()
