@@ -28,6 +28,7 @@ jobs:
 
             - name: Run Composer
               run: |
+                  ./vendor/bin/security-checker security:check
                   composer outdated
                   composer validate --strict
               env:
