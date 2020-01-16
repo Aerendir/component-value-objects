@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Vat;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Vat;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;

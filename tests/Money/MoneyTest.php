@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Money;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Money;
 
 use Money\Currency;
 use PHPUnit\Framework\TestCase;

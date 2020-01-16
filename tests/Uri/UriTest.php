@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Uri;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Uri;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;

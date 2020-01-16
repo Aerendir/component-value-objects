@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Money\Bridge\Doctrine;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Money\Bridge\Doctrine;
 
 use PHPUnit\Framework\TestCase;
 

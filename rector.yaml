@@ -38,9 +38,6 @@ imports:
 
 parameters:
     php_version_features: '7.2'
-    autoload_paths:
-        - 'vendor/autoload.php'
-        - 'tests'
     exclude_paths:
         - '*/Migrations/*'
     exclude_rectors:

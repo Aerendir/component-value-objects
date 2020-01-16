@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Phone;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Phone;
 
 use libphonenumber\PhoneNumber as BasePhone;
 use PHPUnit\Framework\TestCase;

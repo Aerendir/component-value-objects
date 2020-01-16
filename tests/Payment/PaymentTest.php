@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Payment;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Payment;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
