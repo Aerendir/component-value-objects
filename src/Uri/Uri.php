@@ -153,7 +153,6 @@ class Uri implements UriInterface
             $baseUri = $baseUri->__toString();
         }
 
-
         $this->valueObject->makeRelative($baseUri);
 
         return $this;
