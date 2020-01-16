@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Symfony\Form\DataTransformer;
 
-use App\Entity\Email;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Symfony\Component\Form\DataTransformerInterface;

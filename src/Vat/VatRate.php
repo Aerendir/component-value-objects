@@ -22,7 +22,7 @@ class VatRate implements VatRateInterface
     use DisableWritingMethodsTrait;
 
     /** @var array<string,float> $countries */
-    private $countries = [
+    private const COUNTRIES = [
         'IT' => 22.0000,
     ];
 
@@ -34,7 +34,7 @@ class VatRate implements VatRateInterface
      */
     public function __construct($countryCode)
     {
-        if (false === array_key_exists($countryCode, $this->countries)) {
+        if (false === array_key_exists($countryCode, self::COUNTRIES)) {
             throw new \InvalidArgumentException('The passed Country isn\'t supported by this value object');
         }
 
@@ -54,7 +54,7 @@ class VatRate implements VatRateInterface
      */
     public function getPercentage(): float
     {
-        return $this->countries[$this->country];
+        return self::COUNTRIES[$this->country];
     }
 
     /**

@@ -101,7 +101,7 @@ class Money implements MoneyInterface
     /**
      * {@inheritdoc}
      */
-    public function getBaseAmount(): int
+    public function getBaseAmount(): string
     {
         return $this->valueObject->getAmount();
     }

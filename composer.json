@@ -35,7 +35,7 @@
         "symfony/form": "^4||^5",
         "symfony/var-dumper": "^2.8||^3.0||^4||^5",
         "twig/extensions": "^1.0",
-        "twig/twig": "^1.0||^2.0",
+        "twig/twig": "~2.7||^3.0",
         "vimeo/psalm": "^3.8"
     },
     "config": {

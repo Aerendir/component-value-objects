@@ -56,7 +56,9 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Email $value
+     * @param Currency $value
+     *
+     * @throws \Safe\Exceptions\StringsException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

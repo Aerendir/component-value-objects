@@ -35,7 +35,7 @@ interface PaymentInterface extends ComplexValueObjectInterface
     /**
      * Returns the payment status.
      *
-     * @return string The payment status
+     * @return string|null The payment status
      *
      * @since Alpha
      */

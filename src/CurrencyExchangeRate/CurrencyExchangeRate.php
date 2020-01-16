@@ -103,6 +103,8 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      * Set the conversion rate of the currency.
      *
      * @param float $exchangeRate
+     *
+     * @throws \Safe\Exceptions\StringsException
      */
     protected function setExchangeRate(float $exchangeRate): void
     {

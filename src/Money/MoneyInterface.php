@@ -26,9 +26,9 @@ interface MoneyInterface extends ComplexValueObjectInterface
     /**
      * Returns the monetary value represented by this object.
      *
-     * @return int
+     * @return string
      */
-    public function getBaseAmount(): int;
+    public function getBaseAmount(): string;
 
     /**
      * Returns the Money value in the human format, without the currency symbol.
