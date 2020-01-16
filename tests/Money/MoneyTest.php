@@ -38,7 +38,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(100, $resource->getBaseAmount());
+        $this::assertSame((string) $test['baseAmount'], $resource->getBaseAmount());
         $this::assertSame('1.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -61,7 +61,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('1000', $resource->getBaseAmount());
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -84,7 +84,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1050, $resource->getBaseAmount());
+        $this::assertSame('1050', $resource->getBaseAmount());
         $this::assertSame('10.50', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -107,7 +107,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('1000', $resource->getBaseAmount());
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -130,7 +130,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('1000', $resource->getBaseAmount());
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -153,7 +153,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1234, $resource->getBaseAmount());
+        $this::assertSame('1234', $resource->getBaseAmount());
         $this::assertSame('12.34', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -176,7 +176,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1200, $resource->getBaseAmount());
+        $this::assertSame('1200', $resource->getBaseAmount());
         $this::assertSame('12.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -199,7 +199,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1234, $resource->getBaseAmount());
+        $this::assertSame('1234', $resource->getBaseAmount());
         $this::assertSame('12.34', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -230,7 +230,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1577, $resource->getBaseAmount());
+        $this::assertSame('1577', $resource->getBaseAmount());
         $this::assertSame('15.77', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -261,7 +261,7 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(913, $resource->getBaseAmount());
+        $this::assertSame('913', $resource->getBaseAmount());
         $this::assertSame('9.13', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());

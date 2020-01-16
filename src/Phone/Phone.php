@@ -43,7 +43,7 @@ class Phone extends PhoneNumber implements PhoneInterface
     {
         $this->traitConstruct($values);
 
-        if (false === is_bool($values['keepRawInput'])) {
+        if (isset($values['keepRawInput']) && false === is_bool($values['keepRawInput'])) {
             throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
         }
 
