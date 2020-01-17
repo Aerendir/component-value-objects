@@ -9,7 +9,7 @@
 
 ![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)
 ![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)
-![Psalm](https://github.com/Aerendir/PHPValueObjects/workflows/Psalm/badge.svg)
+![PSalm](https://github.com/Aerendir/PHPValueObjects/workflows/PSalm/badge.svg)
 ![PHPUnit](https://github.com/Aerendir/PHPValueObjects/workflows/PHPunit/badge.svg)
 ![Composer](https://github.com/Aerendir/PHPValueObjects/workflows/Composer/badge.svg)
 
