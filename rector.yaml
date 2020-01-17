@@ -1,45 +1,33 @@
 imports:
-    # PHP sets
-    - { resource: 'vendor/rector/rector/config/set/php/php52.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/php/php53.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/php/php54.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/php/php56.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/php/php70.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/php/php71.yaml'}
-    # PHPUnit sets
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-code-quality.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-exception.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-injector.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-mock.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-specific-method.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit-yield-data-provider.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit50.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit60.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit70.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit75.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit80.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/phpunit/phpunit80-dms.yaml'}
-    #- { resource: 'vendor/rector/rector/config/set/phpunit/phpunit90.yaml'}
-    #- { resource: 'vendor/rector/rector/config/level/architecture/*' }
-    #- { resource: 'vendor/rector/rector/config/level/php/php72.yaml'}
-    - { resource: 'vendor/rector/rector/config/set/code-quality/*' }
-    # Reactivate - { resource: 'vendor/rector/rector/config/level/coding-style/*' }
-    - { resource: 'vendor/rector/rector/config/set/doctrine/doctrine25.yaml' }
-    #- { resource: 'vendor/rector/rector/config/set/phpstan/phpstan.yaml' }
-    - { resource: 'vendor/rector/rector/config/set/sensio/*' }
-    # Temporary disabled as throws errors
-    #- { resource: 'vendor/rector/rector/config/level/symfony/symfony-code-quality.yaml' }
-    - { resource: 'vendor/rector/rector/config/set/symfony/symfony-constructor-injection.yaml' }
-    - { resource: 'vendor/rector/rector/config/set/symfony/symfony42.yaml' }
-    # Disabled as it causes wrong changes in the code
-    #- { resource: 'vendor/rector/rector/config/level/symfony/symfony-constructor-injection.yaml' }
-    # Temporary disabled until https://github.com/thecodingmachine/safe/issues/116 is resolved
     - { resource: 'vendor/thecodingmachine/safe/rector-migrate-0.6.yml' }
 
 parameters:
     php_version_features: '7.2'
     exclude_paths:
         - '*/Migrations/*'
+    sets:
+        # PHP sets
+        - 'php52'
+        - 'php53'
+        - 'php54'
+        - 'php56'
+        - 'php70'
+        - 'php71'
+        - 'php72'
+        # Symfony
+        # Doctrine
+        - 'doctrine25'
+        # PHPUnit sets
+        - 'phpunit'
+        # Sensio
+        - 'framework-extra-bundle-30'
+        - 'framework-extra-bundle-50'
+        # Other sets
+        - 'action-injection-to-constructor-injection'
+        - 'array-str-functions-to-static-call'
+        - 'code-quality'
+        - 'coding-style'
+    import_short_classes: false
     exclude_rectors:
         # I don't like those
         - 'Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector'

@@ -2,4 +2,4 @@
 
 vendor/bin/rector process src &&
 vendor/bin/rector process tests &&
-vendor/bin/php-cs-fixer fix --allow-risky yes -v
+tools/php-cs-fixer fix --allow-risky yes -v
