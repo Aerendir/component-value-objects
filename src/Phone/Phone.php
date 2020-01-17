@@ -6,12 +6,13 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
+use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -20,7 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * Default implementation of a Phone object.
  */
-class Phone extends PhoneNumber implements PhoneInterface
+final class Phone extends PhoneNumber implements PhoneInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;
@@ -36,12 +37,18 @@ class Phone extends PhoneNumber implements PhoneInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \libphonenumber\NumberParseException
+     * @throws NumberParseException
+     * @throws \InvalidArgumentException
      */
     public function __construct(array $values)
     {
         $this->traitConstruct($values);
 
+        if (isset($values['keepRawInput']) && false === is_bool($values['keepRawInput'])) {
+            throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
+        }
+
+        /** @var bool $keepRawInput */
         $keepRawInput = $values['keepRawInput'] ?? false;
 
         if (is_string($values['number'])) {
@@ -57,6 +64,8 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
+     * @throws \RuntimeException
+     *
      * @return PhoneNumber
      */
     public function getNumber(): PhoneNumber
@@ -101,7 +110,11 @@ class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
-     * @return array
+     * @return array<string,int|string|null> [
+     *                                       'countryCode' => $this->getCountryCode(),
+     *                                       'number'      => $this->getNationalNumber(),
+     *                                       'region'      => $this->getRegion(),
+     *                                       ];
      */
     public function __toArray(): array
     {

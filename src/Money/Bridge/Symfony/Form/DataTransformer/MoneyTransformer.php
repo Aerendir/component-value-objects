@@ -8,13 +8,13 @@ declare(strict_types=1);
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Symfony\Form\DataTransformer;
 
-use App\Entity\Email;
+use Money\Exception\ParserException;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Symfony\Component\Form\DataTransformerInterface;
@@ -22,13 +22,15 @@ use Symfony\Component\Form\DataTransformerInterface;
 /**
  * {@inheritdoc}
  */
-class MoneyTransformer implements DataTransformerInterface
+final class MoneyTransformer implements DataTransformerInterface
 {
-    /** @var array $options */
+    /** @var array<string,mixed> $options */
     private $options;
 
     /**
-     * @param array $options
+     * @param array<string,mixed> $options = [
+     *                                     'currency' => 'EUR'
+     *                                     ]
      */
     public function __construct(array $options)
     {
@@ -55,6 +57,9 @@ class MoneyTransformer implements DataTransformerInterface
      * Transforms a string email (email@example.com) to an Email object.
      *
      * @param float|int|Money|string|null $money
+     *
+     * @throws \InvalidArgumentException
+     * @throws ParserException
      *
      * @return MoneyInterface|null
      */

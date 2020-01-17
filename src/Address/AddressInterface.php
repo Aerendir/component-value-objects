@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -22,37 +22,37 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface AddressInterface extends ComplexValueObjectInterface
 {
     /**
-     * @return string
+     * @return string|null
      */
     public function getAdministrativeArea(): ?string;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCountryCode(): ?string;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDependentLocality(): ?string;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLocality(): ?string;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPostalCode(): ?string;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getStreet(): ?string;
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getExtraLine(): ?string;
 }

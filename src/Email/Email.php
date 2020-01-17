@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -14,12 +14,14 @@ namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
  * {@inheritdoc}
  */
-class Email implements EmailInterface
+final class Email implements EmailInterface
 {
     use DisableWritingMethodsTrait;
 
@@ -36,6 +38,9 @@ class Email implements EmailInterface
      * {@inheritdoc}
      *
      * @param string $value The email to set in the object
+     *
+     * @throws \InvalidArgumentException
+     * @throws StringsException
      */
     public function __construct($value)
     {
@@ -88,6 +93,8 @@ class Email implements EmailInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws StringsException
      */
     public function toString(array $options = []): string
     {
@@ -96,6 +103,8 @@ class Email implements EmailInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws StringsException
      */
     public function __toString()
     {

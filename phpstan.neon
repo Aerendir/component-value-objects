@@ -4,8 +4,23 @@ parameters:
         - src
     ignoreErrors:
         -
-            message: '#Parameter \#1 \$baseUri of method Zend\\Uri\\Uri::makeRelative\(\) expects string|Zend\\Uri\\Uri, SerendipityHQ\\Component\\ValueObjects\\Uri\\UriInterface|string|Zend\\Uri\\Uri given.#'
+            message: '#Function twig_get_number_formatter not found.#'
             path: %currentWorkingDirectory%/src
         -
-            message: '#Function twig_get_number_formatter not found.#'
+            message: '#Method SerendipityHQ\\Component\\ValueObjects\\Address\\Bridge\\Symfony\\Form\\Type\\AddressType::buildForm\(\) has parameter \$builder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface.#'
+            path: %currentWorkingDirectory%/src
+        -
+            message: '#Method SerendipityHQ\\Component\\ValueObjects\\Address\\Bridge\\Symfony\\Form\\Type\\AddressType::buildForm\(\) has parameter \$options with no value type specified in iterable type array.#'
+            path: %currentWorkingDirectory%/src
+        -
+            message: '#Method SerendipityHQ\\Component\\ValueObjects\\Money\\Bridge\\Symfony\\Form\\Type\\MoneyType::buildForm\(\) has parameter \$builder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface.#'
+            path: %currentWorkingDirectory%/src
+        -
+            message: '#Method SerendipityHQ\\Component\\ValueObjects\\Money\\Bridge\\Symfony\\Form\\Type\\MoneyType::buildForm\(\) has parameter \$options with no value type specified in iterable type array.#'
+            path: %currentWorkingDirectory%/src
+        -
+            message: '#Property SerendipityHQ\\Component\\ValueObjects\\Money\\Bridge\\Twig\\MoneyFormatterExtension::\$currencies type has no value type specified in iterable type Money\\Currencies\\ISOCurrencies.#'
+            path: %currentWorkingDirectory%/src
+        -
+            message: '#Method SerendipityHQ\\Component\\ValueObjects\\Uri\\Uri::__construct\(\) has parameter \$uri with no typehint specified.#'
             path: %currentWorkingDirectory%/src

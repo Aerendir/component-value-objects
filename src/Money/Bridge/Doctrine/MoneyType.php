@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -15,6 +15,9 @@ namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Doctrine;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Money\Currency;
+use Money\Exception\ParserException;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
@@ -22,20 +25,28 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class MoneyType extends Type
+final class MoneyType extends Type
 {
-    const MONEY = 'money';
+    /**
+     * @var string
+     */
+    private const MONEY = 'money';
 
     /**
-     * {@inheritdoc}
+     * @param array<string,mixed> $fieldDeclaration
+     * @param AbstractPlatform    $platform
+     *
+     * @return string
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
 
     /**
      * {@inheritdoc}
+     *
+     * @return int
      */
     public function getDefaultLength(AbstractPlatform $platform)
     {
@@ -44,6 +55,12 @@ class MoneyType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @throws ParserException
+     * @psalm-suppress MixedArgument
+     *
+     * @return \SerendipityHQ\Component\ValueObjects\Money\Money|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -62,6 +79,11 @@ class MoneyType extends Type
      * {@inheritdoc}
      *
      * @param Money $value
+     *
+     * @throws \InvalidArgumentException
+     * @throws StringsException
+     *
+     * @return string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -80,7 +102,7 @@ class MoneyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
@@ -88,7 +110,7 @@ class MoneyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return self::MONEY;
     }

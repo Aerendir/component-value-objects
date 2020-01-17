@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -35,9 +35,9 @@ interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
     /**
      * The date on which the exchange rate were given.
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
-    public function getExchangeRateDate(): \DateTime;
+    public function getExchangeRateDate(): ? \DateTime;
 
     /**
      * Get the base Currency the amount is in.

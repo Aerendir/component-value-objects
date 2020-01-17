@@ -6,11 +6,11 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Money\Bridge\Doctrine;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Money\Bridge\Doctrine;
 
 use PHPUnit\Framework\TestCase;
 
@@ -19,6 +19,9 @@ use PHPUnit\Framework\TestCase;
  */
 class MoneyTypeTest extends TestCase
 {
+    /**
+     * @doesNotPerformAssertion
+     */
     public function testMoneyType()
     {
         $this::markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');

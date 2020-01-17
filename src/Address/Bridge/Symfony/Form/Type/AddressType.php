@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -20,12 +20,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class AddressType extends AbstractType
+final class AddressType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('countryCode', CountryType::class, ['label' => 'shq.address.form.country_code.label', 'translation_domain' => 'shq_address'])

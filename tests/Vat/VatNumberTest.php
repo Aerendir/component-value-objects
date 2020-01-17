@@ -6,11 +6,11 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Vat;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Vat;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
@@ -43,7 +43,7 @@ class VatNumberTest extends TestCase
         $this::assertEquals($testData['countryCode'], $resource->getCountryCode());
         $this::assertEquals($testData['number'], $resource->getNumber());
         $this::assertEquals($testData['vatNumber'], $resource->getVatNumber());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

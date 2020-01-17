@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -17,14 +17,12 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * Default implementation of a Tax Value object.
  */
-class VatRate implements VatRateInterface
+final class VatRate implements VatRateInterface
 {
     use DisableWritingMethodsTrait;
 
-    /**
-     * @var array
-     */
-    private $countries = [
+    /** @var float[] $countries */
+    private const COUNTRIES = [
         'IT' => 22.0000,
     ];
 
@@ -33,11 +31,13 @@ class VatRate implements VatRateInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct($countryCode)
     {
-        if (false === array_key_exists($countryCode, $this->countries)) {
-            throw new \InvalidArgumentException('The passed Country isn\'t supported by this value object');
+        if (false === array_key_exists($countryCode, self::COUNTRIES)) {
+            throw new \InvalidArgumentException("The passed Country isn't supported by this value object");
         }
 
         $this->country = $countryCode;
@@ -56,7 +56,7 @@ class VatRate implements VatRateInterface
      */
     public function getPercentage(): float
     {
-        return $this->countries[$this->country];
+        return self::COUNTRIES[$this->country];
     }
 
     /**

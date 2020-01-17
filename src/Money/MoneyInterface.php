@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -26,9 +26,9 @@ interface MoneyInterface extends ComplexValueObjectInterface
     /**
      * Returns the monetary value represented by this object.
      *
-     * @return int
+     * @return string
      */
-    public function getBaseAmount(): int;
+    public function getBaseAmount(): string;
 
     /**
      * Returns the Money value in the human format, without the currency symbol.
@@ -76,7 +76,11 @@ interface MoneyInterface extends ComplexValueObjectInterface
     public function multiply($multiplier, $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
-     * @return array
+     * @return array<string,float|int|string> [
+     *                                        'currency'    => $this->getCurrency()->getCode(),
+     *                                        'baseAmount'  => $this->getBaseAmount(),
+     *                                        'humanAmount' => $this->getHumanAmount(),
+     *                                        ];
      */
     public function __toArray(): array;
 }

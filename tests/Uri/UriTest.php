@@ -6,17 +6,17 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Uri;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Uri;
 
+use Laminas\Uri\Exception\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
-use Zend\Uri\Exception\InvalidArgumentException;
 
 class UriTest extends TestCase
 {
@@ -32,12 +32,12 @@ class UriTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
-        $this::assertTrue(is_array($resource->getQueryAsArray()));
-        $this::assertTrue(is_bool($resource->isAbsolute()));
-        $this::assertTrue(is_bool($resource->isValid()));
-        $this::assertTrue(is_bool($resource->isValidRelative()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
+        $this::assertIsArray($resource->getQueryAsArray());
+        $this::assertIsBool($resource->isAbsolute());
+        $this::assertIsBool($resource->isValid());
+        $this::assertIsBool($resource->isValidRelative());
     }
 
     public function testUriCanMergeAnotherUri()
@@ -54,8 +54,8 @@ class UriTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject()

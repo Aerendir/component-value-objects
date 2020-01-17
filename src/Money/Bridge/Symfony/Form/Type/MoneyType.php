@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -20,12 +20,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class MoneyType extends AbstractType
+final class MoneyType extends AbstractType
 {
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedArgumentTypeCoercion
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->addModelTransformer(new MoneyTransformer($options));
     }
@@ -33,7 +35,7 @@ class MoneyType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent()
+    public function getParent(): string
     {
         return SfMoneyType::class;
     }
@@ -41,7 +43,7 @@ class MoneyType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'shq_money';
     }
