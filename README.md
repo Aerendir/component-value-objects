@@ -1,11 +1,20 @@
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_value_objects/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-[![Build Status](https://travis-ci.org/Aerendir/PHPValueObjects.svg?branch=master)](https://travis-ci.org/Aerendir/PHPValueObjects)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![License](https://poser.pugx.org/serendipity_hq/php_value_objects/license.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
+
 [![Code Climate](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/gpa.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![Test Coverage](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/coverage.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![Issue Count](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/issue_count.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
+
+![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)
+![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)
+![Psalm](https://github.com/Aerendir/PHPValueObjects/workflows/Psalm/badge.svg)
+![PHPUnit](https://github.com/Aerendir/PHPValueObjects/workflows/PHPunit/badge.svg)
+![Composer](https://github.com/Aerendir/PHPValueObjects/workflows/Composer/badge.svg)
+
+![PHP CS Fixer](https://github.com/Aerendir/PHPValueObjects/workflows/PHP%20CS%20Fixer/badge.svg)
+![Rector](https://github.com/Aerendir/PHPValueObjects/workflows/Rector/badge.svg)
 
 # PHP Value Objects
 A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.
