@@ -25,12 +25,15 @@ use SerendipityHQ\Component\ValueObjects\Email\Email;
  */
 class EmailType extends Type
 {
-    const EMAIL = 'email';
+    public const EMAIL = 'email';
 
     /**
      * {@inheritdoc}
+     *
+     * @param array<string,mixed> $fieldDeclaration
+     * @param AbstractPlatform    $platform
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
@@ -38,7 +41,7 @@ class EmailType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getDefaultLength(AbstractPlatform $platform)
+    public function getDefaultLength(AbstractPlatform $platform): int
     {
         return $platform->getVarcharDefaultLength();
     }

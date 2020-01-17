@@ -29,6 +29,9 @@ class UriType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @param array<string,mixed> $fieldDeclaration
+     * @param AbstractPlatform    $platform
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {

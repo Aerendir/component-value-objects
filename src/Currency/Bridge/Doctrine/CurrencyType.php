@@ -23,12 +23,15 @@ use Money\Currency;
  */
 class CurrencyType extends Type
 {
-    const CURRENCY = 'currency';
+    public const CURRENCY = 'currency';
 
     /**
      * {@inheritdoc}
+     *
+     * @param array<string,mixed> $fieldDeclaration
+     * @param AbstractPlatform    $platform
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
@@ -36,7 +39,7 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getDefaultLength(AbstractPlatform $platform)
+    public function getDefaultLength(AbstractPlatform $platform): int
     {
         return 3;
     }
@@ -81,7 +84,7 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
@@ -89,7 +92,7 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return self::CURRENCY;
     }
