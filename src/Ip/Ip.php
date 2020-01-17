@@ -12,6 +12,9 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
+use Darsyn\IP\Exception\InvalidIpAddressException;
+use Darsyn\IP\Exception\IpException;
+use Darsyn\IP\Exception\WrongVersionException;
 use Darsyn\IP\Version\IPv4;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
@@ -28,8 +31,8 @@ class Ip implements IpInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Darsyn\IP\Exception\InvalidIpAddressException
-     * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @throws InvalidIpAddressException
+     * @throws WrongVersionException
      * @psalm-suppress MixedArgument
      */
     public function __construct($value)
@@ -40,8 +43,8 @@ class Ip implements IpInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Darsyn\IP\Exception\IpException
-     * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @throws IpException
+     * @throws WrongVersionException
      */
     public function toString(array $options = []): string
     {
@@ -49,8 +52,8 @@ class Ip implements IpInterface
     }
 
     /**
-     * @throws \Darsyn\IP\Exception\IpException
-     * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @throws IpException
+     * @throws WrongVersionException
      *
      * @return string
      */

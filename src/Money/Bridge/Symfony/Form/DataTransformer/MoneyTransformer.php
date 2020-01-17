@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Symfony\Form\DataTransformer;
 
+use Money\Exception\ParserException;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Symfony\Component\Form\DataTransformerInterface;
@@ -58,7 +59,7 @@ class MoneyTransformer implements DataTransformerInterface
      * @param float|int|Money|string|null $money
      *
      * @throws \InvalidArgumentException
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      *
      * @return MoneyInterface|null
      */

@@ -15,6 +15,9 @@ namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Doctrine;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Money\Currency;
+use Money\Exception\ParserException;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
@@ -24,6 +27,9 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
  */
 class MoneyType extends Type
 {
+    /**
+     * @var string
+     */
     public const MONEY = 'money';
 
     /**
@@ -49,7 +55,7 @@ class MoneyType extends Type
      * {@inheritdoc}
      *
      * @throws \InvalidArgumentException
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      * @psalm-suppress MixedArgument
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -71,7 +77,7 @@ class MoneyType extends Type
      * @param Money $value
      *
      * @throws \InvalidArgumentException
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -81,7 +87,7 @@ class MoneyType extends Type
 
         if ( ! $value instanceof Money) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(\Safe\sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
         }
 
         return $value->getBaseAmount() . '-' . $value->getCurrency()->getCode();

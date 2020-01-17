@@ -14,6 +14,7 @@ namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
+use Money\Exception\ParserException;
 use Money\Formatter\DecimalMoneyFormatter;
 use Money\Money as BaseMoney;
 use Money\Parser\DecimalMoneyParser;
@@ -62,7 +63,7 @@ class Money implements MoneyInterface
      * {@inheritdoc}
      *
      * @throws \InvalidArgumentException
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      */
     public function __construct(array $values = [])
     {
@@ -135,7 +136,7 @@ class Money implements MoneyInterface
      * {@inheritdoc}
      *
      * @throws \InvalidArgumentException
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      * @psalm-suppress MixedMethodCall
      */
     public function add(MoneyInterface $other): MoneyInterface
@@ -153,7 +154,7 @@ class Money implements MoneyInterface
      * @throws \InvalidArgumentException
      * @psalm-suppress MixedMethodCall
      *
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      */
     public function subtract(MoneyInterface $other): MoneyInterface
     {
@@ -170,7 +171,7 @@ class Money implements MoneyInterface
      * @throws \InvalidArgumentException
      * @psalm-suppress MixedMethodCall
      *
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      */
     public function divide($divisor, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
@@ -185,7 +186,7 @@ class Money implements MoneyInterface
      * @psalm-suppress MixedMethodCall
      *
      * @throws \InvalidArgumentException
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      */
     public function multiply($multiplier, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {

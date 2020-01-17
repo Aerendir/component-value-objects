@@ -14,6 +14,8 @@ namespace SerendipityHQ\Component\ValueObjects\Uri\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
@@ -25,6 +27,9 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
  */
 class UriType extends Type
 {
+    /**
+     * @var string
+     */
     public const URI = 'uri';
 
     /**
@@ -49,7 +54,7 @@ class UriType extends Type
     /**
      * {@inheritdoc}
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      * @throws \Laminas\Uri\Exception\InvalidArgumentException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -66,7 +71,7 @@ class UriType extends Type
      *
      * @param Money $value
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      * @throws \InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
@@ -77,7 +82,7 @@ class UriType extends Type
 
         if ( ! $value instanceof UriInterface) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(\Safe\sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
         }
 
         return $value->__toString();

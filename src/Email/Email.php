@@ -14,6 +14,8 @@ namespace SerendipityHQ\Component\ValueObjects\Email;
 
 use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
@@ -38,14 +40,14 @@ class Email implements EmailInterface
      * @param string $value The email to set in the object
      *
      * @throws \InvalidArgumentException
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      */
     public function __construct($value)
     {
         $validator = new EmailValidator();
 
         if ( ! $validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(\Safe\sprintf('The passed value "%s" does not look like an email.', $value));
+            throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an email.', $value));
         }
 
         $this->email = $value;
@@ -92,7 +94,7 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      */
     public function toString(array $options = []): string
     {
@@ -102,10 +104,10 @@ class Email implements EmailInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      */
     public function __toString()
     {
-        return \Safe\sprintf('%s@%s', $this->mailBox, $this->host);
+        return sprintf('%s@%s', $this->mailBox, $this->host);
     }
 }

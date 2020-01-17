@@ -12,6 +12,8 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
+use Laminas\Uri\Exception\InvalidUriPartException;
+use Laminas\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
 /**
@@ -90,7 +92,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *  If the two URIs do not intersect (e.g. the original URI is not in any
      *  way related to the base URI) the URI will not be modified.
      *
-     * @param \Laminas\Uri\Uri|string|UriInterface $baseUri
+     * @param string|Uri|UriInterface $baseUri
      *
      * @return UriInterface
      *
@@ -186,7 +188,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $scheme
      *
-     * @throws \Laminas\Uri\Exception\InvalidUriPartException
+     * @throws InvalidUriPartException
      *
      * @return UriInterface
      *
@@ -199,8 +201,8 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $userInfo
      *
-     * @throws \Laminas\Uri\Exception\InvalidUriPartException If the schema definition
-     *                                                        does not have this part
+     * @throws InvalidUriPartException If the schema definition
+     *                                 does not have this part
      *
      * @return UriInterface
      *
@@ -224,7 +226,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $host
      *
-     * @throws \Laminas\Uri\Exception\InvalidUriPartException
+     * @throws InvalidUriPartException
      *
      * @return UriInterface
      *
@@ -274,8 +276,8 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $fragment
      *
-     * @throws \Laminas\Uri\Exception\InvalidUriPartException If the schema definition
-     *                                                        does not have this part
+     * @throws InvalidUriPartException If the schema definition
+     *                                 does not have this part
      *
      * @return UriInterface
      *

@@ -12,6 +12,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
+use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -36,7 +37,7 @@ class Phone extends PhoneNumber implements PhoneInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \libphonenumber\NumberParseException
+     * @throws NumberParseException
      * @throws \InvalidArgumentException
      */
     public function __construct(array $values)

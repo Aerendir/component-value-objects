@@ -13,6 +13,7 @@
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Twig;
 
 use Money\Currencies\ISOCurrencies;
+use Money\Exception\ParserException;
 use Money\Formatter\IntlMoneyFormatter;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use Twig\Error\SyntaxError;
@@ -68,12 +69,12 @@ class MoneyFormatterExtension extends AbstractExtension
     }
 
     /**
-     * @param array<string,float|int|string> $money
-     * @param string|null                    $locale
+     * @param array<string, float|int|string> $money
+     * @param string|null                     $locale
      *
      * @throws SyntaxError
      * @throws \InvalidArgumentException
-     * @throws \Money\Exception\ParserException
+     * @throws ParserException
      *
      * @return string
      */

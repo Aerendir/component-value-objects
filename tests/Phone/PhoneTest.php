@@ -12,7 +12,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Tests\Phone;
 
-use libphonenumber\PhoneNumber as BasePhone;
+use libphonenumber\PhoneNumber;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Phone\Phone;
@@ -39,7 +39,7 @@ class PhoneTest extends TestCase
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         // Test inherits the base object
-        $this::assertInstanceOf(BasePhone::class, $resource);
+        $this::assertInstanceOf(PhoneNumber::class, $resource);
 
         $this::assertIsString($resource->__toString());
         $this::assertIsString($resource->toString());

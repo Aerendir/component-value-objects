@@ -12,6 +12,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Vat;
 
+use Safe\Exceptions\StringsException;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
@@ -91,7 +92,7 @@ class VatNumber implements VatNumberInterface
      *
      * @param string $vatNumber The full VAT number, with country ISO code
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      * @throws \InvalidArgumentException
      */
     protected function setVatNumber(string $vatNumber): void

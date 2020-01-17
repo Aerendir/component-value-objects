@@ -15,6 +15,8 @@ namespace SerendipityHQ\Component\ValueObjects\Currency\Bridge\Doctrine;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Money\Currency;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 
 /**
  * A custom datatype to persist a Currency Value Object with Doctrine.
@@ -23,6 +25,9 @@ use Money\Currency;
  */
 class CurrencyType extends Type
 {
+    /**
+     * @var string
+     */
     public const CURRENCY = 'currency';
 
     /**
@@ -63,7 +68,7 @@ class CurrencyType extends Type
      *
      * @param Currency $value
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      * @throws \InvalidArgumentException
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
@@ -74,7 +79,7 @@ class CurrencyType extends Type
 
         if ( ! $value instanceof Currency) {
             $type = is_object($value) ? get_class($value) : gettype($value);
-            throw new \InvalidArgumentException(\Safe\sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
 
         // The value is automatically transformed into a string thans to the __toString() method

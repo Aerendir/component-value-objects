@@ -13,7 +13,11 @@
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use Laminas\Uri\Exception\InvalidArgumentException;
+use Laminas\Uri\Exception\InvalidUriException;
+use Laminas\Uri\Exception\InvalidUriPartException;
 use Laminas\Uri\Uri as BaseUri;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
@@ -29,10 +33,10 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Safe\Exceptions\StringsException
-     * @throws \Laminas\Uri\Exception\InvalidArgumentException
-     * @throws \Laminas\Uri\Exception\InvalidUriPartException
-     * @throws \Laminas\Uri\Exception\InvalidArgumentException
+     * @throws StringsException
+     * @throws InvalidArgumentException
+     * @throws InvalidUriPartException
+     * @throws InvalidArgumentException
      */
     public function __construct($uri)
     {
@@ -52,7 +56,7 @@ class Uri implements UriInterface
             $this->setQuery($uri->getQuery());
             $this->setFragment($uri->getFragment());
         } elseif (null !== $uri) {
-            throw new InvalidArgumentException(\Safe\sprintf('Expecting a string or a URI object, received "%s"', (is_object($uri) ? get_class($uri) : gettype($uri))));
+            throw new InvalidArgumentException(sprintf('Expecting a string or a URI object, received "%s"', (is_object($uri) ? get_class($uri) : gettype($uri))));
         }
     }
 
@@ -253,7 +257,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Laminas\Uri\Exception\InvalidUriException
+     * @throws InvalidUriException
      */
     public function toString(array $options = []): string
     {
@@ -271,7 +275,7 @@ class Uri implements UriInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Laminas\Uri\Exception\InvalidUriException
+     * @throws InvalidUriException
      */
     public function __toString()
     {

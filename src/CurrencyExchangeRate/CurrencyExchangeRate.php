@@ -13,6 +13,7 @@
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
 use Money\Currency;
+use Safe\Exceptions\StringsException;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
@@ -104,7 +105,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      *
      * @param float $exchangeRate
      *
-     * @throws \Safe\Exceptions\StringsException
+     * @throws StringsException
      */
     protected function setExchangeRate(float $exchangeRate): void
     {

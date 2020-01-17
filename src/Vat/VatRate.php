@@ -21,7 +21,7 @@ class VatRate implements VatRateInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var array<string,float> $countries */
+    /** @var float[] $countries */
     private const COUNTRIES = [
         'IT' => 22.0000,
     ];
@@ -37,7 +37,7 @@ class VatRate implements VatRateInterface
     public function __construct($countryCode)
     {
         if (false === array_key_exists($countryCode, self::COUNTRIES)) {
-            throw new \InvalidArgumentException('The passed Country isn\'t supported by this value object');
+            throw new \InvalidArgumentException("The passed Country isn't supported by this value object");
         }
 
         $this->country = $countryCode;
