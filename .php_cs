@@ -15,7 +15,7 @@ This file is part of PHP Value Objects.
 Copyright Adamo Aerendir Crespi 2015-2017.
 
 @author    Adamo Aerendir Crespi <hello@aerendir.me>
-@copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+@copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
 @license   MIT
 EOF;
 
@@ -45,6 +45,7 @@ return PhpCsFixer\Config::create()
         'no_multiline_whitespace_before_semicolons' => true,
         'no_null_property_initialization' => true,
         'no_short_echo_tag' => true,
+        'no_superfluous_phpdoc_tags' => false,
         'no_unreachable_default_argument_value' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,

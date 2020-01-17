@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -15,20 +15,28 @@ namespace SerendipityHQ\Component\ValueObjects\Currency\Bridge\Doctrine;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Money\Currency;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 
 /**
  * A custom datatype to persist a Currency Value Object with Doctrine.
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class CurrencyType extends Type
+final class CurrencyType extends Type
 {
-    const CURRENCY = 'currency';
+    /**
+     * @var string
+     */
+    private const CURRENCY = 'currency';
 
     /**
-     * {@inheritdoc}
+     * @param array<string,mixed> $fieldDeclaration
+     * @param AbstractPlatform    $platform
+     *
+     * @return string
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
@@ -36,13 +44,17 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getDefaultLength(AbstractPlatform $platform)
+    public function getDefaultLength(AbstractPlatform $platform): int
     {
         return 3;
     }
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedArgument
+     *
+     * @return \Money\Currency|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -56,7 +68,12 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Email $value
+     * @param Currency $value
+     *
+     * @throws StringsException
+     * @throws \InvalidArgumentException
+     *
+     * @return \Money\Currency|string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -76,7 +93,7 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
@@ -84,7 +101,7 @@ class CurrencyType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return self::CURRENCY;
     }

@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -20,12 +20,12 @@ use SerendipityHQ\Component\ValueObjects\Address\Address;
  *
  * @ORM\Embeddable
  */
-class AddressEmbeddable extends Address
+final class AddressEmbeddable extends Address
 {
     /**
      * @param string $administrativeArea
      */
-    public function setAdministrativeArea(string $administrativeArea): void
+    protected function setAdministrativeArea(string $administrativeArea): void
     {
         parent::setAdministrativeArea($administrativeArea);
     }
@@ -33,7 +33,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $countryCode
      */
-    public function setCountryCode(string $countryCode): void
+    protected function setCountryCode(string $countryCode): void
     {
         parent::setCountryCode($countryCode);
     }
@@ -41,7 +41,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $dependentLocality
      */
-    public function setDependentLocality(string $dependentLocality): void
+    protected function setDependentLocality(string $dependentLocality): void
     {
         parent::setDependentLocality($dependentLocality);
     }
@@ -49,7 +49,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $street
      */
-    public function setStreet(string $street): void
+    protected function setStreet(string $street): void
     {
         parent::setStreet($street);
     }
@@ -57,7 +57,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $extraLine
      */
-    public function setExtraLine(string $extraLine): void
+    protected function setExtraLine(string $extraLine): void
     {
         parent::setExtraLine($extraLine);
     }
@@ -65,7 +65,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $locality
      */
-    public function setLocality(string $locality): void
+    protected function setLocality(string $locality): void
     {
         parent::setLocality($locality);
     }
@@ -73,7 +73,7 @@ class AddressEmbeddable extends Address
     /**
      * @param string $postalCode
      */
-    public function setPostalCode(string $postalCode): void
+    protected function setPostalCode(string $postalCode): void
     {
         parent::setPostalCode($postalCode);
     }

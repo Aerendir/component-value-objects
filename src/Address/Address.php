@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -168,6 +168,8 @@ class Address implements AddressInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \RuntimeException
      */
     public function toString(array $options = []): string
     {
@@ -233,6 +235,8 @@ class Address implements AddressInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \RuntimeException
      */
     public function __toString()
     {

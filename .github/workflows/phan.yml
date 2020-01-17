@@ -1,0 +1,46 @@
+name: Phan
+
+on: [push, pull_request]
+
+jobs:
+    serendipity_hq:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest]
+                php: ['7.2', '7.3', '7.4']
+                composer-flags: ['--prefer-stable --prefer-lowest', '']
+                symfony: ['~3.4', '~4.4', '~5.0']
+        name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v1
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none # disable xdebug, pcov
+                  tools: prestissimo, pecl
+                  extensions: intl
+
+            - name: Install AST
+              run: |
+                  sudo pecl channel-update pecl.php.net
+                  sudo pecl install ast
+
+            - name: Fix Symfony version
+              run: |
+                  composer req symfony/flex
+                  composer config extra.symfony.require "${{ matrix.symfony }}"
+
+            - name: Install Composer deps
+              run: |
+                  composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest
+
+            - name: Run Phan
+              run: |
+                  ./vendor/bin/phan --progress-bar --dead-code-detection
+              env:
+                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors

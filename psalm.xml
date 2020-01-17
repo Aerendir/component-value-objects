@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<psalm
+        cacheDirectory="./var/cache/psalm"
+        allowPhpStormGenerics="true"
+        checkForThrowsDocblock="true"
+        hideExternalErrors="true"
+        ignoreInternalFunctionNullReturn="false"
+        ignoreInternalFunctionFalseReturn="false"
+    requireVoidReturnType="false"
+    strictBinaryOperands="true"
+    totallyTyped="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <!-- We support PHP 7.2: suppress errors related to upper versions -->
+        <MissingParamType errorLevel="suppress" />
+
+        <LessSpecificReturnType errorLevel="info"/>
+
+        <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+
+        <DeprecatedMethod errorLevel="info"/>
+        <DeprecatedProperty errorLevel="info"/>
+        <DeprecatedClass errorLevel="info"/>
+        <DeprecatedConstant errorLevel="info"/>
+        <DeprecatedInterface errorLevel="info"/>
+        <DeprecatedTrait errorLevel="info"/>
+
+        <InternalMethod errorLevel="info"/>
+        <InternalProperty errorLevel="info"/>
+        <InternalClass errorLevel="info"/>
+
+        <MissingClosureReturnType errorLevel="info"/>
+        <MissingReturnType errorLevel="info"/>
+        <MissingPropertyType errorLevel="info"/>
+        <InvalidDocblock errorLevel="info"/>
+        <MisplacedRequiredParam errorLevel="info"/>
+
+        <PropertyNotSetInConstructor errorLevel="suppress"/>
+        <MissingConstructor errorLevel="info"/>
+        <MissingClosureParamType errorLevel="info"/>
+
+        <RedundantCondition errorLevel="info"/>
+
+        <DocblockTypeContradiction errorLevel="suppress"/>
+        <RedundantConditionGivenDocblockType errorLevel="suppress"/>
+
+        <UnresolvableInclude errorLevel="info"/>
+
+        <RawObjectIteration errorLevel="info"/>
+
+        <InvalidStringClass errorLevel="info"/>
+
+        <MixedInferredReturnType errorLevel="suppress"/>
+        <MoreSpecificImplementedParamType errorLevel="suppress"/>
+        <ImplicitToStringCast errorLevel="suppress" />
+        <MixedAssignment errorLevel="suppress" />
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+</psalm>

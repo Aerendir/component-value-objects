@@ -6,20 +6,24 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
+use Laminas\Uri\Exception\InvalidArgumentException;
+use Laminas\Uri\Exception\InvalidUriException;
+use Laminas\Uri\Exception\InvalidUriPartException;
+use Laminas\Uri\Uri as BaseUri;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
-use Zend\Uri\Exception\InvalidArgumentException;
-use Zend\Uri\Uri as BaseUri;
 
 /**
  * Default implementation of an Uri value obeject.
  */
-class Uri implements UriInterface
+final class Uri implements UriInterface
 {
     use DisableWritingMethodsTrait;
 
@@ -27,9 +31,12 @@ class Uri implements UriInterface
     private $valueObject;
 
     /**
-     * Copied and pasted from BaseUri.
-     *
      * {@inheritdoc}
+     *
+     * @throws StringsException
+     * @throws InvalidArgumentException
+     * @throws InvalidUriPartException
+     * @throws InvalidArgumentException
      */
     public function __construct($uri)
     {
@@ -49,10 +56,7 @@ class Uri implements UriInterface
             $this->setQuery($uri->getQuery());
             $this->setFragment($uri->getFragment());
         } elseif (null !== $uri) {
-            throw new InvalidArgumentException(sprintf(
-                'Expecting a string or a URI object, received "%s"',
-                (is_object($uri) ? get_class($uri) : gettype($uri))
-            ));
+            throw new InvalidArgumentException(sprintf('Expecting a string or a URI object, received "%s"', (is_object($uri) ? get_class($uri) : gettype($uri))));
         }
     }
 
@@ -98,6 +102,10 @@ class Uri implements UriInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedReturnTypeCoercion
+     *
+     * @return array<string,string>
      */
     public function getQueryAsArray(): array
     {
@@ -149,10 +157,9 @@ class Uri implements UriInterface
      */
     public function makeRelative($baseUri): UriInterface
     {
-        if ($baseUri instanceof self) {
+        if ($baseUri instanceof UriInterface) {
             $baseUri = $baseUri->__toString();
         }
-
 
         $this->valueObject->makeRelative($baseUri);
 
@@ -251,6 +258,8 @@ class Uri implements UriInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws InvalidUriException
      */
     public function toString(array $options = []): string
     {
@@ -267,6 +276,8 @@ class Uri implements UriInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws InvalidUriException
      */
     public function __toString()
     {

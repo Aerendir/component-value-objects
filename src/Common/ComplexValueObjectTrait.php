@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -17,15 +17,17 @@ namespace SerendipityHQ\Component\ValueObjects\Common;
  */
 trait ComplexValueObjectTrait
 {
+    /** @var mixed $valueObject */
     private $valueObject;
 
-    /** @var array Contains the data for which a property were not found */
+    /** @var array<int|string,mixed> Contains the data for which a property were not found */
     private $otherData = [];
 
     /**
      * Accepts an array containing the values to set in the object.
      *
-     * @param array $values
+     * @param array<string,mixed> $values
+     * @psalm-suppress MixedAssignment
      */
     public function __construct(array $values)
     {
@@ -51,7 +53,7 @@ trait ComplexValueObjectTrait
     /**
      * Get other data if present, null instead.
      *
-     * @return array|null
+     * @return array<int|string,mixed>|null
      */
     public function getOtherData(): ?array
     {

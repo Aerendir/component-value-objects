@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -14,6 +14,7 @@ namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
+use Money\Exception\ParserException;
 use Money\Formatter\DecimalMoneyFormatter;
 use Money\Money as BaseMoney;
 use Money\Parser\DecimalMoneyParser;
@@ -28,7 +29,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  *
  * {@inheritdoc}
  */
-class Money implements MoneyInterface
+final class Money implements MoneyInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;
@@ -60,6 +61,9 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @throws ParserException
      */
     public function __construct(array $values = [])
     {
@@ -100,14 +104,20 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedReturnStatement
+     * @psalm-suppress MixedMethodCall
      */
-    public function getBaseAmount(): int
+    public function getBaseAmount(): string
     {
         return $this->valueObject->getAmount();
     }
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedReturnStatement
+     * @psalm-suppress MixedMethodCall
      */
     public function getCurrency(): Currency
     {
@@ -124,6 +134,10 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @throws ParserException
+     * @psalm-suppress MixedMethodCall
      */
     public function add(MoneyInterface $other): MoneyInterface
     {
@@ -136,6 +150,11 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @psalm-suppress MixedMethodCall
+     *
+     * @throws ParserException
      */
     public function subtract(MoneyInterface $other): MoneyInterface
     {
@@ -148,6 +167,11 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \InvalidArgumentException
+     * @psalm-suppress MixedMethodCall
+     *
+     * @throws ParserException
      */
     public function divide($divisor, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
@@ -158,6 +182,11 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedMethodCall
+     *
+     * @throws \InvalidArgumentException
+     * @throws ParserException
      */
     public function multiply($multiplier, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
@@ -208,13 +237,15 @@ class Money implements MoneyInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress MixedArgument
      */
     public function __toString()
     {
         $currencies = new ISOCurrencies();
         $formatter  = new DecimalMoneyFormatter($currencies);
 
-        return $formatter->format($this->valueObject);
+        return (string) $formatter->format($this->valueObject);
     }
 
     /**

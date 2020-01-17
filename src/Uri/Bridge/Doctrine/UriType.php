@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -14,6 +14,8 @@ namespace SerendipityHQ\Component\ValueObjects\Uri\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
+use Safe\Exceptions\StringsException;
+use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
@@ -23,20 +25,28 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class UriType extends Type
+final class UriType extends Type
 {
-    const URI = 'uri';
+    /**
+     * @var string
+     */
+    private const URI = 'uri';
 
     /**
-     * {@inheritdoc}
+     * @param array<string,mixed> $fieldDeclaration
+     * @param AbstractPlatform    $platform
+     *
+     * @return string
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }
 
     /**
      * {@inheritdoc}
+     *
+     * @return int
      */
     public function getDefaultLength(AbstractPlatform $platform)
     {
@@ -45,6 +55,11 @@ class UriType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @throws StringsException
+     * @throws \Laminas\Uri\Exception\InvalidArgumentException
+     *
+     * @return string|Uri|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -59,6 +74,11 @@ class UriType extends Type
      * {@inheritdoc}
      *
      * @param Money $value
+     *
+     * @throws StringsException
+     * @throws \InvalidArgumentException
+     *
+     * @return string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -77,7 +97,7 @@ class UriType extends Type
     /**
      * {@inheritdoc}
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
@@ -85,7 +105,7 @@ class UriType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return self::URI;
     }

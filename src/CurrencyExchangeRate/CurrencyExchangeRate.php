@@ -6,29 +6,37 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
 use Money\Currency;
+use Safe\Exceptions\StringsException;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
  * {@inheritdoc}
  */
-class CurrencyExchangeRate implements CurrencyExchangeRateInterface
+final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;
     }
     use DisableWritingMethodsTrait;
 
+    /** @var float $exchangeRate */
     private $exchangeRate;
+
+    /** @var \DateTime|null $exchangeRateDate */
     private $exchangeRateDate;
+
+    /** @var Currency $from */
     private $from;
+
+    /** @var Currency $to */
     private $to;
 
     /**
@@ -40,7 +48,12 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      * - To: The Currency in which the amount is converted/exchanged;
      * - ExchangeRate: The rate of the exchanging/conversion.
      *
-     * @param array $values
+     * @param array<string,Currency|\DateTime|float|int> $values = [
+     *                                                           'From' => new Currency(''),
+     *                                                           'To' => new Currency(''),
+     *                                                           'ExchangeRate' => 1.1,
+     *                                                           'ExchangeRateDate' => new \DateTime(),
+     *                                                           ]
      */
     public function __construct(array $values)
     {
@@ -58,7 +71,7 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritdoc}
      */
-    public function getExchangeRateDate(): \DateTime
+    public function getExchangeRateDate(): ? \DateTime
     {
         return $this->exchangeRateDate;
     }
@@ -91,13 +104,11 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      * Set the conversion rate of the currency.
      *
      * @param float $exchangeRate
+     *
+     * @throws StringsException
      */
     protected function setExchangeRate(float $exchangeRate): void
     {
-        if ( ! is_float($exchangeRate)) {
-            throw new \InvalidArgumentException(sprintf('ExchangeRate has to be a float. %s given.', gettype($exchangeRate)));
-        }
-
         $this->exchangeRate = $exchangeRate;
     }
 
@@ -133,12 +144,15 @@ class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @psalm-suppress InvalidOperand
      */
     public function __toString()
     {
-        $string = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
-        if (null !== $this->getExchangeRateDate()) {
-            $string .= ' on ' . $this->getExchangeRateDate()->format('Y-m-d H:i:s');
+        $string       = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
+        $exchangeRate = $this->getExchangeRateDate();
+        if (null !== $exchangeRate) {
+            $string .= ' on ' . $exchangeRate->format('Y-m-d H:i:s');
         }
 
         return $string;

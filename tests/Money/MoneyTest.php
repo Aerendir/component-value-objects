@@ -6,11 +6,11 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
-namespace SerendipityHQ\Component\ValueObjects\tests\Money;
+namespace SerendipityHQ\Component\ValueObjects\Tests\Money;
 
 use Money\Currency;
 use PHPUnit\Framework\TestCase;
@@ -38,12 +38,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(100, $resource->getBaseAmount());
+        $this::assertSame((string) $test['baseAmount'], $resource->getBaseAmount());
         $this::assertSame('1.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanInt()
@@ -61,12 +61,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('1000', $resource->getBaseAmount());
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanFloat()
@@ -84,12 +84,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1050, $resource->getBaseAmount());
+        $this::assertSame('1050', $resource->getBaseAmount());
         $this::assertSame('10.50', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanIntAsFloat()
@@ -107,12 +107,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('1000', $resource->getBaseAmount());
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanIntAsString()
@@ -130,12 +130,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1000, $resource->getBaseAmount());
+        $this::assertSame('1000', $resource->getBaseAmount());
         $this::assertSame('10.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanFloatAsString()
@@ -153,12 +153,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1234, $resource->getBaseAmount());
+        $this::assertSame('1234', $resource->getBaseAmount());
         $this::assertSame('12.34', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanIntAsFloatAsString()
@@ -176,12 +176,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1200, $resource->getBaseAmount());
+        $this::assertSame('1200', $resource->getBaseAmount());
         $this::assertSame('12.00', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testHumanFloatAsStringWithComma()
@@ -199,12 +199,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1234, $resource->getBaseAmount());
+        $this::assertSame('1234', $resource->getBaseAmount());
         $this::assertSame('12.34', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testSum()
@@ -230,12 +230,12 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(1577, $resource->getBaseAmount());
+        $this::assertSame('1577', $resource->getBaseAmount());
         $this::assertSame('15.77', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 
     public function testSubtract()
@@ -261,11 +261,11 @@ class MoneyTest extends TestCase
         // Test the type of value object interface
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertSame(913, $resource->getBaseAmount());
+        $this::assertSame('913', $resource->getBaseAmount());
         $this::assertSame('9.13', $resource->getHumanAmount());
         $this::assertInstanceOf(Currency::class, $resource->getCurrency());
         $this::assertSame('EUR', $resource->getCurrency()->getCode());
-        $this::assertTrue(is_string($resource->__toString()));
-        $this::assertTrue(is_string($resource->toString()));
+        $this::assertIsString($resource->__toString());
+        $this::assertIsString($resource->toString());
     }
 }

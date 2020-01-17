@@ -6,21 +6,26 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Twig;
 
 use Money\Currencies\ISOCurrencies;
+use Money\Exception\ParserException;
 use Money\Formatter\IntlMoneyFormatter;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
+use Twig\Error\SyntaxError;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 /**
  * {@inheritdoc}
  */
-class MoneyFormatterExtension extends \Twig_Extension
+final class MoneyFormatterExtension extends AbstractExtension
 {
+    /** @var ISOCurrencies $currencies */
     private $currencies;
 
     /**
@@ -33,12 +38,14 @@ class MoneyFormatterExtension extends \Twig_Extension
 
     /**
      * {@inheritdoc}
+     *
+     * @return TwigFilter[]
      */
     public function getFilters(): array
     {
         return array_merge(parent::getFilters(), [
-            new \Twig_SimpleFilter('localizedmoney', [$this, 'localizeMoneyFilter']),
-            new \Twig_SimpleFilter('localizedmoneyfromarr', [$this, 'localizeMoneyFromArrFilter']),
+            new TwigFilter('localizedmoney', [$this, 'localizeMoneyFilter']),
+            new TwigFilter('localizedmoneyfromarr', [$this, 'localizeMoneyFromArrFilter']),
         ]);
     }
 
@@ -46,13 +53,15 @@ class MoneyFormatterExtension extends \Twig_Extension
      * @param Money       $money
      * @param string|null $locale
      *
-     * @throws \Twig_Error_Syntax
+     * @throws SyntaxError
      *
      * @return string
+     * @psalm-suppress UndefinedFunction
      */
     public function localizeMoneyFilter(Money $money, string $locale = null): string
     {
-        $formatter      = twig_get_number_formatter($locale, 'currency');
+        /** @var \NumberFormatter $formatter */
+        $formatter      = twig_get_number_formatter($locale, \NumberFormatter::CURRENCY);
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 
         /** @var \Money\Money $formattingMoney */
@@ -62,10 +71,12 @@ class MoneyFormatterExtension extends \Twig_Extension
     }
 
     /**
-     * @param array       $money
-     * @param string|null $locale
+     * @param array<string, float|int|string> $money
+     * @param string|null                     $locale
      *
-     * @throws \Twig_Error_Syntax
+     * @throws SyntaxError
+     * @throws \InvalidArgumentException
+     * @throws ParserException
      *
      * @return string
      */

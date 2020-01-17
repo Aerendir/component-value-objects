@@ -6,18 +6,20 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
+use Laminas\Uri\Exception\InvalidUriPartException;
+use Laminas\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
 /**
  * Defines the minimum requisites of an Uri Value Object.
  *
- * The methods are copied and pasted from\Zend\Uri\UriInterface as there is a conflict on the toString() method
+ * The methods are copied and pasted from\Laminas\Uri\UriInterface as there is a conflict on the toString() method
  * signature.
  *
  * {@inheritdoc}
@@ -31,7 +33,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return bool
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function isValid(): bool;
 
@@ -40,7 +42,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return bool
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function isValidRelative(): bool;
 
@@ -49,7 +51,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return bool
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function isAbsolute(): bool;
 
@@ -60,7 +62,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function parse(string $uri): self;
 
@@ -77,7 +79,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function normalize(): self;
 
@@ -90,11 +92,11 @@ interface UriInterface extends SimpleValueObjectInterface
      *  If the two URIs do not intersect (e.g. the original URI is not in any
      *  way related to the base URI) the URI will not be modified.
      *
-     * @param string|UriInterface|\Zend\Uri\Uri $baseUri
+     * @param string|Uri|UriInterface $baseUri
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function makeRelative($baseUri): self;
 
@@ -103,7 +105,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return string|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getScheme(): ?string;
 
@@ -112,7 +114,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return string|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getUserInfo(): ?string;
 
@@ -121,7 +123,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return string|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getHost(): ?string;
 
@@ -130,7 +132,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return int|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getPort(): ?int;
 
@@ -139,7 +141,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return string|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getPath(): ?string;
 
@@ -148,7 +150,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return string|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getQuery(): ?string;
 
@@ -158,9 +160,9 @@ interface UriInterface extends SimpleValueObjectInterface
      * This is an extension to RFC-3986 but is quite useful when working with
      * most common URI types
      *
-     * @return array
+     * @return array<string,string>
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getQueryAsArray(): array;
 
@@ -169,7 +171,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return string|null
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function getFragment(): ?string;
 
@@ -178,7 +180,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * If the scheme is not valid according to the generic scheme syntax or
      * is not acceptable by the specific URI class (e.g. 'http' or 'https' are
-     * the only acceptable schemes for the\Zend\Uri\Http class) an exception
+     * the only acceptable schemes for the\Laminas\Uri\Http class) an exception
      * will be thrown.
      *
      * You can check if a scheme is valid before setting it using the
@@ -186,11 +188,11 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $scheme
      *
-     * @throws \Zend\Uri\Exception\InvalidUriPartException
+     * @throws InvalidUriPartException
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setScheme(?string $scheme): self;
 
@@ -199,12 +201,12 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $userInfo
      *
-     * @throws \Zend\Uri\Exception\InvalidUriPartException If the schema definition
-     *                                                     does not have this part
+     * @throws InvalidUriPartException If the schema definition
+     *                                 does not have this part
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setUserInfo(?string $userInfo): self;
 
@@ -224,11 +226,11 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $host
      *
-     * @throws \Zend\Uri\Exception\InvalidUriPartException
+     * @throws InvalidUriPartException
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setHost(?string $host): self;
 
@@ -239,7 +241,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setPort(?int $port): self;
 
@@ -250,7 +252,7 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setPath(?string $path): self;
 
@@ -261,11 +263,11 @@ interface UriInterface extends SimpleValueObjectInterface
      * query string. Array values will be represented in the query string using
      * PHP's common square bracket notation.
      *
-     * @param array|string|null $query
+     * @param array<string,string>|string|null $query
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setQuery($query): self;
 
@@ -274,12 +276,12 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param string|null $fragment
      *
-     * @throws \Zend\Uri\Exception\InvalidUriPartException If the schema definition
-     *                                                     does not have this part
+     * @throws InvalidUriPartException If the schema definition
+     *                                 does not have this part
      *
      * @return UriInterface
      *
-     * @see \Zend\Uri\UriInterface
+     * @see \Laminas\Uri\UriInterface
      */
     public function setFragment(?string $fragment): self;
 }

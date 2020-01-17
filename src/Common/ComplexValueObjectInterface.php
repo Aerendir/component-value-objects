@@ -6,7 +6,7 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
@@ -26,7 +26,7 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
     /**
      * Accepts an array containing the values to set in the object.
      *
-     * @param array $values
+     * @param array<string, mixed> $values
      */
     public function __construct(array $values);
 
@@ -40,7 +40,7 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
     /**
      * Get other data if present, null instead.
      *
-     * @return array|null
+     * @return array<int|string,mixed>|null
      */
     public function getOtherData(): ?array;
 }

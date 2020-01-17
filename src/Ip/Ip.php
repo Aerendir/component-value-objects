@@ -6,19 +6,22 @@
  * Copyright Adamo Aerendir Crespi 2015-2017.
  *
  * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2017 Aerendir. All rights reserved.
+ * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
  * @license   MIT
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
+use Darsyn\IP\Exception\InvalidIpAddressException;
+use Darsyn\IP\Exception\IpException;
+use Darsyn\IP\Exception\WrongVersionException;
 use Darsyn\IP\Version\IPv4;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
  * {@inheritdoc}
  */
-class Ip implements IpInterface
+final class Ip implements IpInterface
 {
     use DisableWritingMethodsTrait;
 
@@ -28,8 +31,9 @@ class Ip implements IpInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Darsyn\IP\Exception\InvalidIpAddressException
-     * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @throws InvalidIpAddressException
+     * @throws WrongVersionException
+     * @psalm-suppress MixedArgument
      */
     public function __construct($value)
     {
@@ -39,8 +43,8 @@ class Ip implements IpInterface
     /**
      * {@inheritdoc}
      *
-     * @throws \Darsyn\IP\Exception\IpException
-     * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @throws IpException
+     * @throws WrongVersionException
      */
     public function toString(array $options = []): string
     {
@@ -48,8 +52,8 @@ class Ip implements IpInterface
     }
 
     /**
-     * @throws \Darsyn\IP\Exception\IpException
-     * @throws \Darsyn\IP\Exception\WrongVersionException
+     * @throws IpException
+     * @throws WrongVersionException
      *
      * @return string
      */
