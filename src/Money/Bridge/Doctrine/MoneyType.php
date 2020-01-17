@@ -33,12 +33,12 @@ class MoneyType extends Type
     public const MONEY = 'money';
 
     /**
-     * {@inheritdoc}
-     *
      * @param array<string,mixed> $fieldDeclaration
      * @param AbstractPlatform    $platform
+     *
+     * @return string
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
     }

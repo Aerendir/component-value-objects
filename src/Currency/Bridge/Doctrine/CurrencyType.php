@@ -31,10 +31,10 @@ class CurrencyType extends Type
     public const CURRENCY = 'currency';
 
     /**
-     * {@inheritdoc}
-     *
      * @param array<string,mixed> $fieldDeclaration
      * @param AbstractPlatform    $platform
+     *
+     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {

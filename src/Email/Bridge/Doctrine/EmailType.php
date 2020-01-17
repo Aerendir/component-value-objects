@@ -33,10 +33,10 @@ class EmailType extends Type
     public const EMAIL = 'email';
 
     /**
-     * {@inheritdoc}
-     *
      * @param array<string,mixed> $fieldDeclaration
      * @param AbstractPlatform    $platform
+     *
+     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
