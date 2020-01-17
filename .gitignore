@@ -1,6 +1,7 @@
 phpunit.xml
 phpdoc.xml
 vendor
+vendor-bin
 build
 composer.lock
 .php_cs.cache

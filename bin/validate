@@ -2,11 +2,15 @@
 
 vendor/bin/rector process src --dry-run &&
 vendor/bin/rector process tests --dry-run &&
-vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
-vendor/bin/phpstan analyse src -c phpstan.neon --level max &&
-vendor/bin/phan --progress-bar --dead-code-detection &&
-vendor/bin/psalm &&
+tools/php-cs-fixer fix --allow-risky yes --dry-run -v &&
+tools/phpstan analyse src -c phpstan.neon --level max &&
+tools/phan --progress-bar --dead-code-detection &&
+tools/psalm &&
 vendor/bin/phpunit --verbose --debug &&
 vendor/bin/security-checker security:check &&
 composer outdated --direct &&
 composer validate --strict
+
+# This was installed through bamarni/composer-bin-plugin
+# https://phpinsights.com/get-started.html#avoid-composer-conflicts
+vendor/bin/phpinsights
