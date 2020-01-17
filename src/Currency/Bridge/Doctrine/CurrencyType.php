@@ -23,12 +23,12 @@ use function Safe\sprintf;
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class CurrencyType extends Type
+final class CurrencyType extends Type
 {
     /**
      * @var string
      */
-    public const CURRENCY = 'currency';
+    private const CURRENCY = 'currency';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
@@ -53,6 +53,8 @@ class CurrencyType extends Type
      * {@inheritdoc}
      *
      * @psalm-suppress MixedArgument
+     *
+     * @return \Money\Currency|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -70,6 +72,8 @@ class CurrencyType extends Type
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
+     *
+     * @return \Money\Currency|string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

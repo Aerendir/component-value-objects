@@ -21,7 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * {@inheritdoc}
  */
-class Ip implements IpInterface
+final class Ip implements IpInterface
 {
     use DisableWritingMethodsTrait;
 

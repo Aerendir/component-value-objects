@@ -19,7 +19,7 @@ use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 /**
  * Default implementation of a Tax Value object.
  */
-class Tax implements TaxInterface
+final class Tax implements TaxInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;

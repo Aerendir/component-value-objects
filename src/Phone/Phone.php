@@ -21,7 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * Default implementation of a Phone object.
  */
-class Phone extends PhoneNumber implements PhoneInterface
+final class Phone extends PhoneNumber implements PhoneInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;

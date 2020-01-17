@@ -22,7 +22,7 @@ use Symfony\Component\Form\DataTransformerInterface;
 /**
  * {@inheritdoc}
  */
-class MoneyTransformer implements DataTransformerInterface
+final class MoneyTransformer implements DataTransformerInterface
 {
     /** @var array<string,mixed> $options */
     private $options;

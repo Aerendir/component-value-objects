@@ -20,7 +20,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class AddressType extends AbstractType
+final class AddressType extends AbstractType
 {
     /**
      * {@inheritdoc}

@@ -23,7 +23,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * Default implementation of an Uri value obeject.
  */
-class Uri implements UriInterface
+final class Uri implements UriInterface
 {
     use DisableWritingMethodsTrait;
 
@@ -104,6 +104,8 @@ class Uri implements UriInterface
      * {@inheritdoc}
      *
      * @psalm-suppress MixedReturnTypeCoercion
+     *
+     * @return array<string,string>
      */
     public function getQueryAsArray(): array
     {

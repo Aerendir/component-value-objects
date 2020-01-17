@@ -29,7 +29,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  *
  * {@inheritdoc}
  */
-class Money implements MoneyInterface
+final class Money implements MoneyInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;

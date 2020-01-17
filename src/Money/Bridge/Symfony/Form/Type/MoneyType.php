@@ -20,7 +20,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class MoneyType extends AbstractType
+final class MoneyType extends AbstractType
 {
     /**
      * {@inheritdoc}

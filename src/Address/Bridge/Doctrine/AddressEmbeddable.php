@@ -20,7 +20,7 @@ use SerendipityHQ\Component\ValueObjects\Address\Address;
  *
  * @ORM\Embeddable
  */
-class AddressEmbeddable extends Address
+final class AddressEmbeddable extends Address
 {
     /**
      * @param string $administrativeArea

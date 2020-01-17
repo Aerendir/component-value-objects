@@ -48,7 +48,8 @@ return [
         'PhanUnreferencedClass',
         'PhanUnreferencedPublicMethod',
         'PhanUnusedPublicNoOverrideMethodParameter',
-        'PhanUnreferencedProtectedMethod'
+        'PhanUnreferencedProtectedMethod',
+        'PhanUnusedPublicFinalMethodParameter'
     ],
 
     // A regular expression to match files to be excluded

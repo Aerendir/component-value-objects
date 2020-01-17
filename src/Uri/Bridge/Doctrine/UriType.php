@@ -25,12 +25,12 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class UriType extends Type
+final class UriType extends Type
 {
     /**
      * @var string
      */
-    public const URI = 'uri';
+    private const URI = 'uri';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
@@ -45,6 +45,8 @@ class UriType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @return int
      */
     public function getDefaultLength(AbstractPlatform $platform)
     {
@@ -56,6 +58,8 @@ class UriType extends Type
      *
      * @throws StringsException
      * @throws \Laminas\Uri\Exception\InvalidArgumentException
+     *
+     * @return string|Uri|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -73,6 +77,8 @@ class UriType extends Type
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
+     *
+     * @return string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

@@ -20,7 +20,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * {@inheritdoc}
  */
-class CurrencyExchangeRate implements CurrencyExchangeRateInterface
+final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;

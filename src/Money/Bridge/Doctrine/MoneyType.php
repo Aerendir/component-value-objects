@@ -25,12 +25,12 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
  *
  * @author Adamo Crespi <hello@aerendir.me>
  */
-class MoneyType extends Type
+final class MoneyType extends Type
 {
     /**
      * @var string
      */
-    public const MONEY = 'money';
+    private const MONEY = 'money';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
@@ -45,6 +45,8 @@ class MoneyType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @return int
      */
     public function getDefaultLength(AbstractPlatform $platform)
     {
@@ -57,6 +59,8 @@ class MoneyType extends Type
      * @throws \InvalidArgumentException
      * @throws ParserException
      * @psalm-suppress MixedArgument
+     *
+     * @return \SerendipityHQ\Component\ValueObjects\Money\Money|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -78,6 +82,8 @@ class MoneyType extends Type
      *
      * @throws \InvalidArgumentException
      * @throws StringsException
+     *
+     * @return string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {

@@ -21,7 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * {@inheritdoc}
  */
-class Email implements EmailInterface
+final class Email implements EmailInterface
 {
     use DisableWritingMethodsTrait;
 

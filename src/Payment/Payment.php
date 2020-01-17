@@ -20,7 +20,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  *
  * @todo Define a list of possible statuses
  */
-class Payment implements PaymentInterface
+final class Payment implements PaymentInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;

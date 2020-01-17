@@ -23,7 +23,7 @@ use Twig\TwigFilter;
 /**
  * {@inheritdoc}
  */
-class MoneyFormatterExtension extends AbstractExtension
+final class MoneyFormatterExtension extends AbstractExtension
 {
     /** @var ISOCurrencies $currencies */
     private $currencies;
@@ -38,6 +38,8 @@ class MoneyFormatterExtension extends AbstractExtension
 
     /**
      * {@inheritdoc}
+     *
+     * @return TwigFilter[]
      */
     public function getFilters(): array
     {

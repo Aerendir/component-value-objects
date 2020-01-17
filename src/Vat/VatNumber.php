@@ -19,7 +19,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 /**
  * Default implementation of a VatNumber Value object.
  */
-class VatNumber implements VatNumberInterface
+final class VatNumber implements VatNumberInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;
