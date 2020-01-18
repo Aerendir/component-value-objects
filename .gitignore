@@ -1,5 +1,4 @@
 phpunit.xml
-phpdoc.xml
 vendor
 vendor-bin
 build
