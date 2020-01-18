@@ -1,10 +1,15 @@
+<p align="center">
+    <a href="http://www.serendipityhq.com" target="_blank">
+        <img src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
+    </a>
+</p>
+
+# PHP Value Objects
+
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/php_value_objects?color=%238892BF)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_value_objects/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![License](https://poser.pugx.org/serendipity_hq/php_value_objects/license.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-
-[![Code Climate](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/gpa.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
-[![Test Coverage](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/coverage.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
-[![Issue Count](https://codeclimate.com/github/Aerendir/PHPValueObjects/badges/issue_count.svg)](https://codeclimate.com/github/Aerendir/PHPValueObjects)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 
 ![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)
@@ -12,11 +17,9 @@
 ![PSalm](https://github.com/Aerendir/PHPValueObjects/workflows/PSalm/badge.svg)
 ![PHPUnit](https://github.com/Aerendir/PHPValueObjects/workflows/PHPunit/badge.svg)
 ![Composer](https://github.com/Aerendir/PHPValueObjects/workflows/Composer/badge.svg)
-
 ![PHP CS Fixer](https://github.com/Aerendir/PHPValueObjects/workflows/PHP%20CS%20Fixer/badge.svg)
 ![Rector](https://github.com/Aerendir/PHPValueObjects/workflows/Rector/badge.svg)
 
-# PHP Value Objects
 A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.
 
 It supports `SimpleValueObjects` and `ComplexValueObjects`.
@@ -39,7 +42,7 @@ PHP supports only one value object: the [`DateTime`](http://php.net/manual/en/cl
 
 This library gives support for other kind of values, differentiating them between complex and simple.
 
-To better understand the concepts behind the value objects, you can [read this post](http://aerendir.me/?p=396).
+To better understand the concepts behind the value objects, you can [read this post](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/).
 
 ## Install PHPValueObjects via Composer
 
@@ -56,7 +59,7 @@ This library follows the http://semver.org/ versioning conventions.
 
 ### Requirements
 
-- PHP: >= 5.6
+- PHP: >= 7.2
 - [Intl PHP extension](http://php.net/manual/en/book.intl.php)
  ([instructions for MAMP on Mac](http://aerendir.me/?p=452))
 
@@ -77,107 +80,107 @@ Currently, this library supports the following Value Objects:
 * **[VatRate](docs/Vat.md)**: Built-in
 * **[VatNumber](docs/VatNumber.md)**: Built-in
 
-## Supported Doctrine's Custom Mapping Types
+## Supported features
 
-* `CurrencyType`
-* `EmailType`
-* `MoneyType`
-* `UriType`
-
-## Supported Doctrine's Embeddables
-
-* `Address`
-
-## Supported Symfony Form Types
-
-* `Address`
-
-### To use them with Symfony
-
-    # Doctrine Configuration
-    doctrine:
-        dbal:
-            ...
-            types:
-                email: SerendipityHQ\Component\ValueObjects\Email\Persistence\EmailType
-                money: SerendipityHQ\Component\ValueObjects\Money\Persistence\MoneyType
-
-        orm:
-            auto_generate_proxy_classes: "%kernel.debug%"
-            auto_mapping: true
-            mappings:
-                mapping_name:
-                    mapping: true
-                    type: annotation
-                    dir: "%kernel.root_dir%/../vendor/serendipity_hq/php_value_objects/src"
-                    alias: Address
-                    prefix: SerendipityHQ\Component\ValueObjects
-                    is_bundle: false
-
-To use the Doctrine's custom mapping types, you have to manually register them.
-
-If you are using Symfony, read [Registering custom Mapping Types](https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types)
-
-To use the form types, in `services.yml` add:
-
-    address_type:
-       class: SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\Type\AddressType
-       tags:
-          -  { name: form.type }
-
-Then in your form type:
-
-    class YourCustomType extends AbstractType
-    {
-        /**
-         * {@inheritdoc}
-         */
-        public function buildForm(FormBuilderInterface $builder, array $options)
-        {
-            $builder
-                ...
-                ->add('address', AddressType::class, ['data_class' => AddressEmbeddable::class])
-                ...
-        }
-    }
-
-Note the use of `AddressEmbeddable` insetead of simply `Address`: `AddressEmbeddable` has public methods set as `public` and also if this way the immutability is lost, this is the only way to use it with Symfony's Forms as they are not able to populate the entity if it hasn't public setters.
-
-To translate the form types, copy the translation files from `Address/Resources/translations` in `AppBundle/Resources/translations` and in `Twig` render the form in this way:
-
-    <div class="form-group">
-        {{ form_errors(form.address.countryCode) }}
-        {{ form_label(form.address.countryCode, 'address.form.country_code.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.countryCode, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_errors(form.address.administrativeArea) }}
-        {{ form_label(form.address.administrativeArea, 'company.form.address.administrative_area.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.administrativeArea, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_errors(form.address.locality) }}
-        {{ form_label(form.address.locality, 'company.form.address.city.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.locality, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_errors(form.address.dependentLocality) }}
-        {{ form_label(form.address.dependentLocality, 'company.form.address.dependent_locality.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.dependentLocality, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_errors(form.address.postalCode) }}
-        {{ form_label(form.address.postalCode, 'company.form.address.postal_code.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.postalCode, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_errors(form.address.street) }}
-        {{ form_label(form.address.street, 'company.form.address.street.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.street, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_errors(form.address.extraLine) }}
-        {{ form_label(form.address.extraLine, 'company.form.address.extra_line.label'|trans({}, 'address')) }}
-        {{ form_widget(form.address.extraLine, {'attr': {'class': 'form-control input-sm'}}) }}
-    </div>
-
+<table>
+    <thead>
+        <tr>
+            <th scope="col">ValueObject</th>
+            <th scope="col" colspan="2">Doctrine</th>
+            <th scope="col" colspan="2">Symfony</th>
+        </tr>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Embeddable</th>
+            <th scope="col">Type</th>
+            <th scope="col">Form Type</th>
+            <th scope="col">Twig filter</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Address</th>
+            <td>✓</td>
+            <td>✕</td>
+            <td>✓</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">Currency</th>
+            <td>N/A</td>
+            <td>✓</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">CurrencyExchangeRate</th>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td>N/A</td>
+            <td>✓</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <th scope="row">IP</th>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <th scope="row">Money</th>
+            <td>N/A</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+        </tr>
+        <tr>
+            <th scope="row">Payment</th>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">Phone</th>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">Tax</th>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">Uri</th>
+            <td>✕</td>
+            <td>✓</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">VAT Rate</th>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+        <tr>
+            <th scope="row">VAT Number</th>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+            <td>✕</td>
+        </tr>
+    </tbody>
+</table>
