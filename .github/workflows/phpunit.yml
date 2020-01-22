@@ -37,3 +37,4 @@ jobs:
                   ./tools/php-coveralls -v
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors
+                  COVERALLS_RUN_LOCALLY: 1
