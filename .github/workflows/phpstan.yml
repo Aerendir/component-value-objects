@@ -22,7 +22,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
-                  tools: prestissimo, pecl
+                  tools: prestissimo, pecl, phive
                   extensions: intl
 
             - name: Install AST
@@ -39,8 +39,10 @@ jobs:
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest
 
+            - name: Install Phive deps
+              run: |
+                  phive install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,4AA394086372C20A
+
             - name: Run PHPStan
               run: |
-                  ./vendor/bin/phpstan analyse src -c phpstan.neon --level max
-              env:
-                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors
+                  ./tools/phpstan analyse src -c phpstan.neon --level max

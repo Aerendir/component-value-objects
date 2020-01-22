@@ -42,5 +42,3 @@ jobs:
             - name: Run Phan
               run: |
                   ./vendor/bin/phan --progress-bar --dead-code-detection
-              env:
-                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors

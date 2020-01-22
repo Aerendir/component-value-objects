@@ -3,8 +3,6 @@ imports:
 
 parameters:
     php_version_features: '7.2'
-    exclude_paths:
-        - '*/Migrations/*'
     sets:
         # PHP sets
         - 'php52'
