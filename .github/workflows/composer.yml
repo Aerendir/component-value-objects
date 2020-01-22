@@ -30,7 +30,7 @@ jobs:
             - name: Install Symfony
               run: |
                   wget https://get.symfony.com/cli/installer -O - | bash
-                  mv /home/runner/.symfony/bin/symfony /usr/local/bin/symfony
+                  sudo mv /home/runner/.symfony/bin/symfony /usr/local/bin/symfony
 
             - name: Run Composer
               run: |
