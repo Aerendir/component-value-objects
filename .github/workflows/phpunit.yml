@@ -33,6 +33,6 @@ jobs:
 
             - name: Run PHPunit
               run: |
-                  ./tools/bin/phpunit --verbose --debug
+                  ./tools/phpunit --verbose --debug
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors
