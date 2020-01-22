@@ -46,5 +46,3 @@ jobs:
             - name: Run PHPStan
               run: |
                   ./tools/phpstan analyse src -c phpstan.neon --level max
-              env:
-                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors

@@ -36,5 +36,3 @@ jobs:
               run: |
                   symfony security:check
                   composer validate --strict
-              env:
-                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors

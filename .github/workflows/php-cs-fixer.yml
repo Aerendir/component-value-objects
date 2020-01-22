@@ -34,5 +34,3 @@ jobs:
             - name: Run PHP CS Fixer
               run: |
                   ./tools/php-cs-fixer fix --allow-risky yes --dry-run -v
-              env:
-                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors
