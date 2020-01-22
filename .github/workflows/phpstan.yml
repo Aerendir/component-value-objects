@@ -40,8 +40,11 @@ jobs:
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest
 
             - name: Install Phive deps
+                # PHPCSFixer: E82B2FB314E9906E
+                # PHPStan: CF1A108D0E7AE720
+                # PHPUnit: 4AA394086372C20A
               run: |
-                  phive install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,4AA394086372C20A
+                  phive --no-progress install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,4AA394086372C20A
 
             - name: Run PHPStan
               run: |
