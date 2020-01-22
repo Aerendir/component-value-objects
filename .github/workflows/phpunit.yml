@@ -19,7 +19,7 @@ jobs:
               uses: shivammathur/setup-php@v1
               with:
                   php-version: ${{ matrix.php }}
-                  coverage: none # disable xdebug, pcov
+                  coverage: pcov
                   tools: prestissimo, phive
                   extensions: intl
 
@@ -34,5 +34,6 @@ jobs:
             - name: Run PHPunit
               run: |
                   ./tools/phpunit --verbose --debug
+                  ./tools/php-coveralls
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors
