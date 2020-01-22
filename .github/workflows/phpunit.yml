@@ -29,7 +29,7 @@ jobs:
 
             - name: Install Phive deps
               run: |
-                  phive install --no-progress --trust-gpg-keys E82B2FB314E9906E
+                  phive install --trust-gpg-keys E82B2FB314E9906E
 
             - name: Run PHPunit
               run: |
