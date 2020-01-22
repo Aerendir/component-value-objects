@@ -19,16 +19,23 @@ jobs:
               uses: shivammathur/setup-php@v1
               with:
                   php-version: ${{ matrix.php }}
-                  coverage: none # disable xdebug, pcov
-                  tools: prestissimo
+                  coverage: pcov
+                  tools: prestissimo, phive
                   extensions: intl
 
             - name: Install Composer deps
               run: |
                   composer update --no-interaction --no-suggest
 
+            - name: Install Phive deps
+              run: |
+                  phive install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,4AA394086372C20A
+
             - name: Run PHPunit
               run: |
-                  ./vendor/bin/phpunit --verbose --debug
+                  ./tools/phpunit --verbose --debug
+                  ./tools/php-coveralls -v
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors
+                  COVERALLS_RUN_LOCALLY: 1
+                  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

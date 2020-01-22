@@ -20,15 +20,17 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
-                  tools: prestissimo
+                  tools: prestissimo, phive
                   extensions: intl
 
             - name: Install Composer deps
               run: |
                   composer update --no-interaction --no-suggest
 
+            - name: Install Phive deps
+              run: |
+                  phive install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,4AA394086372C20A
+
             - name: Run PHP CS Fixer
               run: |
-                  ./vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v
-              env:
-                  SYMFONY_DEPRECATIONS_HELPER: weak_vendors
+                  ./tools/php-cs-fixer fix --allow-risky yes --dry-run -v
