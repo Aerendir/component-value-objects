@@ -34,6 +34,6 @@ jobs:
             - name: Run PHPunit
               run: |
                   ./tools/phpunit --verbose --debug
-                  ./tools/php-coveralls
+                  ./tools/php-coveralls -v
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors
