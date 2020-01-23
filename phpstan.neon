@@ -4,9 +4,6 @@ parameters:
         - src
     ignoreErrors:
         -
-            message: '#Function twig_get_number_formatter not found.#'
-            path: %currentWorkingDirectory%/src
-        -
             message: '#Method SerendipityHQ\\Component\\ValueObjects\\Address\\Bridge\\Symfony\\Form\\Type\\AddressType::buildForm\(\) has parameter \$builder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface.#'
             path: %currentWorkingDirectory%/src
         -
