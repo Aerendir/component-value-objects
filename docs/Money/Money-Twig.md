@@ -9,17 +9,20 @@ To use the Twig Extension of Money, you have to follow those steps:
 1. Register the extension in your Symfony's configuration;
 2. Use the extension in your Twig templates.
 
+## STEP 0: Install `twig/intl-extra`
+
+```console
+composer req twig/intl-extra
+```
+
 ## STEP 1: Register the extension in your Symfony's configuation
 
-Open the file `/config/packages/twig_extensions.yaml`.
+Open the file `/config/packages/twig.yaml`.
 
 Add the extension to the configuration:
 
 ```yaml
 services:
-    _defaults:
-        ...
-
     ...
     SerendipityHQ\Component\ValueObjects\Money\Bridge\Twig\MoneyFormatterExtension: ~
 ```
