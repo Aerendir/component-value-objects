@@ -13,7 +13,6 @@
     ],
     "require": {
         "php": "^7.2",
-        "ext-intl": "*",
         "darsyn/ip": "^4",
         "egulias/email-validator": "^2.1",
         "giggsey/libphonenumber-for-php": "^8.8",
@@ -33,9 +32,14 @@
         "roave/security-advisories": "dev-master",
         "symfony/form": "^3||^4||^5",
         "symfony/var-dumper": "^2.8||^3.0||^4||^5",
-        "twig/extensions": "^1.0",
-        "twig/twig": "~2.12||^3.0",
+        "twig/intl-extra": "^2.12|^3.0",
         "vimeo/psalm": "3.8.3"
+    },
+    "suggest": {
+        "ext-intl": "Allows to use formatters for various values objects",
+        "doctrine/orm": "Allows to use the builtin Doctrine types",
+        "symfony/form": "Allows to use the builtin form types for Symfony Form",
+        "twig/intl-extra": "Allows to use filters for Twig to localize Money objects"
     },
     "config": {
         "sort-packages": true

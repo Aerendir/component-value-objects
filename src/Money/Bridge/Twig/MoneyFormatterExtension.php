@@ -60,8 +60,12 @@ final class MoneyFormatterExtension extends AbstractExtension
      */
     public function localizeMoneyFilter(Money $money, string $locale = null): string
     {
+        if (null === $locale) {
+            $locale = 'en-US';
+        }
+
         /** @var \NumberFormatter $formatter */
-        $formatter      = twig_get_number_formatter($locale, \NumberFormatter::CURRENCY);
+        $formatter      = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 
         /** @var \Money\Money $formattingMoney */
