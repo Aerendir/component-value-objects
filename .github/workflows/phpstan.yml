@@ -23,12 +23,7 @@ jobs:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
                   tools: prestissimo, pecl, phive
-                  extensions: intl
-
-            - name: Install AST
-              run: |
-                  sudo pecl channel-update pecl.php.net
-                  sudo pecl install ast
+                  extensions: ast, intl
 
             - name: Fix Symfony version
               run: |
