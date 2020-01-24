@@ -1,0 +1,21 @@
+# https://dependabot.com/docs/config-file/
+
+version: 1
+update_configs:
+    - package_manager: "php:composer"
+      directory: "/"
+      update_schedule: "live"
+      target_branch: "dev"
+      default_labels:
+          - "Dependabot"
+          - "[Type] Task"
+      default_reviewers:
+          - "Aerendir"
+      default_assignees:
+          - "Aerendir"
+      automerged_updates:
+          - match:
+                update_type: "all"
+      commit_message:
+          include_scope: true
+          prefix: "Build"
