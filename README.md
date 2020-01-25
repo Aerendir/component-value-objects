@@ -7,20 +7,31 @@
 # PHP Value Objects
 
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/php_value_objects?color=%238892BF)](https://packagist.org/packages/serendipity_hq/php_value_objects)
+[![Tested with Symfony ^3.4](https://img.shields.io/badge/Symfony-%5E3.4-333)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![Tested with Symfony ^4.0](https://img.shields.io/badge/Symfony-%5E4.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![Tested with Symfony ^5.0](https://img.shields.io/badge/Symfony-%5E5.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![Suggests PHP Intl extension](https://img.shields.io/badge/Suggests-PHP%20Intl%20ext-%238892BF)](https://github.com/Aerendir/PHPValueObjects/actions)
+
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_value_objects/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![License](https://poser.pugx.org/serendipity_hq/php_value_objects/license.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-
 [![Coverage Status](https://codecov.io/gh/Aerendir/PHPValueObjects/branch/master/graph/badge.svg)](https://codecov.io/gh/Aerendir/PHPValueObjects/)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 
-![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)
-![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)
-![PSalm](https://github.com/Aerendir/PHPValueObjects/workflows/PSalm/badge.svg)
-![PHPUnit](https://github.com/Aerendir/PHPValueObjects/workflows/PHPunit/badge.svg)
-![Composer](https://github.com/Aerendir/PHPValueObjects/workflows/Composer/badge.svg)
-![PHP CS Fixer](https://github.com/Aerendir/PHPValueObjects/workflows/PHP%20CS%20Fixer/badge.svg)
-![Rector](https://github.com/Aerendir/PHPValueObjects/workflows/Rector/badge.svg)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+
+[![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![PSalm](https://github.com/Aerendir/PHPValueObjects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![PHPUnit](https://github.com/Aerendir/PHPValueObjects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![Composer](https://github.com/Aerendir/PHPValueObjects/workflows/Composer/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![PHP CS Fixer](https://github.com/Aerendir/PHPValueObjects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
+[![Rector](https://github.com/Aerendir/PHPValueObjects/workflows/Rector/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
 
 A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.
 
@@ -53,24 +64,22 @@ To better understand the concepts behind the value objects, you can [read this p
 or, in your composer.json
 
     "require": {
-      "serendipity_hq/php_value_objects": "~2"
+      "serendipity_hq/php_value_objects": "~5"
     }
 
 
 This library follows the http://semver.org/ versioning conventions.
 
-### Requirements
+### Suggests
 
-- PHP: >= 7.2
 - [Intl PHP extension](http://php.net/manual/en/book.intl.php)
- ([instructions for MAMP on Mac](http://aerendir.me/?p=452))
+ ([instructions for MAMP on Mac](https://io.serendipityhq.com/experience/how-to-install-php-intl-module-in-mamp/))
 
 ## Available Value Objects
 
 Currently, this library supports the following Value Objects:
 
 * **[Address](docs/Address.md)**: Built-in. A more advanced value object is [`commerceguys/addressing`](https://github.com/commerceguys/addressing) (but it more suited for shipping addresses than for addresses themself);
-* **[Currency](docs/Currency.md)**: Supported only as a Doctrine Type as the `\Money\Currency` class is `final` and so not extendable;
 * **[CurrencyExchangeRate](docs/CurrencyExchangeRate.md)**: Built-in;
 * **[Email](docs/Email.md)**: A basic class derived from [Wowo's gist EmailValueObject](https://gist.github.com/wowo/b49ac45b975d5c489214). It implements [`egulias/email-validator](https://github.com/egulias/EmailValidator) to validate emails;
 * **[IP](docs/Ip.md)**: Just a proxy for the library [`darsyn/ip`](https://github.com/darsyn/ip);
