@@ -20,61 +20,94 @@ use SerendipityHQ\Component\ValueObjects\Address\Address;
  *
  * @ORM\Embeddable
  */
-final class AddressEmbeddable extends Address
+class AddressEmbeddable extends Address
 {
     /**
-     * @param string $administrativeArea
+     * Returns the full array, with null values, too.
+     * This array is then used in the Form type.
+     *
+     * @return array<string,string|null>
      */
-    protected function setAdministrativeArea(string $administrativeArea): void
+    public function _toArray(): array
     {
-        parent::setAdministrativeArea($administrativeArea);
+        return [
+            'street'             => $this->getStreet(),
+            'extraLine'          => $this->getExtraLine(),
+            'postalCode'         => $this->getPostalCode(),
+            'locality'           => $this->getLocality(),
+            'dependentLocality'  => $this->getDependentLocality(),
+            'administrativeArea' => $this->getAdministrativeArea(),
+            'countryCode'        => $this->getCountryCode(),
+        ];
     }
 
     /**
-     * @param string $countryCode
+     * @param string|null $administrativeArea
      */
-    protected function setCountryCode(string $countryCode): void
+    protected function setAdministrativeArea(?string $administrativeArea): void
     {
-        parent::setCountryCode($countryCode);
+        if (null !== $administrativeArea) {
+            parent::setAdministrativeArea($administrativeArea);
+        }
     }
 
     /**
-     * @param string $dependentLocality
+     * @param string|null $countryCode
      */
-    protected function setDependentLocality(string $dependentLocality): void
+    protected function setCountryCode(?string $countryCode): void
     {
-        parent::setDependentLocality($dependentLocality);
+        if (null !== $countryCode) {
+            parent::setCountryCode($countryCode);
+        }
     }
 
     /**
-     * @param string $street
+     * @param string|null $dependentLocality
      */
-    protected function setStreet(string $street): void
+    protected function setDependentLocality(?string $dependentLocality): void
     {
-        parent::setStreet($street);
+        if (null !== $dependentLocality) {
+            parent::setDependentLocality($dependentLocality);
+        }
     }
 
     /**
-     * @param string $extraLine
+     * @param string|null $street
      */
-    protected function setExtraLine(string $extraLine): void
+    protected function setStreet(?string $street): void
     {
-        parent::setExtraLine($extraLine);
+        if (null !== $street) {
+            parent::setStreet($street);
+        }
     }
 
     /**
-     * @param string $locality
+     * @param string|null $extraLine
      */
-    protected function setLocality(string $locality): void
+    protected function setExtraLine(?string $extraLine): void
     {
-        parent::setLocality($locality);
+        if (null !== $extraLine) {
+            parent::setExtraLine($extraLine);
+        }
     }
 
     /**
-     * @param string $postalCode
+     * @param string|null $locality
      */
-    protected function setPostalCode(string $postalCode): void
+    protected function setLocality(?string $locality): void
     {
-        parent::setPostalCode($postalCode);
+        if (null !== $locality) {
+            parent::setLocality($locality);
+        }
+    }
+
+    /**
+     * @param string|null $postalCode
+     */
+    protected function setPostalCode(?string $postalCode): void
+    {
+        if (null !== $postalCode) {
+            parent::setPostalCode($postalCode);
+        }
     }
 }
