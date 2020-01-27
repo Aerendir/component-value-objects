@@ -33,7 +33,7 @@ final class AddressType extends AbstractType
             ->add('locality', TextType::class, ['label' => 'shq.address.form.locality.label', 'translation_domain' => 'shq_address'])
             ->add('dependentLocality', TextType::class, ['required' => false, 'label' => 'shq.address.form.dependent_locality.label', 'translation_domain' => 'shq_address'])
             ->add('postalCode', TextType::class, ['label' => 'shq.address.form.postal_code.label', 'translation_domain' => 'shq_address'])
-            ->add('street', TextType::class, ['label' => 'shq.address.form.street.label', 'translation_domain' => 'address'])
+            ->add('street', TextType::class, ['label' => 'shq.address.form.street.label', 'translation_domain' => 'shq_address'])
             ->add('extraLine', TextType::class, ['required' => false, 'label' => 'shq.address.form.extra_line.label', 'translation_domain' => 'shq_address']);
     }
 }
