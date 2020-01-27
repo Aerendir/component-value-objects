@@ -3,7 +3,7 @@ name: PHPunit
 on: [push, pull_request]
 
 jobs:
-    serendipity_hq:
+    phpunit:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false
@@ -40,9 +40,12 @@ jobs:
               env:
                   SYMFONY_DEPRECATIONS_HELPER: weak_vendors
 
-            - name: Upload coverage to Codecov
-              uses: codecov/codecov-action@v1
-              with:
-                  token: ${{ secrets.CODECOV_TOKEN }}
-                  file: ./build/logs/clover.xml
-                  fail_ci_if_error: true
+            - name: Change paths in clover.xml
+              run: |
+                  sed -i 's+/home/runner/work/PHPValueObjects/PHPValueObjects+/github/workspace+g' ./build/logs/clover.xml
+
+            - name: Upload to Sonarcloud
+              uses: sonarsource/sonarcloud-github-action@master
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

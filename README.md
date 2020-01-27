@@ -19,15 +19,15 @@
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_value_objects/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![License](https://poser.pugx.org/serendipity_hq/php_value_objects/license.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-[![Coverage Status](https://codecov.io/gh/Aerendir/PHPValueObjects/branch/master/graph/badge.svg)](https://codecov.io/gh/Aerendir/PHPValueObjects/)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 
 [![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
 [![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
