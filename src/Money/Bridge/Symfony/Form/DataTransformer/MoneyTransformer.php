@@ -42,12 +42,12 @@ final class MoneyTransformer implements DataTransformerInterface
      *
      * @param MoneyInterface|null $money
      *
-     * @return string
+     * @return string|null
      */
-    public function transform($money): string
+    public function transform($money): ?string
     {
         if (null === $money) {
-            return '';
+            return null;
         }
 
         return $money->getHumanAmount();

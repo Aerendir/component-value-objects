@@ -10,7 +10,11 @@
 [![Tested with Symfony ^3.4](https://img.shields.io/badge/Symfony-%5E3.4-333)](https://github.com/Aerendir/PHPValueObjects/actions)
 [![Tested with Symfony ^4.0](https://img.shields.io/badge/Symfony-%5E4.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
 [![Tested with Symfony ^5.0](https://img.shields.io/badge/Symfony-%5E5.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![Suggests PHP Intl extension](https://img.shields.io/badge/Suggests-PHP%20Intl%20ext-%238892BF)](https://github.com/Aerendir/PHPValueObjects/actions)
+
+![Suggests PHP Intl extension](https://img.shields.io/badge/Suggests-ext--intl-%238892BF)
+![Suggests Doctrine ORM](https://img.shields.io/badge/Suggests-doctrine/orm-%238892BF)
+![Suggests Symfony Form](https://img.shields.io/badge/Suggests-symfony/form-%238892BF)
+![Suggests Twig Intl Extra](https://img.shields.io/badge/Suggests-twig/intl--extra-%238892BF)
 
 [![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_value_objects/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_value_objects)
 [![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
