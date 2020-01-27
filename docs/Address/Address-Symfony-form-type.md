@@ -7,7 +7,6 @@
 To use the form type you nedd to simply use it in your forms:
 
 ```php
-use SerendipityHQ\Component\ValueObjects\Address\Bridge\Doctrine\AddressEmbeddable;
 use SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\Type\AddressType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +21,7 @@ class UserType extends AbstractType
     {
         $builder
             ...
-            ->add('address', AddressType::class, ['data_class' => AddressEmbeddable::class, 'translation_domain' => 'shq_address'])
+            ->add('address', AddressType::class)
             ...
     }
 
@@ -30,10 +29,9 @@ class UserType extends AbstractType
 }
 ```
 
-As you can see, we need to:
-
-1. Use the `AddressType`;
-2. Specify the `data_class` setting it to the `AddressEmbeddable`;
-3. Specify the `translations_domain` to have the labels automatically translated.
-
 WARNING: If the translation file for your language is missing, please, send a PR to add it!
+
+Supported languages are:
+
+- EN
+- IT
