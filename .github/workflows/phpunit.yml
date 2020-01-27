@@ -44,7 +44,7 @@ jobs:
               run: |
                   sed -i 's+/home/runner/work/PHPValueObjects/PHPValueObjects+/github/workspace+g' ./build/logs/clover.xml
 
-            - name: Upload to Sonarcloud
+            - name: Sonarcloud
               uses: sonarsource/sonarcloud-github-action@master
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
