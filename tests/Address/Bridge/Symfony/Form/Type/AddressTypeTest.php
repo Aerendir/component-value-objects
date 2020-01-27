@@ -66,10 +66,7 @@ class AddressTypeTest extends TypeTestCase
             'extraLine'          => 'Niente più ti lega a questi luoghi',
         ];
 
-        $objectToCompare = new AddressEmbeddable($values);
-        $form            = $this->factory->create(AddressType::class, null, ['data_class' => null]);
-
-        $object = new AddressEmbeddable($values);
+        $form = $this->factory->create(AddressType::class, null, ['data_class' => null]);
 
         // submit the data to the form directly
         $form->submit($values);
