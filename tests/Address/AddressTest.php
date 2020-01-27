@@ -25,13 +25,13 @@ class AddressTest extends TestCase
     public function testAddress()
     {
         $values = [
-            'countryCode'        => 'CN',
-            'AdministrativeArea' => 'Taiwan',
-            'Locality'           => 'Taichung City',
-            'dependentLocality'  => 'Xitun District',
-            'PostalCode'         => '407',
-            'Street'             => 'Jingcheng Road, 27',
-            'extraLine'          => 'Lane 50',
+            'countryCode'        => 'IT',
+            'administrativeArea' => 'Salerno',
+            'locality'           => 'Naples',
+            'dependentLocality'  => 'Dependent locality',
+            'postalCode'         => '12345',
+            'street'             => 'Via via vieni via con me',
+            'extraLine'          => 'Niente più ti lega a questi luoghi',
         ];
 
         $resource = new Address($values);
@@ -43,11 +43,11 @@ class AddressTest extends TestCase
         $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
         $this::assertSame($values['countryCode'], $resource->getCountryCode());
-        $this::assertSame($values['AdministrativeArea'], $resource->getAdministrativeArea());
-        $this::assertSame($values['Locality'], $resource->getLocality());
+        $this::assertSame($values['administrativeArea'], $resource->getAdministrativeArea());
+        $this::assertSame($values['locality'], $resource->getLocality());
         $this::assertSame($values['dependentLocality'], $resource->getDependentLocality());
-        $this::assertSame($values['PostalCode'], $resource->getPostalCode());
-        $this::assertSame($values['Street'], $resource->getStreet());
+        $this::assertSame($values['postalCode'], $resource->getPostalCode());
+        $this::assertSame($values['street'], $resource->getStreet());
         $this::assertSame($values['extraLine'], $resource->getExtraLine());
     }
 

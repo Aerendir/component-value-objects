@@ -12,6 +12,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\Type;
 
+use SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\DataTransformer\AddressTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -28,6 +29,7 @@ final class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->addModelTransformer(new AddressTransformer())
             ->add('countryCode', CountryType::class, ['label' => 'shq.address.form.country_code.label', 'translation_domain' => 'shq_address'])
             ->add('administrativeArea', TextType::class, ['label' => 'shq.address.form.administrative_area.label', 'translation_domain' => 'shq_address'])
             ->add('locality', TextType::class, ['label' => 'shq.address.form.locality.label', 'translation_domain' => 'shq_address'])
