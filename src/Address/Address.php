@@ -28,8 +28,6 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  * - https://github.com/adamlc/address-format
  *
  * {@inheritdoc}
- *
- * @ORM\Embeddable
  */
 class Address implements AddressInterface
 {
