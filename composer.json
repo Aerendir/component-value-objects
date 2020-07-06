@@ -54,5 +54,8 @@
         "psr-4": {
             "SerendipityHQ\\Component\\ValueObjects\\Tests\\": "tests"
         }
+    },
+    "conflict": {
+        "nikic/php-parser": "4.6.0"
     }
 }
