@@ -2,11 +2,12 @@
 
 vendor/bin/rector process src --dry-run &&
 vendor/bin/rector process tests --dry-run &&
-tools/php-cs-fixer fix --allow-risky yes --dry-run -v &&
-tools/phpstan analyse src -c phpstan.neon --level max &&
+vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
+vendor/bin//phpstan analyse src -c phpstan.neon &&
+vendor/bin//phpstan analyse tests -c phpstan.neon &&
 vendor/bin/phan --progress-bar --dead-code-detection &&
 vendor/bin/psalm --php-version=7.2 &&
-tools/phpunit --verbose --debug &&
-symfony security:check &&
+vendor/bin/simple-phpunit &&
+vendor/bin/security-checker security:check &&
 composer outdated --direct &&
-composer validate --strict
+composer validate --strict --no-check-lock
