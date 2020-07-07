@@ -22,7 +22,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
-                  tools: prestissimo, pecl, phive
+                  tools: prestissimo, pecl
                   extensions: ast, intl
 
             - name: Fix Symfony version
@@ -34,13 +34,6 @@ jobs:
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest
 
-            - name: Install Phive deps
-                # PHPCSFixer: E82B2FB314E9906E
-                # PHPStan: CF1A108D0E7AE720
-                # PHPUnit: 4AA394086372C20A
-              run: |
-                  phive --no-progress install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,4AA394086372C20A
-
             - name: Run PHPStan
               run: |
-                  ./tools/phpstan analyse src -c phpstan.neon --level max
+                  ./vendor/bin/phpstan analyse src -c phpstan.neon --level max

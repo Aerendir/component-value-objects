@@ -10,7 +10,8 @@ jobs:
             matrix:
                 os: [ubuntu-latest]
                 php: ['7.4']
-        name: PHP ${{ matrix.php }} on ${{ matrix.os }}
+                symfony: ['~3.4', '~4.4', '~5.0']
+        name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} on ${{ matrix.os }}
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -22,6 +23,11 @@ jobs:
                   coverage: none # disable xdebug, pcov
                   tools: prestissimo
                   extensions: intl
+
+            - name: Fix Symfony version
+              run: |
+                  composer req symfony/flex
+                  composer config extra.symfony.require "${{ matrix.symfony }}"
 
             - name: Install Composer deps
               run: |
