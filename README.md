@@ -27,7 +27,6 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
 
 [![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
 [![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
