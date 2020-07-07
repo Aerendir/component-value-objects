@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-vendor/bin/phpmetrics src --report-html=./build/metrics &&
-vendor/bin/phpinsights
