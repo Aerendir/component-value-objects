@@ -27,6 +27,8 @@
         "drenso/phan-extensions": "@stable",
         "friendsofphp/php-cs-fixer": "^2.16",
         "phan/phan": "^3.0",
+        "phpstan/phpstan": "^0.12.32",
+        "phpstan/phpstan-phpunit": "@stable",
         "psalm/plugin-phpunit": "@stable",
         "rector/rector": "^0.6.11 || ^0.7.0",
         "roave/security-advisories": "dev-master",
