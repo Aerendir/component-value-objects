@@ -21,23 +21,14 @@
         "thecodingmachine/safe": "^0.1|^1.0"
     },
     "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4",
         "dg/bypass-finals": "^1.1",
         "doctrine/dbal": "^2.5",
         "doctrine/orm": "^2.5",
-        "drenso/phan-extensions": "@stable",
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "phan/phan": "^3.0",
-        "phpstan/phpstan": "^0.12.32",
-        "phpstan/phpstan-phpunit": "@stable",
-        "psalm/plugin-phpunit": "@stable",
-        "rector/rector": "^0.6.11 || ^0.7.0",
         "roave/security-advisories": "dev-master",
         "symfony/form": "^3.0|^4.0|^5.0",
-        "symfony/phpunit-bridge": "^5.1",
         "symfony/var-dumper": "^3.0|^4.0|^5.0",
-        "thecodingmachine/phpstan-safe-rule": "@stable",
-        "twig/intl-extra": "^2.12|^3.0",
-        "vimeo/psalm": "3.9.3"
+        "twig/intl-extra": "^2.12|^3.0"
     },
     "suggest": {
         "ext-intl": "Allows to use formatters for various values objects",
@@ -60,5 +51,10 @@
     },
     "conflict": {
         "nikic/php-parser": "4.6.0"
+    },
+    "scripts": {
+        "bin": "echo 'bin not installed'",
+        "post-install-cmd": ["@composer bin all install --ansi"],
+        "post-update-cmd": ["@composer bin all update --ansi"]
     }
 }

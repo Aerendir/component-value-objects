@@ -7,3 +7,5 @@ composer.lock
 .phpunit.result.cache
 var
 !var/cache/.gitkeep
+/vendor-bin/**/vendor
+
