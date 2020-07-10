@@ -29,7 +29,7 @@ jobs:
 
             - name: Run PHPunit
               run: |
-                  ./vendor/bin/simple-phpunit
+                  ./vendor/bin/phpunit
 
             - name: Change paths in clover.xml
               run: |
