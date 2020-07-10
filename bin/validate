@@ -6,7 +6,7 @@ vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
 vendor/bin//phpstan analyse -c phpstan.neon &&
 vendor/bin/phan --progress-bar --dead-code-detection &&
 vendor/bin/psalm --php-version=7.2 &&
-vendor/bin/simple-phpunit &&
+vendor/bin/phpunit &&
 symfony security:check &&
 composer outdated --direct &&
 composer validate --strict --no-check-lock

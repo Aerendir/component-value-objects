@@ -1,10 +1,16 @@
-imports:
-    - { resource: 'vendor/thecodingmachine/safe/rector-migrate-0.6.yml' }
-
 parameters:
     php_version_features: '7.2'
+    autoload_paths:
+        - 'vendor-bin/phpunit/vendor/autoload.php'
     sets:
-        # PHP sets
+        # architecture
+        - 'action-injection-to-constructor-injection'
+        - 'constructor-injectin-to-action-injection'
+        - 'code-quality'
+        - 'coding-style'
+        - 'guzzle'
+        - 'naming'
+        - 'performance'
         - 'php52'
         - 'php53'
         - 'php54'
@@ -12,9 +18,12 @@ parameters:
         - 'php70'
         - 'php71'
         - 'php72'
-        # Symfony
-        - 'symfony26'
-        - 'symfony28'
+        - 'phpstan'
+        - 'phpunit'
+        # polyfill
+        - 'unwrap-compat'
+        - 'privatization'
+        - 'solid'
         - 'symfony30'
         - 'symfony31'
         - 'symfony32'
@@ -30,68 +39,29 @@ parameters:
         - 'symfony-code-quality'
         - 'symfony-constructor-injection'
         - 'symfony-phpunit'
-        # Twig
-        - 'twig112'
-        - 'twig127'
-        - 'twig134'
-        - 'twig140'
-        - 'twig20'
-        - 'twig240'
-        - 'twig-underscore-to-namespace'
+        - 'safe07'
         - 'type-declaration'
-        # Doctrine
-        - 'doctrine25'
-        # PHPUnit sets
-        - 'phpunit'
-        - 'phpunit50'
-        - 'phpunit60'
-        - 'phpunit70'
-        - 'phpunit75'
-        - 'phpunit80'
-        - 'phpunit80-dms'
-        - 'phpunit-code-quality'
-        - 'phpunit-exception'
-        - 'phpunit-injector'
-        - 'phpunit-mock'
-        - 'phpunit-specific-method'
-        - 'phpunit-yield-data-provider'
-        # Sensio
-        - 'framework-extra-bundle-30'
-        - 'framework-extra-bundle-50'
-        # Other sets
-        - 'action-injection-to-constructor-injection'
-        - 'array-str-functions-to-static-call'
-        - 'code-quality'
-        - 'coding-style'
-        - 'dead-classes'
-        - 'dead-code'
-        - 'doctrine'
-        - 'doctrine-code-quality'
-        - 'early-return'
-        - 'php-di-decouple'
-        - 'solid'
-        - 'unwrap-compat'
-        - 'psr-4'
     import_short_classes: false
     exclude_rectors:
         # I don't like those
+        - 'Rector\CodeQuality\Rector\Catch_\ThrowWithPreviousExceptionRector'
         - 'Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector'
         - 'Rector\CodeQuality\Rector\Concat\JoinStringConcatRector'
-        - 'Rector\CodingStyle\Rector\Identical\IdenticalFalseToBooleanNotRector'
-        - 'Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector'
+        - 'Rector\CodingStyle\Rector\Class_\AddArrayDefaultToArrayPropertyRector'
         - 'Rector\CodingStyle\Rector\ClassMethod\NewlineBeforeNewAssignSetRector'
         - 'Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector'
-        - 'Rector\CodingStyle\Rector\Class_\AddArrayDefaultToArrayPropertyRector'
+        - 'Rector\CodingStyle\Rector\Identical\IdenticalFalseToBooleanNotRector'
+        - 'Rector\CodingStyle\Rector\Switch_\BinarySwitchToIfElseRector'
+        - 'Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector'
+        - 'Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector'
         - 'Rector\PHPUnit\Rector\Class_\AddSeeTestAnnotationRector'
+        - 'Rector\Privatization\Rector\ClassConst\PrivatizeLocalClassConstantRector'
+        - 'Rector\Privatization\Rector\ClassMethod\PrivatizeLocalOnlyMethodRector'
+        - 'Rector\Privatization\Rector\MethodCall\PrivatizeLocalGetterToPropertyRector'
+        - 'Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector'
+        - 'Rector\SOLID\Rector\Property\AddFalseDefaultToBoolPropertyRector'
+        - 'Rector\SOLID\Rector\ClassMethod\UseInterfaceOverImplementationInConstructorRector'
+        - 'Rector\TypeDeclaration\Rector\ClassMethod\AddArrayParamDocTypeRector'
+        - 'Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector'
         # Incompatible with static analyzers
         - 'Rector\DeadCode\Rector\Concat\RemoveConcatAutocastRector'
-        # Bug https://github.com/rectorphp/rector/pull/2694
-        - 'Rector\TypeDeclaration\Rector\FunctionLike\ReturnTypeDeclarationRector'
-        # Bug https://github.com/rectorphp/rector/issues/2695
-        - 'Rector\SOLID\Rector\Class_\FinalizeClassesWithoutChildrenRector'
-        # Bug https://github.com/rectorphp/rector/issues/2696
-        - 'Rector\TypeDeclaration\Rector\FunctionLike\ParamTypeDeclarationRector'
-        # Bug https://github.com/rectorphp/rector/issues/2699
-        - 'Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector'
-        # Bug https://github.com/rectorphp/rector/issues/2774
-        - 'Rector\PHPUnit\Rector\GetMockRector'

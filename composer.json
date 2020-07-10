@@ -49,9 +49,6 @@
             "SerendipityHQ\\Component\\ValueObjects\\Tests\\": "tests"
         }
     },
-    "conflict": {
-        "nikic/php-parser": "4.6.0"
-    },
     "scripts": {
         "bin": "echo 'bin not installed'",
         "post-install-cmd": ["@composer bin all install --ansi"],
