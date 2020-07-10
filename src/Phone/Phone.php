@@ -28,10 +28,10 @@ final class Phone extends PhoneNumber implements PhoneInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var PhoneNumber|string $number */
+    /** @var PhoneNumber|string */
     private $number;
 
-    /** @var string $region */
+    /** @var string */
     private $region;
 
     /**

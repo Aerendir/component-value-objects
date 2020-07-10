@@ -27,7 +27,7 @@ final class Uri implements UriInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var BaseUri $valueObject */
+    /** @var BaseUri */
     private $valueObject;
 
     /**

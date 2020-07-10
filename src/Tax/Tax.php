@@ -26,19 +26,19 @@ final class Tax implements TaxInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var string $code A string that identifies uniquely the tax on the Remote system */
+    /** @var string A string that identifies uniquely the tax on the Remote system */
     private $code;
 
-    /** @var bool $compound If the tax is compound or not */
+    /** @var bool If the tax is compound or not */
     private $compound;
 
-    /** @var float $rate The rate of the tax */
+    /** @var float The rate of the tax */
     private $rate;
 
-    /** @var MoneyInterface $amount The paid amount of taxes */
+    /** @var MoneyInterface The paid amount of taxes */
     private $amount;
 
-    /** @var string $title The title of the tax on the Remote system */
+    /** @var string The title of the tax on the Remote system */
     private $title;
 
     /**

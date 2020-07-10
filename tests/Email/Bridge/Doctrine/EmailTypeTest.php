@@ -22,10 +22,10 @@ use SerendipityHQ\Component\ValueObjects\Email\Email;
  */
 class EmailTypeTest extends TestCase
 {
-    /** @var EmailType $type */
+    /** @var EmailType */
     private $type;
 
-    /** @var AbstractPlatform $platform */
+    /** @var AbstractPlatform */
     private $platform;
 
     protected function setUp(): void

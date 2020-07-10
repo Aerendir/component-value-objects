@@ -25,7 +25,7 @@ use Twig\TwigFilter;
  */
 final class MoneyFormatterExtension extends AbstractExtension
 {
-    /** @var ISOCurrencies $currencies */
+    /** @var ISOCurrencies */
     private $currencies;
 
     /**

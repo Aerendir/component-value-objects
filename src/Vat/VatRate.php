@@ -21,12 +21,12 @@ final class VatRate implements VatRateInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var float[] $countries */
+    /** @var float[] */
     private const COUNTRIES = [
         'IT' => 22.0000,
     ];
 
-    /** @var string $country The country for which this object represents the VAT */
+    /** @var string The country for which this object represents the VAT */
     private $country;
 
     /**

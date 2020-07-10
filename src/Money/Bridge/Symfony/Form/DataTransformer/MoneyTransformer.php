@@ -24,7 +24,7 @@ use Symfony\Component\Form\DataTransformerInterface;
  */
 final class MoneyTransformer implements DataTransformerInterface
 {
-    /** @var array<string,mixed> $options */
+    /** @var array<string,mixed> */
     private $options;
 
     /**

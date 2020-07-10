@@ -27,10 +27,10 @@ final class Payment implements PaymentInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var string $method The payment name or title. */
+    /** @var string The payment name or title. */
     private $method;
 
-    /** @var string $status Status of the payment: paid or not? Or in which status? */
+    /** @var string Status of the payment: paid or not? Or in which status? */
     private $status;
 
     /**

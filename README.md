@@ -31,13 +31,13 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
 
-[![Phan](https://github.com/Aerendir/component-value-objects/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
-[![PHPStan](https://github.com/Aerendir/component-value-objects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
-[![PSalm](https://github.com/Aerendir/component-value-objects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
-[![PHPUnit](https://github.com/Aerendir/component-value-objects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
-[![Composer](https://github.com/Aerendir/component-value-objects/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
-[![PHP CS Fixer](https://github.com/Aerendir/component-value-objects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
-[![Rector](https://github.com/Aerendir/component-value-objects/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![Phan](https://github.com/Aerendir/component-value-objects/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![PHPStan](https://github.com/Aerendir/component-value-objects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![PSalm](https://github.com/Aerendir/component-value-objects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![PHPUnit](https://github.com/Aerendir/component-value-objects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![Composer](https://github.com/Aerendir/component-value-objects/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![PHP CS Fixer](https://github.com/Aerendir/component-value-objects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![Rector](https://github.com/Aerendir/component-value-objects/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
 
 ## Features
 

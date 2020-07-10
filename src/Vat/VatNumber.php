@@ -26,13 +26,13 @@ final class VatNumber implements VatNumberInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var string $countryCode The country code of the VAT number */
+    /** @var string The country code of the VAT number */
     private $countryCode;
 
-    /** @var int $number The number part of the VAT number */
+    /** @var int The number part of the VAT number */
     private $number;
 
-    /** @var string $vatNumber The full VAT Number, with country ISO code */
+    /** @var string The full VAT Number, with country ISO code */
     private $vatNumber;
 
     /**

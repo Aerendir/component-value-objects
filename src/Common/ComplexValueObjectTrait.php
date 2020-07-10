@@ -17,7 +17,7 @@ namespace SerendipityHQ\Component\ValueObjects\Common;
  */
 trait ComplexValueObjectTrait
 {
-    /** @var mixed $valueObject */
+    /** @var mixed */
     private $valueObject;
 
     /** @var array<int|string,mixed> Contains the data for which a property were not found */

@@ -27,16 +27,16 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var float $exchangeRate */
+    /** @var float */
     private $exchangeRate;
 
-    /** @var \DateTime|null $exchangeRateDate */
+    /** @var \DateTime|null */
     private $exchangeRateDate;
 
-    /** @var Currency $from */
+    /** @var Currency */
     private $from;
 
-    /** @var Currency $to */
+    /** @var Currency */
     private $to;
 
     /**
