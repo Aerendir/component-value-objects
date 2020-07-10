@@ -81,3 +81,24 @@ updates:
           - "[Type] Dependencies"
           - "[Lang] PHP"
       open-pull-requests-limit: 1000
+    # PHPStan through Bamarni
+    - package-ecosystem: "composer"
+      versioning-strategy: increase
+      target-branch: "dev"
+      directory: "/vendor-bin/phpstan/"
+      schedule:
+          interval: "daily"
+      allow:
+          - dependency-type: "all"
+      assignees:
+          - "Aerendir"
+      reviewers:
+          - "Aerendir"
+      commit-message:
+          # Prefix all commit messages with "npm"
+          prefix: "[PHP]"
+      labels:
+          - "Dependabot"
+          - "[Type] Dependencies"
+          - "[Lang] PHP"
+      open-pull-requests-limit: 1000

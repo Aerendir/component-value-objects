@@ -18,7 +18,7 @@
         "giggsey/libphonenumber-for-php": "^8.8",
         "laminas/laminas-uri": "^2.6.2",
         "moneyphp/money": "^3.0",
-        "thecodingmachine/safe": "^0.1|^1.0"
+        "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.4",

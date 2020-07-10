@@ -36,4 +36,4 @@ jobs:
 
             - name: Run PHPStan
               run: |
-                  ./vendor/bin/phpstan analyse src -c phpstan.neon --level max
+                  ./vendor/bin/phpstan analyse -c phpstan.neon --no-progress

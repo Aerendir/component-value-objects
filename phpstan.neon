@@ -1,7 +1,15 @@
+includes:
+    - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/rules.neon
+    - vendor-bin/phpstan/vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon
+
 parameters:
     level: max
+    bootstrapFiles:
+        - vendor-bin/phpunit/vendor/autoload.php
     paths:
         - src
+        - tests
     ignoreErrors:
         -
             message: '#Method SerendipityHQ\\Component\\ValueObjects\\Address\\Bridge\\Symfony\\Form\\Type\\AddressType::buildForm\(\) has parameter \$builder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface.#'
