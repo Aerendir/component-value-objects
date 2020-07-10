@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">Serendipity HQ Value Objects</h1>
-<p align="center">A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.</p>
+<p align="center">A set of <a href="https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/" target="_blank">PHP Value Objects</a> to manage simple and composite values.</p>
 <p align="center">
     <a href="https://github.com/Aerendir/component-value-objects/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/component-value-objects.svg?style=flat-square"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
