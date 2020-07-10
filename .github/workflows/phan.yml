@@ -36,4 +36,4 @@ jobs:
 
             - name: Run Phan
               run: |
-                  ./vendor/bin/phan --progress-bar --dead-code-detection
+                  ./vendor/bin/phan --no-progress-bar --dead-code-detection
