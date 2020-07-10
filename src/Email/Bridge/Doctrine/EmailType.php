@@ -36,6 +36,8 @@ final class EmailType extends Type
      * @param array<string,mixed> $fieldDeclaration
      * @param AbstractPlatform    $platform
      *
+     * @codeCoverageIgnore
+     *
      * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
@@ -45,6 +47,8 @@ final class EmailType extends Type
 
     /**
      * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
      */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
@@ -64,7 +68,7 @@ final class EmailType extends Type
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if (null === $value || '' === $value) {
-            return $value;
+            return null;
         }
 
         return new Email($value);
@@ -84,7 +88,7 @@ final class EmailType extends Type
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         if (null === $value || '' === $value) {
-            return $value;
+            return null;
         }
 
         if ( ! $value instanceof Email) {
@@ -100,11 +104,13 @@ final class EmailType extends Type
         }
 
         // The value is automatically transformed into a string thans to the __toString() method
-        return $value;
+        return (string) $value;
     }
 
     /**
      * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
      *
      * @throws StringsException
      *

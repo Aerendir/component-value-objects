@@ -1,43 +1,45 @@
 <p align="center">
     <a href="http://www.serendipityhq.com" target="_blank">
-        <img src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
+        <img style="max-width: 350px" src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
     </a>
 </p>
 
-# PHP Value Objects
+<h1 align="center">Serendipity HQ Value Objects</h1>
+<p align="center">A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.</p>
+<p align="center">
+    <a href="https://github.com/Aerendir/component-value-objects/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/component-value-objects.svg?style=flat-square"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
+    <a href="https://github.com/Aerendir/component-value-objects/releases"><img src="https://img.shields.io/packagist/php-v/serendipity_hq/component-value-objects?color=%238892BF&style=flat-square&logo=php" /></a>
+    <a title="Tested with Symfony ^3.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^3.4" src="https://img.shields.io/badge/Symfony-%5E3.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^5.0" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^5.0" src="https://img.shields.io/badge/Symfony-%5E5.0-333?style=flat-square&logo=symfony" /></a>
+</p>
+<p align="center">
+    <a href="https://www.php.net/manual/en/book.intl.php"><img src="https://img.shields.io/badge/Suggests-ext--intl-%238892BF?style=flat-square&logo=php"></a>
+    <a href="https://www.doctrine-project.org/"><img src="https://img.shields.io/badge/Suggests-doctrine/orm-%238892BF?style=flat-square&logo=php"></a>
+    <a href="https://symfony.com/doc/current/forms.html"><img src="https://img.shields.io/badge/Suggests-symfony/form-%238892BF?style=flat-square&logo=php"></a>
+    <a href="https://github.com/twigphp/intl-extra"><img src="https://img.shields.io/badge/Suggests-twig/intl--extra-%238892BF?style=flat-square&logo=php"></a>
+</p>
 
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/serendipity_hq/php_value_objects?color=%238892BF)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-[![Tested with Symfony ^3.4](https://img.shields.io/badge/Symfony-%5E3.4-333)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![Tested with Symfony ^4.0](https://img.shields.io/badge/Symfony-%5E4.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![Tested with Symfony ^5.0](https://img.shields.io/badge/Symfony-%5E5.0-333)](https://github.com/Aerendir/PHPValueObjects/actions)
+## Current Status
 
-![Suggests PHP Intl extension](https://img.shields.io/badge/Suggests-ext--intl-%238892BF)
-![Suggests Doctrine ORM](https://img.shields.io/badge/Suggests-doctrine/orm-%238892BF)
-![Suggests Symfony Form](https://img.shields.io/badge/Suggests-symfony/form-%238892BF)
-![Suggests Twig Intl Extra](https://img.shields.io/badge/Suggests-twig/intl--extra-%238892BF)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
 
-[![Latest Stable Version](https://poser.pugx.org/serendipity_hq/php_value_objects/v/stable.png)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-[![Total Downloads](https://poser.pugx.org/serendipity_hq/php_value_objects/downloads.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
-[![License](https://poser.pugx.org/serendipity_hq/php_value_objects/license.svg)](https://packagist.org/packages/serendipity_hq/php_value_objects)
+[![Phan](https://github.com/Aerendir/component-value-objects/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![PHPStan](https://github.com/Aerendir/component-value-objects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![PSalm](https://github.com/Aerendir/component-value-objects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![PHPUnit](https://github.com/Aerendir/component-value-objects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![Composer](https://github.com/Aerendir/component-value-objects/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![PHP CS Fixer](https://github.com/Aerendir/component-value-objects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
+[![Rector](https://github.com/Aerendir/component-value-objects/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-value-objects/actions)
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=coverage)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=alert_status)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=security_rating)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_PHPValueObjects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_PHPValueObjects)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84/mini.png)](https://insight.sensiolabs.com/projects/daa2a03b-444d-4ea6-8516-10e81c089b84)
-
-[![Phan](https://github.com/Aerendir/PHPValueObjects/workflows/Phan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![PHPStan](https://github.com/Aerendir/PHPValueObjects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![PSalm](https://github.com/Aerendir/PHPValueObjects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![PHPUnit](https://github.com/Aerendir/PHPValueObjects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![Composer](https://github.com/Aerendir/PHPValueObjects/workflows/Composer/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![PHP CS Fixer](https://github.com/Aerendir/PHPValueObjects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-[![Rector](https://github.com/Aerendir/PHPValueObjects/workflows/Rector/badge.svg)](https://github.com/Aerendir/PHPValueObjects/actions)
-
-A set of [PHP Value Objects](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/) to manage simple and composite values.
+## Features
 
 It supports `SimpleValueObjects` and `ComplexValueObjects`.
 
@@ -61,23 +63,13 @@ This library gives support for other kind of values, differentiating them betwee
 
 To better understand the concepts behind the value objects, you can [read this post](https://io.serendipityhq.com/experience/php-and-doctrine-immutable-objects-value-objects-and-embeddables/).
 
-## Install PHPValueObjects via Composer
+## Install component-value-objects via Composer
 
-    $ composer require serendipity_hq/php_value_objects
-
-or, in your composer.json
-
-    "require": {
-      "serendipity_hq/php_value_objects": "~5"
-    }
-
+    $ composer require serendipity_hq/component-value-objects
 
 This library follows the http://semver.org/ versioning conventions.
 
-### Suggests
-
-- [Intl PHP extension](http://php.net/manual/en/book.intl.php)
- ([instructions for MAMP on Mac](https://io.serendipityhq.com/experience/how-to-install-php-intl-module-in-mamp/))
+[Instructions to install Intl PHP extension in MAMP for Mac](https://io.serendipityhq.com/experience/how-to-install-php-intl-module-in-mamp/)
 
 ## Available Value Objects
 

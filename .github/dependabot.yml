@@ -1,0 +1,41 @@
+version: 2
+updates:
+    - package-ecosystem: "composer"
+      versioning-strategy: widen
+      target-branch: "dev"
+      directory: "/"
+      schedule:
+          interval: "daily"
+      allow:
+          - dependency-type: "all"
+      assignees:
+          - "Aerendir"
+      reviewers:
+          - "Aerendir"
+      commit-message:
+          # Prefix all commit messages with "npm"
+          prefix: "[PHP]"
+      labels:
+          - "Dependabot"
+          - "[Type] Dependencies"
+          - "[Lang] PHP"
+      open-pull-requests-limit: 1000
+    - package-ecosystem: "github-actions"
+      target-branch: "dev"
+      directory: "/"
+      schedule:
+          interval: "daily"
+      allow:
+          - dependency-type: "all"
+      assignees:
+          - "Aerendir"
+      reviewers:
+          - "Aerendir"
+      commit-message:
+          # Prefix all commit messages with "npm"
+          prefix: "[GitHub Action]"
+      labels:
+          - "Dependabot"
+          - "[Type] Dependencies"
+          - "[Lang] GitHub Actions"
+      open-pull-requests-limit: 1000

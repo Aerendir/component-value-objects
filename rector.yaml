@@ -93,3 +93,5 @@ parameters:
         - 'Rector\TypeDeclaration\Rector\FunctionLike\ParamTypeDeclarationRector'
         # Bug https://github.com/rectorphp/rector/issues/2699
         - 'Rector\TypeDeclaration\Rector\ClassMethod\AddArrayReturnDocTypeRector'
+        # Bug https://github.com/rectorphp/rector/issues/2774
+        - 'Rector\PHPUnit\Rector\GetMockRector'
