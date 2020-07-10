@@ -8,6 +8,6 @@ vendor/bin//phpstan analyse tests -c phpstan.neon &&
 vendor/bin/phan --progress-bar --dead-code-detection &&
 vendor/bin/psalm --php-version=7.2 &&
 vendor/bin/simple-phpunit &&
-vendor/bin/security-checker security:check &&
+symfony security:check &&
 composer outdated --direct &&
 composer validate --strict --no-check-lock
