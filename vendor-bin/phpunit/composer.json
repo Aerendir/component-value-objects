@@ -1,5 +1,7 @@
 {
     "require-dev": {
-        "phpunit/phpunit": "8.5.8"
+        "phpunit/phpunit": "8.5.8",
+        "vimeo/psalm": "3.12.2",
+        "psalm/plugin-phpunit": "0.10.1"
     }
 }

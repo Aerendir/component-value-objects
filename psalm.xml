@@ -15,14 +15,14 @@
 >
     <projectFiles>
         <directory name="src"/>
+        <directory name="tests"/>
         <ignoreFiles>
             <directory name="vendor"/>
         </ignoreFiles>
     </projectFiles>
 
     <issueHandlers>
-        <!-- We support PHP 7.2: suppress errors related to upper versions -->
-        <MissingParamType errorLevel="suppress" />
+        <MissingThrowsDocblock errorLevel="suppress" />
 
         <LessSpecificReturnType errorLevel="info"/>
 
