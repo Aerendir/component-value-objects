@@ -1,10 +1,10 @@
 {
-    "name": "serendipity_hq/php_value_objects",
+    "name": "serendipity_hq/component-value-objects",
     "description": "A set of value objects to manage simple and composite values",
     "type": "library",
     "license": "MIT",
     "keywords": ["value objects"],
-    "homepage": "https://github.com/Aerendir/PHPValueObjects",
+    "homepage": "https://github.com/Aerendir/component-value-objects",
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
