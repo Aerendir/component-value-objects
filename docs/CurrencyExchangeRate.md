@@ -1,3 +1,5 @@
+*Do you like this bundle? [**Leave a &#9733;**](#js-repo-pjax-container) or run `composer global require symfony/thanks && composer thanks` to say thank you to all libraries you use in your current project, this included!*
+
 Currency Complex Value Object
 ============================
 
@@ -13,11 +15,11 @@ Extends [Currency](https://github.com/sebastianbergmann/money/blob/master/src/Cu
 
 /**
  * Required parameters are:
- * 
+ *
  * - From: The Currency in which the amount is;
  * - To: The Currency in which the amount is converted/exchanged;
  * - ExchangeRate: The rate of the exchanging/conversion.
- * 
+ *
  * @param array $values
  */
 public function __construct(array $values)
@@ -38,3 +40,5 @@ $values = [
 $currencyExchangeRate = new CurrencyExchangeRate($values);
 dump($currencyExchangeRate);
 ```
+
+*Do you like this bundle? [**Leave a &#9733;**](#js-repo-pjax-container) or run `composer global require symfony/thanks && composer thanks` to say thank you to all libraries you use in your current project, this included!*

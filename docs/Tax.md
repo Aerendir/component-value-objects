@@ -1,5 +1,7 @@
+*Do you like this bundle? [**Leave a &#9733;**](#js-repo-pjax-container) or run `composer global require symfony/thanks && composer thanks` to say thank you to all libraries you use in your current project, this included!*
+
 Tax Complex Value Object
-============================
+========================
 
 Represents a tax value.
 
@@ -30,3 +32,5 @@ $values = [
 $tax = new Tax($values);
 dump($tax);
 ```
+
+*Do you like this bundle? [**Leave a &#9733;**](#js-repo-pjax-container) or run `composer global require symfony/thanks && composer thanks` to say thank you to all libraries you use in your current project, this included!*

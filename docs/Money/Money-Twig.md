@@ -1,3 +1,5 @@
+*Do you like this bundle? [**Leave a &#9733;**](#js-repo-pjax-container) or run `composer global require symfony/thanks && composer thanks` to say thank you to all libraries you use in your current project, this included!*
+
 [Money Documentation](../Money.md)
 
 # How to use the Money Twig Extension
@@ -44,3 +46,5 @@ When you don't have a `MoneyInterface` object but an `array` built to create a `
 ```twig
 {{ user.balanceArray|localizedmoneyfromarr }}
 ```
+
+*Do you like this bundle? [**Leave a &#9733;**](#js-repo-pjax-container) or run `composer global require symfony/thanks && composer thanks` to say thank you to all libraries you use in your current project, this included!*

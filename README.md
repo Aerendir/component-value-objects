@@ -48,6 +48,18 @@ Complex value objects are hydrated passing an array. If a key of the array isn't
 
 Some of those value objects support also the persistence in Doctrine providing [custom mapping types](http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/custom-mapping-types.html) (See below).
 
+<hr />
+<h3 align="center">
+    <b>Do you like this bundle?</b><br />
+    <b><a href="#js-repo-pjax-container">LEAVE A &#9733;</a></b>
+</h3>
+<p align="center">
+    or run<br />
+    <code>composer global require symfony/thanks && composer thanks</code><br />
+    to say thank you to all libraries you use in your current project, this included!
+</p>
+<hr />
+
 ## What are Value Objects
 
 Value Objects are PHP [`objects`](http://php.net/manual/en/language.types.object.php) that represent and manage simple
@@ -191,3 +203,15 @@ Currently, this library supports the following Value Objects:
         </tr>
     </tbody>
 </table>
+
+<hr />
+<h3 align="center">
+    <b>Do you like this bundle?</b><br />
+    <b><a href="#js-repo-pjax-container">LEAVE A &#9733;</a></b>
+</h3>
+<p align="center">
+    or run<br />
+    <code>composer global require symfony/thanks && composer thanks</code><br />
+    to say thank you to all libraries you use in your current project, this included!
+</p>
+<hr />
