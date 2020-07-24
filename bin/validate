@@ -4,7 +4,7 @@ vendor/bin/rector process src --dry-run &&
 vendor/bin/rector process tests --dry-run &&
 vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
 vendor/bin//phpstan analyse &&
-vendor/bin/phan --dead-code-detection &&
+vendor/bin/phan --dead-code-detection --load-baseline .baseline-phan.php &&
 vendor/bin/psalm --php-version=7.2 &&
 vendor/bin/phpunit &&
 symfony security:check &&

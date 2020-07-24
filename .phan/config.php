@@ -36,8 +36,6 @@ return [
     //       and `exclude_analysis_directory_list` arrays.
     'exclude_analysis_directory_list' => [
         'vendor/',
-        'build/',
-        'docs/',
         'vendor-bin/phpunit/vendor',
     ],
 
