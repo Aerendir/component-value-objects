@@ -1,4 +1,5 @@
 includes:
+    - .baseline-phpstan.neon
     - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/rules.neon
     - vendor-bin/phpstan/vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon
