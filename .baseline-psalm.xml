@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
+  <file src="src/Address/Address.php">
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>$countryCode</code>
+      <code>$administrativeArea</code>
+      <code>$locality</code>
+      <code>$dependentLocality</code>
+      <code>$postalCode</code>
+      <code>$street</code>
+      <code>$extraLine</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Address/Bridge/Doctrine/AddressEmbeddable.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>AddressEmbeddable</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
+    <MoreSpecificImplementedParamType occurrences="2">
+      <code>$address</code>
+      <code>$address</code>
+    </MoreSpecificImplementedParamType>
+  </file>
+  <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>null === $value</code>
+      <code>'' === $value</code>
+      <code>$value instanceof Currency</code>
+    </DocblockTypeContradiction>
+    <MoreSpecificImplementedParamType occurrences="2">
+      <code>$fieldDeclaration</code>
+      <code>$value</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>null === $value || '' === $value</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/CurrencyExchangeRate/CurrencyExchangeRate.php">
+    <ImplicitToStringCast occurrences="2">
+      <code>$this-&gt;getFrom()</code>
+      <code>$this-&gt;getTo()</code>
+    </ImplicitToStringCast>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$values</code>
+    </MoreSpecificImplementedParamType>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$exchangeRate</code>
+      <code>$from</code>
+      <code>$to</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Email/Bridge/Doctrine/EmailType.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>null === $value</code>
+      <code>'' === $value</code>
+      <code>$value instanceof Email</code>
+    </DocblockTypeContradiction>
+    <ImplicitToStringCast occurrences="1">
+      <code>$value</code>
+    </ImplicitToStringCast>
+    <MoreSpecificImplementedParamType occurrences="2">
+      <code>$fieldDeclaration</code>
+      <code>$value</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>null === $value || '' === $value</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Email/Email.php">
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$value</code>
+    </MoreSpecificImplementedParamType>
+  </file>
+  <file src="src/Ip/Ip.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+  </file>
+  <file src="src/Money/Bridge/Doctrine/MoneyType.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>null === $value</code>
+      <code>'' === $value</code>
+      <code>$value instanceof Money</code>
+    </DocblockTypeContradiction>
+    <MoreSpecificImplementedParamType occurrences="2">
+      <code>$fieldDeclaration</code>
+      <code>$value</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>null === $value || '' === $value</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
+    <MoreSpecificImplementedParamType occurrences="2">
+      <code>$money</code>
+      <code>$money</code>
+    </MoreSpecificImplementedParamType>
+  </file>
+  <file src="src/Money/Money.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>null === $this-&gt;baseAmount</code>
+      <code>null === $this-&gt;humanAmount</code>
+    </DocblockTypeContradiction>
+    <MixedAssignment occurrences="4">
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+      <code>$result</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>Currency</code>
+    </MixedInferredReturnType>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;baseAmount</code>
+      <code>$this-&gt;currency</code>
+    </PossiblyNullArgument>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$baseAmount</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>null !== $this-&gt;baseAmount</code>
+      <code>null !== $this-&gt;humanAmount</code>
+      <code>null !== $this-&gt;baseAmount</code>
+      <code>null !== $this-&gt;humanAmount</code>
+    </RedundantConditionGivenDocblockType>
+    <UninitializedProperty occurrences="9">
+      <code>$this-&gt;baseAmount</code>
+      <code>$this-&gt;humanAmount</code>
+      <code>$this-&gt;baseAmount</code>
+      <code>$this-&gt;humanAmount</code>
+      <code>$this-&gt;baseAmount</code>
+      <code>$this-&gt;baseAmount</code>
+      <code>$this-&gt;currency</code>
+      <code>$this-&gt;humanAmount</code>
+      <code>$this-&gt;humanAmount</code>
+    </UninitializedProperty>
+  </file>
+  <file src="src/Payment/Payment.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$method</code>
+      <code>$status</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Phone/Phone.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$region</code>
+    </PropertyNotSetInConstructor>
+    <UninitializedProperty occurrences="2">
+      <code>$this-&gt;region</code>
+      <code>$this-&gt;number</code>
+    </UninitializedProperty>
+  </file>
+  <file src="src/Tax/Tax.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>$this-&gt;amount</code>
+    </ImplicitToStringCast>
+    <PropertyNotSetInConstructor occurrences="5">
+      <code>$code</code>
+      <code>$compound</code>
+      <code>$rate</code>
+      <code>$amount</code>
+      <code>$title</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Uri/Bridge/Doctrine/UriType.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>null === $value</code>
+      <code>'' === $value</code>
+      <code>gettype($value)</code>
+    </DocblockTypeContradiction>
+    <MoreSpecificImplementedParamType occurrences="2">
+      <code>$fieldDeclaration</code>
+      <code>$value</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>null === $value || '' === $value</code>
+      <code>is_object($value)</code>
+      <code>gettype($value)</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Uri/Uri.php">
+    <MissingParamType occurrences="2">
+      <code>$uri</code>
+      <code>$query</code>
+    </MissingParamType>
+  </file>
+  <file src="src/Vat/VatNumber.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$countryCode</code>
+      <code>$number</code>
+      <code>$vatNumber</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Vat/VatRate.php">
+    <MissingParamType occurrences="1">
+      <code>$countryCode</code>
+    </MissingParamType>
+  </file>
+  <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
+    <DeprecatedMethod occurrences="1">
+      <code>setMethods</code>
+    </DeprecatedMethod>
+    <InternalMethod occurrences="1">
+      <code>willReturn</code>
+    </InternalMethod>
+    <InvalidArgument occurrences="2">
+      <code>''</code>
+      <code>'hello@serendipityhq.com'</code>
+    </InvalidArgument>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+  </file>
+  <file src="tests/Money/MoneyTest.php">
+    <RedundantCondition occurrences="2">
+      <code>assertInstanceOf</code>
+      <code>assertInstanceOf</code>
+    </RedundantCondition>
+  </file>
+  <file src="tests/Phone/PhoneTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+</files>
