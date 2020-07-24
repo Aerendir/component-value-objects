@@ -5,6 +5,10 @@
     "license": "MIT",
     "keywords": ["value objects"],
     "homepage": "https://github.com/Aerendir/component-value-objects",
+    "support": {
+        "docs": "https://github.com/Aerendir/component-value-objects/tree/dev/docs",
+        "issues": "https://github.com/Aerendir/component-value-objects/issues"
+    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
