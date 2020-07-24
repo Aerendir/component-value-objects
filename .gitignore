@@ -1,6 +1,5 @@
 .php_cs
 composer.lock
 phpunit.xml
-build
 var
 vendor

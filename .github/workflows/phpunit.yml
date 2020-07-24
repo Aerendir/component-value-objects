@@ -33,7 +33,7 @@ jobs:
 
             - name: Change paths in clover.xml
               run: |
-                  sed -i 's+/home/runner/work/component-value-objects/component-value-objects+/github/workspace+g' ./build/coverage/clover.xml
+                  sed -i 's+/home/runner/work/component-value-objects/component-value-objects+/github/workspace+g' ./var/coverage/clover.xml
 
             - name: Sonarcloud
               uses: sonarsource/sonarcloud-github-action@master
