@@ -50,7 +50,7 @@ Some of those value objects support also the persistence in Doctrine providing [
 
 <hr />
 <h3 align="center">
-    <b>Do you like this bundle?</b><br />
+    <b>Do you like this library?</b><br />
     <b><a href="#js-repo-pjax-container">LEAVE A &#9733;</a></b>
 </h3>
 <p align="center">
@@ -206,7 +206,7 @@ Currently, this library supports the following Value Objects:
 
 <hr />
 <h3 align="center">
-    <b>Do you like this bundle?</b><br />
+    <b>Do you like this library?</b><br />
     <b><a href="#js-repo-pjax-container">LEAVE A &#9733;</a></b>
 </h3>
 <p align="center">
