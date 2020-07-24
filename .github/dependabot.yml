@@ -7,7 +7,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -26,7 +26,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -47,7 +47,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -68,7 +68,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -89,7 +89,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
@@ -110,7 +110,7 @@ updates:
       schedule:
           interval: "daily"
       allow:
-          - dependency-type: "all"
+          - dependency-type: "direct"
       assignees:
           - "Aerendir"
       reviewers:
