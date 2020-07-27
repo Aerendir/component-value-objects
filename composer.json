@@ -30,8 +30,8 @@
         "doctrine/dbal": "^2.5",
         "doctrine/orm": "^2.5",
         "roave/security-advisories": "dev-master",
-        "symfony/form": "^3.4|^4.4|^5.2",
-        "symfony/var-dumper": "^3.4|^4.4|^5.2",
+        "symfony/form": "^3.4|^4.4|^5.1",
+        "symfony/var-dumper": "^3.4|^4.4|^5.1",
         "twig/intl-extra": "^2.12|^3.0"
     },
     "suggest": {
