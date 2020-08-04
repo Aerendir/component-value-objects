@@ -61,6 +61,16 @@ parameters:
 			path: src/Money/Bridge/Doctrine/MoneyType.php
 
 		-
+			message: "#^PHPDoc tag @param for parameter \\$locale with type string\\|null is not subtype of native type string\\.$#"
+			count: 1
+			path: src/Money/Bridge/Twig/MoneyFormatterExtension.php
+
+		-
+			message: "#^Parameter \\#2 \\$locale of method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Bridge\\\\Twig\\\\MoneyFormatterExtension\\:\\:localizeMoneyFilter\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Money/Bridge/Twig/MoneyFormatterExtension.php
+
+		-
 			message: "#^Result of \\|\\| is always false\\.$#"
 			count: 1
 			path: src/Uri/Bridge/Doctrine/UriType.php
@@ -76,59 +86,19 @@ parameters:
 			path: src/Uri/Bridge/Doctrine/UriType.php
 
 		-
+			message: "#^Instanceof between SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Money and SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\UriInterface will always evaluate to false\\.$#"
+			count: 1
+			path: src/Uri/Bridge/Doctrine/UriType.php
+
+		-
 			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
 			count: 1
 			path: src/Uri/Bridge/Doctrine/UriType.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Address\\\\AddressTest\\:\\:testAddress\\(\\) has no return typehint specified\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: tests/Address/AddressTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Address\\\\AddressTest\\:\\:testToStringThrowsAnException\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Address/AddressTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Address\\\\Bridge\\\\Symfony\\\\Form\\\\Type\\\\AddressTypeTest\\:\\:testAddress\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Address\\\\Bridge\\\\Symfony\\\\Form\\\\Type\\\\AddressTypeTest\\:\\:testAddressWithNullValues\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testGetName\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToPHPValue\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToPHPValueHandlesNull\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToPHPValueHandlesEmptyString\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToDatabaseValue\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToDatabaseValueHandlesNull\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
+			path: src/Uri/Bridge/Doctrine/UriType.php
 
 		-
 			message: "#^Parameter \\#1 \\$value of method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailType\\:\\:convertToDatabaseValue\\(\\) expects SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Email, null given\\.$#"
@@ -136,157 +106,7 @@ parameters:
 			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToDatabaseValueHandlesEmptyString\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$value of method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailType\\:\\:convertToDatabaseValue\\(\\) expects SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Email, string given\\.$#"
 			count: 2
 			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToDatabaseValueAcceptsOnlyEmailObjects\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToDatabaseValueValidatesEmail\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\EmailTest\\:\\:testEmail\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/EmailTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\EmailTest\\:\\:testInvalidEmailThrowsAnException\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/EmailTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\EmailTest\\:\\:testChangeMailBox\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Email/EmailTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Ip\\\\IpTest\\:\\:testIp\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Ip/IpTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\Bridge\\\\Doctrine\\\\MoneyTypeTest\\:\\:testMoneyType\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/Bridge/Doctrine/MoneyTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\Bridge\\\\Symfony\\\\Form\\\\Type\\\\MoneyTypeTest\\:\\:testMoney\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/Bridge/Symfony/Form/Type/MoneyTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\Bridge\\\\Symfony\\\\Form\\\\Type\\\\MoneyTypeTest\\:\\:testMoneyWithNullValues\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/Bridge/Symfony/Form/Type/MoneyTypeTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testBaseUnits\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanInt\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanFloat\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanIntAsFloat\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanIntAsString\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanFloatAsString\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanIntAsFloatAsString\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testHumanFloatAsStringWithComma\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testSum\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\MoneyTest\\:\\:testSubtract\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Money/MoneyTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Payment\\\\PaymentTest\\:\\:testPayment\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Payment/PaymentTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Phone\\\\PhoneTest\\:\\:testPhone\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Phone/PhoneTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Tax\\\\TaxTest\\:\\:testTax\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Tax/TaxTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Uri\\\\UriTest\\:\\:testUri\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Uri/UriTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Uri\\\\UriTest\\:\\:testUriCanMergeAnotherUri\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Uri/UriTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Uri\\\\UriTest\\:\\:testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Uri/UriTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Uri\\\\UriTest\\:\\:testNormalize\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Uri/UriTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Uri\\\\UriTest\\:\\:testMakeRelative\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Uri/UriTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Vat\\\\VatNumberTest\\:\\:testVatNumber\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Vat/VatNumberTest.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Vat\\\\VatRateTest\\:\\:testTax\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Vat/VatRateTest.php
 

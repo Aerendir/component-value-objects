@@ -22,6 +22,11 @@
       <code>$address</code>
     </MoreSpecificImplementedParamType>
   </file>
+  <file src="src/Common/ValueObjectInterface.php">
+    <MissingReturnType occurrences="1">
+      <code>__toString</code>
+    </MissingReturnType>
+  </file>
   <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
     <DocblockTypeContradiction occurrences="3">
       <code>null === $value</code>
@@ -97,6 +102,17 @@
       <code>$money</code>
     </MoreSpecificImplementedParamType>
   </file>
+  <file src="src/Money/Bridge/Twig/MoneyFormatterExtension.php">
+    <MismatchingDocblockParamType occurrences="1">
+      <code>string|null</code>
+    </MismatchingDocblockParamType>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$money</code>
+    </MixedArgumentTypeCoercion>
+    <PossiblyNullArgument occurrences="1">
+      <code>$locale</code>
+    </PossiblyNullArgument>
+  </file>
   <file src="src/Money/Money.php">
     <DocblockTypeContradiction occurrences="2">
       <code>null === $this-&gt;baseAmount</code>
@@ -168,7 +184,7 @@
     <DocblockTypeContradiction occurrences="3">
       <code>null === $value</code>
       <code>'' === $value</code>
-      <code>gettype($value)</code>
+      <code>\gettype($value)</code>
     </DocblockTypeContradiction>
     <MoreSpecificImplementedParamType occurrences="2">
       <code>$fieldDeclaration</code>
@@ -176,8 +192,8 @@
     </MoreSpecificImplementedParamType>
     <RedundantConditionGivenDocblockType occurrences="3">
       <code>null === $value || '' === $value</code>
-      <code>is_object($value)</code>
-      <code>gettype($value)</code>
+      <code>\is_object($value)</code>
+      <code>\gettype($value)</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Uri/Uri.php">
@@ -199,16 +215,13 @@
     </MissingParamType>
   </file>
   <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
-    <DeprecatedMethod occurrences="1">
-      <code>setMethods</code>
-    </DeprecatedMethod>
-    <InternalMethod occurrences="1">
-      <code>willReturn</code>
-    </InternalMethod>
     <InvalidArgument occurrences="2">
       <code>''</code>
       <code>'hello@serendipityhq.com'</code>
     </InvalidArgument>
+    <MissingDependency occurrences="1">
+      <code>$mockEmail-&gt;method('__toString')</code>
+    </MissingDependency>
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
@@ -223,5 +236,12 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="vendor-bin/phpunit/vendor/phpunit/phpunit/src/Framework/MockObject/Builder/ParametersMatch.php">
+    <ParseError occurrences="3">
+      <code>Match</code>
+      <code>;</code>
+      <code>;</code>
+    </ParseError>
   </file>
 </files>

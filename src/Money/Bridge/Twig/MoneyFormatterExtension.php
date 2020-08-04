@@ -59,7 +59,6 @@ final class MoneyFormatterExtension extends AbstractExtension
      * @throws SyntaxError
      *
      * @return string
-     * @psalm-suppress UndefinedFunction
      */
     public function localizeMoneyFilter(Money $money, string $locale = 'en-US'): string
     {
