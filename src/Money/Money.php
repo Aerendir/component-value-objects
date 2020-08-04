@@ -1,13 +1,12 @@
 <?php
 
 /*
- * This file is part of PHP Value Objects.
+ * This file is part of the Serendipity HQ Value Objects Component.
  *
- * Copyright Adamo Aerendir Crespi 2015-2017.
+ * Copyright (c) Adamo Aerendir Crespi <aerendir@serendipityhq.com>.
  *
- * @author    Adamo Aerendir Crespi <hello@aerendir.me>
- * @copyright Copyright (C) 2015 - 2020 Aerendir. All rights reserved.
- * @license   MIT
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace SerendipityHQ\Component\ValueObjects\Money;
@@ -35,6 +34,14 @@ final class Money implements MoneyInterface
         __construct as traitConstruct;
     }
     use DisableWritingMethodsTrait;
+    /**
+     * @var string
+     */
+    private const BASE_AMOUNT = 'baseAmount';
+    /**
+     * @var string
+     */
+    private const CURRENCY = 'currency';
 
     /**
      * This represents the amount as Money intends it: in its base units.
@@ -58,14 +65,6 @@ final class Money implements MoneyInterface
 
     /** @var Currency */
     private $currency;
-    /**
-     * @var string
-     */
-    private const BASE_AMOUNT = 'baseAmount';
-    /**
-     * @var string
-     */
-    private const CURRENCY = 'currency';
 
     /**
      * {@inheritdoc}
@@ -248,7 +247,7 @@ final class Money implements MoneyInterface
      *
      * @psalm-suppress MixedArgument
      */
-    public function __toString():string
+    public function __toString(): string
     {
         $currencies = new ISOCurrencies();
         $formatter  = new DecimalMoneyFormatter($currencies);
@@ -262,9 +261,9 @@ final class Money implements MoneyInterface
     public function __toArray(): array
     {
         return [
-            self::CURRENCY    => $this->getCurrency()->getCode(),
+            self::CURRENCY     => $this->getCurrency()->getCode(),
             self::BASE_AMOUNT  => $this->getBaseAmount(),
-            'humanAmount' => $this->getHumanAmount(),
+            'humanAmount'      => $this->getHumanAmount(),
         ];
     }
 }
