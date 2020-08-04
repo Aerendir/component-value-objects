@@ -23,9 +23,9 @@ use SerendipityHQ\Component\ValueObjects\Tax\TaxInterface;
  *
  * @since Alpha
  */
-class TaxTest extends TestCase
+final class TaxTest extends TestCase
 {
-    public function testTax()
+    public function testTax(): void
     {
         $testData = [
             'code'      => 'IVA IT',
@@ -38,17 +38,17 @@ class TaxTest extends TestCase
         $resource = new Tax($testData);
 
         // Test the value object direct interface
-        $this::assertInstanceOf(TaxInterface::class, $resource);
+        self::assertInstanceOf(TaxInterface::class, $resource);
 
         // Test the type of value object interface
-        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        $this::assertEquals($testData['code'], $resource->getCode());
-        $this::assertFalse($resource->isCompound());
-        $this::assertEquals($testData['rate'], $resource->getRate());
-        $this::assertEquals($testData['amount'], $resource->getAmount());
-        $this::assertEquals($testData['title'], $resource->getTitle());
-        $this::assertIsString($resource->__toString());
-        $this::assertIsString($resource->toString());
+        self::assertEquals($testData['code'], $resource->getCode());
+        self::assertFalse($resource->isCompound());
+        self::assertEquals($testData['rate'], $resource->getRate());
+        self::assertEquals($testData['amount'], $resource->getAmount());
+        self::assertEquals($testData['title'], $resource->getTitle());
+        self::assertIsString($resource->__toString());
+        self::assertIsString($resource->toString());
     }
 }

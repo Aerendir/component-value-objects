@@ -20,42 +20,41 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Tests the Address class.
  */
-class AddressTest extends TestCase
+final class AddressTest extends TestCase
 {
-    public function testAddress()
+    /**
+     * @var string[]
+     */
+    private const VALUES = [
+        'countryCode'        => 'IT',
+        'administrativeArea' => 'Salerno',
+        'locality'           => 'Naples',
+        'dependentLocality'  => 'Dependent locality',
+        'postalCode'         => '12345',
+        'street'             => 'Via via vieni via con me',
+        'extraLine'          => 'Niente più ti lega a questi luoghi',
+    ];
+    public function testAddress(): void
     {
-        $values = [
-            'countryCode'        => 'IT',
-            'administrativeArea' => 'Salerno',
-            'locality'           => 'Naples',
-            'dependentLocality'  => 'Dependent locality',
-            'postalCode'         => '12345',
-            'street'             => 'Via via vieni via con me',
-            'extraLine'          => 'Niente più ti lega a questi luoghi',
-        ];
-
-        $resource = new Address($values);
-
+        $resource = new Address(self::VALUES);
         // Test the value object direct interface
-        $this::assertInstanceOf(AddressInterface::class, $resource);
-
+        self::assertInstanceOf(AddressInterface::class, $resource);
         // Test the type of value object interface
-        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-
-        $this::assertSame($values['countryCode'], $resource->getCountryCode());
-        $this::assertSame($values['administrativeArea'], $resource->getAdministrativeArea());
-        $this::assertSame($values['locality'], $resource->getLocality());
-        $this::assertSame($values['dependentLocality'], $resource->getDependentLocality());
-        $this::assertSame($values['postalCode'], $resource->getPostalCode());
-        $this::assertSame($values['street'], $resource->getStreet());
-        $this::assertSame($values['extraLine'], $resource->getExtraLine());
+        self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        self::assertSame(self::VALUES['countryCode'], $resource->getCountryCode());
+        self::assertSame(self::VALUES['administrativeArea'], $resource->getAdministrativeArea());
+        self::assertSame(self::VALUES['locality'], $resource->getLocality());
+        self::assertSame(self::VALUES['dependentLocality'], $resource->getDependentLocality());
+        self::assertSame(self::VALUES['postalCode'], $resource->getPostalCode());
+        self::assertSame(self::VALUES['street'], $resource->getStreet());
+        self::assertSame(self::VALUES['extraLine'], $resource->getExtraLine());
     }
 
-    public function testToStringThrowsAnException()
+    public function testToStringThrowsAnException(): void
     {
         $resource = new Address([]);
 
-        $this::expectException(\RuntimeException::class);
+        self::expectException(\RuntimeException::class);
         $resource->__toString();
     }
 }

@@ -76,7 +76,7 @@ final class Payment implements PaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->method . ': ' . $this->status;
     }

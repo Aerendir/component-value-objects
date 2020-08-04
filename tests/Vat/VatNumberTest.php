@@ -22,28 +22,27 @@ use SerendipityHQ\Component\ValueObjects\Vat\VatNumberInterface;
  *
  * @since 2.3
  */
-class VatNumberTest extends TestCase
+final class VatNumberTest extends TestCase
 {
-    public function testVatNumber()
+    /**
+     * @var string[]
+     */
+    private const TEST_DATA = [
+        'countryCode' => 'IT',
+        'number'      => '01234567891',
+        'vatNumber'   => 'IT01234567891',
+    ];
+    public function testVatNumber(): void
     {
-        $testData = [
-            'countryCode' => 'IT',
-            'number'      => '01234567891',
-            'vatNumber'   => 'IT01234567891',
-        ];
-
-        $resource = new VatNumber($testData);
-
+        $resource = new VatNumber(self::TEST_DATA);
         // Test the value object direct interface
-        $this::assertInstanceOf(VatNumberInterface::class, $resource);
-
+        self::assertInstanceOf(VatNumberInterface::class, $resource);
         // Test the type of value object interface
-        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-
-        $this::assertEquals($testData['countryCode'], $resource->getCountryCode());
-        $this::assertEquals($testData['number'], $resource->getNumber());
-        $this::assertEquals($testData['vatNumber'], $resource->getVatNumber());
-        $this::assertIsString($resource->__toString());
-        $this::assertIsString($resource->toString());
+        self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        self::assertEquals(self::TEST_DATA['countryCode'], $resource->getCountryCode());
+        self::assertEquals(self::TEST_DATA['number'], $resource->getNumber());
+        self::assertEquals(self::TEST_DATA['vatNumber'], $resource->getVatNumber());
+        self::assertIsString($resource->__toString());
+        self::assertIsString($resource->toString());
     }
 }

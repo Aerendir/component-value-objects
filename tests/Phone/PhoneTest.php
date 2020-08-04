@@ -21,27 +21,25 @@ use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
 /**
  * Tests the Phone class.
  */
-class PhoneTest extends TestCase
+final class PhoneTest extends TestCase
 {
-    public function testPhone()
+    /**
+     * @var string[]
+     */
+    private const TEST = [
+        'number' => '3331234567',
+        'region' => 'IT',
+    ];
+    public function testPhone(): void
     {
-        $test = [
-            'number' => '3331234567',
-            'region' => 'IT',
-        ];
-
-        $resource = new Phone($test);
-
+        $resource = new Phone(self::TEST);
         // Test the value object direct interface
-        $this::assertInstanceOf(PhoneInterface::class, $resource);
-
+        self::assertInstanceOf(PhoneInterface::class, $resource);
         // Test the type of value object interface
-        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-
+        self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
         // Test inherits the base object
-        $this::assertInstanceOf(PhoneNumber::class, $resource);
-
-        $this::assertIsString($resource->__toString());
-        $this::assertIsString($resource->toString());
+        self::assertInstanceOf(PhoneNumber::class, $resource);
+        self::assertIsString($resource->__toString());
+        self::assertIsString($resource->toString());
     }
 }

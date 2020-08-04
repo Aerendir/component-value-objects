@@ -147,7 +147,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
      *
      * @psalm-suppress InvalidOperand
      */
-    public function __toString()
+    public function __toString(): string
     {
         $string       = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
         $exchangeRate = $this->getExchangeRateDate();

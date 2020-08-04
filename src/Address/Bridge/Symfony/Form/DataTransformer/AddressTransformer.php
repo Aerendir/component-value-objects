@@ -49,7 +49,7 @@ final class AddressTransformer implements DataTransformerInterface
      */
     public function reverseTransform($address): ?AddressEmbeddable
     {
-        if (is_array($address)) {
+        if (\is_array($address)) {
             $address = new AddressEmbeddable($address);
         }
 

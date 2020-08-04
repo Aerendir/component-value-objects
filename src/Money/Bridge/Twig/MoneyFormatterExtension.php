@@ -43,9 +43,13 @@ final class MoneyFormatterExtension extends AbstractExtension
      */
     public function getFilters(): array
     {
-        return array_merge(parent::getFilters(), [
-            new TwigFilter('localizedmoney', [$this, 'localizeMoneyFilter']),
-            new TwigFilter('localizedmoneyfromarr', [$this, 'localizeMoneyFromArrFilter']),
+        return \array_merge(parent::getFilters(), [
+            new TwigFilter('localizedmoney', function (Money $money, string $locale = 'en-US') : string {
+                return $this->localizeMoneyFilter($money, $locale);
+            }),
+            new TwigFilter('localizedmoneyfromarr', function (array $money, string $locale = null) : string {
+                return $this->localizeMoneyFromArrFilter($money, $locale);
+            }),
         ]);
     }
 
@@ -58,13 +62,8 @@ final class MoneyFormatterExtension extends AbstractExtension
      * @return string
      * @psalm-suppress UndefinedFunction
      */
-    public function localizeMoneyFilter(Money $money, string $locale = null): string
+    public function localizeMoneyFilter(Money $money, string $locale = 'en-US'): string
     {
-        if (null === $locale) {
-            $locale = 'en-US';
-        }
-
-        /** @var \NumberFormatter $formatter */
         $formatter      = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 

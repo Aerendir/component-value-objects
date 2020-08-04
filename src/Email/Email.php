@@ -52,7 +52,7 @@ final class Email implements EmailInterface
 
         $this->email = $value;
 
-        [$this->mailBox, $this->host] = explode('@', $this->email);
+        [$this->mailBox, $this->host] = \explode('@', $this->email);
     }
 
     /**
@@ -106,7 +106,7 @@ final class Email implements EmailInterface
      *
      * @throws StringsException
      */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf('%s@%s', $this->mailBox, $this->host);
     }

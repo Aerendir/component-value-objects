@@ -22,8 +22,6 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
 
 /**
  * A custom datatype to persist a Money Value Object with Doctrine.
- *
- * @author Adamo Crespi <hello@aerendir.me>
  */
 final class MoneyType extends Type
 {
@@ -45,10 +43,8 @@ final class MoneyType extends Type
 
     /**
      * {@inheritdoc}
-     *
-     * @return int
      */
-    public function getDefaultLength(AbstractPlatform $platform)
+    public function getDefaultLength(AbstractPlatform $platform): int
     {
         return $platform->getVarcharDefaultLength();
     }
@@ -68,7 +64,7 @@ final class MoneyType extends Type
             return $value;
         }
 
-        $objects = explode('-', $value);
+        $objects = \explode('-', $value);
 
         $currency = new Currency($objects[1]);
 
@@ -92,7 +88,7 @@ final class MoneyType extends Type
         }
 
         if ( ! $value instanceof Money) {
-            $type = is_object($value) ? get_class($value) : gettype($value);
+            $type = \is_object($value) ? \get_class($value) : \gettype($value);
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
         }
 

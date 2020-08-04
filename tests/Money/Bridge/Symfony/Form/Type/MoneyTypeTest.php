@@ -19,9 +19,9 @@ use Symfony\Component\Form\Test\TypeTestCase;
 /**
  * Tests the MoneyType class.
  */
-class MoneyTypeTest extends TypeTestCase
+final class MoneyTypeTest extends TypeTestCase
 {
-    public function testMoney()
+    public function testMoney(): void
     {
         $values = [
             'humanAmount' => '12,45',
@@ -36,13 +36,13 @@ class MoneyTypeTest extends TypeTestCase
         // submit the data to the form directly
         $form->submit($values['humanAmount']);
 
-        $this::assertTrue($form->isSynchronized());
+        self::assertTrue($form->isSynchronized());
 
         // check that $objectToCompare was modified as expected when the form was submitted
-        $this::assertEquals($object, $objectToCompare);
+        self::assertEquals($object, $objectToCompare);
     }
 
-    public function testMoneyWithNullValues()
+    public function testMoneyWithNullValues(): void
     {
         $values = [
             'humanAmount' => '12,45',
@@ -55,6 +55,6 @@ class MoneyTypeTest extends TypeTestCase
         // submit the data to the form directly
         $form->submit($values['humanAmount']);
 
-        $this::assertTrue($form->isSynchronized());
+        self::assertTrue($form->isSynchronized());
     }
 }

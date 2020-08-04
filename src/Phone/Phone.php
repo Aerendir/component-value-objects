@@ -33,6 +33,14 @@ final class Phone extends PhoneNumber implements PhoneInterface
 
     /** @var string */
     private $region;
+    /**
+     * @var string
+     */
+    private const KEEP_RAW_INPUT = 'keepRawInput';
+    /**
+     * @var string
+     */
+    private const NUMBER = 'number';
 
     /**
      * {@inheritdoc}
@@ -44,16 +52,16 @@ final class Phone extends PhoneNumber implements PhoneInterface
     {
         $this->traitConstruct($values);
 
-        if (isset($values['keepRawInput']) && false === is_bool($values['keepRawInput'])) {
+        if (isset($values[self::KEEP_RAW_INPUT]) && false === \is_bool($values[self::KEEP_RAW_INPUT])) {
             throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
         }
 
         /** @var bool $keepRawInput */
-        $keepRawInput = $values['keepRawInput'] ?? false;
+        $keepRawInput = $values[self::KEEP_RAW_INPUT] ?? false;
 
-        if (is_string($values['number'])) {
+        if (\is_string($values[self::NUMBER])) {
             $phoneUtil    = PhoneNumberUtil::getInstance();
-            $this->number = $phoneUtil->parse($values['number'], $this->region, null, $keepRawInput);
+            $this->number = $phoneUtil->parse($values[self::NUMBER], $this->region, null, $keepRawInput);
         }
 
         if ($this->number instanceof PhoneNumber) {
@@ -70,7 +78,7 @@ final class Phone extends PhoneNumber implements PhoneInterface
      */
     public function getNumber(): PhoneNumber
     {
-        if (is_string($this->number)) {
+        if (\is_string($this->number)) {
             throw new \RuntimeException('The number is a string: something broken.');
         }
 
@@ -120,7 +128,7 @@ final class Phone extends PhoneNumber implements PhoneInterface
     {
         return [
             'countryCode' => $this->getCountryCode(),
-            'number'      => $this->getNationalNumber(),
+            self::NUMBER      => $this->getNationalNumber(),
             'region'      => $this->getRegion(),
         ];
     }

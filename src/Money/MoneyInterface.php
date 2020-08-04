@@ -65,7 +65,7 @@ interface MoneyInterface extends ComplexValueObjectInterface
      *
      * @return MoneyInterface
      */
-    public function divide($divisor, $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
+    public function divide($divisor, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
      * @param float|int|string $multiplier
@@ -73,7 +73,7 @@ interface MoneyInterface extends ComplexValueObjectInterface
      *
      * @return MoneyInterface
      */
-    public function multiply($multiplier, $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
+    public function multiply($multiplier, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
      * @return array<string,float|int|string> [

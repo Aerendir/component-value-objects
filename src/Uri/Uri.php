@@ -42,9 +42,9 @@ final class Uri implements UriInterface
     {
         $this->valueObject = new BaseUri();
 
-        if (is_string($uri)) {
+        if (\is_string($uri)) {
             // Remove the trailing slash
-            $uri = rtrim($uri, '/');
+            $uri = \rtrim($uri, '/');
             $this->parse($uri);
         } elseif ($uri instanceof UriInterface) {
             // Copy constructor
@@ -56,7 +56,7 @@ final class Uri implements UriInterface
             $this->setQuery($uri->getQuery());
             $this->setFragment($uri->getFragment());
         } elseif (null !== $uri) {
-            throw new InvalidArgumentException(sprintf('Expecting a string or a URI object, received "%s"', (is_object($uri) ? get_class($uri) : gettype($uri))));
+            throw new InvalidArgumentException(sprintf('Expecting a string or a URI object, received "%s"', (\is_object($uri) ? \get_class($uri) : \gettype($uri))));
         }
     }
 
@@ -279,7 +279,7 @@ final class Uri implements UriInterface
      *
      * @throws InvalidUriException
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->valueObject->toString();
     }

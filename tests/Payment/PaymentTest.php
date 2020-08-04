@@ -20,27 +20,25 @@ use SerendipityHQ\Component\ValueObjects\Payment\PaymentInterface;
 /**
  * Tests the Payment Class.
  */
-class PaymentTest extends TestCase
+final class PaymentTest extends TestCase
 {
-    public function testPayment()
+    /**
+     * @var string[]
+     */
+    private const TEST_DATA = [
+        'method'   => 'PayPal',
+        'status'   => 'A random status',
+    ];
+    public function testPayment(): void
     {
-        // Of AddressModel
-        $testData = [
-            'method'   => 'PayPal',
-            'status'   => 'A random status',
-        ];
-
-        $resource = new Payment($testData);
-
+        $resource = new Payment(self::TEST_DATA);
         // Test the value object direct interface
-        $this::assertInstanceOf(PaymentInterface::class, $resource);
-
+        self::assertInstanceOf(PaymentInterface::class, $resource);
         // Test the type of value object interface
-        $this::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-
-        $this::assertEquals($testData['method'], $resource->getMethod());
-        $this::assertEquals($testData['status'], $resource->getStatus());
-        $this::assertIsString($resource->__toString());
-        $this::assertIsString($resource->toString());
+        self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
+        self::assertEquals(self::TEST_DATA['method'], $resource->getMethod());
+        self::assertEquals(self::TEST_DATA['status'], $resource->getStatus());
+        self::assertIsString($resource->__toString());
+        self::assertIsString($resource->toString());
     }
 }

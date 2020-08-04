@@ -57,7 +57,7 @@ final class Ip implements IpInterface
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->valueObject->getDotAddress();
     }

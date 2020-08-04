@@ -30,8 +30,6 @@ interface ValueObjectInterface
 
     /**
      * The string representation of the object.
-     *
-     * @return string
      */
     public function __toString();
 

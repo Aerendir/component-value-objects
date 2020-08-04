@@ -24,18 +24,30 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class AddressType extends AbstractType
 {
     /**
+     * @var string
+     */
+    private const LABEL = 'label';
+    /**
+     * @var string
+     */
+    private const TRANSLATION_DOMAIN = 'translation_domain';
+    /**
+     * @var string
+     */
+    private const SHQ_ADDRESS = 'shq_address';
+    /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->addModelTransformer(new AddressTransformer())
-            ->add('countryCode', CountryType::class, ['label' => 'shq.address.form.country_code.label', 'translation_domain' => 'shq_address'])
-            ->add('administrativeArea', TextType::class, ['label' => 'shq.address.form.administrative_area.label', 'translation_domain' => 'shq_address'])
-            ->add('locality', TextType::class, ['label' => 'shq.address.form.locality.label', 'translation_domain' => 'shq_address'])
-            ->add('dependentLocality', TextType::class, ['required' => false, 'label' => 'shq.address.form.dependent_locality.label', 'translation_domain' => 'shq_address'])
-            ->add('postalCode', TextType::class, ['label' => 'shq.address.form.postal_code.label', 'translation_domain' => 'shq_address'])
-            ->add('street', TextType::class, ['label' => 'shq.address.form.street.label', 'translation_domain' => 'shq_address'])
-            ->add('extraLine', TextType::class, ['required' => false, 'label' => 'shq.address.form.extra_line.label', 'translation_domain' => 'shq_address']);
+            ->add('countryCode', CountryType::class, [self::LABEL => 'shq.address.form.country_code.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add('administrativeArea', TextType::class, [self::LABEL => 'shq.address.form.administrative_area.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add('locality', TextType::class, [self::LABEL => 'shq.address.form.locality.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add('dependentLocality', TextType::class, ['required' => false, self::LABEL => 'shq.address.form.dependent_locality.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add('postalCode', TextType::class, [self::LABEL => 'shq.address.form.postal_code.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add('street', TextType::class, [self::LABEL => 'shq.address.form.street.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add('extraLine', TextType::class, ['required' => false, self::LABEL => 'shq.address.form.extra_line.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS]);
     }
 }

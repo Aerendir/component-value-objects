@@ -142,7 +142,7 @@ final class Tax implements TaxInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->code . ' ' . $this->amount;
     }

@@ -236,7 +236,7 @@ class Address implements AddressInterface
      *
      * @throws \RuntimeException
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->toString();
     }

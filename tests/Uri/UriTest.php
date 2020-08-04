@@ -18,29 +18,37 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 
-class UriTest extends TestCase
+final class UriTest extends TestCase
 {
-    public function testUri()
+    /**
+     * @var string
+     */
+    private const BASE = 'http://example.com/dir/subdir/';
+    /**
+     * @var string
+     */
+    private const URL = 'http://example.com/dir/subdir/more/file1.txt';
+    public function testUri(): void
     {
         $test = 'http://user@example.com:80/path/?query=string#fragment';
 
         $resource = new Uri($test);
 
         // Test the value object direct interface
-        $this::assertInstanceOf(UriInterface::class, $resource);
+        self::assertInstanceOf(UriInterface::class, $resource);
 
         // Test the type of value object interface
-        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertIsString($resource->__toString());
-        $this::assertIsString($resource->toString());
-        $this::assertIsArray($resource->getQueryAsArray());
-        $this::assertIsBool($resource->isAbsolute());
-        $this::assertIsBool($resource->isValid());
-        $this::assertIsBool($resource->isValidRelative());
+        self::assertIsString($resource->__toString());
+        self::assertIsString($resource->toString());
+        self::assertIsArray($resource->getQueryAsArray());
+        self::assertIsBool($resource->isAbsolute());
+        self::assertIsBool($resource->isValid());
+        self::assertIsBool($resource->isValidRelative());
     }
 
-    public function testUriCanMergeAnotherUri()
+    public function testUriCanMergeAnotherUri(): void
     {
         $test = 'http://user@example.com:80/path/?query=string#fragment';
 
@@ -49,16 +57,16 @@ class UriTest extends TestCase
         $resource = new Uri($toMerge);
 
         // Test the value object direct interface
-        $this::assertInstanceOf(UriInterface::class, $resource);
+        self::assertInstanceOf(UriInterface::class, $resource);
 
         // Test the type of value object interface
-        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertIsString($resource->__toString());
-        $this::assertIsString($resource->toString());
+        self::assertIsString($resource->__toString());
+        self::assertIsString($resource->toString());
     }
 
-    public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject()
+    public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject(): void
     {
         // An integer
         $test = 33;
@@ -67,7 +75,7 @@ class UriTest extends TestCase
         new Uri($test);
     }
 
-    public function testNormalize()
+    public function testNormalize(): void
     {
         $test = 'http://user@example.com:80/path/../to/parent/folder?query=string#fragment';
 
@@ -75,21 +83,17 @@ class UriTest extends TestCase
 
         $resource->normalize();
 
-        $this::assertSame('/to/parent/folder', $resource->getPath());
+        self::assertSame('/to/parent/folder', $resource->getPath());
     }
 
     /**
      * @see https://github.com/zendframework/zend-uri/blob/master/test/UriTest.php#L725-L735
      */
-    public function testMakeRelative()
+    public function testMakeRelative(): void
     {
-        $base     = 'http://example.com/dir/subdir/';
-        $url      = 'http://example.com/dir/subdir/more/file1.txt';
         $expected = 'more/file1.txt';
-
-        $resource = new Uri($url);
-
-        $resource->makeRelative($base);
-        $this::assertSame($expected, $resource->toString());
+        $resource = new Uri(self::URL);
+        $resource->makeRelative(self::BASE);
+        self::assertSame($expected, $resource->toString());
     }
 }

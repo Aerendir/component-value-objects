@@ -20,20 +20,19 @@ use SerendipityHQ\Component\ValueObjects\Ip\IpInterface;
 /**
  * Tests the Ip class.
  */
-class IpTest extends TestCase
+final class IpTest extends TestCase
 {
-    public function testIp()
+    /**
+     * @var string
+     */
+    private const TEST = '127.0.0.1';
+    public function testIp(): void
     {
-        $test = '127.0.0.1';
-
-        $resource = new Ip($test);
-
+        $resource = new Ip(self::TEST);
         // Test the value object direct interface
-        $this::assertInstanceOf(IpInterface::class, $resource);
-
+        self::assertInstanceOf(IpInterface::class, $resource);
         // Test the type of value object interface
-        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
-
+        self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
         self::assertIsString($resource->toString());
     }
 }

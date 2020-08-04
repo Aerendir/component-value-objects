@@ -32,15 +32,15 @@ trait ComplexValueObjectTrait
     public function __construct(array $values)
     {
         foreach ($values as $property => $value) {
-            $setter = 'set' . ucfirst($property);
-            $adder  = 'add' . ucfirst($property);
+            $setter = 'set' . \ucfirst($property);
+            $adder  = 'add' . \ucfirst($property);
 
-            if (true === method_exists($this, $setter)) {
+            if (true === \method_exists($this, $setter)) {
                 $this->$setter($value);
                 unset($values[$property]);
             }
 
-            if (true === method_exists($this, $adder)) {
+            if (true === \method_exists($this, $adder)) {
                 $this->$adder($value);
                 unset($values[$property]);
             }

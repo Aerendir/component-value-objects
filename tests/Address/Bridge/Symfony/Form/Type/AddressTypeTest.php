@@ -19,9 +19,9 @@ use Symfony\Component\Form\Test\TypeTestCase;
 /**
  * Tests the AddressType class.
  */
-class AddressTypeTest extends TypeTestCase
+final class AddressTypeTest extends TypeTestCase
 {
-    public function testAddress()
+    public function testAddress(): void
     {
         $values = [
             'countryCode'        => 'IT',
@@ -41,20 +41,20 @@ class AddressTypeTest extends TypeTestCase
         // submit the data to the form directly
         $form->submit($values);
 
-        $this::assertTrue($form->isSynchronized());
+        self::assertTrue($form->isSynchronized());
 
         // check that $objectToCompare was modified as expected when the form was submitted
-        $this::assertEquals($object, $objectToCompare);
+        self::assertEquals($object, $objectToCompare);
 
         $view     = $form->createView();
         $children = $view->children;
 
-        foreach (array_keys($values) as $key) {
-            $this::assertArrayHasKey($key, $children);
+        foreach (\array_keys($values) as $key) {
+            self::assertArrayHasKey($key, $children);
         }
     }
 
-    public function testAddressWithNullValues()
+    public function testAddressWithNullValues(): void
     {
         $values = [
             'countryCode'        => 'IT',
@@ -71,6 +71,6 @@ class AddressTypeTest extends TypeTestCase
         // submit the data to the form directly
         $form->submit($values);
 
-        $this::assertTrue($form->isSynchronized());
+        self::assertTrue($form->isSynchronized());
     }
 }

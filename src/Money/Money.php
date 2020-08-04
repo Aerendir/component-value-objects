@@ -29,7 +29,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  *
  * {@inheritdoc}
  */
-class Money implements MoneyInterface
+final class Money implements MoneyInterface
 {
     use ComplexValueObjectTrait {
         __construct as traitConstruct;
@@ -58,6 +58,14 @@ class Money implements MoneyInterface
 
     /** @var Currency */
     private $currency;
+    /**
+     * @var string
+     */
+    private const BASE_AMOUNT = 'baseAmount';
+    /**
+     * @var string
+     */
+    private const CURRENCY = 'currency';
 
     /**
      * {@inheritdoc}
@@ -91,7 +99,7 @@ class Money implements MoneyInterface
             $this->humanAmount = (string) $this->humanAmount;
 
             // Replace "," with "."
-            $this->humanAmount = str_replace(',', '.', $this->humanAmount);
+            $this->humanAmount = \str_replace(',', '.', $this->humanAmount);
 
             // Process it
             $currencies = new ISOCurrencies();
@@ -145,7 +153,7 @@ class Money implements MoneyInterface
 
         $result = $this->valueObject->add($toAdd);
 
-        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -162,7 +170,7 @@ class Money implements MoneyInterface
 
         $result = $this->valueObject->subtract($toAdd);
 
-        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -177,7 +185,7 @@ class Money implements MoneyInterface
     {
         $result = $this->valueObject->divide($divisor, $roundingMode);
 
-        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -192,7 +200,7 @@ class Money implements MoneyInterface
     {
         $result = $this->valueObject->multiply($multiplier, $roundingMode);
 
-        return new static(['baseAmount' => $result->getAmount(), 'currency' => $this->currency]);
+        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -229,7 +237,7 @@ class Money implements MoneyInterface
     protected function setCurrency($currency): void
     {
         if ( ! $currency instanceof Currency) {
-            $currency = new Currency(strtoupper($currency));
+            $currency = new Currency(\strtoupper($currency));
         }
 
         $this->currency = $currency;
@@ -240,12 +248,12 @@ class Money implements MoneyInterface
      *
      * @psalm-suppress MixedArgument
      */
-    public function __toString()
+    public function __toString():string
     {
         $currencies = new ISOCurrencies();
         $formatter  = new DecimalMoneyFormatter($currencies);
 
-        return (string) $formatter->format($this->valueObject);
+        return $formatter->format($this->valueObject);
     }
 
     /**
@@ -254,8 +262,8 @@ class Money implements MoneyInterface
     public function __toArray(): array
     {
         return [
-            'currency'    => $this->getCurrency()->getCode(),
-            'baseAmount'  => $this->getBaseAmount(),
+            self::CURRENCY    => $this->getCurrency()->getCode(),
+            self::BASE_AMOUNT  => $this->getBaseAmount(),
             'humanAmount' => $this->getHumanAmount(),
         ];
     }

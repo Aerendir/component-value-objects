@@ -36,7 +36,7 @@ final class VatRate implements VatRateInterface
      */
     public function __construct($countryCode)
     {
-        if (false === array_key_exists($countryCode, self::COUNTRIES)) {
+        if (false === \array_key_exists($countryCode, self::COUNTRIES)) {
             throw new \InvalidArgumentException("The passed Country isn't supported by this value object");
         }
 
@@ -70,7 +70,7 @@ final class VatRate implements VatRateInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function __toString(): string
     {
         return (string) $this->getPercentage();
     }

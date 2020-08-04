@@ -63,9 +63,9 @@ final class EmailType extends Type
      * @throws \InvalidArgumentException
      * @throws StringsException
      *
-     * @return \SerendipityHQ\Component\ValueObjects\Email\Email|string|null
+     * @return \SerendipityHQ\Component\ValueObjects\Email\Email|null
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?\SerendipityHQ\Component\ValueObjects\Email\Email
     {
         if (null === $value || '' === $value) {
             return null;
@@ -81,18 +81,17 @@ final class EmailType extends Type
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
-     * @psalm-suppress MixedArgument
      *
-     * @return \SerendipityHQ\Component\ValueObjects\Email\Email|string|null
+     * @return string|null
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return null;
         }
 
         if ( ! $value instanceof Email) {
-            $type = is_object($value) ? get_class($value) : gettype($value);
+            $type = \is_object($value) ? \get_class($value) : \gettype($value);
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Email\Email to use the Doctrine type EmailType. "%s" passed instead.', $type));
         }
 
@@ -113,20 +112,16 @@ final class EmailType extends Type
      * @codeCoverageIgnore
      *
      * @throws StringsException
-     *
-     * @return bool
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
 
     /**
      * {@inheritdoc}
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return self::EMAIL;
     }

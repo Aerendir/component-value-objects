@@ -12,18 +12,26 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Tests\Money\Bridge\Doctrine;
 
+use Doctrine\DBAL\Platforms\AbstractPlatform;
 use PHPUnit\Framework\TestCase;
+use SerendipityHQ\Component\ValueObjects\Money\Bridge\Doctrine\MoneyType;
 
-/**
- * @author Adamo Crespi <hello@aerendir.me>
- */
-class MoneyTypeTest extends TestCase
+final class MoneyTypeTest extends TestCase
 {
-    /**
-     * @doesNotPerformAssertion
-     */
-    public function testMoneyType()
+    /** @var MoneyType */
+    private $type;
+
+    /** @var AbstractPlatform */
+    private $platform;
+
+    protected function setUp(): void
     {
-        $this::markTestSkipped('See http://stackoverflow.com/questions/39900136/how-to-test-doctrine-custom-types');
+        $this->type     = new MoneyType();
+        $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
+    }
+
+    public function testGetName(): void
+    {
+        self::assertSame('money', $this->type->getName());
     }
 }

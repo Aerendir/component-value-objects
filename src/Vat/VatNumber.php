@@ -103,7 +103,7 @@ final class VatNumber implements VatNumberInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->countryCode . ' ' . (string) $this->number;
     }

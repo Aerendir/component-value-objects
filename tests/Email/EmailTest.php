@@ -20,27 +20,27 @@ use SerendipityHQ\Component\ValueObjects\Email\EmailInterface;
 /**
  * Tests the Email class.
  */
-class EmailTest extends TestCase
+final class EmailTest extends TestCase
 {
-    public function testEmail()
+    public function testEmail(): void
     {
         $test = 'user@example.com';
 
         $resource = new Email($test);
 
         // Test the value object direct interface
-        $this::assertInstanceOf(EmailInterface::class, $resource);
+        self::assertInstanceOf(EmailInterface::class, $resource);
 
         // Test the type of value object interface
-        $this::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
+        self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        $this::assertEquals($test, $resource->getEmail());
-        $this::assertEquals('user', $resource->getMailBox());
-        $this::assertEquals('example.com', $resource->getHost());
-        $this::assertIsString($resource->toString());
+        self::assertEquals($test, $resource->getEmail());
+        self::assertEquals('user', $resource->getMailBox());
+        self::assertEquals('example.com', $resource->getHost());
+        self::assertIsString($resource->toString());
     }
 
-    public function testInvalidEmailThrowsAnException()
+    public function testInvalidEmailThrowsAnException(): void
     {
         $test = 'user-example';
 
@@ -48,7 +48,7 @@ class EmailTest extends TestCase
         $resource = new Email($test);
     }
 
-    public function testChangeMailBox()
+    public function testChangeMailBox(): void
     {
         $test = 'user@example.com';
 
@@ -56,7 +56,7 @@ class EmailTest extends TestCase
 
         $result = $resource->changeMailBox('user2');
 
-        $this::assertSame('user2@example.com', $result->getEmail());
-        $this::assertNotSame($resource, $result);
+        self::assertSame('user2@example.com', $result->getEmail());
+        self::assertNotSame($resource, $result);
     }
 }
