@@ -5,7 +5,7 @@ Money Complex Value Object
 
 Represents a monetary value.
 
-Extends [sebastianbergman/money](https://github.com/sebastianbergmann/money).
+Extends [moneyphp/money](https://github.com/moneyphp/money).
 
 - [How to use the Doctrine's type `money`](Money/Money-Doctrine-Type.md)
 - [How to use the Twig extensions](Money/Money-Twig.md)
