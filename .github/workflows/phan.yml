@@ -22,8 +22,8 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
-                  tools: prestissimo, pecl
-                  extensions: ast, intl
+                  tools: prestissimo
+                  extensions: ast
 
             - name: Fix Symfony version
               run: |
@@ -36,4 +36,4 @@ jobs:
 
             - name: Run Phan
               run: |
-                  ./vendor/bin/phan --no-progress-bar --dead-code-detection
+                  ./vendor/bin/phan --no-progress-bar --dead-code-detection --load-baseline .phan-baseline.php

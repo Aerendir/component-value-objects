@@ -21,7 +21,7 @@ jobs:
                   php-version: ${{ matrix.php }}
                   coverage: pcov
                   tools: prestissimo
-                  extensions: intl
+                  extensions: ast
 
             - name: Install Composer deps
               run: |

@@ -25,6 +25,7 @@
         "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
+        "ext-ast": "*",
         "bamarni/composer-bin-plugin": "^1.4",
         "dg/bypass-finals": "^1.1",
         "doctrine/dbal": "^2.5",
