@@ -10,9 +10,9 @@
 return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 7 occurrences
-    // PhanTypeMismatchArgument : 4 occurrences
+    // PhanTypeMismatchArgumentProbablyReal : 4 occurrences
     // PhanUndeclaredProperty : 4 occurrences
-    // PhanAccessMethodInternal : 3 occurrences
+    // PhanAccessMethodInternal : 2 occurrences
     // PhanParamSignatureRealMismatchHasNoParamType : 2 occurrences
     // PhanTypeMismatchProperty : 2 occurrences
     // PhanUndeclaredExtendedClass : 2 occurrences
@@ -28,7 +28,7 @@ return [
         'src/Money/Bridge/Twig/MoneyFormatterExtension.php' => ['PhanTypeMismatchDeclaredParam'],
         'src/Money/Money.php' => ['PhanParamSignatureRealMismatchHasNoParamType'],
         'tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php' => ['PhanUndeclaredExtendedClass', 'PhanUndeclaredProperty', 'PhanUndeclaredStaticMethod'],
-        'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanAccessMethodInternal', 'PhanTypeMismatchArgument', 'PhanTypeMismatchProperty'],
+        'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanAccessMethodInternal', 'PhanTypeMismatchArgumentProbablyReal', 'PhanTypeMismatchProperty'],
         'tests/Email/EmailTest.php' => ['PhanUnusedVariable'],
         'tests/Money/Bridge/Doctrine/MoneyTypeTest.php' => ['PhanAccessMethodInternal', 'PhanTypeMismatchProperty', 'PhanWriteOnlyPrivateProperty'],
         'tests/Money/Bridge/Symfony/Form/Type/MoneyTypeTest.php' => ['PhanUndeclaredExtendedClass', 'PhanUndeclaredProperty', 'PhanUndeclaredStaticMethod'],
