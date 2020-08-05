@@ -6,7 +6,7 @@ declare(strict_types=1);
  * after this file is read.
  */
 return [
-    'target_php_version' => '7.2',
+    'target_php_version' => '7.3',
     'minimum_severity' => \Phan\Issue::SEVERITY_LOW,
 
     // A list of directories that should be parsed for class and

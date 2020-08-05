@@ -9,7 +9,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest]
-                php: ['7.2', '7.3', '7.4']
+                php: ['7.3', '7.4']
                 composer-flags: ['--prefer-stable --prefer-lowest', '']
                 symfony: ['~3.4', '~4.4', '~5.1']
         name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
