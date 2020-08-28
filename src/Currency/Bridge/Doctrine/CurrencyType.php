@@ -85,7 +85,7 @@ final class CurrencyType extends Type
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
         }
 
-        // The value is automatically transformed into a string thans to the __toString() method
+        // The value is automatically transformed into a string thanks to the __toString() method
         return $value;
     }
 
