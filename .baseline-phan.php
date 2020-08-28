@@ -10,10 +10,10 @@
 return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 7 occurrences
-    // PhanTypeMismatchArgumentProbablyReal : 4 occurrences
     // PhanUndeclaredProperty : 4 occurrences
     // PhanAccessMethodInternal : 2 occurrences
     // PhanParamSignatureRealMismatchHasNoParamType : 2 occurrences
+    // PhanTypeMismatchArgumentProbablyReal : 2 occurrences
     // PhanTypeMismatchProperty : 2 occurrences
     // PhanUndeclaredExtendedClass : 2 occurrences
     // PhanNoopNew : 1 occurrence

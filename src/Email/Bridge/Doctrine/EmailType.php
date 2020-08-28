@@ -76,7 +76,7 @@ final class EmailType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Email $value
+     * @param Email|string $value
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
@@ -89,9 +89,12 @@ final class EmailType extends Type
             return null;
         }
 
-        if ( ! $value instanceof Email) {
-            $type = \is_object($value) ? \get_class($value) : \gettype($value);
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Email\Email to use the Doctrine type EmailType. "%s" passed instead.', $type));
+        if ($value instanceof Email) {
+            $value = $value->toString();
+        }
+
+        if (false === \is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value));
         }
 
         // Validate the $value as a valid email
@@ -102,7 +105,7 @@ final class EmailType extends Type
         }
 
         // The value is automatically transformed into a string thans to the __toString() method
-        return (string) $value;
+        return $value;
     }
 
     /**

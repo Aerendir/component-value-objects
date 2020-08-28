@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
+<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
   <file src="src/Address/Address.php">
     <PropertyNotSetInConstructor occurrences="7">
       <code>$countryCode</code>
@@ -56,20 +56,17 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Email/Bridge/Doctrine/EmailType.php">
-    <DocblockTypeContradiction occurrences="3">
+    <DocblockTypeContradiction occurrences="2">
       <code>null === $value</code>
-      <code>'' === $value</code>
-      <code>$value instanceof Email</code>
+      <code>false === \is_string($value)</code>
     </DocblockTypeContradiction>
-    <ImplicitToStringCast occurrences="1">
-      <code>$value</code>
-    </ImplicitToStringCast>
     <MoreSpecificImplementedParamType occurrences="2">
       <code>$fieldDeclaration</code>
       <code>$value</code>
     </MoreSpecificImplementedParamType>
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
       <code>null === $value || '' === $value</code>
+      <code>\is_string($value)</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Email/Email.php">
@@ -215,13 +212,6 @@
     </MissingParamType>
   </file>
   <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
-    <InvalidArgument occurrences="2">
-      <code>''</code>
-      <code>'hello@serendipityhq.com'</code>
-    </InvalidArgument>
-    <MissingDependency occurrences="1">
-      <code>$mockEmail-&gt;method('__toString')</code>
-    </MissingDependency>
     <NullArgument occurrences="1">
       <code>null</code>
     </NullArgument>
@@ -236,12 +226,5 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertInstanceOf</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="vendor-bin/phpunit/vendor/phpunit/phpunit/src/Framework/MockObject/Builder/ParametersMatch.php">
-    <ParseError occurrences="3">
-      <code>Match</code>
-      <code>;</code>
-      <code>;</code>
-    </ParseError>
   </file>
 </files>
