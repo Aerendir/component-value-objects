@@ -2,7 +2,7 @@
     "require-dev": {
         "phpstan/phpstan": "0.12.40",
         "phpstan/phpstan-phpunit": "0.12.16",
-        "thecodingmachine/phpstan-safe-rule": "1.0.0",
+        "thecodingmachine/phpstan-safe-rule": "1.0.1",
         "rector/rector": "0.7.65"
     }
 }
