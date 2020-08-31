@@ -3,6 +3,6 @@
         "dg/bypass-finals": "^1.2",
         "phpunit/phpunit": "9.3.8",
         "vimeo/psalm": "3.14.2",
-        "psalm/plugin-phpunit": "0.11.0"
+        "psalm/plugin-phpunit": "0.12.1"
     }
 }
