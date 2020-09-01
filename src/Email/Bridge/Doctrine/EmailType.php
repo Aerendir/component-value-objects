@@ -29,7 +29,7 @@ final class EmailType extends Type
     /**
      * @var string
      */
-    private const EMAIL = 'email';
+    public const NAME = 'email';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
@@ -125,6 +125,6 @@ final class EmailType extends Type
      */
     public function getName(): string
     {
-        return self::EMAIL;
+        return self::NAME;
     }
 }

@@ -12,6 +12,7 @@
 namespace SerendipityHQ\Component\ValueObjects\Tests\Money\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\Type;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Money\Bridge\Doctrine\MoneyType;
 
@@ -25,7 +26,13 @@ final class MoneyTypeTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->type     = new MoneyType();
+        if (false === Type::hasType(MoneyType::NAME)) {
+            Type::addType(MoneyType::NAME, MoneyType::class);
+        }
+
+        /** @var MoneyType $type */
+        $type           = Type::getType(MoneyType::NAME);
+        $this->type     = $type;
         $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
     }
 

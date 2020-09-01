@@ -38,7 +38,7 @@ final class Phone extends PhoneNumber implements PhoneInterface
     /** @var PhoneNumber|string */
     private $number;
 
-    /** @var string */
+    /** @var string|null */
     private $region;
 
     /**
@@ -60,7 +60,7 @@ final class Phone extends PhoneNumber implements PhoneInterface
 
         if (\is_string($values[self::NUMBER])) {
             $phoneUtil    = PhoneNumberUtil::getInstance();
-            $this->number = $phoneUtil->parse($values[self::NUMBER], $this->region, null, $keepRawInput);
+            $this->number = $phoneUtil->parse($values[self::NUMBER], $this->getRegion(), null, $keepRawInput);
         }
 
         if ($this->number instanceof PhoneNumber) {
@@ -89,6 +89,10 @@ final class Phone extends PhoneNumber implements PhoneInterface
      */
     public function getRegion(): string
     {
+        if (null === $this->region) {
+            throw new \InvalidArgumentException('The value of "region" cannot be "null".');
+        }
+
         return $this->region;
     }
 

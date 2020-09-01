@@ -10,7 +10,6 @@
     <a href="https://github.com/Aerendir/component-value-objects/releases"><img src="https://img.shields.io/packagist/v/serendipity_hq/component-value-objects.svg?style=flat-square"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
     <a href="https://github.com/Aerendir/component-value-objects/releases"><img src="https://img.shields.io/packagist/php-v/serendipity_hq/component-value-objects?color=%238892BF&style=flat-square&logo=php" /></a>
-    <a title="Tested with Symfony ^3.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^3.4" src="https://img.shields.io/badge/Symfony-%5E3.4-333?style=flat-square&logo=symfony" /></a>
     <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
     <a title="Tested with Symfony ^5.1" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^5.1" src="https://img.shields.io/badge/Symfony-%5E5.1-333?style=flat-square&logo=symfony" /></a>
 </p>

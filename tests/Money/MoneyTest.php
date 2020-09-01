@@ -240,7 +240,6 @@ final class MoneyTest extends TestCase
     public function testSubtract(): void
     {
         $first = [
-            // This represents 3.05 Euros
             'humanAmount' => 12.45,
             'currency'    => 'EUR',
         ];

@@ -11,7 +11,7 @@ jobs:
                 os: [ubuntu-latest]
                 php: ['7.3', '7.4']
                 composer-flags: ['--prefer-stable --prefer-lowest', '']
-                symfony: ['~3.4', '~4.4', '~5.1']
+                symfony: ['~4.4', '~5.1']
         name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
         steps:
             - name: Checkout
@@ -27,7 +27,7 @@ jobs:
 
             - name: Fix Symfony version
               run: |
-                  composer req symfony/flex
+                  composer req symfony/flex --no-scripts
                   composer config extra.symfony.require "${{ matrix.symfony }}"
 
             - name: Install Composer deps

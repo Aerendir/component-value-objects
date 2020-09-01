@@ -27,7 +27,7 @@ final class MoneyType extends Type
     /**
      * @var string
      */
-    private const MONEY = 'money';
+    public const NAME = 'money';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
@@ -107,6 +107,6 @@ final class MoneyType extends Type
      */
     public function getName(): string
     {
-        return self::MONEY;
+        return self::NAME;
     }
 }
