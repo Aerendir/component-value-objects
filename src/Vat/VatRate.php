@@ -20,7 +20,7 @@ final class VatRate implements VatRateInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var float[] */
+    /** @var array<string, float> */
     private const COUNTRIES = [
         'IT' => 22.0000,
     ];

@@ -79,8 +79,6 @@ final class MoneyFormatterExtension extends AbstractExtension
      * @throws SyntaxError
      * @throws \InvalidArgumentException
      * @throws ParserException
-     *
-     * @return string
      */
     public function localizeMoneyFromArrFilter(array $money, string $locale = null): string
     {
