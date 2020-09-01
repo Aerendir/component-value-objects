@@ -12,10 +12,8 @@
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Twig;
 
 use Money\Currencies\ISOCurrencies;
-use Money\Exception\ParserException;
 use Money\Formatter\IntlMoneyFormatter;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
-use Twig\Error\SyntaxError;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -46,7 +44,7 @@ final class MoneyFormatterExtension extends AbstractExtension
             new TwigFilter('localizedmoney', function (?Money $money, string $locale = 'en-US'): ?string {
                 return $this->localizeMoneyFilter($money, $locale);
             }),
-            new TwigFilter('localizedmoneyfromarr', function (array $money, string $locale = null): string {
+            new TwigFilter('localizedmoneyfromarr', function (array $money, string $locale = null): ?string {
                 return $this->localizeMoneyFromArrFilter($money, $locale);
             }),
         ]);
@@ -75,12 +73,8 @@ final class MoneyFormatterExtension extends AbstractExtension
     /**
      * @param array<string, float|int|string> $money
      * @param string|null                     $locale
-     *
-     * @throws SyntaxError
-     * @throws \InvalidArgumentException
-     * @throws ParserException
      */
-    public function localizeMoneyFromArrFilter(array $money, string $locale = null): string
+    public function localizeMoneyFromArrFilter(array $money, string $locale = null): ?string
     {
         if (isset($money['humanAmount'], $money['baseAmount'])) {
             unset($money['humanAmount']);

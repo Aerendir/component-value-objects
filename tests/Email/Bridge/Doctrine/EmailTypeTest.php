@@ -79,12 +79,6 @@ final class EmailTypeTest extends TestCase
         $this->assertNull($result);
     }
 
-    public function testConvertToDatabaseValueAcceptsOnlyEmailObjects(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->type->convertToDatabaseValue('hello@serendipityhq.com', $this->platform);
-    }
-
     public function testConvertToDatabaseValueValidatesEmail(): void
     {
         $mockEmail = $this->createMock(Email::class);
