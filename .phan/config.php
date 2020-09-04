@@ -50,6 +50,7 @@ return [
     'suppress_issue_types' => [
         'PhanUnusedPublicMethodParameter',
         'PhanUnreferencedClass',
+        'PhanUnreferencedPublicClassConstant',
         'PhanUnreferencedPublicMethod',
         'PhanUnusedPublicNoOverrideMethodParameter',
         'PhanUnreferencedProtectedMethod',
@@ -63,7 +64,7 @@ return [
     // directories/files, unanalyzable files, or files that
     // can't be removed for whatever reason.
     // (e.g. '@Test\.php$@', or '@vendor/.*/(tests|Tests)/@')
-    'exclude_file_regex' => '@^vendor/.*/(tests?|Tests?|stubs?|Stubs?)/@',
+    'exclude_file_regex' => '@^vendor/.*/(stubs?|Stubs?)/@',
     'plugins' => [
         'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/Annotation/SymfonyAnnotationPlugin.php',
         'vendor-bin/phan/vendor/drenso/phan-extensions/Plugin/DocComment/InlineVarPlugin.php',

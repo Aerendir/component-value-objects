@@ -13,7 +13,6 @@ namespace SerendipityHQ\Component\ValueObjects\Tests\Vat;
 
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
-use SerendipityHQ\Component\ValueObjects\Tax\Tax;
 use SerendipityHQ\Component\ValueObjects\Vat\VatRate;
 use SerendipityHQ\Component\ValueObjects\Vat\VatRateInterface;
 

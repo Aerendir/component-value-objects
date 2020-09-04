@@ -39,12 +39,15 @@ final class EmailTest extends TestCase
         self::assertIsString($resource->toString());
     }
 
+    /**
+     * @suppress PhanNoopNew
+     */
     public function testInvalidEmailThrowsAnException(): void
     {
         $test = 'user-example';
 
         $this->expectException(\InvalidArgumentException::class);
-        $resource = new Email($test);
+        new Email($test);
     }
 
     public function testChangeMailBox(): void

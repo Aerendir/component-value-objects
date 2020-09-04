@@ -62,6 +62,9 @@ final class UriTest extends TestCase
         self::assertIsString($resource->toString());
     }
 
+    /**
+     * @suppress PhanNoopNew
+     */
     public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject(): void
     {
         // An integer

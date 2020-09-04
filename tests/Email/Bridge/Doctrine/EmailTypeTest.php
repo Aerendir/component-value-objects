@@ -13,6 +13,7 @@ namespace SerendipityHQ\Component\ValueObjects\Tests\Email\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Email\Bridge\Doctrine\EmailType;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
@@ -27,7 +28,7 @@ final class EmailTypeTest extends TestCase
     /** @var EmailType */
     private $type;
 
-    /** @var AbstractPlatform */
+    /** @var MockObject&AbstractPlatform */
     private $platform;
 
     protected function setUp(): void
@@ -84,6 +85,9 @@ final class EmailTypeTest extends TestCase
         self::assertNull($result);
     }
 
+    /**
+     * @suppress PhanTypeMismatchArgumentProbablyReal
+     */
     public function testConvertToDatabaseValueValidatesEmail(): void
     {
         $mockEmail = $this->createMock(Email::class);
