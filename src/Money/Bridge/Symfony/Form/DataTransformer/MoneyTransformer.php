@@ -61,7 +61,7 @@ final class MoneyTransformer implements DataTransformerInterface
     public function reverseTransform($money): ? MoneyInterface
     {
         if (null !== $money) {
-            $money = new Money(['humanAmount' => $money, 'currency' => $this->options['currency']]);
+            $money = new Money([MoneyInterface::HUMAN_AMOUNT => $money, MoneyInterface::CURRENCY => $this->options[MoneyInterface::CURRENCY]]);
         }
 
         return $money;

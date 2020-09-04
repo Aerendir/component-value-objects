@@ -20,4 +20,8 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  */
 interface PhoneInterface extends ComplexValueObjectInterface
 {
+    public const CONFIG_KEEP_RAW_INPUT = 'keepRawInput';
+    public const COUNTRY_CODE          = 'countryCode';
+    public const NUMBER                = 'number';
+    public const REGION                = 'region';
 }

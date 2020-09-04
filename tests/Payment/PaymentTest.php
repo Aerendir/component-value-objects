@@ -23,8 +23,8 @@ final class PaymentTest extends TestCase
 {
     /** @var array<string, string> */
     private const TEST_DATA = [
-        'method'   => 'PayPal',
-        'status'   => 'A random status',
+        PaymentInterface::METHOD   => 'PayPal',
+        PaymentInterface::STATUS   => 'A random status',
     ];
 
     public function testPayment(): void
@@ -34,8 +34,8 @@ final class PaymentTest extends TestCase
         self::assertInstanceOf(PaymentInterface::class, $resource);
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        self::assertEquals(self::TEST_DATA['method'], $resource->getMethod());
-        self::assertEquals(self::TEST_DATA['status'], $resource->getStatus());
+        self::assertEquals(self::TEST_DATA[PaymentInterface::METHOD], $resource->getMethod());
+        self::assertEquals(self::TEST_DATA[PaymentInterface::STATUS], $resource->getStatus());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

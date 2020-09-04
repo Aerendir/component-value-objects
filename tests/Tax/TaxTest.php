@@ -27,11 +27,11 @@ final class TaxTest extends TestCase
     public function testTax(): void
     {
         $testData = [
-            'code'      => 'IVA IT',
-            'compound'  => false,
-            'rate'      => 22.0,
-            'amount'    => $this->createMock(Money::class),
-            'title'     => 'IVA IT',
+            TaxInterface::CODE     => 'IVA IT',
+            TaxInterface::COMPOUND => false,
+            TaxInterface::RATE     => 22.0,
+            TaxInterface::AMOUNT   => $this->createMock(Money::class),
+            TaxInterface::TITLE    => 'IVA IT',
         ];
 
         $resource = new Tax($testData);
@@ -42,11 +42,11 @@ final class TaxTest extends TestCase
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        self::assertEquals($testData['code'], $resource->getCode());
+        self::assertEquals($testData[TaxInterface::CODE], $resource->getCode());
         self::assertFalse($resource->isCompound());
-        self::assertEquals($testData['rate'], $resource->getRate());
-        self::assertEquals($testData['amount'], $resource->getAmount());
-        self::assertEquals($testData['title'], $resource->getTitle());
+        self::assertEquals($testData[TaxInterface::RATE], $resource->getRate());
+        self::assertEquals($testData[TaxInterface::AMOUNT], $resource->getAmount());
+        self::assertEquals($testData[TaxInterface::TITLE], $resource->getTitle());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

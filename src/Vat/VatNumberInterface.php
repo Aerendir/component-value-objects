@@ -18,6 +18,10 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  */
 interface VatNumberInterface extends ComplexValueObjectInterface
 {
+    public const COUNTRY_CODE = 'countryCode';
+    public const NUMBER       = 'number';
+    public const VAT_NUMBER   = 'vatNumber';
+
     /**
      * Method to retrieve the country code in ISO format of the VatNumber.
      *

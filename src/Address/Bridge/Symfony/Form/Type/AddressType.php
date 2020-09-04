@@ -11,6 +11,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\Type;
 
+use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 use SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\DataTransformer\AddressTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -36,12 +37,12 @@ final class AddressType extends AbstractType
     {
         $builder
             ->addModelTransformer(new AddressTransformer())
-            ->add('countryCode', CountryType::class, [self::LABEL => 'shq.address.form.country_code.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
-            ->add('administrativeArea', TextType::class, [self::LABEL => 'shq.address.form.administrative_area.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
-            ->add('locality', TextType::class, [self::LABEL => 'shq.address.form.locality.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
-            ->add('dependentLocality', TextType::class, ['required' => false, self::LABEL => 'shq.address.form.dependent_locality.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
-            ->add('postalCode', TextType::class, [self::LABEL => 'shq.address.form.postal_code.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
-            ->add('street', TextType::class, [self::LABEL => 'shq.address.form.street.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
-            ->add('extraLine', TextType::class, ['required' => false, self::LABEL => 'shq.address.form.extra_line.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS]);
+            ->add(AddressInterface::COUNTRY_CODE, CountryType::class, [self::LABEL => 'shq.address.form.country_code.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add(AddressInterface::ADMINISTRATIVE_AREA, TextType::class, [self::LABEL => 'shq.address.form.administrative_area.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add(AddressInterface::LOCALITY, TextType::class, [self::LABEL => 'shq.address.form.locality.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add(AddressInterface::DEPENDENT_LOCALITY, TextType::class, ['required' => false, self::LABEL => 'shq.address.form.dependent_locality.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add(AddressInterface::POSTAL_CODE, TextType::class, [self::LABEL => 'shq.address.form.postal_code.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add(AddressInterface::STREET, TextType::class, [self::LABEL => 'shq.address.form.street.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS])
+            ->add(AddressInterface::EXTRA_LINE, TextType::class, ['required' => false, self::LABEL => 'shq.address.form.extra_line.label', self::TRANSLATION_DOMAIN => self::SHQ_ADDRESS]);
     }
 }

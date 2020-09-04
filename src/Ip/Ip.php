@@ -32,7 +32,6 @@ final class Ip implements IpInterface
      *
      * @throws InvalidIpAddressException
      * @throws WrongVersionException
-     * @psalm-suppress MixedArgument
      */
     public function __construct($value)
     {

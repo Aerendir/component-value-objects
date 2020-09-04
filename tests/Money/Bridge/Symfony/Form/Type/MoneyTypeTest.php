@@ -13,6 +13,7 @@ namespace SerendipityHQ\Component\ValueObjects\Tests\Money\Bridge\Symfony\Form\T
 
 use SerendipityHQ\Component\ValueObjects\Money\Bridge\Symfony\Form\Type\MoneyType;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 /**
@@ -23,8 +24,8 @@ final class MoneyTypeTest extends TypeTestCase
     public function testMoney(): void
     {
         $values = [
-            'humanAmount' => '12,45',
-            'currency'    => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '12,45',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $objectToCompare = new Money($values);
@@ -33,7 +34,7 @@ final class MoneyTypeTest extends TypeTestCase
         $object = new Money($values);
 
         // submit the data to the form directly
-        $form->submit($values['humanAmount']);
+        $form->submit($values[MoneyInterface::HUMAN_AMOUNT]);
 
         self::assertTrue($form->isSynchronized());
 
@@ -44,15 +45,15 @@ final class MoneyTypeTest extends TypeTestCase
     public function testMoneyWithNullValues(): void
     {
         $values = [
-            'humanAmount' => '12,45',
-            'currency'    => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '12,45',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $objectToCompare = new Money($values);
         $form            = $this->factory->create(MoneyType::class, $objectToCompare, ['data_class' => null]);
 
         // submit the data to the form directly
-        $form->submit($values['humanAmount']);
+        $form->submit($values[MoneyInterface::HUMAN_AMOUNT]);
 
         self::assertTrue($form->isSynchronized());
     }

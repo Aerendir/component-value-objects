@@ -34,10 +34,6 @@ final class Money implements MoneyInterface
         __construct as traitConstruct;
     }
     use DisableWritingMethodsTrait;
-    /** @var string */
-    private const BASE_AMOUNT = 'baseAmount';
-    /** @var string */
-    private const CURRENCY = 'currency';
 
     /**
      * This represents the amount as Money intends it: in its base units.
@@ -225,7 +221,7 @@ final class Money implements MoneyInterface
     /**
      * Sets the currency.
      *
-     * @param \Money\Currency|string $currency
+     * @param Currency|string $currency
      */
     protected function setCurrency($currency): void
     {
@@ -257,7 +253,7 @@ final class Money implements MoneyInterface
         return [
             self::CURRENCY     => $this->getCurrency()->getCode(),
             self::BASE_AMOUNT  => $this->getBaseAmount(),
-            'humanAmount'      => $this->getHumanAmount(),
+            self::HUMAN_AMOUNT => $this->getHumanAmount(),
         ];
     }
 }

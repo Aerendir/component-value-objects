@@ -25,9 +25,9 @@ final class VatNumberTest extends TestCase
 {
     /** @var array<string, string> */
     private const TEST_DATA = [
-        'countryCode' => 'IT',
-        'number'      => '01234567891',
-        'vatNumber'   => 'IT01234567891',
+        VatNumberInterface::COUNTRY_CODE => 'IT',
+        VatNumberInterface::NUMBER       => '01234567891',
+        VatNumberInterface::VAT_NUMBER   => 'IT01234567891',
     ];
 
     public function testVatNumber(): void
@@ -37,9 +37,9 @@ final class VatNumberTest extends TestCase
         self::assertInstanceOf(VatNumberInterface::class, $resource);
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        self::assertEquals(self::TEST_DATA['countryCode'], $resource->getCountryCode());
-        self::assertEquals(self::TEST_DATA['number'], $resource->getNumber());
-        self::assertEquals(self::TEST_DATA['vatNumber'], $resource->getVatNumber());
+        self::assertEquals(self::TEST_DATA[VatNumberInterface::COUNTRY_CODE], $resource->getCountryCode());
+        self::assertEquals(self::TEST_DATA[VatNumberInterface::NUMBER], $resource->getNumber());
+        self::assertEquals(self::TEST_DATA[VatNumberInterface::VAT_NUMBER], $resource->getVatNumber());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

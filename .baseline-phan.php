@@ -9,6 +9,7 @@
  */
 return [
     // # Issue statistics:
+    // PhanUnreferencedPublicClassConstant : 15+ occurrences
     // PhanUndeclaredStaticMethod : 7 occurrences
     // PhanUndeclaredProperty : 4 occurrences
     // PhanParamSignatureRealMismatchHasNoParamType : 2 occurrences
@@ -25,8 +26,14 @@ return [
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
+        'src/CurrencyExchangeRate/CurrencyExchangeRateInterface.php' => ['PhanUnreferencedPublicClassConstant'],
+        'src/Email/EmailInterface.php' => ['PhanUnreferencedPublicClassConstant'],
         'src/Money/Bridge/Twig/MoneyFormatterExtension.php' => ['PhanTypeMismatchArgumentNullable', 'PhanTypeMismatchDeclaredParam'],
         'src/Money/Money.php' => ['PhanParamSignatureRealMismatchHasNoParamType'],
+        'src/Payment/PaymentInterface.php' => ['PhanUnreferencedPublicClassConstant'],
+        'src/Tax/TaxInterface.php' => ['PhanUnreferencedPublicClassConstant'],
+        'src/Vat/VatNumberInterface.php' => ['PhanUnreferencedPublicClassConstant'],
+        'src/Vat/VatRateInterface.php' => ['PhanUnreferencedPublicClassConstant'],
         'tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php' => ['PhanUndeclaredExtendedClass', 'PhanUndeclaredProperty', 'PhanUndeclaredStaticMethod'],
         'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanTypeMismatchArgumentProbablyReal', 'PhanTypeMismatchProperty'],
         'tests/Email/EmailTest.php' => ['PhanUnusedVariable'],

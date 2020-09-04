@@ -24,6 +24,8 @@ interface SimpleValueObjectInterface extends ValueObjectInterface
 {
     /**
      * Accepts a simple scalar value.
+     *
+     * @param float|int|string $value
      */
     public function __construct($value);
 }

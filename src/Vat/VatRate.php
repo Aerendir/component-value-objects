@@ -26,7 +26,7 @@ final class VatRate implements VatRateInterface
     ];
 
     /** @var string The country for which this object represents the VAT */
-    private $country;
+    private $countryCode;
 
     /**
      * {@inheritdoc}
@@ -39,23 +39,17 @@ final class VatRate implements VatRateInterface
             throw new \InvalidArgumentException("The passed Country isn't supported by this value object");
         }
 
-        $this->country = $countryCode;
+        $this->countryCode = $countryCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCountryCode(): string
     {
-        return $this->country;
+        return $this->countryCode;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPercentage(): float
     {
-        return self::COUNTRIES[$this->country];
+        return self::COUNTRIES[$this->countryCode];
     }
 
     /**

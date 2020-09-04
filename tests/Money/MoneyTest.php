@@ -25,8 +25,8 @@ final class MoneyTest extends TestCase
     public function testBaseUnits(): void
     {
         $test = [
-            'baseAmount'   => 100,
-            'currency'     => 'EUR',
+            MoneyInterface::BASE_AMOUNT => 100,
+            MoneyInterface::CURRENCY    => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -37,7 +37,7 @@ final class MoneyTest extends TestCase
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        self::assertSame((string) $test['baseAmount'], $resource->getBaseAmount());
+        self::assertSame((string) $test[MoneyInterface::BASE_AMOUNT], $resource->getBaseAmount());
         self::assertSame('1.00', $resource->getHumanAmount());
         self::assertInstanceOf(Currency::class, $resource->getCurrency());
         self::assertSame('EUR', $resource->getCurrency()->getCode());
@@ -48,8 +48,8 @@ final class MoneyTest extends TestCase
     public function testHumanInt(): void
     {
         $test = [
-            'humanAmount'   => 10,
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => 10,
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -71,8 +71,8 @@ final class MoneyTest extends TestCase
     public function testHumanFloat(): void
     {
         $test = [
-            'humanAmount'   => 10.50,
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => 10.50,
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -94,8 +94,8 @@ final class MoneyTest extends TestCase
     public function testHumanIntAsFloat(): void
     {
         $test = [
-            'humanAmount'   => 10.00,
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => 10.00,
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -117,8 +117,8 @@ final class MoneyTest extends TestCase
     public function testHumanIntAsString(): void
     {
         $test = [
-            'humanAmount'   => '10',
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '10',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -140,8 +140,8 @@ final class MoneyTest extends TestCase
     public function testHumanFloatAsString(): void
     {
         $test = [
-            'humanAmount'   => '12.34',
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '12.34',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -163,8 +163,8 @@ final class MoneyTest extends TestCase
     public function testHumanIntAsFloatAsString(): void
     {
         $test = [
-            'humanAmount'   => '12.00',
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '12.00',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -186,8 +186,8 @@ final class MoneyTest extends TestCase
     public function testHumanFloatAsStringWithComma(): void
     {
         $test = [
-            'humanAmount'   => '12,34',
-            'currency'      => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '12,34',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
 
         $resource = new Money($test);
@@ -210,14 +210,14 @@ final class MoneyTest extends TestCase
     {
         $first = [
             // This represents 3.05 Euros
-            'humanAmount' => 12.45,
-            'currency'    => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => 12.45,
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
         $firstMoney = new Money($first);
 
         $second = [
-            'humanAmount' => '3,32',
-            'currency'    => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '3,32',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
         $secondMoney = new Money($second);
 
@@ -240,14 +240,14 @@ final class MoneyTest extends TestCase
     public function testSubtract(): void
     {
         $first = [
-            'humanAmount' => 12.45,
-            'currency'    => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => 12.45,
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
         $firstMoney = new Money($first);
 
         $second = [
-            'humanAmount' => '3,32',
-            'currency'    => 'EUR',
+            MoneyInterface::HUMAN_AMOUNT => '3,32',
+            MoneyInterface::CURRENCY     => 'EUR',
         ];
         $secondMoney = new Money($second);
 

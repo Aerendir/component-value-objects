@@ -11,6 +11,7 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Tests\Address\Bridge\Symfony\Form\Type;
 
+use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 use SerendipityHQ\Component\ValueObjects\Address\Bridge\Doctrine\AddressEmbeddable;
 use SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\Type\AddressType;
 use Symfony\Component\Form\Test\TypeTestCase;
@@ -23,13 +24,13 @@ final class AddressTypeTest extends TypeTestCase
     public function testAddress(): void
     {
         $values = [
-            'countryCode'        => 'IT',
-            'administrativeArea' => 'Salerno',
-            'locality'           => 'Naples',
-            'dependentLocality'  => 'Dependent locality',
-            'postalCode'         => '12345',
-            'street'             => 'Via via vieni via con me',
-            'extraLine'          => 'Niente più ti lega a questi luoghi',
+            AddressInterface::COUNTRY_CODE        => 'IT',
+            AddressInterface::ADMINISTRATIVE_AREA => 'Salerno',
+            AddressInterface::LOCALITY            => 'Naples',
+            AddressInterface::DEPENDENT_LOCALITY  => 'Dependent locality',
+            AddressInterface::POSTAL_CODE         => '12345',
+            AddressInterface::STREET              => 'Via via vieni via con me',
+            AddressInterface::EXTRA_LINE          => 'Niente più ti lega a questi luoghi',
         ];
 
         $objectToCompare = new AddressEmbeddable($values);
@@ -56,13 +57,13 @@ final class AddressTypeTest extends TypeTestCase
     public function testAddressWithNullValues(): void
     {
         $values = [
-            'countryCode'        => 'IT',
-            'administrativeArea' => 'Salerno',
-            'locality'           => 'Naples',
-            'dependentLocality'  => 'Dependent locality',
-            'postalCode'         => '12345',
-            'street'             => 'Via via vieni via con me',
-            'extraLine'          => 'Niente più ti lega a questi luoghi',
+            AddressInterface::COUNTRY_CODE        => 'IT',
+            AddressInterface::ADMINISTRATIVE_AREA => 'Salerno',
+            AddressInterface::LOCALITY            => 'Naples',
+            AddressInterface::DEPENDENT_LOCALITY  => 'Dependent locality',
+            AddressInterface::POSTAL_CODE         => '12345',
+            AddressInterface::STREET              => 'Via via vieni via con me',
+            AddressInterface::EXTRA_LINE          => 'Niente più ti lega a questi luoghi',
         ];
 
         $form = $this->factory->create(AddressType::class, null, ['data_class' => null]);

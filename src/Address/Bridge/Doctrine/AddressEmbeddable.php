@@ -13,6 +13,7 @@ namespace SerendipityHQ\Component\ValueObjects\Address\Bridge\Doctrine;
 
 use Doctrine\ORM\Mapping as ORM;
 use SerendipityHQ\Component\ValueObjects\Address\Address;
+use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 
 /**
  * {@inheritdoc}
@@ -30,13 +31,13 @@ class AddressEmbeddable extends Address
     public function _toArray(): array
     {
         return [
-            'street'             => $this->getStreet(),
-            'extraLine'          => $this->getExtraLine(),
-            'postalCode'         => $this->getPostalCode(),
-            'locality'           => $this->getLocality(),
-            'dependentLocality'  => $this->getDependentLocality(),
-            'administrativeArea' => $this->getAdministrativeArea(),
-            'countryCode'        => $this->getCountryCode(),
+            AddressInterface::STREET              => $this->getStreet(),
+            AddressInterface::EXTRA_LINE          => $this->getExtraLine(),
+            AddressInterface::POSTAL_CODE         => $this->getPostalCode(),
+            AddressInterface::LOCALITY            => $this->getLocality(),
+            AddressInterface::DEPENDENT_LOCALITY  => $this->getDependentLocality(),
+            AddressInterface::ADMINISTRATIVE_AREA => $this->getAdministrativeArea(),
+            AddressInterface::COUNTRY_CODE        => $this->getCountryCode(),
         ];
     }
 

@@ -14,6 +14,7 @@ namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Twig;
 use Money\Currencies\ISOCurrencies;
 use Money\Formatter\IntlMoneyFormatter;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
@@ -72,8 +73,8 @@ final class MoneyFormatterExtension extends AbstractExtension
      */
     public function localizeMoneyFromArrFilter(array $money, string $locale = null): ?string
     {
-        if (isset($money['humanAmount'], $money['baseAmount'])) {
-            unset($money['humanAmount']);
+        if (isset($money[MoneyInterface::HUMAN_AMOUNT], $money[MoneyInterface::BASE_AMOUNT])) {
+            unset($money[MoneyInterface::HUMAN_AMOUNT]);
         }
 
         $formattingMoney = new Money($money);

@@ -21,6 +21,11 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  */
 interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
 {
+    public const EXCHANGE_RATE      = 'exchangeRate';
+    public const EXCHANGE_RATE_DATE = 'exchangeRateDate';
+    public const FROM               = 'from';
+    public const TO                 = 'to';
+
     /**
      * Get the conversion rate.
      *

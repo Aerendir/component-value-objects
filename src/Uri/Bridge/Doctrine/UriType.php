@@ -27,7 +27,7 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 final class UriType extends Type
 {
     /** @var string */
-    private const URI = 'uri';
+    public const NAME = 'uri';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
@@ -99,6 +99,6 @@ final class UriType extends Type
      */
     public function getName(): string
     {
-        return self::URI;
+        return self::NAME;
     }
 }

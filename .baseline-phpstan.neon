@@ -96,7 +96,7 @@ parameters:
 			path: src/Ip/Ip.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Ip\\\\Ip\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$ip of static method Darsyn\\\\IP\\\\Version\\\\IPv4\\:\\:factory\\(\\) expects string, float\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Ip/Ip.php
 
@@ -109,11 +109,6 @@ parameters:
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatRate\\:\\:__set\\(\\) has parameter \\$value with no typehint specified\\.$#"
 			count: 1
 			path: src/Vat/VatRate.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Common\\\\SimpleValueObjectInterface\\:\\:__construct\\(\\) has parameter \\$value with no typehint specified\\.$#"
-			count: 1
-			path: src/Common/SimpleValueObjectInterface.php
 
 		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Common\\\\ValueObjectInterface\\:\\:__set\\(\\) has parameter \\$value with no typehint specified\\.$#"

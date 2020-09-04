@@ -26,19 +26,19 @@ final class VatRateTest extends TestCase
 {
     /** @var array<string, float|string> */
     private const TEST_DATA = [
-        'countryCode' => 'IT',
-        'percentage'  => 22.0000,
+        VatRateInterface::COUNTRY_CODE => 'IT',
+        VatRateInterface::PERCENTAGE   => 22.0000,
     ];
 
     public function testTax(): void
     {
-        $resource = new VatRate(self::TEST_DATA['countryCode']);
+        $resource = new VatRate(self::TEST_DATA[VatRateInterface::COUNTRY_CODE]);
         // Test the value object direct interface
         self::assertInstanceOf(VatRateInterface::class, $resource);
         // Test the type of value object interface
         self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
-        self::assertEquals(self::TEST_DATA['countryCode'], $resource->getCountryCode());
-        self::assertEquals(self::TEST_DATA['percentage'], $resource->getPercentage());
+        self::assertEquals(self::TEST_DATA[VatRateInterface::COUNTRY_CODE], $resource->getCountryCode());
+        self::assertEquals(self::TEST_DATA[VatRateInterface::PERCENTAGE], $resource->getPercentage());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

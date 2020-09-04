@@ -26,10 +26,6 @@ final class Phone extends PhoneNumber implements PhoneInterface
         __construct as traitConstruct;
     }
     use DisableWritingMethodsTrait;
-    /** @var string */
-    private const KEEP_RAW_INPUT = 'keepRawInput';
-    /** @var string */
-    private const NUMBER = 'number';
 
     /** @var PhoneNumber|string */
     private $number;
@@ -47,12 +43,11 @@ final class Phone extends PhoneNumber implements PhoneInterface
     {
         $this->traitConstruct($values);
 
-        if (isset($values[self::KEEP_RAW_INPUT]) && false === \is_bool($values[self::KEEP_RAW_INPUT])) {
+        if (isset($values[self::CONFIG_KEEP_RAW_INPUT]) && false === \is_bool($values[self::CONFIG_KEEP_RAW_INPUT])) {
             throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
         }
 
-        /** @var bool $keepRawInput */
-        $keepRawInput = $values[self::KEEP_RAW_INPUT] ?? false;
+        $keepRawInput = $values[self::CONFIG_KEEP_RAW_INPUT] ?? false;
 
         if (\is_string($values[self::NUMBER])) {
             $phoneUtil    = PhoneNumberUtil::getInstance();
@@ -118,9 +113,9 @@ final class Phone extends PhoneNumber implements PhoneInterface
     public function __toArray(): array
     {
         return [
-            'countryCode'     => $this->getCountryCode(),
-            self::NUMBER      => $this->getNationalNumber(),
-            'region'          => $this->getRegion(),
+            self::COUNTRY_CODE => $this->getCountryCode(),
+            self::NUMBER       => $this->getNationalNumber(),
+            self::REGION       => $this->getRegion(),
         ];
     }
 }

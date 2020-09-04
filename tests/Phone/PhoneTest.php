@@ -24,8 +24,8 @@ final class PhoneTest extends TestCase
 {
     /** @var array<string, string> */
     private const TEST = [
-        'number' => '3331234567',
-        'region' => 'IT',
+        PhoneInterface::NUMBER => '3331234567',
+        PhoneInterface::REGION => 'IT',
     ];
 
     public function testPhone(): void

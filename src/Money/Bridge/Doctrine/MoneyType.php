@@ -18,6 +18,7 @@ use Money\Exception\ParserException;
 use Safe\Exceptions\StringsException;
 use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
 /**
  * A custom datatype to persist a Money Value Object with Doctrine.
@@ -62,7 +63,7 @@ final class MoneyType extends Type
 
         $currency = new Currency($objects[1]);
 
-        return new Money(['baseAmount' => (int) $objects[0], 'currency' => $currency]);
+        return new Money([MoneyInterface::BASE_AMOUNT => (int) $objects[0], MoneyInterface::CURRENCY => $currency]);
     }
 
     /**
