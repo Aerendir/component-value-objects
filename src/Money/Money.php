@@ -172,7 +172,7 @@ final class Money implements MoneyInterface
      *
      * @throws ParserException
      */
-    public function divide($divisor, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
+    public function divide($divisor, int $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
         $result = $this->valueObject->divide($divisor, $roundingMode);
 
@@ -187,7 +187,7 @@ final class Money implements MoneyInterface
      * @throws \InvalidArgumentException
      * @throws ParserException
      */
-    public function multiply($multiplier, $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
+    public function multiply($multiplier, int $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
         $result = $this->valueObject->multiply($multiplier, $roundingMode);
 

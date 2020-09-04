@@ -69,7 +69,7 @@ final class EmailType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Email|string $value
+     * @param Email|string|null $value
      *
      * @throws StringsException
      * @throws \InvalidArgumentException

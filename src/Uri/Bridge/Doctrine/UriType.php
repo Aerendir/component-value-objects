@@ -15,7 +15,6 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Safe\Exceptions\StringsException;
 use function Safe\sprintf;
-use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 
@@ -65,14 +64,12 @@ final class UriType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Money $value
+     * @param string|UriInterface|null $value
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
-     *
-     * @return string|null
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return $value;

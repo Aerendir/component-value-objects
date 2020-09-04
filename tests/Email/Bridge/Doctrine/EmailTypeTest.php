@@ -50,38 +50,38 @@ final class EmailTypeTest extends TestCase
     public function testConvertToPHPValue(): void
     {
         $result = $this->type->convertToPHPValue('hello@serendipityhq.com', $this->platform);
-        $this->assertInstanceOf(Email::class, $result);
+        self::assertInstanceOf(Email::class, $result);
     }
 
     public function testConvertToPHPValueHandlesNull(): void
     {
         $result = $this->type->convertToPHPValue(null, $this->platform);
-        $this->assertNull($result);
+        self::assertNull($result);
     }
 
     public function testConvertToPHPValueHandlesEmptyString(): void
     {
         $result = $this->type->convertToPHPValue('', $this->platform);
-        $this->assertNull($result);
+        self::assertNull($result);
     }
 
     public function testConvertToDatabaseValue(): void
     {
         $email      = new Email(self::EMAIL_VALUE);
         $result     = $this->type->convertToDatabaseValue($email, $this->platform);
-        $this->assertSame(self::EMAIL_VALUE, $result);
+        self::assertSame(self::EMAIL_VALUE, $result);
     }
 
     public function testConvertToDatabaseValueHandlesNull(): void
     {
         $result = $this->type->convertToDatabaseValue(null, $this->platform);
-        $this->assertNull($result);
+        self::assertNull($result);
     }
 
     public function testConvertToDatabaseValueHandlesEmptyString(): void
     {
         $result = $this->type->convertToDatabaseValue('', $this->platform);
-        $this->assertNull($result);
+        self::assertNull($result);
     }
 
     public function testConvertToDatabaseValueValidatesEmail(): void

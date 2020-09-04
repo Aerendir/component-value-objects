@@ -18,6 +18,7 @@ trait DisableWritingMethodsTrait
 {
     /**
      * @see {@link ValueObjectInterface}
+     * {@inheritDoc}
      */
     public function __set(string $field, $value): void
     {

@@ -51,7 +51,7 @@ final class MoneyType extends Type
      * @throws ParserException
      * @psalm-suppress MixedArgument
      *
-     * @return \SerendipityHQ\Component\ValueObjects\Money\Money|string|null
+     * @return Money|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
@@ -69,14 +69,12 @@ final class MoneyType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Money $value
+     * @param Money|string|null $value
      *
      * @throws \InvalidArgumentException
      * @throws StringsException
-     *
-     * @return string|null
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return $value;

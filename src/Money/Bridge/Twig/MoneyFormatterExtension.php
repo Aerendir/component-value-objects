@@ -18,11 +18,10 @@ use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-/**
- * {@inheritdoc}
- */
 final class MoneyFormatterExtension extends AbstractExtension
 {
+    private const DEFAULT_LOCALE = 'en-US';
+
     /** @var ISOCurrencies */
     private $currencies;
 
@@ -42,19 +41,16 @@ final class MoneyFormatterExtension extends AbstractExtension
     public function getFilters(): array
     {
         return \array_merge(parent::getFilters(), [
-            new TwigFilter('localizedmoney', function (?Money $money, string $locale = 'en-US'): ?string {
+            new TwigFilter('localizedmoney', function (?Money $money, string $locale = self::DEFAULT_LOCALE): ?string {
                 return $this->localizeMoneyFilter($money, $locale);
             }),
-            new TwigFilter('localizedmoneyfromarr', function (array $money, string $locale = null): ?string {
+            new TwigFilter('localizedmoneyfromarr', function (array $money, string $locale = self::DEFAULT_LOCALE): ?string {
                 return $this->localizeMoneyFromArrFilter($money, $locale);
             }),
         ]);
     }
 
-    /**
-     * @param string|null $locale
-     */
-    public function localizeMoneyFilter(?Money $money, string $locale = 'en-US'): ?string
+    public function localizeMoneyFilter(?Money $money, string $locale = self::DEFAULT_LOCALE): ?string
     {
         if (null === $money) {
             return null;
@@ -71,7 +67,7 @@ final class MoneyFormatterExtension extends AbstractExtension
     /**
      * @param array<string, float|int|string> $money
      */
-    public function localizeMoneyFromArrFilter(array $money, string $locale = null): ?string
+    public function localizeMoneyFromArrFilter(array $money, string $locale = self::DEFAULT_LOCALE): ?string
     {
         if (isset($money[MoneyInterface::HUMAN_AMOUNT], $money[MoneyInterface::BASE_AMOUNT])) {
             unset($money[MoneyInterface::HUMAN_AMOUNT]);

@@ -62,7 +62,7 @@ final class CurrencyType extends Type
     /**
      * {@inheritdoc}
      *
-     * @param Currency $value
+     * @param Currency|string|null $value
      *
      * @throws \InvalidArgumentException
      * @throws StringsException

@@ -35,6 +35,10 @@ final class Ip implements IpInterface
      */
     public function __construct($value)
     {
+        if (false === \is_string($value)) {
+            throw new \InvalidArgumentException('The IP must be a string.');
+        }
+
         $this->valueObject = IPv4::factory($value);
     }
 
