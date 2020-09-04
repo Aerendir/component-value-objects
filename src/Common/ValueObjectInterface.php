@@ -22,8 +22,6 @@ interface ValueObjectInterface
      * This method can accept options to refine the string returned.
      *
      * @param array<string,mixed> $options Options to use to format the output strinarray
-     *
-     * @return string
      */
     public function toString(array $options = []): string;
 
@@ -41,9 +39,6 @@ interface ValueObjectInterface
      *     {
      *         // Body MUST BE EMPTY
      *     }
-     *
-     * @param string $field
-     * @param mixed  $value
      */
     public function __set(string $field, $value): void;
 }

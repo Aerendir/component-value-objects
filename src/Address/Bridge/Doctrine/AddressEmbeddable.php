@@ -40,9 +40,6 @@ class AddressEmbeddable extends Address
         ];
     }
 
-    /**
-     * @param string|null $administrativeArea
-     */
     protected function setAdministrativeArea(?string $administrativeArea): void
     {
         if (null !== $administrativeArea) {
@@ -50,9 +47,6 @@ class AddressEmbeddable extends Address
         }
     }
 
-    /**
-     * @param string|null $countryCode
-     */
     protected function setCountryCode(?string $countryCode): void
     {
         if (null !== $countryCode) {
@@ -60,9 +54,6 @@ class AddressEmbeddable extends Address
         }
     }
 
-    /**
-     * @param string|null $dependentLocality
-     */
     protected function setDependentLocality(?string $dependentLocality): void
     {
         if (null !== $dependentLocality) {
@@ -70,9 +61,6 @@ class AddressEmbeddable extends Address
         }
     }
 
-    /**
-     * @param string|null $street
-     */
     protected function setStreet(?string $street): void
     {
         if (null !== $street) {
@@ -80,9 +68,6 @@ class AddressEmbeddable extends Address
         }
     }
 
-    /**
-     * @param string|null $extraLine
-     */
     protected function setExtraLine(?string $extraLine): void
     {
         if (null !== $extraLine) {
@@ -90,9 +75,6 @@ class AddressEmbeddable extends Address
         }
     }
 
-    /**
-     * @param string|null $locality
-     */
     protected function setLocality(?string $locality): void
     {
         if (null !== $locality) {
@@ -100,9 +82,6 @@ class AddressEmbeddable extends Address
         }
     }
 
-    /**
-     * @param string|null $postalCode
-     */
     protected function setPostalCode(?string $postalCode): void
     {
         if (null !== $postalCode) {

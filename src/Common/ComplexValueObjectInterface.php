@@ -31,8 +31,6 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
 
     /**
      * Returns the built value object or null if no one is present.
-     *
-     * @return mixed
      */
     public function getValueObject();
 

@@ -21,9 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Ip\IpInterface;
  */
 final class IpTest extends TestCase
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private const TEST = '127.0.0.1';
 
     public function testIp(): void

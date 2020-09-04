@@ -26,16 +26,11 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
  */
 final class UriType extends Type
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private const URI = 'uri';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
-     * @param AbstractPlatform    $platform
-     *
-     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {

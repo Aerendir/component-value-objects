@@ -51,10 +51,7 @@ final class MoneyFormatterExtension extends AbstractExtension
     }
 
     /**
-     * @param Money|null  $money
      * @param string|null $locale
-     *
-     * @return string|null
      */
     public function localizeMoneyFilter(?Money $money, string $locale = 'en-US'): ?string
     {
@@ -72,7 +69,6 @@ final class MoneyFormatterExtension extends AbstractExtension
 
     /**
      * @param array<string, float|int|string> $money
-     * @param string|null                     $locale
      */
     public function localizeMoneyFromArrFilter(array $money, string $locale = null): ?string
     {
@@ -85,9 +81,6 @@ final class MoneyFormatterExtension extends AbstractExtension
         return $this->localizeMoneyFilter($formattingMoney, $locale);
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return 'localized_money';

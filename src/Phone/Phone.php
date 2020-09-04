@@ -26,13 +26,9 @@ final class Phone extends PhoneNumber implements PhoneInterface
         __construct as traitConstruct;
     }
     use DisableWritingMethodsTrait;
-    /**
-     * @var string
-     */
+    /** @var string */
     private const KEEP_RAW_INPUT = 'keepRawInput';
-    /**
-     * @var string
-     */
+    /** @var string */
     private const NUMBER = 'number';
 
     /** @var PhoneNumber|string */
@@ -72,8 +68,6 @@ final class Phone extends PhoneNumber implements PhoneInterface
 
     /**
      * @throws \RuntimeException
-     *
-     * @return PhoneNumber
      */
     public function getNumber(): PhoneNumber
     {
@@ -84,9 +78,6 @@ final class Phone extends PhoneNumber implements PhoneInterface
         return $this->number;
     }
 
-    /**
-     * @return string
-     */
     public function getRegion(): string
     {
         if (null === $this->region) {
@@ -112,9 +103,6 @@ final class Phone extends PhoneNumber implements PhoneInterface
         $this->number = $number;
     }
 
-    /**
-     * @param string $region
-     */
     protected function setRegion(string $region): void
     {
         $this->region = $region;

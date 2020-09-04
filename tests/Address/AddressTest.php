@@ -21,9 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  */
 final class AddressTest extends TestCase
 {
-    /**
-     * @var string[]
-     */
+    /** @var string[] */
     private const VALUES = [
         'countryCode'        => 'IT',
         'administrativeArea' => 'Salerno',

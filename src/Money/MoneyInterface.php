@@ -24,53 +24,37 @@ interface MoneyInterface extends ComplexValueObjectInterface
 {
     /**
      * Returns the monetary value represented by this object.
-     *
-     * @return string
      */
     public function getBaseAmount(): string;
 
     /**
      * Returns the Money value in the human format, without the currency symbol.
-     *
-     * @return string
      */
     public function getHumanAmount(): string;
 
     /**
      * Returns the currency of the monetary value represented by this
      * object.
-     *
-     * @return Currency
      */
     public function getCurrency(): Currency;
 
     /**
-     * @param MoneyInterface $other
-     *
      * @return MoneyInterface
      */
     public function add(MoneyInterface $other): self;
 
     /**
-     * @param MoneyInterface $other
-     *
      * @return MoneyInterface
      */
     public function subtract(MoneyInterface $other): self;
 
     /**
      * @param float|int|string $divisor
-     * @param int              $roundingMode
-     *
-     * @return MoneyInterface
      */
     public function divide($divisor, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
      * @param float|int|string $multiplier
-     * @param int              $roundingMode
-     *
-     * @return MoneyInterface
      */
     public function multiply($multiplier, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 

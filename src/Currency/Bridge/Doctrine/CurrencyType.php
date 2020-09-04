@@ -24,16 +24,11 @@ use function Safe\sprintf;
  */
 final class CurrencyType extends Type
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private const CURRENCY = 'currency';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
-     * @param AbstractPlatform    $platform
-     *
-     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {

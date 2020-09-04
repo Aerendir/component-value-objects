@@ -53,8 +53,6 @@ final class Ip implements IpInterface
     /**
      * @throws IpException
      * @throws WrongVersionException
-     *
-     * @return string
      */
     public function __toString(): string
     {

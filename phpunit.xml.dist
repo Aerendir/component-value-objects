@@ -6,24 +6,28 @@
         colors="true"
         bootstrap="tests/bootstrap.php"
 >
+
     <php>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
-        <!-- Disable E_USER_DEPRECATED until 3.0 -->
-        <!-- php -r 'echo -1 & ~E_USER_DEPRECATED;' -->
         <ini name="error_reporting" value="-16385"/>
     </php>
+
     <testsuites>
         <testsuite name="Serendipity HQ Value Objects Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
+
+    <coverage includeUncoveredFiles="true">
+        <include>
             <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="./var/coverage/html" lowUpperBound="35" highLowerBound="70" />
-        <log type="coverage-clover" target="./var/coverage/clover.xml"/>
-    </logging>
+        </include>
+        <exclude>
+            <directory>./src/Resources</directory>
+        </exclude>
+    </coverage>
+
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
+    </listeners>
 </phpunit>

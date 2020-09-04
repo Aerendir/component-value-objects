@@ -43,8 +43,6 @@ final class AddressTransformer implements DataTransformerInterface
      * @param AddressEmbeddable|array<string,string|null>|null $address
      *
      * @throws \InvalidArgumentException
-     *
-     * @return AddressEmbeddable|null
      */
     public function reverseTransform($address): ?AddressEmbeddable
     {

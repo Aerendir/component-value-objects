@@ -11,13 +11,13 @@ return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 7 occurrences
     // PhanUndeclaredProperty : 4 occurrences
-    // PhanAccessMethodInternal : 2 occurrences
     // PhanParamSignatureRealMismatchHasNoParamType : 2 occurrences
     // PhanTypeMismatchArgumentProbablyReal : 2 occurrences
     // PhanTypeMismatchProperty : 2 occurrences
     // PhanUndeclaredExtendedClass : 2 occurrences
     // PhanNoopNew : 1 occurrence
     // PhanRedefinedClassReference : 1 occurrence
+    // PhanTypeMismatchArgumentNullable : 1 occurrence
     // PhanTypeMismatchDeclaredParam : 1 occurrence
     // PhanUnreferencedUseNormal : 1 occurrence
     // PhanUnusedVariable : 1 occurrence
@@ -25,12 +25,12 @@ return [
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
-        'src/Money/Bridge/Twig/MoneyFormatterExtension.php' => ['PhanTypeMismatchDeclaredParam'],
+        'src/Money/Bridge/Twig/MoneyFormatterExtension.php' => ['PhanTypeMismatchArgumentNullable', 'PhanTypeMismatchDeclaredParam'],
         'src/Money/Money.php' => ['PhanParamSignatureRealMismatchHasNoParamType'],
         'tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php' => ['PhanUndeclaredExtendedClass', 'PhanUndeclaredProperty', 'PhanUndeclaredStaticMethod'],
-        'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanAccessMethodInternal', 'PhanTypeMismatchArgumentProbablyReal', 'PhanTypeMismatchProperty'],
+        'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanTypeMismatchArgumentProbablyReal', 'PhanTypeMismatchProperty'],
         'tests/Email/EmailTest.php' => ['PhanUnusedVariable'],
-        'tests/Money/Bridge/Doctrine/MoneyTypeTest.php' => ['PhanAccessMethodInternal', 'PhanTypeMismatchProperty', 'PhanWriteOnlyPrivateProperty'],
+        'tests/Money/Bridge/Doctrine/MoneyTypeTest.php' => ['PhanTypeMismatchProperty', 'PhanWriteOnlyPrivateProperty'],
         'tests/Money/Bridge/Symfony/Form/Type/MoneyTypeTest.php' => ['PhanUndeclaredExtendedClass', 'PhanUndeclaredProperty', 'PhanUndeclaredStaticMethod'],
         'tests/Uri/UriTest.php' => ['PhanNoopNew'],
         'tests/Vat/VatRateTest.php' => ['PhanUnreferencedUseNormal'],

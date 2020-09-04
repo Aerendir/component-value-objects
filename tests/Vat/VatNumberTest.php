@@ -23,9 +23,7 @@ use SerendipityHQ\Component\ValueObjects\Vat\VatNumberInterface;
  */
 final class VatNumberTest extends TestCase
 {
-    /**
-     * @var string[]
-     */
+    /** @var array<string, string> */
     private const TEST_DATA = [
         'countryCode' => 'IT',
         'number'      => '01234567891',

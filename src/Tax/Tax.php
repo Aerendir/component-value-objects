@@ -100,8 +100,6 @@ final class Tax implements TaxInterface
 
     /**
      * Method to set the compound amount of taxes.
-     *
-     * @param bool $compound
      */
     protected function setCompound(bool $compound): void
     {
@@ -120,8 +118,6 @@ final class Tax implements TaxInterface
 
     /**
      * Method to set the paid amount of taxes.
-     *
-     * @param MoneyInterface $amount
      */
     protected function setAmount(MoneyInterface $amount): void
     {

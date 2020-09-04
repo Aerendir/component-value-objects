@@ -102,8 +102,6 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * Set the conversion rate of the currency.
      *
-     * @param float $exchangeRate
-     *
      * @throws StringsException
      */
     protected function setExchangeRate(float $exchangeRate): void
@@ -113,8 +111,6 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * Set the conversion rate of the currency.
-     *
-     * @param \DateTime $exchangeRateDate
      */
     protected function setExchangeRateDate(\DateTime $exchangeRateDate): void
     {
@@ -123,8 +119,6 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * The Currency in which the base amount is.
-     *
-     * @param Currency $from
      */
     protected function setFrom(Currency $from): void
     {
@@ -133,8 +127,6 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * The Currency in which the base amount has to be converted.
-     *
-     * @param Currency $to
      */
     protected function setTo(Currency $to): void
     {

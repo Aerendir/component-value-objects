@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+<files psalm-version="3.15@de6e7f324f44dde540ebe7ebd4eb481b97c86f30">
   <file src="src/Address/Address.php">
     <PropertyNotSetInConstructor occurrences="7">
       <code>$countryCode</code>
@@ -22,7 +22,30 @@
       <code>$address</code>
     </MoreSpecificImplementedParamType>
   </file>
+  <file src="src/Common/ComplexValueObjectInterface.php">
+    <MissingReturnType occurrences="1">
+      <code>getValueObject</code>
+    </MissingReturnType>
+  </file>
+  <file src="src/Common/ComplexValueObjectTrait.php">
+    <MissingReturnType occurrences="1">
+      <code>getValueObject</code>
+    </MissingReturnType>
+  </file>
+  <file src="src/Common/DisableWritingMethodsTrait.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+  </file>
+  <file src="src/Common/SimpleValueObjectInterface.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
+  </file>
   <file src="src/Common/ValueObjectInterface.php">
+    <MissingParamType occurrences="1">
+      <code>$value</code>
+    </MissingParamType>
     <MissingReturnType occurrences="1">
       <code>__toString</code>
     </MissingReturnType>
@@ -37,6 +60,9 @@
       <code>$fieldDeclaration</code>
       <code>$value</code>
     </MoreSpecificImplementedParamType>
+    <ParamNameMismatch occurrences="1">
+      <code>$fieldDeclaration</code>
+    </ParamNameMismatch>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>null === $value || '' === $value</code>
     </RedundantConditionGivenDocblockType>
@@ -64,15 +90,13 @@
       <code>$fieldDeclaration</code>
       <code>$value</code>
     </MoreSpecificImplementedParamType>
+    <ParamNameMismatch occurrences="1">
+      <code>$fieldDeclaration</code>
+    </ParamNameMismatch>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>null === $value || '' === $value</code>
       <code>\is_string($value)</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Email/Email.php">
-    <MoreSpecificImplementedParamType occurrences="1">
-      <code>$value</code>
-    </MoreSpecificImplementedParamType>
   </file>
   <file src="src/Ip/Ip.php">
     <MissingParamType occurrences="1">
@@ -89,6 +113,9 @@
       <code>$fieldDeclaration</code>
       <code>$value</code>
     </MoreSpecificImplementedParamType>
+    <ParamNameMismatch occurrences="1">
+      <code>$fieldDeclaration</code>
+    </ParamNameMismatch>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>null === $value || '' === $value</code>
     </RedundantConditionGivenDocblockType>
@@ -115,6 +142,10 @@
       <code>null === $this-&gt;baseAmount</code>
       <code>null === $this-&gt;humanAmount</code>
     </DocblockTypeContradiction>
+    <MissingParamType occurrences="2">
+      <code>$roundingMode</code>
+      <code>$roundingMode</code>
+    </MissingParamType>
     <MixedAssignment occurrences="4">
       <code>$result</code>
       <code>$result</code>
@@ -157,11 +188,7 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Phone/Phone.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$region</code>
-    </PropertyNotSetInConstructor>
-    <UninitializedProperty occurrences="2">
-      <code>$this-&gt;region</code>
+    <UninitializedProperty occurrences="1">
       <code>$this-&gt;number</code>
     </UninitializedProperty>
   </file>
@@ -187,6 +214,9 @@
       <code>$fieldDeclaration</code>
       <code>$value</code>
     </MoreSpecificImplementedParamType>
+    <ParamNameMismatch occurrences="1">
+      <code>$fieldDeclaration</code>
+    </ParamNameMismatch>
     <RedundantConditionGivenDocblockType occurrences="3">
       <code>null === $value || '' === $value</code>
       <code>\is_object($value)</code>

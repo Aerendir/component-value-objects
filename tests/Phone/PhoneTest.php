@@ -22,9 +22,7 @@ use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
  */
 final class PhoneTest extends TestCase
 {
-    /**
-     * @var string[]
-     */
+    /** @var array<string, string> */
     private const TEST = [
         'number' => '3331234567',
         'region' => 'IT',

@@ -34,13 +34,9 @@ final class Money implements MoneyInterface
         __construct as traitConstruct;
     }
     use DisableWritingMethodsTrait;
-    /**
-     * @var string
-     */
+    /** @var string */
     private const BASE_AMOUNT = 'baseAmount';
-    /**
-     * @var string
-     */
+    /** @var string */
     private const CURRENCY = 'currency';
 
     /**
@@ -212,8 +208,6 @@ final class Money implements MoneyInterface
 
     /**
      * Sets the amount.
-     *
-     * @param int $baseAmount
      */
     protected function setBaseAmount(int $baseAmount): void
     {

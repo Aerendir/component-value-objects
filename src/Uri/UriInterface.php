@@ -30,16 +30,12 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * Note that a relative URI may still be valid
      *
-     * @return bool
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function isValid(): bool;
 
     /**
      * Check if the URI is a valid relative URI.
-     *
-     * @return bool
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -48,16 +44,12 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Check if the URI is an absolute or relative URI.
      *
-     * @return bool
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function isAbsolute(): bool;
 
     /**
      * Parse a URI string.
-     *
-     * @param string $uri
      *
      * @return UriInterface
      *
@@ -102,16 +94,12 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Get the scheme part of the URI.
      *
-     * @return string|null
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function getScheme(): ?string;
 
     /**
      * Get the User-info (usually user:password) part.
-     *
-     * @return string|null
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -120,16 +108,12 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Get the URI host.
      *
-     * @return string|null
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function getHost(): ?string;
 
     /**
      * Get the URI port.
-     *
-     * @return int|null
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -138,16 +122,12 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Get the URI path.
      *
-     * @return string|null
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function getPath(): ?string;
 
     /**
      * Get the URI query.
-     *
-     * @return string|null
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -168,8 +148,6 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Get the URI fragment.
      *
-     * @return string|null
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function getFragment(): ?string;
@@ -185,8 +163,6 @@ interface UriInterface extends SimpleValueObjectInterface
      * You can check if a scheme is valid before setting it using the
      * validateScheme() method.
      *
-     * @param string|null $scheme
-     *
      * @throws InvalidUriPartException
      *
      * @return UriInterface
@@ -197,8 +173,6 @@ interface UriInterface extends SimpleValueObjectInterface
 
     /**
      * Set the URI User-info part (usually user:password).
-     *
-     * @param string|null $userInfo
      *
      * @throws InvalidUriPartException If the schema definition
      *                                 does not have this part
@@ -223,8 +197,6 @@ interface UriInterface extends SimpleValueObjectInterface
      * example the HTTP RFC clearly states that only IPv4 and valid DNS names
      * are allowed in HTTP URIs.
      *
-     * @param string|null $host
-     *
      * @throws InvalidUriPartException
      *
      * @return UriInterface
@@ -236,8 +208,6 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Set the port part of the URI.
      *
-     * @param int|null $port
-     *
      * @return UriInterface
      *
      * @see \Laminas\Uri\UriInterface
@@ -246,8 +216,6 @@ interface UriInterface extends SimpleValueObjectInterface
 
     /**
      * Set the path.
-     *
-     * @param string|null $path
      *
      * @return UriInterface
      *
@@ -272,8 +240,6 @@ interface UriInterface extends SimpleValueObjectInterface
 
     /**
      * Set the URI fragment part.
-     *
-     * @param string|null $fragment
      *
      * @throws InvalidUriPartException If the schema definition
      *                                 does not have this part

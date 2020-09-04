@@ -174,57 +174,36 @@ class Address implements AddressInterface
         throw new \RuntimeException('Method not implemented. See the @todo in the code.');
     }
 
-    /**
-     * @param string $administrativeArea
-     */
     protected function setAdministrativeArea(string $administrativeArea): void
     {
         $this->administrativeArea = $administrativeArea;
     }
 
-    /**
-     * @param string $countryCode
-     */
     protected function setCountryCode(string $countryCode): void
     {
         $this->countryCode = $countryCode;
     }
 
-    /**
-     * @param string $dependentLocality
-     */
     protected function setDependentLocality(string $dependentLocality): void
     {
         $this->dependentLocality = $dependentLocality;
     }
 
-    /**
-     * @param string $street
-     */
     protected function setStreet(string $street): void
     {
         $this->street = $street;
     }
 
-    /**
-     * @param string $extraLine
-     */
     protected function setExtraLine(string $extraLine): void
     {
         $this->extraLine = $extraLine;
     }
 
-    /**
-     * @param string $locality
-     */
     protected function setLocality(string $locality): void
     {
         $this->locality = $locality;
     }
 
-    /**
-     * @param string $postalCode
-     */
     protected function setPostalCode(string $postalCode): void
     {
         $this->postalCode = $postalCode;

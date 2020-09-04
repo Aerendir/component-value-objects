@@ -35,8 +35,6 @@ interface TaxInterface extends ComplexValueObjectInterface
 
     /**
      * Method to get the amount of taxes paid.
-     *
-     * @return MoneyInterface|null
      */
     public function getAmount(): ? MoneyInterface;
 
@@ -49,8 +47,6 @@ interface TaxInterface extends ComplexValueObjectInterface
 
     /**
      * If the Tax is compounded returns true, false instead.
-     *
-     * @return bool|null
      */
     public function isCompound(): ? bool;
 }

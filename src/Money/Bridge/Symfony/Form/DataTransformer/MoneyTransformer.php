@@ -40,8 +40,6 @@ final class MoneyTransformer implements DataTransformerInterface
      * Transforms an object (Email) to a string (email@example.com).
      *
      * @param MoneyInterface|null $money
-     *
-     * @return string|null
      */
     public function transform($money): ?string
     {
@@ -59,8 +57,6 @@ final class MoneyTransformer implements DataTransformerInterface
      *
      * @throws \InvalidArgumentException
      * @throws ParserException
-     *
-     * @return MoneyInterface|null
      */
     public function reverseTransform($money): ? MoneyInterface
     {

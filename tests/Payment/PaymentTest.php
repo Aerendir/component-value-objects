@@ -21,9 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Payment\PaymentInterface;
  */
 final class PaymentTest extends TestCase
 {
-    /**
-     * @var string[]
-     */
+    /** @var array<string, string> */
     private const TEST_DATA = [
         'method'   => 'PayPal',
         'status'   => 'A random status',

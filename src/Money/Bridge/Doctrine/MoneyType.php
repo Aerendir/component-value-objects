@@ -24,16 +24,11 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
  */
 final class MoneyType extends Type
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public const NAME = 'money';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
-     * @param AbstractPlatform    $platform
-     *
-     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {

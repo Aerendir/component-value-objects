@@ -27,15 +27,11 @@ interface VatNumberInterface extends ComplexValueObjectInterface
 
     /**
      * Returns the number part of the VAT Number.
-     *
-     * @return int
      */
     public function getNumber(): int;
 
     /**
      * Method to get the full VAT Number, with ISC country code.
-     *
-     * @return string
      */
     public function getVatNumber(): string;
 }

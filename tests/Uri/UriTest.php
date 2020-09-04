@@ -19,13 +19,9 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 
 final class UriTest extends TestCase
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private const BASE = 'http://example.com/dir/subdir/';
-    /**
-     * @var string
-     */
+    /** @var string */
     private const URL = 'http://example.com/dir/subdir/more/file1.txt';
 
     public function testUri(): void

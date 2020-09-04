@@ -18,9 +18,6 @@ trait DisableWritingMethodsTrait
 {
     /**
      * @see {@link ValueObjectInterface}
-     *
-     * @param string $field
-     * @param mixed  $value
      */
     public function __set(string $field, $value): void
     {

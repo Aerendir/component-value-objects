@@ -265,9 +265,6 @@ final class Uri implements UriInterface
         return $this->__toString();
     }
 
-    /**
-     * @return BaseUri
-     */
     public function getValueObject(): BaseUri
     {
         return $this->valueObject;

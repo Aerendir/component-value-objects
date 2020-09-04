@@ -20,38 +20,17 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
  */
 interface AddressInterface extends ComplexValueObjectInterface
 {
-    /**
-     * @return string|null
-     */
     public function getAdministrativeArea(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getCountryCode(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getDependentLocality(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getLocality(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getPostalCode(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getStreet(): ?string;
 
-    /**
-     * @return string|null
-     */
     public function getExtraLine(): ?string;
 }

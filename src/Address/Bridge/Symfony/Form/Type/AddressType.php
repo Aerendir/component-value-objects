@@ -22,17 +22,11 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 final class AddressType extends AbstractType
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private const LABEL = 'label';
-    /**
-     * @var string
-     */
+    /** @var string */
     private const TRANSLATION_DOMAIN = 'translation_domain';
-    /**
-     * @var string
-     */
+    /** @var string */
     private const SHQ_ADDRESS = 'shq_address';
 
     /**

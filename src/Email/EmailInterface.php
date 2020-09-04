@@ -20,22 +20,16 @@ interface EmailInterface extends SimpleValueObjectInterface
 {
     /**
      * Returns the original email passed to the object.
-     *
-     * @return string
      */
     public function getEmail(): string;
 
     /**
      * The mail box part of the email (box@host.com).
-     *
-     * @return string
      */
     public function getMailBox(): string;
 
     /**
      * Return the host part of the email (box@host.com).
-     *
-     * @return string
      */
     public function getHost(): string;
 
@@ -43,8 +37,6 @@ interface EmailInterface extends SimpleValueObjectInterface
      * Change the mailbox.
      *
      * This returns a new Email object.
-     *
-     * @param string $newMailBox
      *
      * @return EmailInterface
      */

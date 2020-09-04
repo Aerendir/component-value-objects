@@ -61,8 +61,6 @@ trait ComplexValueObjectTrait
 
     /**
      * Returns the built value object or null if no one is present.
-     *
-     * @return mixed
      */
     public function getValueObject()
     {

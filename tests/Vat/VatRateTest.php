@@ -24,9 +24,7 @@ use SerendipityHQ\Component\ValueObjects\Vat\VatRateInterface;
  */
 final class VatRateTest extends TestCase
 {
-    /**
-     * @var float[]|string[]
-     */
+    /** @var array<string, float|string> */
     private const TEST_DATA = [
         'countryCode' => 'IT',
         'percentage'  => 22.0000,

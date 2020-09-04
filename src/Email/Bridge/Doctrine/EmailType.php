@@ -26,18 +26,13 @@ use SerendipityHQ\Component\ValueObjects\Email\Email;
  */
 final class EmailType extends Type
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public const NAME = 'email';
 
     /**
      * @param array<string,mixed> $fieldDeclaration
-     * @param AbstractPlatform    $platform
      *
      * @codeCoverageIgnore
-     *
-     * @return string
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
@@ -61,8 +56,6 @@ final class EmailType extends Type
      *
      * @throws \InvalidArgumentException
      * @throws StringsException
-     *
-     * @return \SerendipityHQ\Component\ValueObjects\Email\Email|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?\SerendipityHQ\Component\ValueObjects\Email\Email
     {
@@ -80,8 +73,6 @@ final class EmailType extends Type
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
-     *
-     * @return string|null
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {

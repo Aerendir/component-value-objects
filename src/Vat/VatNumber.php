@@ -68,8 +68,6 @@ final class VatNumber implements VatNumberInterface
 
     /**
      * Sets the country code of the VatNumber.
-     *
-     * @param string $countryCode
      */
     protected function setCountryCode(string $countryCode): void
     {
@@ -78,8 +76,6 @@ final class VatNumber implements VatNumberInterface
 
     /**
      * Method to set the number part of the VAT Number.
-     *
-     * @param int $number
      */
     protected function setNumber(int $number): void
     {
