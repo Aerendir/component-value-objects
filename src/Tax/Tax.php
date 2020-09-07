@@ -41,7 +41,7 @@ final class Tax implements TaxInterface
     private $title;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getCode(): ? string
     {
@@ -49,7 +49,7 @@ final class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getRate(): ? float
     {
@@ -57,7 +57,7 @@ final class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAmount(): ? MoneyInterface
     {
@@ -65,7 +65,7 @@ final class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getTitle(): ? string
     {
@@ -73,7 +73,7 @@ final class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function isCompound(): ? bool
     {
@@ -81,7 +81,7 @@ final class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {
@@ -135,7 +135,7 @@ final class Tax implements TaxInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toString(): string
     {

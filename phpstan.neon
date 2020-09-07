@@ -28,5 +28,11 @@ parameters:
             message: '#Property SerendipityHQ\\Component\\ValueObjects\\Money\\Bridge\\Twig\\MoneyFormatterExtension::\$currencies type has no value type specified in iterable type Money\\Currencies\\ISOCurrencies.#'
             path: %currentWorkingDirectory%/src
         -
-            message: '#Method SerendipityHQ\\Component\\ValueObjects\\Uri\\Uri::__construct\(\) has parameter \$uri with no typehint specified.#'
-            path: %currentWorkingDirectory%/src
+            message: '#Else branch is unreachable because ternary operator condition is always true.#'
+            count: 1
+            path: src/Uri/Uri.php
+        -
+            message: "#^Parameter \\#1 \\$uri of class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\Uri constructor expects SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\UriInterface\\|string, int given\\.$#"
+            count: 1
+            path: tests/Uri/UriTest.php
+

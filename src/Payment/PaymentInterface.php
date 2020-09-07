@@ -16,7 +16,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Defines the minimum requisites of a Payment Object.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  *
  * @todo Define a list of possible statuses
  */

@@ -26,7 +26,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  * - https://github.com/black-project/Address
  * - https://github.com/adamlc/address-format
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 class Address implements AddressInterface
 {
@@ -99,7 +99,7 @@ class Address implements AddressInterface
     protected $extraLine;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $values)
     {
@@ -108,7 +108,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getAdministrativeArea(): ?string
     {
@@ -116,7 +116,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getCountryCode(): ?string
     {
@@ -124,7 +124,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getDependentLocality(): ?string
     {
@@ -132,7 +132,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getStreet(): ?string
     {
@@ -140,7 +140,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getExtraLine(): ?string
     {
@@ -148,7 +148,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getLocality(): ?string
     {
@@ -156,7 +156,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getPostalCode(): ?string
     {
@@ -164,7 +164,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \RuntimeException
      */
@@ -210,7 +210,7 @@ class Address implements AddressInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \RuntimeException
      */

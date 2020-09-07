@@ -35,7 +35,7 @@ final class VatNumber implements VatNumberInterface
     private $vatNumber;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getCountryCode(): string
     {
@@ -43,7 +43,7 @@ final class VatNumber implements VatNumberInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getNumber(): int
     {
@@ -51,7 +51,7 @@ final class VatNumber implements VatNumberInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getVatNumber(): string
     {
@@ -59,7 +59,7 @@ final class VatNumber implements VatNumberInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {
@@ -96,7 +96,7 @@ final class VatNumber implements VatNumberInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toString(): string
     {

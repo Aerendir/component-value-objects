@@ -13,7 +13,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="vendor-bin/phpunit/vendor/vimeo/psalm/config.xsd"
-    errorBaseline=".baseline-psalm.xml"
 >
     <projectFiles>
         <directory name="src"/>
@@ -25,7 +24,14 @@
 
     <issueHandlers>
         <MissingThrowsDocblock errorLevel="suppress" />
+        <RedundantCondition errorLevel="suppress" />
+        <RedundantConditionGivenDocblockType errorLevel="suppress" />
         <RedundantIdentityWithTrue errorLevel="suppress" />
+
+        <!-- Specific to this library -->
+        <ImplicitToStringCast errorLevel="suppress" />
+        <MoreSpecificImplementedParamType errorLevel="suppress" />
+        <PropertyNotSetInConstructor errorLevel="suppress" />
     </issueHandlers>
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>

@@ -19,7 +19,7 @@ use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class MoneyTransformer implements DataTransformerInterface
 {

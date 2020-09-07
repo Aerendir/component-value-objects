@@ -18,7 +18,7 @@ use Darsyn\IP\Version\IPv4;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class Ip implements IpInterface
 {
@@ -28,10 +28,14 @@ final class Ip implements IpInterface
     private $valueObject;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @param string $value
      *
      * @throws InvalidIpAddressException
      * @throws WrongVersionException
+     *
+     * @psalm-suppress DocblockTypeContradiction
      */
     public function __construct($value)
     {
@@ -43,7 +47,7 @@ final class Ip implements IpInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws IpException
      * @throws WrongVersionException

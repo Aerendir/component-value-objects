@@ -34,20 +34,21 @@ final class Phone extends PhoneNumber implements PhoneInterface
     private $region;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws NumberParseException
      * @throws \InvalidArgumentException
+     *
+     * @psalm-suppress MixedAssignment
      */
     public function __construct(array $values)
     {
         $this->traitConstruct($values);
+        $keepRawInput = $values[self::CONFIG_KEEP_RAW_INPUT] ?? false;
 
-        if (isset($values[self::CONFIG_KEEP_RAW_INPUT]) && false === \is_bool($values[self::CONFIG_KEEP_RAW_INPUT])) {
+        if (false === \is_bool($keepRawInput)) {
             throw new \InvalidArgumentException('The value of "keepRawInput" MUST be "bool".');
         }
-
-        $keepRawInput = $values[self::CONFIG_KEEP_RAW_INPUT] ?? false;
 
         if (\is_string($values[self::NUMBER])) {
             $phoneUtil    = PhoneNumberUtil::getInstance();
@@ -83,7 +84,7 @@ final class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {

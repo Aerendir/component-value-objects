@@ -19,15 +19,12 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 
 final class UriTest extends TestCase
 {
-    /** @var string */
     private const BASE = 'http://example.com/dir/subdir/';
-    /** @var string */
-    private const URL = 'http://example.com/dir/subdir/more/file1.txt';
+    private const URL  = self::BASE . 'more/file1.txt';
 
     public function testUri(): void
     {
-        $test = 'http://user@example.com:80/path/?query=string#fragment';
-
+        $test     = 'http://user@example.com:80/path/?query=string#fragment';
         $resource = new Uri($test);
 
         // Test the value object direct interface
@@ -46,11 +43,9 @@ final class UriTest extends TestCase
 
     public function testUriCanMergeAnotherUri(): void
     {
-        $test = 'http://user@example.com:80/path/?query=string#fragment';
-
-        $toMerge = new Uri($test);
-
-        $resource = new Uri($toMerge);
+        $test     = 'http://user@example.com:80/path/?query=string#fragment';
+        $toMerge  = new Uri($test);
+        $resource = new Uri($toMerge->toString());
 
         // Test the value object direct interface
         self::assertInstanceOf(UriInterface::class, $resource);
@@ -64,24 +59,22 @@ final class UriTest extends TestCase
 
     /**
      * @suppress PhanNoopNew
+     * @psalm-suppress InvalidScalarArgument
+     * @suppress PhanTypeMismatchArgument
      */
     public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject(): void
     {
         // An integer
         $test = 33;
-
         $this->expectException(InvalidArgumentException::class);
         new Uri($test);
     }
 
     public function testNormalize(): void
     {
-        $test = 'http://user@example.com:80/path/../to/parent/folder?query=string#fragment';
-
+        $test     = 'http://user@example.com:80/path/../to/parent/folder?query=string#fragment';
         $resource = new Uri($test);
-
         $resource->normalize();
-
         self::assertSame('/to/parent/folder', $resource->getPath());
     }
 

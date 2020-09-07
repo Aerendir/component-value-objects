@@ -16,7 +16,7 @@ use SerendipityHQ\Component\ValueObjects\Address\Address;
 use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  *
  * @ORM\Embeddable
  */

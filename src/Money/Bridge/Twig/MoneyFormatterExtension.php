@@ -34,9 +34,10 @@ final class MoneyFormatterExtension extends AbstractExtension
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @return TwigFilter[]
+     * @psalm-suppress MixedArgumentTypeCoercion
      */
     public function getFilters(): array
     {

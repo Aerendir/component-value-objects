@@ -18,7 +18,7 @@ use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class MoneyTest extends TestCase
 {

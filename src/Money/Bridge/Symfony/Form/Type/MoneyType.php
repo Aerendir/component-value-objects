@@ -22,7 +22,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class MoneyType extends AbstractType
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @psalm-suppress MixedArgumentTypeCoercion
      */
@@ -32,7 +32,7 @@ final class MoneyType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getParent(): string
     {
@@ -40,7 +40,7 @@ final class MoneyType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getBlockPrefix(): string
     {

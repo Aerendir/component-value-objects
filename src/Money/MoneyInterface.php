@@ -18,7 +18,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Defines the minimum requirements of a Money object.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 interface MoneyInterface extends ComplexValueObjectInterface
 {

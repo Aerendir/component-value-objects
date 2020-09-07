@@ -33,7 +33,7 @@ final class Payment implements PaymentInterface
     private $status;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getMethod(): string
     {
@@ -41,7 +41,7 @@ final class Payment implements PaymentInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getStatus(): ?string
     {
@@ -49,7 +49,7 @@ final class Payment implements PaymentInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {
@@ -73,7 +73,7 @@ final class Payment implements PaymentInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toString(): string
     {

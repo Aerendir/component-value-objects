@@ -17,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 {
@@ -60,7 +60,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getExchangeRate(): float
     {
@@ -68,7 +68,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getExchangeRateDate(): ? \DateTime
     {
@@ -76,7 +76,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getFrom(): Currency
     {
@@ -84,7 +84,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getTo(): Currency
     {
@@ -92,7 +92,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {
@@ -134,7 +134,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @psalm-suppress InvalidOperand
      */

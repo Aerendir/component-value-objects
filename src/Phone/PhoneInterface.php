@@ -16,7 +16,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Defines the minimum requisites of a Phone Object.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 interface PhoneInterface extends ComplexValueObjectInterface
 {

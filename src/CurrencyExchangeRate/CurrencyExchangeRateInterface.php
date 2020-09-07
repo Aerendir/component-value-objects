@@ -17,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Defines the minimum requisites of a Currency object.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
 {

@@ -27,6 +27,8 @@ interface ValueObjectInterface
 
     /**
      * The string representation of the object.
+     *
+     * @psalm-suppress MissingReturnType
      */
     public function __toString();
 

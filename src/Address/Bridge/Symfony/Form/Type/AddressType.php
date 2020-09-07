@@ -31,7 +31,7 @@ final class AddressType extends AbstractType
     private const SHQ_ADDRESS = 'shq_address';
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

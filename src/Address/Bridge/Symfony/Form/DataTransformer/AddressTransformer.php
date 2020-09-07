@@ -17,7 +17,7 @@ use SerendipityHQ\Component\ValueObjects\Address\Bridge\Doctrine\AddressEmbeddab
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class AddressTransformer implements DataTransformerInterface
 {

@@ -21,7 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
  * The methods are copied and pasted from\Laminas\Uri\UriInterface as there is a conflict on the toString() method
  * signature.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 interface UriInterface extends SimpleValueObjectInterface
 {

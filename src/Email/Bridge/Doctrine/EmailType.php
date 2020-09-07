@@ -30,17 +30,17 @@ final class EmailType extends Type
     public const NAME = 'email';
 
     /**
-     * @param array<string,mixed> $fieldDeclaration
+     * @param array<string,mixed> $column
      *
      * @codeCoverageIgnore
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
+        return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @codeCoverageIgnore
      */
@@ -50,7 +50,7 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @psalm-suppress MixedArgument
      *
@@ -67,12 +67,13 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @param Email|string|null $value
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
+     * @psalm-suppress DocblockTypeContradiction
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
@@ -100,7 +101,7 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @codeCoverageIgnore
      *
@@ -112,7 +113,7 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getName(): string
     {

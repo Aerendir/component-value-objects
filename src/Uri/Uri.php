@@ -30,7 +30,9 @@ final class Uri implements UriInterface
     private $valueObject;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @param string|UriInterface $uri
      *
      * @throws StringsException
      * @throws InvalidArgumentException
@@ -60,7 +62,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getFragment(): ?string
     {
@@ -68,7 +70,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getHost(): ?string
     {
@@ -76,7 +78,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getPath(): ?string
     {
@@ -84,7 +86,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getPort(): ?int
     {
@@ -92,7 +94,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getQuery(): ?string
     {
@@ -100,7 +102,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @psalm-suppress MixedReturnTypeCoercion
      *
@@ -112,7 +114,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getScheme(): ?string
     {
@@ -120,7 +122,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getUserInfo(): ?string
     {
@@ -128,7 +130,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function isAbsolute(): bool
     {
@@ -136,7 +138,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function isValid(): bool
     {
@@ -144,7 +146,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function isValidRelative(): bool
     {
@@ -152,7 +154,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function makeRelative($baseUri): UriInterface
     {
@@ -166,7 +168,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function normalize(): UriInterface
     {
@@ -176,7 +178,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function parse(string $uri): UriInterface
     {
@@ -186,7 +188,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setFragment(?string $fragment): UriInterface
     {
@@ -196,7 +198,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setHost(?string $host): UriInterface
     {
@@ -206,7 +208,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setPath(?string $path): UriInterface
     {
@@ -216,7 +218,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setPort(?int $port): UriInterface
     {
@@ -226,7 +228,9 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @param array<string,string>|string|null $query
      */
     public function setQuery($query): UriInterface
     {
@@ -236,7 +240,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setScheme(?string $scheme): UriInterface
     {
@@ -246,7 +250,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function setUserInfo(?string $userInfo): UriInterface
     {
@@ -256,7 +260,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws InvalidUriException
      */
@@ -271,7 +275,7 @@ final class Uri implements UriInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws InvalidUriException
      */

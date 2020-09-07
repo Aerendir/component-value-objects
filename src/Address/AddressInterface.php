@@ -16,7 +16,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 /**
  * Defines the minimum requisites of an Address object.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 interface AddressInterface extends ComplexValueObjectInterface
 {

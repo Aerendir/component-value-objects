@@ -26,7 +26,7 @@ use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
  *
  * So the base money object is stored in a proprty in this class and this class operates like a simple wrapper.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class Money implements MoneyInterface
 {
@@ -41,7 +41,7 @@ final class Money implements MoneyInterface
      * 10 = 00.1 {CURRENCY}
      * 100 = 1.00 {CURRENCY}
      *
-     * @var int|string
+     * @var int|string|null
      */
     private $baseAmount;
 
@@ -51,15 +51,18 @@ final class Money implements MoneyInterface
      * 00.1 {CURRENCY} = 10 units
      * 1.00 {CURRENCY} = 100 units
      *
-     * @var float|int|string
+     * @var float|int|string|null
      */
     private $humanAmount;
 
     /** @var Currency */
     private $currency;
 
+    /** @var BaseMoney */
+    private $valueObject;
+
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \InvalidArgumentException
      * @throws ParserException
@@ -102,10 +105,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @psalm-suppress MixedReturnStatement
-     * @psalm-suppress MixedMethodCall
+     * {@inheritDoc}
      */
     public function getBaseAmount(): string
     {
@@ -113,10 +113,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @psalm-suppress MixedReturnStatement
-     * @psalm-suppress MixedMethodCall
+     * {@inheritDoc}
      */
     public function getCurrency(): Currency
     {
@@ -124,7 +121,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getHumanAmount(): string
     {
@@ -132,27 +129,23 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \InvalidArgumentException
      * @throws ParserException
-     * @psalm-suppress MixedMethodCall
      */
     public function add(MoneyInterface $other): MoneyInterface
     {
-        $toAdd = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
-
+        $toAdd  = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
         $result = $this->valueObject->add($toAdd);
 
         return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \InvalidArgumentException
-     * @psalm-suppress MixedMethodCall
-     *
      * @throws ParserException
      */
     public function subtract(MoneyInterface $other): MoneyInterface
@@ -165,11 +158,9 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws \InvalidArgumentException
-     * @psalm-suppress MixedMethodCall
-     *
      * @throws ParserException
      */
     public function divide($divisor, int $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
@@ -180,9 +171,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @psalm-suppress MixedMethodCall
+     * {@inheritDoc}
      *
      * @throws \InvalidArgumentException
      * @throws ParserException
@@ -195,7 +184,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {
@@ -233,9 +222,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @psalm-suppress MixedArgument
+     * {@inheritDoc}
      */
     public function __toString(): string
     {
@@ -246,7 +233,7 @@ final class Money implements MoneyInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toArray(): array
     {

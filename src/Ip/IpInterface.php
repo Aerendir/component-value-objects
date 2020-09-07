@@ -16,7 +16,7 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 /**
  * Defines the minimum requirements of an IP object.
  *
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 interface IpInterface extends SimpleValueObjectInterface
 {

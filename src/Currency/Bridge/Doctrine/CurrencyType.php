@@ -28,15 +28,15 @@ final class CurrencyType extends Type
     public const NAME = 'currency';
 
     /**
-     * @param array<string,mixed> $fieldDeclaration
+     * @param array<string,mixed> $column
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
+        return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
@@ -44,7 +44,7 @@ final class CurrencyType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @psalm-suppress MixedArgument
      *
@@ -60,7 +60,7 @@ final class CurrencyType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @param Currency|string|null $value
      *
@@ -68,6 +68,8 @@ final class CurrencyType extends Type
      * @throws StringsException
      *
      * @return Currency|string|null
+     * @psalm-suppress DocblockTypeContradiction
+     * @psalm-suppress MixedArgument
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
@@ -85,7 +87,7 @@ final class CurrencyType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
@@ -93,7 +95,7 @@ final class CurrencyType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getName(): string
     {

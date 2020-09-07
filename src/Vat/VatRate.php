@@ -29,7 +29,9 @@ final class VatRate implements VatRateInterface
     private $countryCode;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
+     *
+     * @param string $countryCode
      *
      * @throws \InvalidArgumentException
      */
@@ -53,7 +55,7 @@ final class VatRate implements VatRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function toString(array $options = []): string
     {
@@ -61,7 +63,7 @@ final class VatRate implements VatRateInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __toString(): string
     {

@@ -17,9 +17,6 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 use SerendipityHQ\Component\ValueObjects\Phone\Phone;
 use SerendipityHQ\Component\ValueObjects\Phone\PhoneInterface;
 
-/**
- * Tests the Phone class.
- */
 final class PhoneTest extends TestCase
 {
     /** @var array<string, string> */

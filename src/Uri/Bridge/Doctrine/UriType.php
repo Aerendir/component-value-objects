@@ -29,15 +29,15 @@ final class UriType extends Type
     public const NAME = 'uri';
 
     /**
-     * @param array<string,mixed> $fieldDeclaration
+     * @param array<string,mixed> $column
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
+        return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
@@ -45,7 +45,7 @@ final class UriType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws StringsException
      * @throws \Laminas\Uri\Exception\InvalidArgumentException
@@ -58,16 +58,27 @@ final class UriType extends Type
             return $value;
         }
 
-        return new Uri($value);
+        if (\is_string($value)) {
+            $value = new Uri($value);
+        }
+
+        if ( ! $value instanceof UriInterface) {
+            $type = \is_object($value) ? \get_class($value) : \gettype($value);
+            throw new \RuntimeException(sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type));
+        }
+
+        return $value;
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @param string|UriInterface|null $value
      *
      * @throws StringsException
      * @throws \InvalidArgumentException
+     * @psalm-suppress DocblockTypeContradiction
+     * @psalm-suppress MixedArgument
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
@@ -84,7 +95,7 @@ final class UriType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
@@ -92,7 +103,7 @@ final class UriType extends Type
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getName(): string
     {

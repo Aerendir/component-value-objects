@@ -18,7 +18,7 @@ use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
 /**
- * {@inheritdoc}
+ * {@inheritDoc}
  */
 final class Email implements EmailInterface
 {
@@ -34,7 +34,7 @@ final class Email implements EmailInterface
     private $host;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @param string $value The email to set in the object
      *
@@ -55,7 +55,7 @@ final class Email implements EmailInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getEmail(): string
     {
@@ -63,7 +63,7 @@ final class Email implements EmailInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getHost(): string
     {
@@ -71,7 +71,7 @@ final class Email implements EmailInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getMailBox(): string
     {
@@ -79,7 +79,7 @@ final class Email implements EmailInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function changeMailBox(string $newMailbox): EmailInterface
     {
@@ -91,7 +91,7 @@ final class Email implements EmailInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws StringsException
      */
@@ -101,7 +101,7 @@ final class Email implements EmailInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @throws StringsException
      */
