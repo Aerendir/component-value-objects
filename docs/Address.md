@@ -14,13 +14,16 @@ Extends [commerceguys/addressing](https://github.com/commerceguys/addressing).
 See the working example: [examples/Address.php](examples/Address.php).
 
 ```php
+use SerendipityHQ\Component\ValueObjects\Address\Address;
+use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
+
 $values = [
-    'CountryCode'        => 'IT',
-    'AdministrativeArea' => 'Salerno',
-    'Locality'           => 'Nocera Inferiore',
-    'PostalCode'         => '84014',
-    'Street'             => 'Via dalle scatole, 17',
-    'ExtraLine'          => 'Interno 123'
+    AddressInterface::COUNTRY_CODE        => 'IT',
+    AddressInterface::ADMINISTRATIVE_AREA => 'Salerno',
+    AddressInterface::LOCALITY           => 'Nocera Inferiore',
+    AddressInterface::POSTAL_CODE         => '84014',
+    AddressInterface::STREET             => 'Via dalle scatole, 17',
+    AddressInterface::EXTRA_LINE          => 'Interno 123'
 ];
 
 $address = new Address($values);

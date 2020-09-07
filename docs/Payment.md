@@ -21,9 +21,11 @@ public function __construct($values)
 See the working example: [examples/Payment.php](examples/Payment.php).
 
 ```php
+use SerendipityHQ\Component\ValueObjects\Payment\Payment;
+
 $values = [
-    'method' => 'PayPal',
-    'status' => 'Paid'
+    Payment::METHOD => 'PayPal',
+    Payment::STATUS => 'Paid'
 ];
 
 $payment = new Payment($values);

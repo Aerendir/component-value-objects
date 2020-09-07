@@ -21,6 +21,8 @@ public function __construct($countryCode)
 See the working example: [examples/VatRate.php](examples/Vat.php).
 
 ```php
+use SerendipityHQ\Component\ValueObjects\Vat\VatRate;
+
 $vat = new VatRate('IT');
 dump($vatNumber);
 ```

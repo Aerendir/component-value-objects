@@ -39,10 +39,11 @@ public function parse($numberToParse, $defaultRegion, PhoneNumber $phoneNumber =
 See the working example: [examples/Phone.php](examples/Phone.php).
 
 ```php
-// ucfirst is applied automatically to find the right setter
+use SerendipityHQ\Component\ValueObjects\Phone\Phone;
+
 $values = [
-    'number' => '3493534998',
-    'region' => 'IT',
+    Phone::NUMBER => '3493534998',
+    Phone::REGION => 'IT',
 ];
 
 $phone = new Phone($values);
