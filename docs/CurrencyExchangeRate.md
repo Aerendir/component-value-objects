@@ -30,11 +30,15 @@ public function __construct(array $values)
 See the working example: [examples/CurrencyExchangeRate.php](examples/CurrencyExchangeRate.php).
 
 ```php
+use Money\Currency;
+use SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate\CurrencyExchangeRate;
+use SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate\CurrencyExchangeRateInterface;
+
 $values = [
-    'From' => new Currency('EUR'),
-    'To'   => new Currency('USD'),
-    'ExchangeRate' => 1.1174,
-    'ExchangeRateDate' => new \DateTime()
+    CurrencyExchangeRateInterface::FROM => new Currency('EUR'),
+    CurrencyExchangeRateInterface::TO   => new Currency('USD'),
+    CurrencyExchangeRateInterface::EXCHANGE_RATE => 1.1174,
+    CurrencyExchangeRateInterface::EXCHANGE_RATE_DATE => new \DateTime()
 ];
 
 $currencyExchangeRate = new CurrencyExchangeRate($values);

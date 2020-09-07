@@ -29,9 +29,11 @@ public function __construct($amount, $currency)
 See the working example: [examples/Currency.php](examples/Money.php).
 
 ```php
+use SerendipityHQ\Component\ValueObjects\Money\Money;
+
 $values = [
-    'amount' => 300,
-    'currency' => 'EUR'
+    Money::HUMAN_AMOUNT => 300,
+    Money::CURRENCY => 'EUR'
 ];
 
 $money = new Money($values);

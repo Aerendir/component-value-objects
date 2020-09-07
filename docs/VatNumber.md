@@ -21,10 +21,12 @@ public function __construct($values)
 See the working example: [examples/VatNumber.php](examples/VatNumber.php).
 
 ```php
+use \SerendipityHQ\Component\ValueObjects\Vat\VatNumber;
+
 $values = [
-    'countryCode' => 'IT',
-    'number' => '01234567891',
-    'vatNumber' => 'IT01234567891'
+    VatNumber::COUNTRY_CODE => 'IT',
+    VatNumber::NUMBER => '01234567891',
+    VatNumber::VAT_NUMBER => 'IT01234567891'
 ];
 
 $vatNumber = new VatNumber($values);

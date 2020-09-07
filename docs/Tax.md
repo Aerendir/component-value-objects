@@ -21,12 +21,15 @@ public function __construct($values)
 See the working example: [examples/Payment.php](examples/Payment.php).
 
 ```php
+use SerendipityHQ\Component\ValueObjects\Money\Money;
+use SerendipityHQ\Component\ValueObjects\Tax\Tax;
+
 $values = [
-    'amount' => new Money(['amount' => 200, 'currency' =>'EUR']),
-    'code' => 'IVA IT',
-    'compound' => new Money(['amount' => 100, 'currency' =>'EUR']),
-    'rate' => 22.0,
-    'title' => 'IVA Italiana'
+    Tax::AMOUNT => new Money([Money::HUMAN_AMOUNT => 200, Money::CURRENCY =>'EUR']),
+    Tax::CODE => 'IVA IT',
+    Tax::COMPOUND => new Money([Money::HUMAN_AMOUNT => 100, Money::CURRENCY =>'EUR']),
+    Tax::RATE => 22.0,
+    Tax::TITLE => 'IVA Italiana'
 ];
 
 $tax = new Tax($values);
