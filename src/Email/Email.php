@@ -102,8 +102,6 @@ final class Email implements EmailInterface
 
     /**
      * {@inheritDoc}
-     *
-     * @throws StringsException
      */
     public function __toString(): string
     {

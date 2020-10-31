@@ -12,7 +12,6 @@
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
 use Darsyn\IP\Exception\InvalidIpAddressException;
-use Darsyn\IP\Exception\IpException;
 use Darsyn\IP\Exception\WrongVersionException;
 use Darsyn\IP\Version\IPv4;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
@@ -48,19 +47,12 @@ final class Ip implements IpInterface
 
     /**
      * {@inheritDoc}
-     *
-     * @throws IpException
-     * @throws WrongVersionException
      */
     public function toString(array $options = []): string
     {
         return $this->__toString();
     }
 
-    /**
-     * @throws IpException
-     * @throws WrongVersionException
-     */
     public function __toString(): string
     {
         return $this->valueObject->getDotAddress();

@@ -12,7 +12,6 @@
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
 use Laminas\Uri\Exception\InvalidArgumentException;
-use Laminas\Uri\Exception\InvalidUriException;
 use Laminas\Uri\Exception\InvalidUriPartException;
 use Laminas\Uri\Uri as BaseUri;
 use Safe\Exceptions\StringsException;
@@ -261,8 +260,6 @@ final class Uri implements UriInterface
 
     /**
      * {@inheritDoc}
-     *
-     * @throws InvalidUriException
      */
     public function toString(array $options = []): string
     {
@@ -276,8 +273,6 @@ final class Uri implements UriInterface
 
     /**
      * {@inheritDoc}
-     *
-     * @throws InvalidUriException
      */
     public function __toString(): string
     {

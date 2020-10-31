@@ -211,8 +211,6 @@ class Address implements AddressInterface
 
     /**
      * {@inheritDoc}
-     *
-     * @throws \RuntimeException
      */
     public function __toString(): string
     {
