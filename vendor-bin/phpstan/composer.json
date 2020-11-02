@@ -3,6 +3,6 @@
         "phpstan/phpstan": "0.12.53",
         "phpstan/phpstan-phpunit": "0.12.16",
         "thecodingmachine/phpstan-safe-rule": "1.0.1",
-        "rector/rector": "0.8.42"
+        "rector/rector": "0.8.47"
     }
 }
