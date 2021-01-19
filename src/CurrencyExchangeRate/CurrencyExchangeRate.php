@@ -112,7 +112,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * Set the conversion rate of the currency.
      */
-    protected function setExchangeRateDate(\DateTime $exchangeRateDate): void
+    protected function setExchangeRateDate(\DateTimeInterface $exchangeRateDate): void
     {
         $this->exchangeRateDate = $exchangeRateDate;
     }

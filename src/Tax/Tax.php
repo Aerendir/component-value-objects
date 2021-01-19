@@ -29,7 +29,7 @@ final class Tax implements TaxInterface
     private $code;
 
     /** @var bool If the tax is compound or not */
-    private $compound;
+    private $compound = false;
 
     /** @var float The rate of the tax */
     private $rate;

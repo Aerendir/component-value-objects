@@ -57,7 +57,7 @@ final class EmailType extends Type
      * @throws \InvalidArgumentException
      * @throws StringsException
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?\SerendipityHQ\Component\ValueObjects\Email\Email
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?Email
     {
         if (null === $value || '' === $value) {
             return null;

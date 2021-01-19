@@ -5,10 +5,6 @@
     "license": "MIT",
     "keywords": ["value objects"],
     "homepage": "https://github.com/Aerendir/component-value-objects",
-    "support": {
-        "docs": "https://github.com/Aerendir/component-value-objects/tree/dev/docs",
-        "issues": "https://github.com/Aerendir/component-value-objects/issues"
-    },
     "authors": [
         {
             "name": "Adamo Aerendir Crespi",
@@ -30,18 +26,12 @@
         "dg/bypass-finals": "^1.1",
         "doctrine/dbal": "^2.5",
         "doctrine/orm": "^2.5",
+        "rector/rector": "0.9.9",
         "roave/security-advisories": "dev-master",
         "symfony/form": "^4.4|^5.2",
         "symfony/var-dumper": "^4.4|^5.2",
-        "twig/intl-extra": "^2.12|^3.0",
-        "rector/rector": "0.9.9",
-        "thecodingmachine/phpstan-safe-rule": "1.0.1"
-    },
-    "suggest": {
-        "ext-intl": "Allows to use formatters for various values objects",
-        "doctrine/orm": "Allows to use the builtin Doctrine types",
-        "symfony/form": "Allows to use the builtin form types for Symfony Form",
-        "twig/intl-extra": "Allows to use filters for Twig to localize Money objects"
+        "thecodingmachine/phpstan-safe-rule": "1.0.1",
+        "twig/intl-extra": "^2.12|^3.0"
     },
     "config": {
         "sort-packages": true
@@ -58,7 +48,11 @@
     },
     "scripts": {
         "bin": "echo 'bin not installed'",
-        "post-install-cmd": ["@composer bin all install --ansi"],
-        "post-update-cmd": ["@composer bin all update --ansi"]
+        "post-install-cmd": [
+            "@composer bin all install --ansi"
+        ],
+        "post-update-cmd": [
+            "@composer bin all update --ansi"
+        ]
     }
 }
