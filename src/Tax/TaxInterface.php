@@ -30,29 +30,29 @@ interface TaxInterface extends ComplexValueObjectInterface
      *
      * @return string|null The unique code of the tax on the System
      */
-    public function getCode(): ? string;
+    public function getCode(): ?string;
 
     /**
      * Method to retrieve the rate (percentage) of the tax.
      *
      * @return float|null The rate of the tax
      */
-    public function getRate(): ? float;
+    public function getRate(): ?float;
 
     /**
      * Method to get the amount of taxes paid.
      */
-    public function getAmount(): ? MoneyInterface;
+    public function getAmount(): ?MoneyInterface;
 
     /**
      * Method to retrieve the Remote title of the Tax stored in the object.
      *
      * @return string|null The title of the tax on the Remote System
      */
-    public function getTitle(): ? string;
+    public function getTitle(): ?string;
 
     /**
      * If the Tax is compounded returns true, false instead.
      */
-    public function isCompound(): ? bool;
+    public function isCompound(): ?bool;
 }
