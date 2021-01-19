@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "darsyn/ip": "^4",
         "egulias/email-validator": "^2.1.10 || ^3.0.0",
         "giggsey/libphonenumber-for-php": "^8.8",
@@ -31,8 +31,8 @@
         "doctrine/dbal": "^2.5",
         "doctrine/orm": "^2.5",
         "roave/security-advisories": "dev-master",
-        "symfony/form": "^4.4|^5.1",
-        "symfony/var-dumper": "^4.4|^5.1",
+        "symfony/form": "^4.4|^5.2",
+        "symfony/var-dumper": "^4.4|^5.2",
         "twig/intl-extra": "^2.12|^3.0"
     },
     "suggest": {
