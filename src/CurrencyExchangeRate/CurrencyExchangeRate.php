@@ -70,7 +70,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritDoc}
      */
-    public function getExchangeRateDate(): ? \DateTimeInterface
+    public function getExchangeRateDate(): ?\DateTimeInterface
     {
         return $this->exchangeRateDate;
     }

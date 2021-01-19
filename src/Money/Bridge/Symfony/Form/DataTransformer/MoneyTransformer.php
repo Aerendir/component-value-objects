@@ -58,7 +58,7 @@ final class MoneyTransformer implements DataTransformerInterface
      * @throws \InvalidArgumentException
      * @throws ParserException
      */
-    public function reverseTransform($money): ? MoneyInterface
+    public function reverseTransform($money): ?MoneyInterface
     {
         if (null !== $money) {
             $money = new Money([MoneyInterface::HUMAN_AMOUNT => $money, MoneyInterface::CURRENCY => $this->options[MoneyInterface::CURRENCY]]);
