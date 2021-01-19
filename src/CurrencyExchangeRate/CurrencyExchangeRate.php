@@ -29,7 +29,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /** @var float */
     private $exchangeRate;
 
-    /** @var \DateTime|null */
+    /** @var \DateTimeInterface|null */
     private $exchangeRateDate;
 
     /** @var Currency */
@@ -70,7 +70,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     /**
      * {@inheritDoc}
      */
-    public function getExchangeRateDate(): ? \DateTime
+    public function getExchangeRateDate(): ? \DateTimeInterface
     {
         return $this->exchangeRateDate;
     }
