@@ -7,7 +7,6 @@
     hideExternalErrors="true"
     ignoreInternalFunctionNullReturn="false"
     ignoreInternalFunctionFalseReturn="false"
-    requireVoidReturnType="false"
     strictBinaryOperands="true"
     totallyTyped="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
