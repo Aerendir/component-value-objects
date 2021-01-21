@@ -31,11 +31,9 @@ final class VatRate implements VatRateInterface
     /**
      * {@inheritDoc}
      *
-     * @param string $countryCode
-     *
      * @throws \InvalidArgumentException
      */
-    public function __construct($countryCode)
+    public function __construct(string $countryCode)
     {
         if (false === \array_key_exists($countryCode, self::COUNTRIES)) {
             throw new \InvalidArgumentException("The passed Country isn't supported by this value object");

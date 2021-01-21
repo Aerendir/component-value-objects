@@ -21,10 +21,7 @@ interface VatRateInterface extends SimpleValueObjectInterface
     public const COUNTRY_CODE = 'countryCode';
     public const PERCENTAGE   = 'percentage';
 
-    /**
-     * @param string $countryCode
-     */
-    public function __construct($countryCode);
+    public function __construct(string $countryCode);
 
     public function getCountryCode(): string;
 
