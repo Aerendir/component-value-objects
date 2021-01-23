@@ -139,7 +139,7 @@ final class Money implements MoneyInterface
         $toAdd  = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
         $result = $this->valueObject->add($toAdd);
 
-        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
+        return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -154,7 +154,7 @@ final class Money implements MoneyInterface
 
         $result = $this->valueObject->subtract($toAdd);
 
-        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
+        return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -167,7 +167,7 @@ final class Money implements MoneyInterface
     {
         $result = $this->valueObject->divide($divisor, $roundingMode);
 
-        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
+        return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**
@@ -180,7 +180,7 @@ final class Money implements MoneyInterface
     {
         $result = $this->valueObject->multiply($multiplier, $roundingMode);
 
-        return new static([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
+        return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
     /**

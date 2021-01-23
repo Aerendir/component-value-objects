@@ -19,6 +19,7 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] PHP"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000
     - package-ecosystem: "github-actions"
       target-branch: "dev"
@@ -38,6 +39,7 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] GitHub Actions"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000
     # PHP CS Fixer through Bamarni
     - package-ecosystem: "composer"
@@ -59,6 +61,7 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] PHP"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000
     # PHPUnit through Bamarni
     - package-ecosystem: "composer"
@@ -80,6 +83,7 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] PHP"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000
     # PHPStan through Bamarni
     - package-ecosystem: "composer"
@@ -101,6 +105,7 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] PHP"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000
     # Phan through Bamarni
     - package-ecosystem: "composer"
@@ -122,4 +127,5 @@ updates:
           - "Dependabot"
           - "[Type] Dependencies"
           - "[Lang] PHP"
+          - "[Status] Automerge"
       open-pull-requests-limit: 1000

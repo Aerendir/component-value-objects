@@ -1,0 +1,4 @@
+version = 1
+merge.automerge_label = "[Status] Automerge"
+merge.delete_branch_on_merge = true
+merge.message.include_pull_request_url = true

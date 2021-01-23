@@ -9,14 +9,14 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest]
-                php: ['7.4']
+                php: ['7.4', '8.0']
         name: PHP ${{ matrix.php }} on ${{ matrix.os }}
         steps:
             - name: Checkout
               uses: actions/checkout@v2
 
             - name: Setup PHP
-              uses: shivammathur/setup-php@2.5.0
+              uses: shivammathur/setup-php@2.9.0
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov

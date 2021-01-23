@@ -9,16 +9,16 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest]
-                php: ['7.3', '7.4']
+                php: ['7.3', '7.4', '8.0']
                 composer-flags: ['--prefer-stable --prefer-lowest', '']
-                symfony: ['~4.4', '~5.1']
+                symfony: ['~4.4', '~5.2']
         name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
         steps:
             - name: Checkout
               uses: actions/checkout@v2
 
             - name: Setup PHP
-              uses: shivammathur/setup-php@2.5.0
+              uses: shivammathur/setup-php@2.9.0
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
@@ -30,9 +30,14 @@ jobs:
                   composer req symfony/flex --no-scripts
                   composer config extra.symfony.require "${{ matrix.symfony }}"
 
+            - name: Remove Rector
+              run: |
+                  composer rem rector/rector --dev
+
             - name: Install Composer deps
               run: |
-                  composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest
+                  composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
+                  composer bin phpunit update
 
             - name: Run PSalm
               run: |

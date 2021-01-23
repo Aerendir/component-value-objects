@@ -37,7 +37,7 @@ interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
     /**
      * The date on which the exchange rate were given.
      */
-    public function getExchangeRateDate(): ? \DateTime;
+    public function getExchangeRateDate(): ?\DateTimeInterface;
 
     /**
      * Get the base Currency the amount is in.
