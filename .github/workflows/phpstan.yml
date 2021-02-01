@@ -9,7 +9,7 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ubuntu-latest]
-                php: ['7.3', '7.4', '8.0']
+                php: ['7.4', '8.0']
                 composer-flags: ['--prefer-stable --prefer-lowest', '']
                 symfony: ['~4.4', '~5.2']
         name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
@@ -31,13 +31,11 @@ jobs:
 
             - name: Remove Rector
               run: |
-                  composer rem rector/rector thecodingmachine/phpstan-safe-rule --dev
-                  composer rem thecodingmachine/safe
+                  composer rem rector/rector --dev --no-scripts
 
             - name: Install Composer deps
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
-                  composer bin phpstan update
                   composer bin phpunit update
 
             - name: Run PHPStan

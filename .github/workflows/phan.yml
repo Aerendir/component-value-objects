@@ -31,11 +31,14 @@ jobs:
 
             - name: Remove Rector
               run: |
-                  composer rem rector/rector --dev
+                  composer rem rector/rector --dev --no-scripts
 
             - name: Install Composer deps
+              # Do not install all bin deps, but individually install the required ones
               run: |
                   composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
+                  composer bin phan update
+                  composer bin phpunit update
 
             - name: Run Phan
               run: |
