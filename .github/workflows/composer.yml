@@ -20,7 +20,7 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   coverage: none # disable xdebug, pcov
-                  tools: prestissimo, symfony
+                  tools: symfony
                   extensions: ast
 
             - name: Install Composer deps
