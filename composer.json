@@ -30,10 +30,10 @@
         "roave/security-advisories": "dev-master",
         "symfony/form": "^4.4|^5.2",
         "symfony/var-dumper": "^4.4|^5.2",
-        "thecodingmachine/phpstan-safe-rule": "1.0.1",
         "twig/intl-extra": "^2.12|^3.0",
         "phpstan/phpstan-phpunit": "0.12.17",
-        "phpstan/phpstan": "0.12.69"
+        "phpstan/phpstan": "0.12.69",
+        "thecodingmachine/phpstan-safe-rule": "1.0.1"
     },
     "config": {
         "sort-packages": true
