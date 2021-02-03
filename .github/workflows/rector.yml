@@ -22,6 +22,15 @@ jobs:
                   coverage: none # disable xdebug, pcov
                   extensions: ast
 
+            - name: Find Composer's cache directory
+              uses: ./.github/actions/composer/find-cache-dir
+
+            - name: Cache Composer's dependencies
+              uses: actions/cache@v2.1.3
+              with:
+                  path: ${{ env.COMPOSER_CACHE_DIR }}
+                  key: php-composer-dependencies-cache
+
             - name: Install Composer deps
               run: |
                   composer update --no-interaction --no-suggest --no-scripts
