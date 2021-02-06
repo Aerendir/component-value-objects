@@ -44,7 +44,7 @@ jobs:
 
             -   name: Install Composer deps
                 run: |
-                    composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
+                    composer update ${{ matrix.composer-flags }} --no-interaction --no-scripts
                     composer bin phpunit update
 
             -   name: Run PHPStan

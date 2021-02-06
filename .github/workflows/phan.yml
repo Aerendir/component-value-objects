@@ -45,7 +45,7 @@ jobs:
             -   name: Install Composer deps
                 # Do not install all bin deps, but individually install the required ones
                 run: |
-                    composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
+                    composer update ${{ matrix.composer-flags }} --no-interaction --no-scripts
                     composer bin phan update
                     composer bin phpunit update
 
