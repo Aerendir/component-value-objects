@@ -27,7 +27,7 @@ jobs:
                 uses: ./.github/actions/composer/find-cache-dir
 
             -   name: Cache Composer's dependencies
-                uses: actions/cache@v2.1.4
+                uses: actions/cache@v2
                 with:
                     path: ${{ env.COMPOSER_CACHE_DIR }}
                     key: php-composer-dependencies-cache
