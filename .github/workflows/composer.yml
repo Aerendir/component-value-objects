@@ -23,13 +23,15 @@ jobs:
                     tools: symfony
                     extensions: ast
 
-            -   name: Find Composer's cache directory
-                uses: ./.github/actions/composer/find-cache-dir
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: |
+                    echo "::set-output name=dir::$(composer config cache-files-dir)"
 
             -   name: Cache Composer's dependencies
                 uses: actions/cache@v2
                 with:
-                    path: ${{ env.COMPOSER_CACHE_DIR }}
+                    path: ${{ steps.composer-cache.outputs.dir }}
                     key: php-composer-dependencies-cache
 
             -   name: Install Composer deps
