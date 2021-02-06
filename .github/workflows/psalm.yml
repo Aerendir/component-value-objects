@@ -1,6 +1,6 @@
 name: PSalm
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
     serendipity_hq:
@@ -8,46 +8,46 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest]
-                php: ['7.3', '7.4', '8.0']
-                composer-flags: ['--prefer-stable --prefer-lowest', '']
-                symfony: ['~4.4', '~5.2']
+                os: [ ubuntu-latest ]
+                php: [ '7.3', '7.4', '8.0' ]
+                composer-flags: [ '--prefer-stable --prefer-lowest', '' ]
+                symfony: [ '~4.4', '~5.2' ]
         name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+            -   name: Checkout
+                uses: actions/checkout@v2
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@2.9.0
-              with:
-                  php-version: ${{ matrix.php }}
-                  coverage: none # disable xdebug, pcov
-                  extensions: ast
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@2.9.0
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none # disable xdebug, pcov
+                    extensions: ast
 
-            - name: Find Composer's cache directory
-              uses: ./.github/actions/composer/find-cache-dir
+            -   name: Find Composer's cache directory
+                uses: ./.github/actions/composer/find-cache-dir
 
-            - name: Cache Composer's dependencies
-              uses: actions/cache@v2.1.4
-              with:
-                  path: ${{ env.COMPOSER_CACHE_DIR }}
-                  key: php-composer-dependencies-cache
+            -   name: Cache Composer's dependencies
+                uses: actions/cache@v2.1.4
+                with:
+                    path: ${{ env.COMPOSER_CACHE_DIR }}
+                    key: php-composer-dependencies-cache
 
-            - name: Fix Symfony version
-              run: |
-                  composer req symfony/flex --no-scripts
-                  composer config extra.symfony.require "${{ matrix.symfony }}"
+            -   name: Fix Symfony version
+                run: |
+                    composer req symfony/flex --no-scripts
+                    composer config extra.symfony.require "${{ matrix.symfony }}"
 
-            - name: Remove Rector
-              run: |
-                  composer rem rector/rector --dev --no-scripts
+            -   name: Remove Rector
+                run: |
+                    composer rem rector/rector --dev --no-scripts
 
-            - name: Install Composer deps
-              # Do not install all bin deps, but individually install the required ones
-              run: |
-                  composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
-                  composer bin phpunit update
+            -   name: Install Composer deps
+                # Do not install all bin deps, but individually install the required ones
+                run: |
+                    composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
+                    composer bin phpunit update
 
-            - name: Run PSalm
-              run: |
-                  ./vendor/bin/psalm
+            -   name: Run PSalm
+                run: |
+                    ./vendor/bin/psalm
