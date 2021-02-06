@@ -3,7 +3,7 @@ name: PSalm
 on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    psalm:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false

@@ -3,7 +3,7 @@ name: Phan
 on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    phan:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false

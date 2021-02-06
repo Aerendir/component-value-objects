@@ -3,7 +3,7 @@ name: PHPStan
 on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    phpstan:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false

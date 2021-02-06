@@ -3,7 +3,7 @@ name: PHP CS Fixer
 on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    phpcs:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false

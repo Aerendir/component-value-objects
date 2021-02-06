@@ -3,7 +3,7 @@ name: Rector
 on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    rector:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false

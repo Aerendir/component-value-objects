@@ -3,7 +3,7 @@ name: Composer
 on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    composer:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false
