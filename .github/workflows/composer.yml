@@ -1,33 +1,44 @@
 name: Composer
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    composer:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest]
-                php: ['7.3', '7.4', '8.0']
-        name: PHP ${{ matrix.php }} on ${{ matrix.os }}
+                os: [ ubuntu-latest ]
+                php: [ '7.3', '7.4', '8.0' ]
+
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+            -   name: Checkout
+                uses: actions/checkout@v2
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@2.9.0
-              with:
-                  php-version: ${{ matrix.php }}
-                  coverage: none # disable xdebug, pcov
-                  tools: prestissimo, symfony
-                  extensions: ast
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none # disable xdebug, pcov
+                    tools: symfony
+                    extensions: ast
 
-            - name: Install Composer deps
-              run: |
-                  composer update --no-interaction --no-suggest
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: |
+                    echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-            - name: Run Composer
-              run: |
-                  symfony security:check
-                  composer validate --strict --no-check-lock
+            -   name: Cache Composer's dependencies
+                uses: actions/cache@v2
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: php-composer-dependencies-cache
+
+            -   name: Install Composer deps
+                run: |
+                    composer update --no-interaction
+
+            -   name: Run Composer
+                run: |
+                    symfony security:check
+                    composer validate --strict --no-check-lock

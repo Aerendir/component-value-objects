@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+vendor/bin/phpstan analyse --generate-baseline .baseline-phpstan.neon
+vendor/bin/phan --dead-code-detection --save-baseline .baseline-phan.php
+vendor/bin/psalm --set-baseline=.baseline-psalm.xml

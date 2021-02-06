@@ -1,43 +1,56 @@
 name: Phan
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
-    serendipity_hq:
+    phan:
         runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest]
-                php: ['7.3', '7.4', '8.0']
-                composer-flags: ['--prefer-stable --prefer-lowest', '']
-                symfony: ['~4.4', '~5.2']
-        name: PHP ${{ matrix.php }} SF ${{ matrix.symfony }} (${{ matrix.composer-flags }}) on ${{ matrix.os }}
+                os: [ ubuntu-latest ]
+                php: [ '7.3', '7.4', '8.0' ]
+                composer-flags: [ '--prefer-stable --prefer-lowest', '' ]
+                symfony: [ '~4.4', '~5.2' ]
+
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+            -   name: Checkout
+                uses: actions/checkout@v2
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@2.9.0
-              with:
-                  php-version: ${{ matrix.php }}
-                  coverage: none # disable xdebug, pcov
-                  tools: prestissimo
-                  extensions: ast
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none # disable xdebug, pcov
+                    extensions: ast
 
-            - name: Fix Symfony version
-              run: |
-                  composer req symfony/flex --no-scripts
-                  composer config extra.symfony.require "${{ matrix.symfony }}"
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: |
+                    echo "::set-output name=dir::$(composer config cache-files-dir)"
 
-            - name: Remove Rector
-              run: |
-                  composer rem rector/rector --dev
+            -   name: Cache Composer's dependencies
+                uses: actions/cache@v2
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: php-composer-dependencies-cache
 
-            - name: Install Composer deps
-              run: |
-                  composer update ${{ matrix.composer-flags }} --no-interaction --no-suggest --no-scripts
+            -   name: Fix Symfony version
+                run: |
+                    composer req symfony/flex --no-scripts
+                    composer config extra.symfony.require "${{ matrix.symfony }}"
 
-            - name: Run Phan
-              run: |
-                  ./vendor/bin/phan --no-progress-bar --dead-code-detection
+            -   name: Remove Rector
+                run: |
+                    composer rem rector/rector --dev --no-scripts
+
+            -   name: Install Composer deps
+                # Do not install all bin deps, but individually install the required ones
+                run: |
+                    composer update ${{ matrix.composer-flags }} --no-interaction --no-scripts
+                    composer bin phan update
+                    composer bin phpunit update
+
+            -   name: Run Phan
+                run: |
+                    ./vendor/bin/phan --no-progress-bar --dead-code-detection
