@@ -12,6 +12,7 @@ parameters:
         - src
         - tests
     treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         -
             message: '#Method SerendipityHQ\\Component\\ValueObjects\\Address\\Bridge\\Symfony\\Form\\Type\\AddressType::buildForm\(\) has parameter \$builder with no value type specified in iterable type Symfony\\Component\\Form\\FormBuilderInterface.#'
