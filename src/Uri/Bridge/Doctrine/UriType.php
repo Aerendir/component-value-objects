@@ -64,6 +64,7 @@ final class UriType extends Type
 
         if ( ! $value instanceof UriInterface) {
             $type = \is_object($value) ? \get_class($value) : \gettype($value);
+
             throw new \RuntimeException(sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type));
         }
 
@@ -88,6 +89,7 @@ final class UriType extends Type
 
         if ( ! $value instanceof UriInterface) {
             $type = \is_object($value) ? \get_class($value) : \gettype($value);
+
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
         }
 

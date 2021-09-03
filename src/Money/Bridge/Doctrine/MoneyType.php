@@ -85,6 +85,7 @@ final class MoneyType extends Type
 
         if ( ! $value instanceof Money) {
             $type = \is_object($value) ? \get_class($value) : \gettype($value);
+
             throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
         }
 
