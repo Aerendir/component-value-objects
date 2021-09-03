@@ -31,7 +31,7 @@
         "symfony/form": "^4.4|^5.2",
         "symfony/var-dumper": "^4.4|^5.2",
         "twig/intl-extra": "^2.12|^3.0",
-        "phpstan/phpstan-phpunit": "0.12.18",
+        "phpstan/phpstan-phpunit": "0.12.22",
         "phpstan/phpstan": "0.12.96",
         "thecodingmachine/phpstan-safe-rule": "1.0.1"
     },
