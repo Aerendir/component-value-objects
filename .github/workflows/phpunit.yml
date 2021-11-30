@@ -47,6 +47,7 @@ jobs:
                     sed -i 's+/home/runner/work/component-value-objects/component-value-objects+/github/workspace+g' ./var/coverage/clover.xml
 
             -   name: Sonarcloud
+                if: github.ref == 'refs/heads/dev'
                 uses: sonarsource/sonarcloud-github-action@master
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
