@@ -41,7 +41,7 @@ final class UriType extends Type
      */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
-        return $platform->getVarcharDefaultLength();
+        return 255;
     }
 
     /**

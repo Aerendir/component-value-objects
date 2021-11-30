@@ -10,23 +10,12 @@
       <code>$value</code>
     </MissingParamType>
   </file>
-  <file src="src/Email/Bridge/Doctrine/EmailType.php">
-    <DeprecatedMethod occurrences="1">
-      <code>getVarcharDefaultLength</code>
-    </DeprecatedMethod>
-  </file>
   <file src="src/Money/Bridge/Doctrine/MoneyType.php">
-    <DeprecatedMethod occurrences="1">
-      <code>getVarcharDefaultLength</code>
-    </DeprecatedMethod>
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
   </file>
   <file src="src/Uri/Bridge/Doctrine/UriType.php">
-    <DeprecatedMethod occurrences="1">
-      <code>getVarcharDefaultLength</code>
-    </DeprecatedMethod>
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
