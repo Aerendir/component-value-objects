@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.9.3@4c262932602b9bbab5020863d1eb22d49de0dbf4">
+<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
   <file src="src/Common/DisableWritingMethodsTrait.php">
     <MissingParamType occurrences="1">
       <code>$value</code>
@@ -19,6 +19,11 @@
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
+  </file>
+  <file src="src/Uri/Uri.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>\gettype($uri)</code>
+    </DocblockTypeContradiction>
   </file>
   <file src="tests/Money/MoneyTest.php">
     <MixedMethodCall occurrences="2">
