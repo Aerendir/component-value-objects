@@ -1,6 +1,6 @@
 name: Composer
 
-on: [ push, pull_request ]
+on: [ push ]
 
 jobs:
     composer:

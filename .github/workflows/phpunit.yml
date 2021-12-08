@@ -1,6 +1,6 @@
 name: PHPunit
 
-on: [ push, pull_request ]
+on: [ push ]
 
 jobs:
     phpunit:
