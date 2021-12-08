@@ -10,7 +10,6 @@ jobs:
             matrix:
                 os: [ ubuntu-latest ]
                 php: [ '7.3', '7.4', '8.0' ]
-                composer-flags: [ '--prefer-stable --prefer-lowest', '' ]
                 symfony: [ '~4.4', '~5.2' ]
 
         steps:
@@ -47,7 +46,7 @@ jobs:
             -   name: Install Composer deps
                 # Do not install all bin deps, but individually install the required ones
                 run: |
-                    composer update ${{ matrix.composer-flags }} --no-interaction --no-scripts
+                    composer update --no-interaction --no-scripts
                     composer bin phpunit update
 
             -   name: Run PSalm
