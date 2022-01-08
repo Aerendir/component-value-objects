@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-    phpVersion="7.3"
+    phpVersion="7.4"
     cacheDirectory="./var/cache/psalm"
     checkForThrowsDocblock="true"
     hideExternalErrors="true"

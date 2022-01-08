@@ -4,5 +4,10 @@
         "psalm/plugin-phpunit": "0.16.1",
         "symfony/phpunit-bridge": "6.0.0",
         "vimeo/psalm": "4.17.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
     }
 }
