@@ -44,7 +44,10 @@ jobs:
                     composer rem rector/rector --dev --no-update
 
             -   name: Install Composer deps
+                # Do not install all bin deps, but individually install the required ones
+                # The second update is to make Flex able to do its job
                 run: |
+                    composer update --no-interaction --no-scripts
                     composer update --no-interaction --no-scripts
                     composer bin phpunit update
 
