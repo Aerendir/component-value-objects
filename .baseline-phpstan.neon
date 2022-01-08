@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$countryCode of class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatRate constructor expects string, float\\|string given\\.$#"
+			count: 1
+			path: tests/Vat/VatRateTest.php
+

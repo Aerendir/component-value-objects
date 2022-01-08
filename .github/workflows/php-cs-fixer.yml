@@ -1,6 +1,6 @@
 name: PHP CS Fixer
 
-on: [ push, pull_request ]
+on: [ push ]
 
 jobs:
     phpcs:
@@ -13,10 +13,10 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2
+                uses: actions/checkout@v2.4.0
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
+                uses: shivammathur/setup-php@2.16.0
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none # disable xdebug, pcov
@@ -28,7 +28,7 @@ jobs:
                     echo "::set-output name=dir::$(composer config cache-files-dir)"
 
             -   name: Cache Composer's dependencies
-                uses: actions/cache@v2
+                uses: actions/cache@v2.1.7
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
                     key: php-composer-dependencies-cache

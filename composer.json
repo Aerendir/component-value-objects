@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4|^8.0",
         "darsyn/ip": "^4",
         "egulias/email-validator": "^2.1.10 || ^3.0.0",
         "giggsey/libphonenumber-for-php": "^8.8",
@@ -24,19 +24,23 @@
         "ext-ast": "*",
         "bamarni/composer-bin-plugin": "^1.4",
         "dg/bypass-finals": "^1.1",
-        "doctrine/dbal": "^2.5",
+        "doctrine/dbal": "^2.5 | ^3.0",
         "doctrine/orm": "^2.5",
-        "rector/rector": "0.9.18",
+        "rector/rector": "0.11.52",
         "roave/security-advisories": "dev-master",
-        "symfony/form": "^4.4|^5.2",
-        "symfony/var-dumper": "^4.4|^5.2",
+        "symfony/form": "^4.4|^5.4|^6.0",
+        "symfony/var-dumper": "^4.4|^5.4|^6.0",
         "twig/intl-extra": "^2.12|^3.0",
-        "phpstan/phpstan-phpunit": "0.12.17",
-        "phpstan/phpstan": "0.12.69",
+        "phpstan/phpstan-phpunit": "0.12.22",
+        "phpstan/phpstan": "0.12.96",
         "thecodingmachine/phpstan-safe-rule": "1.0.1"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true,
+            "composer/package-versions-deprecated": true
+        }
     },
     "autoload": {
         "psr-4": {
