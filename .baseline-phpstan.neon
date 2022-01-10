@@ -11,11 +11,6 @@ parameters:
 			path: src/Email/Bridge/Doctrine/EmailType.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
-			count: 1
-			path: src/Money/Bridge/Doctrine/MoneyType.php
-
-		-
 			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
 			count: 1
 			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php

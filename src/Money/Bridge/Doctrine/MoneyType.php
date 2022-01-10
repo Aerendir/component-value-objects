@@ -51,11 +51,11 @@ final class MoneyType extends Type
      * @throws ParserException
      * @psalm-suppress MixedArgument
      *
-     * @return Money|string|null
+     * @return mixed|Money|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        if (null === $value || '' === $value) {
+        if (null === $value || '' === $value || false === is_string($value)) {
             return $value;
         }
 
