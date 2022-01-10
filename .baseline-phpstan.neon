@@ -1,7 +1,32 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$countryCode of class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatRate constructor expects string, float\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$code of class Money\\\\Currency constructor expects string, mixed given\\.$#"
 			count: 1
-			path: tests/Vat/VatRateTest.php
+			path: src/Currency/Bridge/Doctrine/CurrencyType.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Email constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Email/Bridge/Doctrine/EmailType.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of function explode expects string, mixed given\\.$#"
+			count: 1
+			path: src/Money/Bridge/Doctrine/MoneyType.php
+
+		-
+			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
+			count: 1
+			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
+
+		-
+			message: "#^Property SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\Bridge\\\\Doctrine\\\\MoneyTypeTest\\:\\:\\$platform is never read, only written\\.$#"
+			count: 1
+			path: tests/Money/Bridge/Doctrine/MoneyTypeTest.php
+
+		-
+			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
+			count: 1
+			path: tests/Tax/TaxTest.php
 

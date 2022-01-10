@@ -23,7 +23,9 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface MoneyInterface extends ComplexValueObjectInterface
 {
     public const BASE_AMOUNT  = 'baseAmount';
+
     public const HUMAN_AMOUNT = 'humanAmount';
+
     public const CURRENCY     = 'currency';
 
     /**

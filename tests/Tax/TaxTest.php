@@ -42,11 +42,11 @@ final class TaxTest extends TestCase
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
 
-        self::assertEquals($testData[TaxInterface::CODE], $resource->getCode());
+        self::assertSame($testData[TaxInterface::CODE], $resource->getCode());
         self::assertFalse($resource->isCompound());
-        self::assertEquals($testData[TaxInterface::RATE], $resource->getRate());
+        self::assertSame($testData[TaxInterface::RATE], $resource->getRate());
         self::assertEquals($testData[TaxInterface::AMOUNT], $resource->getAmount());
-        self::assertEquals($testData[TaxInterface::TITLE], $resource->getTitle());
+        self::assertSame($testData[TaxInterface::TITLE], $resource->getTitle());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

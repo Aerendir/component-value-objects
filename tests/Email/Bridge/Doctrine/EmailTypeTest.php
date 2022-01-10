@@ -25,6 +25,7 @@ final class EmailTypeTest extends TestCase
 {
     /** @var string */
     private const EMAIL_VALUE = 'hello@aexample.com';
+
     /** @var EmailType */
     private $type;
 

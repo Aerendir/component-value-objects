@@ -28,7 +28,7 @@ final class VatNumber implements VatNumberInterface
     /** @var string The country code of the VAT number */
     private $countryCode;
 
-    /** @var int The number part of the VAT number */
+    /** @var string The number part of the VAT number */
     private $number;
 
     /** @var string The full VAT Number, with country ISO code */
@@ -45,7 +45,7 @@ final class VatNumber implements VatNumberInterface
     /**
      * {@inheritDoc}
      */
-    public function getNumber(): int
+    public function getNumber(): string
     {
         return $this->number;
     }
@@ -77,7 +77,7 @@ final class VatNumber implements VatNumberInterface
     /**
      * Method to set the number part of the VAT Number.
      */
-    protected function setNumber(int $number): void
+    protected function setNumber(string $number): void
     {
         $this->number = $number;
     }

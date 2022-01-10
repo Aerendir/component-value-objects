@@ -37,9 +37,9 @@ final class VatNumberTest extends TestCase
         self::assertInstanceOf(VatNumberInterface::class, $resource);
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        self::assertEquals(self::TEST_DATA[VatNumberInterface::COUNTRY_CODE], $resource->getCountryCode());
-        self::assertEquals(self::TEST_DATA[VatNumberInterface::NUMBER], $resource->getNumber());
-        self::assertEquals(self::TEST_DATA[VatNumberInterface::VAT_NUMBER], $resource->getVatNumber());
+        self::assertSame(self::TEST_DATA[VatNumberInterface::COUNTRY_CODE], $resource->getCountryCode());
+        self::assertSame(self::TEST_DATA[VatNumberInterface::NUMBER], $resource->getNumber());
+        self::assertSame(self::TEST_DATA[VatNumberInterface::VAT_NUMBER], $resource->getVatNumber());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

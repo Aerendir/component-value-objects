@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
+<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
   <file src="src/Common/DisableWritingMethodsTrait.php">
     <MissingParamType occurrences="1">
       <code>$value</code>
@@ -24,6 +24,11 @@
     <DocblockTypeContradiction occurrences="1">
       <code>\gettype($uri)</code>
     </DocblockTypeContradiction>
+  </file>
+  <file src="src/Vat/VatNumber.php">
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $this-&gt;number</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="tests/Money/MoneyTest.php">
     <MixedMethodCall occurrences="2">

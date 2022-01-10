@@ -33,9 +33,9 @@ final class EmailTest extends TestCase
         // Test the type of value object interface
         self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
 
-        self::assertEquals($test, $resource->getEmail());
-        self::assertEquals('user', $resource->getMailBox());
-        self::assertEquals('example.com', $resource->getHost());
+        self::assertSame($test, $resource->getEmail());
+        self::assertSame('user', $resource->getMailBox());
+        self::assertSame('example.com', $resource->getHost());
         self::assertIsString($resource->toString());
     }
 

@@ -56,6 +56,7 @@ final class MoneyFormatterExtension extends AbstractExtension
         if (null === $money) {
             return null;
         }
+
         $formatter      = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 

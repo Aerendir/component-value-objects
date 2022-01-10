@@ -23,6 +23,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface PaymentInterface extends ComplexValueObjectInterface
 {
     public const METHOD = 'method';
+
     public const STATUS = 'status';
 
     /**

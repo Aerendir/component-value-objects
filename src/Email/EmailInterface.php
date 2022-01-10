@@ -19,7 +19,9 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 interface EmailInterface extends SimpleValueObjectInterface
 {
     public const EMAIL    = 'email';
+
     public const MAIL_BOX = 'mailBox';
+
     public const HOST     = 'host';
 
     /**

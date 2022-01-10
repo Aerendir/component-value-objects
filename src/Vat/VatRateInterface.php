@@ -19,6 +19,7 @@ use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 interface VatRateInterface extends SimpleValueObjectInterface
 {
     public const COUNTRY_CODE = 'countryCode';
+
     public const PERCENTAGE   = 'percentage';
 
     /**

@@ -20,9 +20,13 @@ use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 interface TaxInterface extends ComplexValueObjectInterface
 {
     public const CODE     = 'code';
+
     public const COMPOUND = 'compound';
+
     public const RATE     = 'rate';
+
     public const AMOUNT   = 'amount';
+
     public const TITLE    = 'title';
 
     /**

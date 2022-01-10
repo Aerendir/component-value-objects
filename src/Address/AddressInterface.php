@@ -21,11 +21,17 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface AddressInterface extends ComplexValueObjectInterface
 {
     public const ADMINISTRATIVE_AREA = 'administrativeArea';
+
     public const COUNTRY_CODE        = 'countryCode';
+
     public const LOCALITY            = 'locality';
+
     public const DEPENDENT_LOCALITY  = 'dependentLocality';
+
     public const POSTAL_CODE         = 'postalCode';
+
     public const STREET              = 'street';
+
     public const EXTRA_LINE          = 'extraLine';
 
     public function getAdministrativeArea(): ?string;

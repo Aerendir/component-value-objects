@@ -25,8 +25,10 @@ final class AddressType extends AbstractType
 {
     /** @var string */
     private const LABEL = 'label';
+
     /** @var string */
     private const TRANSLATION_DOMAIN = 'translation_domain';
+
     /** @var string */
     private const SHQ_ADDRESS = 'shq_address';
 

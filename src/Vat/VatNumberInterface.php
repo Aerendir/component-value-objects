@@ -19,7 +19,9 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface VatNumberInterface extends ComplexValueObjectInterface
 {
     public const COUNTRY_CODE = 'countryCode';
+
     public const NUMBER       = 'number';
+
     public const VAT_NUMBER   = 'vatNumber';
 
     /**
@@ -32,7 +34,7 @@ interface VatNumberInterface extends ComplexValueObjectInterface
     /**
      * Returns the number part of the VAT Number.
      */
-    public function getNumber(): int;
+    public function getNumber(): string;
 
     /**
      * Method to get the full VAT Number, with ISC country code.

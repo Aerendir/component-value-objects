@@ -34,8 +34,8 @@ final class PaymentTest extends TestCase
         self::assertInstanceOf(PaymentInterface::class, $resource);
         // Test the type of value object interface
         self::assertInstanceOf(ComplexValueObjectInterface::class, $resource);
-        self::assertEquals(self::TEST_DATA[PaymentInterface::METHOD], $resource->getMethod());
-        self::assertEquals(self::TEST_DATA[PaymentInterface::STATUS], $resource->getStatus());
+        self::assertSame(self::TEST_DATA[PaymentInterface::METHOD], $resource->getMethod());
+        self::assertSame(self::TEST_DATA[PaymentInterface::STATUS], $resource->getStatus());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }

@@ -36,8 +36,8 @@ final class VatRateTest extends TestCase
         self::assertInstanceOf(VatRateInterface::class, $resource);
         // Test the type of value object interface
         self::assertInstanceOf(SimpleValueObjectInterface::class, $resource);
-        self::assertEquals(self::TEST_DATA[VatRateInterface::COUNTRY_CODE], $resource->getCountryCode());
-        self::assertEquals(self::TEST_DATA[VatRateInterface::PERCENTAGE], $resource->getPercentage());
+        self::assertSame(self::TEST_DATA[VatRateInterface::COUNTRY_CODE], $resource->getCountryCode());
+        self::assertSame(self::TEST_DATA[VatRateInterface::PERCENTAGE], $resource->getPercentage());
         self::assertIsString($resource->__toString());
         self::assertIsString($resource->toString());
     }
