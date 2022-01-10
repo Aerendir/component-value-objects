@@ -39,6 +39,7 @@ jobs:
                 run: |
                     composer req symfony/flex --no-update
                     composer config extra.symfony.require "${{ matrix.symfony }}"
+                    composer config --no-plugins allow-plugins.symfony/flex true
 
             -   name: Install Composer deps
                 # Do not install all bin deps, but individually install the required ones
