@@ -30,6 +30,17 @@
       <code>(string) $this-&gt;number</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
+    <PossiblyInvalidArgument occurrences="7">
+      <code>$this-&gt;platform</code>
+      <code>$this-&gt;platform</code>
+      <code>$this-&gt;platform</code>
+      <code>$this-&gt;platform</code>
+      <code>$this-&gt;platform</code>
+      <code>$this-&gt;platform</code>
+      <code>$this-&gt;platform</code>
+    </PossiblyInvalidArgument>
+  </file>
   <file src="tests/Money/MoneyTest.php">
     <MixedMethodCall occurrences="2">
       <code>getCode</code>
