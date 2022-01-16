@@ -29,7 +29,7 @@ final class EmailTypeTest extends TestCase
     /** @var EmailType */
     private $type;
 
-    /** @var MockObject&AbstractPlatform */
+    /** @var AbstractPlatform|MockObject */
     private $platform;
 
     protected function setUp(): void
