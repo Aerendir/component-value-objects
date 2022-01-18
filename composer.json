@@ -33,7 +33,7 @@
         "twig/intl-extra": "^2.12|^3.0",
         "phpstan/phpstan-phpunit": "1.0.0",
         "phpstan/phpstan": "1.4.0",
-        "thecodingmachine/phpstan-safe-rule": "1.1.0"
+        "thecodingmachine/phpstan-safe-rule": "1.2.0"
     },
     "config": {
         "sort-packages": true,
