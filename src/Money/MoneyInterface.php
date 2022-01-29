@@ -44,14 +44,8 @@ interface MoneyInterface extends ComplexValueObjectInterface
      */
     public function getCurrency(): Currency;
 
-    /**
-     * @return MoneyInterface
-     */
     public function add(MoneyInterface $other): self;
 
-    /**
-     * @return MoneyInterface
-     */
     public function subtract(MoneyInterface $other): self;
 
     /**
