@@ -34,17 +34,6 @@ jobs:
                     coverage: pcov
                     extensions: ast
 
-            -   name: Get Composer Cache Directory
-                id: composer-cache
-                run: |
-                    echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            -   name: Cache Composer's dependencies
-                uses: actions/cache@v2.1.7
-                with:
-                    path: ${{ steps.composer-cache.outputs.dir }}
-                    key: php-composer-dependencies-cache
-
             -   name: Fix Symfony version
                 run: |
                     composer req symfony/flex --no-update
@@ -52,16 +41,23 @@ jobs:
                     composer config --no-plugins allow-plugins.symfony/flex true
 
             -   name: Install Composer deps
-                # Do not install all bin deps, but individually install the required ones
+                uses: ramsey/composer-install@v2
+                with:
+                    composer-options: --no-scripts
+
+            -   name: Update Composer deps (with Flex)
                 # The second update is to make Flex able to do its job
                 run: |
                     composer update --no-interaction --no-scripts
-                    composer update --no-interaction --no-scripts
-                    composer bin phpunit update
+
+            -   name: Install Composer bin PHPUnit
+                uses: ramsey/composer-install@v2
+                with:
+                    working-directory: './vendor-bin/phpunit'
 
             -   name: Run PHPunit
                 run: |
-                    ./vendor/bin/phpunit --coverage-clover var/coverage/clover.xml
+                    ./vendor-bin/phpunit/vendor/bin/phpunit --coverage-clover var/coverage/clover.xml
 
             -   name: Change paths in clover.xml
                 run: |

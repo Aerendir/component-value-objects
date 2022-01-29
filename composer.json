@@ -61,5 +61,10 @@
         "post-update-cmd": [
             "@composer bin all update --ansi"
         ]
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false
+        }
     }
 }

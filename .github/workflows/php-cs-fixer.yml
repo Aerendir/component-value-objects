@@ -28,22 +28,16 @@ jobs:
                     coverage: none # disable xdebug, pcov
                     extensions: ast
 
-            -   name: Get Composer Cache Directory
-                id: composer-cache
-                run: |
-                    echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            -   name: Cache Composer's dependencies
-                uses: actions/cache@v2.1.7
-                with:
-                    path: ${{ steps.composer-cache.outputs.dir }}
-                    key: php-composer-dependencies-cache
-
             -   name: Install Composer deps
-                run: |
-                    composer update --no-interaction --no-scripts
-                    composer bin phpcs update
+                uses: ramsey/composer-install@v2
+                with:
+                    composer-options: --no-scripts
+
+            -   name: Install Composer bin PHP CS Fixer
+                uses: ramsey/composer-install@v2
+                with:
+                    working-directory: './vendor-bin/phpcs'
 
             -   name: Run PHP CS Fixer
                 run: |
-                    ./vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v
+                    ./vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v
