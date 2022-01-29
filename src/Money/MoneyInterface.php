@@ -55,12 +55,12 @@ interface MoneyInterface extends ComplexValueObjectInterface
     public function subtract(MoneyInterface $other): self;
 
     /**
-     * @param float|int|string $divisor
+     * @param int|string $divisor
      */
     public function divide($divisor, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
-     * @param float|int|string $multiplier
+     * @param int|string $multiplier
      */
     public function multiply($multiplier, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 

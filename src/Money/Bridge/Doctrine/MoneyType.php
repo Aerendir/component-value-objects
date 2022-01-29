@@ -59,9 +59,16 @@ final class MoneyType extends Type
             return $value;
         }
 
-        $objects = \explode('-', $value);
+        $objects  = \explode('-', $value);
+        $currency = $objects[1];
 
-        $currency = new Currency($objects[1]);
+        if (is_string($currency) && '' !== $currency) {
+            $currency = new Currency($currency);
+        }
+
+        if (false === $currency instanceof Currency) {
+            return null;
+        }
 
         return new Money([MoneyInterface::BASE_AMOUNT => (int) $objects[0], MoneyInterface::CURRENCY => $currency]);
     }

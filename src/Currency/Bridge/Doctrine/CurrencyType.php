@@ -47,16 +47,18 @@ final class CurrencyType extends Type
      * {@inheritDoc}
      *
      * @psalm-suppress MixedArgument
-     *
-     * @return Currency|string|null
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?Currency
     {
-        if (null === $value || '' === $value) {
-            return $value;
+        if (is_string($value) && '' !== $value) {
+            $value = new Currency($value);
         }
 
-        return new Currency($value);
+        if (false === $value instanceof Currency) {
+            $value = null;
+        }
+
+        return $value;
     }
 
     /**

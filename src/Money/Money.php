@@ -83,7 +83,7 @@ final class Money implements MoneyInterface
         }
 
         // If the base amount were given
-        if (null !== $this->baseAmount) {
+        if (is_numeric($this->baseAmount)) {
             $this->valueObject = new BaseMoney($this->baseAmount, $this->currency);
         }
 
@@ -165,6 +165,10 @@ final class Money implements MoneyInterface
      */
     public function divide($divisor, int $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
+        if (false === is_numeric($divisor)) {
+            throw new \InvalidArgumentException('The divisor has to be a numeric string or int.');
+        }
+
         $result = $this->valueObject->divide($divisor, $roundingMode);
 
         return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
