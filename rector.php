@@ -26,5 +26,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
     $containerConfigurator->import(SerendipityHQ::SHQ_LIBRARY);
 
     $toSkip = SerendipityHQ::buildToSkip(SerendipityHQ::SHQ_LIBRARY_SKIP);
+    $toSkip[] = \Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector::class;
     $parameters->set(Option::SKIP, $toSkip);
 };

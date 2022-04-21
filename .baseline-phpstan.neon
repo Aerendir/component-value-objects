@@ -6,6 +6,31 @@ parameters:
 			path: src/Email/Bridge/Doctrine/EmailType.php
 
 		-
+			message: "#^Cannot call method add\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Money/Money.php
+
+		-
+			message: "#^Cannot call method divide\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Money/Money.php
+
+		-
+			message: "#^Cannot call method multiply\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Money/Money.php
+
+		-
+			message: "#^Cannot call method subtract\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Money/Money.php
+
+		-
+			message: "#^Function sprintf is unsafe to use\\. It can return FALSE instead of throwing an exception\\. Please add 'use function Safe\\\\sprintf;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
+			count: 2
+			path: src/Money/Money.php
+
+		-
 			message: "#^Parameter \\#1 \\$amount of class Money\\\\Money constructor expects int\\|numeric\\-string, string given\\.$#"
 			count: 2
 			path: src/Money/Money.php
@@ -16,17 +41,7 @@ parameters:
 			path: src/Money/Money.php
 
 		-
-			message: "#^Parameter \\#1 \\$multiplier of method Money\\\\Money\\:\\:multiply\\(\\) expects int\\|numeric\\-string, int\\|string given\\.$#"
-			count: 1
-			path: src/Money/Money.php
-
-		-
-			message: "#^Parameter \\#2 \\$roundingMode of method Money\\\\Money\\:\\:divide\\(\\) expects 1\\|2\\|3\\|4\\|5\\|6\\|7\\|8, int given\\.$#"
-			count: 1
-			path: src/Money/Money.php
-
-		-
-			message: "#^Parameter \\#2 \\$roundingMode of method Money\\\\Money\\:\\:multiply\\(\\) expects 1\\|2\\|3\\|4\\|5\\|6\\|7\\|8, int given\\.$#"
+			message: "#^Parameter \\#1 \\$money of method Money\\\\Formatter\\\\DecimalMoneyFormatter\\:\\:format\\(\\) expects Money\\\\Money, mixed given\\.$#"
 			count: 1
 			path: src/Money/Money.php
 

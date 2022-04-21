@@ -22,8 +22,7 @@ final class MoneyFormatterExtension extends AbstractExtension
 {
     private const DEFAULT_LOCALE = 'en-US';
 
-    /** @var ISOCurrencies */
-    private $currencies;
+    private ISOCurrencies $currencies;
 
     /**
      * Initiaizes the currencies repository.

@@ -30,8 +30,7 @@ final class Phone extends PhoneNumber implements PhoneInterface
     /** @var PhoneNumber|string */
     private $number;
 
-    /** @var string|null */
-    private $region;
+    private ?string $region = null;
 
     /**
      * {@inheritDoc}

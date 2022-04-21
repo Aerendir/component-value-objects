@@ -23,8 +23,7 @@ final class Ip implements IpInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var IPv4 */
-    private $valueObject;
+    private IPv4 $valueObject;
 
     /**
      * {@inheritDoc}

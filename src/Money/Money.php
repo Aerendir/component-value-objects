@@ -58,9 +58,6 @@ final class Money implements MoneyInterface
     /** @var Currency */
     private $currency;
 
-    /** @var BaseMoney */
-    private $valueObject;
-
     /**
      * {@inheritDoc}
      *
@@ -109,6 +106,10 @@ final class Money implements MoneyInterface
      */
     public function getBaseAmount(): string
     {
+        if (false === $this->valueObject instanceof BaseMoney) {
+            throw new \LogicException(sprintf('This is not a %s object.', BaseMoney::class));
+        }
+
         return $this->valueObject->getAmount();
     }
 
@@ -117,6 +118,10 @@ final class Money implements MoneyInterface
      */
     public function getCurrency(): Currency
     {
+        if (false === $this->valueObject instanceof BaseMoney) {
+            throw new \LogicException(sprintf('This is not a %s object.', BaseMoney::class));
+        }
+
         return $this->valueObject->getCurrency();
     }
 

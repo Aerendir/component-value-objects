@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
+<files psalm-version="4.22.0@fc2c6ab4d5fa5d644d8617089f012f3bb84b8703">
   <file src="src/Common/DisableWritingMethodsTrait.php">
     <MissingParamType occurrences="1">
       <code>$value</code>
@@ -11,8 +11,7 @@
     </MissingParamType>
   </file>
   <file src="src/Money/Money.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>$multiplier</code>
+    <ArgumentTypeCoercion occurrences="3">
       <code>$other-&gt;getBaseAmount()</code>
       <code>$other-&gt;getBaseAmount()</code>
       <code>\strtoupper($currency)</code>
@@ -29,26 +28,11 @@
     </DocblockTypeContradiction>
   </file>
   <file src="src/Vat/VatNumber.php">
-    <RedundantCastGivenDocblockType occurrences="1">
+    <RedundantCast occurrences="1">
       <code>(string) $this-&gt;number</code>
-    </RedundantCastGivenDocblockType>
-  </file>
-  <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
-    <PossiblyInvalidArgument occurrences="7">
-      <code>$this-&gt;platform</code>
-      <code>$this-&gt;platform</code>
-      <code>$this-&gt;platform</code>
-      <code>$this-&gt;platform</code>
-      <code>$this-&gt;platform</code>
-      <code>$this-&gt;platform</code>
-      <code>$this-&gt;platform</code>
-    </PossiblyInvalidArgument>
+    </RedundantCast>
   </file>
   <file src="tests/Money/MoneyTest.php">
-    <MixedMethodCall occurrences="2">
-      <code>getCode</code>
-      <code>getCode</code>
-    </MixedMethodCall>
     <UndefinedInterfaceMethod occurrences="8">
       <code>getBaseAmount</code>
       <code>getBaseAmount</code>
