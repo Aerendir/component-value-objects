@@ -19,11 +19,10 @@ use SerendipityHQ\Component\ValueObjects\Money\Bridge\Doctrine\MoneyType;
 
 final class MoneyTypeTest extends TestCase
 {
-    /** @var MoneyType */
-    private $type;
+    private MoneyType $type;
 
     /**
-     * @var AbstractPlatform|MockObject
+     * @var AbstractPlatform&MockObject
      * @suppress PhanWriteOnlyPrivateProperty
      */
     private $platform;

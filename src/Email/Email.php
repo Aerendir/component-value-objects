@@ -24,11 +24,9 @@ final class Email implements EmailInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var string */
-    private $email;
+    private string $email;
 
-    /** @var string */
-    private $mailBox;
+    private string $mailBox;
 
     /** @var string */
     private $host;
