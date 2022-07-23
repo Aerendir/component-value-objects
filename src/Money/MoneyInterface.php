@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -23,10 +25,17 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface MoneyInterface extends ComplexValueObjectInterface
 {
     public const BASE_AMOUNT  = 'baseAmount';
-
     public const HUMAN_AMOUNT = 'humanAmount';
-
     public const CURRENCY     = 'currency';
+
+    /**
+     * @return array<string,float|int|string> [
+     *                                        'currency'    => $this->getCurrency()->getCode(),
+     *                                        'baseAmount'  => $this->getBaseAmount(),
+     *                                        'humanAmount' => $this->getHumanAmount(),
+     *                                        ];
+     */
+    public function __toArray(): array;
 
     /**
      * Returns the monetary value represented by this object.
@@ -57,13 +66,4 @@ interface MoneyInterface extends ComplexValueObjectInterface
      * @param int|string $multiplier
      */
     public function multiply($multiplier, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
-
-    /**
-     * @return array<string,float|int|string> [
-     *                                        'currency'    => $this->getCurrency()->getCode(),
-     *                                        'baseAmount'  => $this->getBaseAmount(),
-     *                                        'humanAmount' => $this->getHumanAmount(),
-     *                                        ];
-     */
-    public function __toArray(): array;
 }

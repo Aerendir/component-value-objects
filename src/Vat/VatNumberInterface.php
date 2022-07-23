@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -19,9 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface VatNumberInterface extends ComplexValueObjectInterface
 {
     public const COUNTRY_CODE = 'countryCode';
-
     public const NUMBER       = 'number';
-
     public const VAT_NUMBER   = 'vatNumber';
 
     /**

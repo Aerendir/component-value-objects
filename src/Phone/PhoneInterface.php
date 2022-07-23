@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -21,10 +23,7 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface PhoneInterface extends ComplexValueObjectInterface
 {
     public const CONFIG_KEEP_RAW_INPUT = 'keepRawInput';
-
     public const COUNTRY_CODE          = 'countryCode';
-
     public const NUMBER                = 'number';
-
     public const REGION                = 'region';
 }

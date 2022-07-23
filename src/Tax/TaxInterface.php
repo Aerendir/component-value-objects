@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -20,13 +22,9 @@ use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 interface TaxInterface extends ComplexValueObjectInterface
 {
     public const CODE     = 'code';
-
     public const COMPOUND = 'compound';
-
     public const RATE     = 'rate';
-
     public const AMOUNT   = 'amount';
-
     public const TITLE    = 'title';
 
     /**

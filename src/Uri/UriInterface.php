@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -11,7 +13,6 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
-use Laminas\Uri\Exception\InvalidUriPartException;
 use Laminas\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
@@ -157,17 +158,12 @@ interface UriInterface extends SimpleValueObjectInterface
      * You can check if a scheme is valid before setting it using the
      * validateScheme() method.
      *
-     * @throws InvalidUriPartException
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function setScheme(?string $scheme): self;
 
     /**
      * Set the URI User-info part (usually user:password).
-     *
-     * @throws InvalidUriPartException If the schema definition
-     *                                 does not have this part
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -186,8 +182,6 @@ interface UriInterface extends SimpleValueObjectInterface
      * Subclasses of Uri may impose more strict validation of host names - for
      * example the HTTP RFC clearly states that only IPv4 and valid DNS names
      * are allowed in HTTP URIs.
-     *
-     * @throws InvalidUriPartException
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -222,9 +216,6 @@ interface UriInterface extends SimpleValueObjectInterface
 
     /**
      * Set the URI fragment part.
-     *
-     * @throws InvalidUriPartException If the schema definition
-     *                                 does not have this part
      *
      * @see \Laminas\Uri\UriInterface
      */

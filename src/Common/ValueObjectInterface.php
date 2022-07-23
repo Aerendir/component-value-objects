@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -19,15 +21,6 @@ interface ValueObjectInterface
     /**
      * The string representation of the object.
      *
-     * This method can accept options to refine the string returned.
-     *
-     * @param array<string,mixed> $options Options to use to format the output strinarray
-     */
-    public function toString(array $options = []): string;
-
-    /**
-     * The string representation of the object.
-     *
      * @psalm-suppress MissingReturnType
      */
     public function __toString();
@@ -41,8 +34,15 @@ interface ValueObjectInterface
      *     {
      *         // Body MUST BE EMPTY
      *     }
-     *
-     * @param mixed $value
      */
     public function __set(string $field, $value): void;
+
+    /**
+     * The string representation of the object.
+     *
+     * This method can accept options to refine the string returned.
+     *
+     * @param array<string,mixed> $options Options to use to format the output strinarray
+     */
+    public function toString(array $options = []): string;
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -23,7 +25,6 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface PaymentInterface extends ComplexValueObjectInterface
 {
     public const METHOD = 'method';
-
     public const STATUS = 'status';
 
     /**

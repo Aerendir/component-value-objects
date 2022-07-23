@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -32,25 +34,21 @@ final class Payment implements PaymentInterface
     /** Status of the payment: paid or not? Or in which status? */
     private string $status;
 
-    /**
-     * {@inheritDoc}
-     */
+    public function __toString(): string
+    {
+        return $this->method . ': ' . $this->status;
+    }
+
     public function getMethod(): string
     {
         return $this->method;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
@@ -70,13 +68,5 @@ final class Payment implements PaymentInterface
     protected function setStatus(string $status): void
     {
         $this->status = $status;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString(): string
-    {
-        return $this->method . ': ' . $this->status;
     }
 }

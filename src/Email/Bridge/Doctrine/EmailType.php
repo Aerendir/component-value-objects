@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -15,9 +17,9 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
-use Safe\Exceptions\StringsException;
-use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
+
+use function Safe\sprintf;
 
 /**
  * A custom datatype to persist an Email Value Object with Doctrine.
@@ -40,8 +42,6 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @codeCoverageIgnore
      */
     public function getDefaultLength(AbstractPlatform $platform): int
@@ -50,12 +50,7 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @psalm-suppress MixedArgument
-     *
-     * @throws \InvalidArgumentException
-     * @throws StringsException
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Email
     {
@@ -67,12 +62,8 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @param Email|string|null $value
      *
-     * @throws StringsException
-     * @throws \InvalidArgumentException
      * @psalm-suppress DocblockTypeContradiction
      */
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
@@ -101,20 +92,13 @@ final class EmailType extends Type
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @codeCoverageIgnore
-     *
-     * @throws StringsException
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getName(): string
     {
         return self::NAME;

@@ -12,9 +12,12 @@ return [
     // PhanUndeclaredStaticMethod : 160+ occurrences
     // PhanRedefinedExtendedClass : 10+ occurrences
     // PhanUndeclaredMethod : 7 occurrences
+    // PhanTypeMismatchArgumentProbablyReal : 1 occurrence
+    // PhanTypeMismatchReturnSuperType : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
+        'src/Uri/Bridge/Doctrine/UriType.php' => ['PhanTypeMismatchReturnSuperType'],
         'tests/Address/AddressTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php' => ['PhanUndeclaredStaticMethod'],
         'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
@@ -26,7 +29,7 @@ return [
         'tests/Payment/PaymentTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Phone/PhoneTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Tax/TaxTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
-        'tests/Uri/UriTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
+        'tests/Uri/UriTest.php' => ['PhanRedefinedExtendedClass', 'PhanTypeMismatchArgumentProbablyReal', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
         'tests/Vat/VatNumberTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Vat/VatRateTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
     ],

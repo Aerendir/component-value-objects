@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -31,8 +33,6 @@ interface ComplexValueObjectInterface extends ValueObjectInterface
 
     /**
      * Returns the built value object or null if no one is present.
-     *
-     * @return mixed
      */
     public function getValueObject();
 
