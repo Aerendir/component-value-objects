@@ -57,7 +57,7 @@ parameters:
 
 		-
 			message: "#^Function sprintf is unsafe to use\\. It can return FALSE instead of throwing an exception\\. Please add 'use function Safe\\\\sprintf;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
-			count: 2
+			count: 3
 			path: src/Money/Money.php
 
 		-

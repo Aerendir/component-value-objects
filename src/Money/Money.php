@@ -178,9 +178,15 @@ final class Money implements MoneyInterface
 
     /**
      * Sets the amount.
+     *
+     * @param int|string $baseAmount
      */
-    protected function setBaseAmount(int $baseAmount): void
+    protected function setBaseAmount($baseAmount): void
     {
+        if (false === is_numeric($baseAmount)) {
+            throw new \InvalidArgumentException(sprintf('The value must be numeric. You passed "%s".', $baseAmount));
+        }
+
         $this->baseAmount = (string) $baseAmount;
     }
 
