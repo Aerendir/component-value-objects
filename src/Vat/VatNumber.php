@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -11,7 +13,6 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Vat;
 
-use Safe\Exceptions\StringsException;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
@@ -34,33 +35,26 @@ final class VatNumber implements VatNumberInterface
     /** The full VAT Number, with country ISO code */
     private string $vatNumber;
 
-    /**
-     * {@inheritDoc}
-     */
+    public function __toString(): string
+    {
+        return $this->countryCode . ' ' . (string) $this->number;
+    }
+
     public function getCountryCode(): string
     {
         return $this->countryCode;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getNumber(): string
     {
         return $this->number;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getVatNumber(): string
     {
         return $this->vatNumber;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
@@ -86,20 +80,9 @@ final class VatNumber implements VatNumberInterface
      * Method to set the full VAT Number.
      *
      * @param string $vatNumber The full VAT number, with country ISO code
-     *
-     * @throws StringsException
-     * @throws \InvalidArgumentException
      */
     protected function setVatNumber(string $vatNumber): void
     {
         $this->vatNumber = $vatNumber;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString(): string
-    {
-        return $this->countryCode . ' ' . (string) $this->number;
     }
 }

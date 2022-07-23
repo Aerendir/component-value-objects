@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -22,11 +24,8 @@ use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectInterface;
 interface CurrencyExchangeRateInterface extends ComplexValueObjectInterface
 {
     public const EXCHANGE_RATE      = 'exchangeRate';
-
     public const EXCHANGE_RATE_DATE = 'exchangeRateDate';
-
     public const FROM               = 'from';
-
     public const TO                 = 'to';
 
     /**

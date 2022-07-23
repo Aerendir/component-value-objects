@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -20,7 +22,6 @@ use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 final class UriTest extends TestCase
 {
     private const BASE = 'http://example.com/dir/subdir/';
-
     private const URL  = self::BASE . 'more/file1.txt';
 
     public function testUri(): void

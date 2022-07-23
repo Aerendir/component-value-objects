@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -18,7 +20,6 @@ trait DisableWritingMethodsTrait
 {
     /**
      * @see {@link ValueObjectInterface}
-     * {@inheritDoc}
      */
     public function __set(string $field, $value): void
     {

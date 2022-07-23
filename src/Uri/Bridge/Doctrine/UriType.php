@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -13,10 +15,10 @@ namespace SerendipityHQ\Component\ValueObjects\Uri\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
-use Safe\Exceptions\StringsException;
-use function Safe\sprintf;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
+
+use function Safe\sprintf;
 
 /**
  * A custom datatype to persist an Uri Value Object with Doctrine.
@@ -36,20 +38,12 @@ final class UriType extends Type
         return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
         return 255;
     }
 
     /**
-     * {@inheritDoc}
-     *
-     * @throws StringsException
-     * @throws \Laminas\Uri\Exception\InvalidArgumentException
-     *
      * @return string|Uri|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
@@ -72,12 +66,8 @@ final class UriType extends Type
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @param string|UriInterface|null $value
      *
-     * @throws StringsException
-     * @throws \InvalidArgumentException
      * @psalm-suppress DocblockTypeContradiction
      * @psalm-suppress MixedArgument
      */
@@ -96,17 +86,11 @@ final class UriType extends Type
         return $value->__toString();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getName(): string
     {
         return self::NAME;

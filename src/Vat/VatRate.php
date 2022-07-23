@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -29,11 +31,7 @@ final class VatRate implements VatRateInterface
     private $countryCode;
 
     /**
-     * {@inheritDoc}
-     *
      * @param string $countryCode
-     *
-     * @throws \InvalidArgumentException
      */
     public function __construct($countryCode)
     {
@@ -42,6 +40,11 @@ final class VatRate implements VatRateInterface
         }
 
         $this->countryCode = $countryCode;
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->getPercentage();
     }
 
     public function getCountryCode(): string
@@ -54,19 +57,8 @@ final class VatRate implements VatRateInterface
         return self::COUNTRIES[$this->countryCode];
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString(): string
-    {
-        return (string) $this->getPercentage();
     }
 }
