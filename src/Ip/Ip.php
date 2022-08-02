@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -11,28 +13,17 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Ip;
 
-use Darsyn\IP\Exception\InvalidIpAddressException;
-use Darsyn\IP\Exception\WrongVersionException;
 use Darsyn\IP\Version\IPv4;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
-/**
- * {@inheritDoc}
- */
 final class Ip implements IpInterface
 {
     use DisableWritingMethodsTrait;
 
-    /** @var IPv4 */
-    private $valueObject;
+    private IPv4 $valueObject;
 
     /**
-     * {@inheritDoc}
-     *
      * @param string $value
-     *
-     * @throws InvalidIpAddressException
-     * @throws WrongVersionException
      *
      * @psalm-suppress DocblockTypeContradiction
      */
@@ -45,16 +36,13 @@ final class Ip implements IpInterface
         $this->valueObject = IPv4::factory($value);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function toString(array $options = []): string
-    {
-        return $this->__toString();
-    }
-
     public function __toString(): string
     {
         return $this->valueObject->getDotAddress();
+    }
+
+    public function toString(array $options = []): string
+    {
+        return $this->__toString();
     }
 }

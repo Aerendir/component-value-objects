@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -32,7 +34,7 @@ interface VatNumberInterface extends ComplexValueObjectInterface
     /**
      * Returns the number part of the VAT Number.
      */
-    public function getNumber(): int;
+    public function getNumber(): string;
 
     /**
      * Method to get the full VAT Number, with ISC country code.

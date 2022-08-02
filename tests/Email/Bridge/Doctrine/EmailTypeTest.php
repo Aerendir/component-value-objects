@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -25,10 +27,10 @@ final class EmailTypeTest extends TestCase
 {
     /** @var string */
     private const EMAIL_VALUE = 'hello@aexample.com';
-    /** @var EmailType */
-    private $type;
 
-    /** @var MockObject&AbstractPlatform */
+    private EmailType $type;
+
+    /** @var AbstractPlatform&MockObject */
     private $platform;
 
     protected function setUp(): void

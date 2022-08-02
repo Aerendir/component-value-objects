@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -11,7 +13,6 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Uri;
 
-use Laminas\Uri\Exception\InvalidUriPartException;
 use Laminas\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Common\SimpleValueObjectInterface;
 
@@ -51,8 +52,6 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Parse a URI string.
      *
-     * @return UriInterface
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function parse(string $uri): self;
@@ -68,8 +67,6 @@ interface UriInterface extends SimpleValueObjectInterface
      * Eventually, two normalized URLs pointing to the same resource should be
      * equal even if they were originally represented by two different strings
      *
-     * @return UriInterface
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function normalize(): self;
@@ -84,8 +81,6 @@ interface UriInterface extends SimpleValueObjectInterface
      *  way related to the base URI) the URI will not be modified.
      *
      * @param string|Uri|UriInterface $baseUri
-     *
-     * @return UriInterface
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -163,21 +158,12 @@ interface UriInterface extends SimpleValueObjectInterface
      * You can check if a scheme is valid before setting it using the
      * validateScheme() method.
      *
-     * @throws InvalidUriPartException
-     *
-     * @return UriInterface
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function setScheme(?string $scheme): self;
 
     /**
      * Set the URI User-info part (usually user:password).
-     *
-     * @throws InvalidUriPartException If the schema definition
-     *                                 does not have this part
-     *
-     * @return UriInterface
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -197,10 +183,6 @@ interface UriInterface extends SimpleValueObjectInterface
      * example the HTTP RFC clearly states that only IPv4 and valid DNS names
      * are allowed in HTTP URIs.
      *
-     * @throws InvalidUriPartException
-     *
-     * @return UriInterface
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function setHost(?string $host): self;
@@ -208,16 +190,12 @@ interface UriInterface extends SimpleValueObjectInterface
     /**
      * Set the port part of the URI.
      *
-     * @return UriInterface
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function setPort(?int $port): self;
 
     /**
      * Set the path.
-     *
-     * @return UriInterface
      *
      * @see \Laminas\Uri\UriInterface
      */
@@ -232,19 +210,12 @@ interface UriInterface extends SimpleValueObjectInterface
      *
      * @param array<string,string>|string|null $query
      *
-     * @return UriInterface
-     *
      * @see \Laminas\Uri\UriInterface
      */
     public function setQuery($query): self;
 
     /**
      * Set the URI fragment part.
-     *
-     * @throws InvalidUriPartException If the schema definition
-     *                                 does not have this part
-     *
-     * @return UriInterface
      *
      * @see \Laminas\Uri\UriInterface
      */

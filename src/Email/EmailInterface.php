@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -41,8 +43,6 @@ interface EmailInterface extends SimpleValueObjectInterface
      * Change the mailbox.
      *
      * This returns a new Email object.
-     *
-     * @return EmailInterface
      */
     public function changeMailBox(string $newMailBox): self;
 }

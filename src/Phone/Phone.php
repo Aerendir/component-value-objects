@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -11,7 +13,6 @@
 
 namespace SerendipityHQ\Component\ValueObjects\Phone;
 
-use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -30,15 +31,9 @@ final class Phone extends PhoneNumber implements PhoneInterface
     /** @var PhoneNumber|string */
     private $number;
 
-    /** @var string|null */
-    private $region;
+    private ?string $region = null;
 
     /**
-     * {@inheritDoc}
-     *
-     * @throws NumberParseException
-     * @throws \InvalidArgumentException
-     *
      * @psalm-suppress MixedAssignment
      */
     public function __construct(array $values)
@@ -63,8 +58,21 @@ final class Phone extends PhoneNumber implements PhoneInterface
     }
 
     /**
-     * @throws \RuntimeException
+     * @return array<string,int|string|null> [
+     *                                       'countryCode' => $this->getCountryCode(),
+     *                                       'number'      => $this->getNationalNumber(),
+     *                                       'region'      => $this->getRegion(),
+     *                                       ];
      */
+    public function __toArray(): array
+    {
+        return [
+            self::COUNTRY_CODE => $this->getCountryCode(),
+            self::NUMBER       => $this->getNationalNumber(),
+            self::REGION       => $this->getRegion(),
+        ];
+    }
+
     public function getNumber(): PhoneNumber
     {
         if (\is_string($this->number)) {
@@ -83,9 +91,6 @@ final class Phone extends PhoneNumber implements PhoneInterface
         return $this->region;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
@@ -102,21 +107,5 @@ final class Phone extends PhoneNumber implements PhoneInterface
     protected function setRegion(string $region): void
     {
         $this->region = $region;
-    }
-
-    /**
-     * @return array<string,int|string|null> [
-     *                                       'countryCode' => $this->getCountryCode(),
-     *                                       'number'      => $this->getNationalNumber(),
-     *                                       'region'      => $this->getRegion(),
-     *                                       ];
-     */
-    public function __toArray(): array
-    {
-        return [
-            self::COUNTRY_CODE => $this->getCountryCode(),
-            self::NUMBER       => $this->getNationalNumber(),
-            self::REGION       => $this->getRegion(),
-        ];
     }
 }

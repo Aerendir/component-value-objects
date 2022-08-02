@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -22,8 +24,7 @@ final class MoneyFormatterExtension extends AbstractExtension
 {
     private const DEFAULT_LOCALE = 'en-US';
 
-    /** @var ISOCurrencies */
-    private $currencies;
+    private ISOCurrencies $currencies;
 
     /**
      * Initiaizes the currencies repository.
@@ -34,8 +35,6 @@ final class MoneyFormatterExtension extends AbstractExtension
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @return TwigFilter[]
      * @psalm-suppress MixedArgumentTypeCoercion
      */
@@ -56,6 +55,7 @@ final class MoneyFormatterExtension extends AbstractExtension
         if (null === $money) {
             return null;
         }
+
         $formatter      = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
         $moneyFormatter = new IntlMoneyFormatter($formatter, $this->currencies);
 

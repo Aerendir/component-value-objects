@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -13,7 +15,6 @@ namespace SerendipityHQ\Component\ValueObjects\Money;
 
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
-use Money\Exception\ParserException;
 use Money\Formatter\DecimalMoneyFormatter;
 use Money\Money as BaseMoney;
 use Money\Parser\DecimalMoneyParser;
@@ -58,15 +59,6 @@ final class Money implements MoneyInterface
     /** @var Currency */
     private $currency;
 
-    /** @var BaseMoney */
-    private $valueObject;
-
-    /**
-     * {@inheritDoc}
-     *
-     * @throws \InvalidArgumentException
-     * @throws ParserException
-     */
     public function __construct(array $values = [])
     {
         // Set values in the object
@@ -83,7 +75,7 @@ final class Money implements MoneyInterface
         }
 
         // If the base amount were given
-        if (null !== $this->baseAmount) {
+        if (is_numeric($this->baseAmount)) {
             $this->valueObject = new BaseMoney($this->baseAmount, $this->currency);
         }
 
@@ -104,36 +96,46 @@ final class Money implements MoneyInterface
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    public function __toString(): string
+    {
+        $currencies = new ISOCurrencies();
+        $formatter  = new DecimalMoneyFormatter($currencies);
+
+        return $formatter->format($this->valueObject);
+    }
+
+    public function __toArray(): array
+    {
+        return [
+            self::CURRENCY     => $this->getCurrency()->getCode(),
+            self::BASE_AMOUNT  => $this->getBaseAmount(),
+            self::HUMAN_AMOUNT => $this->getHumanAmount(),
+        ];
+    }
+
     public function getBaseAmount(): string
     {
+        if (false === $this->valueObject instanceof BaseMoney) {
+            throw new \LogicException(sprintf('This is not a %s object.', BaseMoney::class));
+        }
+
         return $this->valueObject->getAmount();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getCurrency(): Currency
     {
+        if (false === $this->valueObject instanceof BaseMoney) {
+            throw new \LogicException(sprintf('This is not a %s object.', BaseMoney::class));
+        }
+
         return $this->valueObject->getCurrency();
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getHumanAmount(): string
     {
         return $this->__toString();
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws \InvalidArgumentException
-     * @throws ParserException
-     */
     public function add(MoneyInterface $other): MoneyInterface
     {
         $toAdd  = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
@@ -142,12 +144,6 @@ final class Money implements MoneyInterface
         return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws \InvalidArgumentException
-     * @throws ParserException
-     */
     public function subtract(MoneyInterface $other): MoneyInterface
     {
         $toAdd = new BaseMoney($other->getBaseAmount(), $other->getCurrency());
@@ -157,25 +153,17 @@ final class Money implements MoneyInterface
         return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws \InvalidArgumentException
-     * @throws ParserException
-     */
     public function divide($divisor, int $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
+        if (false === is_numeric($divisor)) {
+            throw new \InvalidArgumentException('The divisor has to be a numeric string or int.');
+        }
+
         $result = $this->valueObject->divide($divisor, $roundingMode);
 
         return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws \InvalidArgumentException
-     * @throws ParserException
-     */
     public function multiply($multiplier, int $roundingMode = BaseMoney::ROUND_HALF_UP): MoneyInterface
     {
         $result = $this->valueObject->multiply($multiplier, $roundingMode);
@@ -183,9 +171,6 @@ final class Money implements MoneyInterface
         return new self([self::BASE_AMOUNT => $result->getAmount(), self::CURRENCY => $this->currency]);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
@@ -193,9 +178,15 @@ final class Money implements MoneyInterface
 
     /**
      * Sets the amount.
+     *
+     * @param int|string $baseAmount
      */
-    protected function setBaseAmount(int $baseAmount): void
+    protected function setBaseAmount($baseAmount): void
     {
+        if (false === is_numeric($baseAmount)) {
+            throw new \InvalidArgumentException(sprintf('The value must be numeric. You passed "%s".', $baseAmount));
+        }
+
         $this->baseAmount = (string) $baseAmount;
     }
 
@@ -219,28 +210,5 @@ final class Money implements MoneyInterface
         }
 
         $this->currency = $currency;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString(): string
-    {
-        $currencies = new ISOCurrencies();
-        $formatter  = new DecimalMoneyFormatter($currencies);
-
-        return $formatter->format($this->valueObject);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toArray(): array
-    {
-        return [
-            self::CURRENCY     => $this->getCurrency()->getCode(),
-            self::BASE_AMOUNT  => $this->getBaseAmount(),
-            self::HUMAN_AMOUNT => $this->getHumanAmount(),
-        ];
     }
 }

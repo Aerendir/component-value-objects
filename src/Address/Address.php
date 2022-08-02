@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -98,76 +100,52 @@ class Address implements AddressInterface
      */
     protected $extraLine;
 
-    /**
-     * {@inheritDoc}
-     */
     public function __construct(array $values)
     {
         // Set values in the object
         $this->traitConstruct($values);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    public function __toString(): string
+    {
+        return $this->toString();
+    }
+
     public function getAdministrativeArea(): ?string
     {
         return $this->administrativeArea;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getCountryCode(): ?string
     {
         return $this->countryCode;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getDependentLocality(): ?string
     {
         return $this->dependentLocality;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getStreet(): ?string
     {
         return $this->street;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getExtraLine(): ?string
     {
         return $this->extraLine;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getLocality(): ?string
     {
         return $this->locality;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @throws \RuntimeException
-     */
     public function toString(array $options = []): string
     {
         // @todo Add formatters for the address. @see https://github.com/commerceguys/addressing
@@ -207,13 +185,5 @@ class Address implements AddressInterface
     protected function setPostalCode(string $postalCode): void
     {
         $this->postalCode = $postalCode;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString(): string
-    {
-        return $this->toString();
     }
 }

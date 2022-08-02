@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -16,8 +18,7 @@ namespace SerendipityHQ\Component\ValueObjects\Common;
  */
 trait ComplexValueObjectTrait
 {
-    /** @var mixed */
-    private $valueObject;
+    protected $valueObject;
 
     /** @var array<int|string,mixed> Contains the data for which a property were not found */
     private $otherData = [];
@@ -61,8 +62,6 @@ trait ComplexValueObjectTrait
 
     /**
      * Returns the built value object or null if no one is present.
-     *
-     * @return mixed
      */
     public function getValueObject()
     {

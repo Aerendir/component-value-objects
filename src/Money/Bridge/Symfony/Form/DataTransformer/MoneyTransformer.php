@@ -13,18 +13,14 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\ValueObjects\Money\Bridge\Symfony\Form\DataTransformer;
 
-use Money\Exception\ParserException;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 
-/**
- * {@inheritDoc}
- */
 final class MoneyTransformer implements DataTransformerInterface
 {
     /** @var array<string,mixed> */
-    private $options;
+    private array $options;
 
     /**
      * @param array<string,mixed> $options = [
@@ -54,9 +50,6 @@ final class MoneyTransformer implements DataTransformerInterface
      * Transforms a string email (email@example.com) to an Email object.
      *
      * @param float|int|Money|string|null $money
-     *
-     * @throws \InvalidArgumentException
-     * @throws ParserException
      */
     public function reverseTransform($money): ?MoneyInterface
     {

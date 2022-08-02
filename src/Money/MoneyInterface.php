@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -27,6 +29,15 @@ interface MoneyInterface extends ComplexValueObjectInterface
     public const CURRENCY     = 'currency';
 
     /**
+     * @return array<string,float|int|string> [
+     *                                        'currency'    => $this->getCurrency()->getCode(),
+     *                                        'baseAmount'  => $this->getBaseAmount(),
+     *                                        'humanAmount' => $this->getHumanAmount(),
+     *                                        ];
+     */
+    public function __toArray(): array;
+
+    /**
      * Returns the monetary value represented by this object.
      */
     public function getBaseAmount(): string;
@@ -42,32 +53,17 @@ interface MoneyInterface extends ComplexValueObjectInterface
      */
     public function getCurrency(): Currency;
 
-    /**
-     * @return MoneyInterface
-     */
     public function add(MoneyInterface $other): self;
 
-    /**
-     * @return MoneyInterface
-     */
     public function subtract(MoneyInterface $other): self;
 
     /**
-     * @param float|int|string $divisor
+     * @param int|string $divisor
      */
     public function divide($divisor, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
 
     /**
-     * @param float|int|string $multiplier
+     * @param int|string $multiplier
      */
     public function multiply($multiplier, int $roundingMode = Money::ROUND_HALF_UP): MoneyInterface;
-
-    /**
-     * @return array<string,float|int|string> [
-     *                                        'currency'    => $this->getCurrency()->getCode(),
-     *                                        'baseAmount'  => $this->getBaseAmount(),
-     *                                        'humanAmount' => $this->getHumanAmount(),
-     *                                        ];
-     */
-    public function __toArray(): array;
 }

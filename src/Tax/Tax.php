@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -25,64 +27,51 @@ final class Tax implements TaxInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var string A string that identifies uniquely the tax on the Remote system */
-    private $code;
+    /** A string that identifies uniquely the tax on the Remote system */
+    private string $code;
 
     /** @var bool If the tax is compound or not */
-    private $compound = false;
+    private bool $compound = false;
 
-    /** @var float The rate of the tax */
-    private $rate;
+    /** The rate of the tax */
+    private float $rate;
 
-    /** @var MoneyInterface The paid amount of taxes */
-    private $amount;
+    /** The paid amount of taxes */
+    private MoneyInterface $amount;
 
-    /** @var string The title of the tax on the Remote system */
-    private $title;
+    /** The title of the tax on the Remote system */
+    private string $title;
 
-    /**
-     * {@inheritDoc}
-     */
+    public function __toString(): string
+    {
+        return $this->code . ' ' . $this->amount;
+    }
+
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getRate(): ?float
     {
         return $this->rate;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getAmount(): ?MoneyInterface
     {
         return $this->amount;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function isCompound(): ?bool
     {
         return $this->compound;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
@@ -132,13 +121,5 @@ final class Tax implements TaxInterface
     protected function setTitle(string $title): void
     {
         $this->title = $title;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function __toString(): string
-    {
-        return $this->code . ' ' . $this->amount;
     }
 }

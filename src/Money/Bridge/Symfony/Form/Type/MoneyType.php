@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -22,8 +24,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 final class MoneyType extends AbstractType
 {
     /**
-     * {@inheritDoc}
-     *
      * @psalm-suppress MixedArgumentTypeCoercion
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -31,17 +31,11 @@ final class MoneyType extends AbstractType
         $builder->addModelTransformer(new MoneyTransformer($options));
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getParent(): string
     {
         return SfMoneyType::class;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getBlockPrefix(): string
     {
         return 'shq_money';

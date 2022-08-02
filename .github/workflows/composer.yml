@@ -2,6 +2,12 @@ name: Composer
 
 on: [ push ]
 
+# Cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name.
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     composer:
         runs-on: ${{ matrix.os }}
@@ -13,30 +19,20 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2.4.0
+                uses: actions/checkout@v3
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.16.0
+                uses: shivammathur/setup-php@2.21.1
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none # disable xdebug, pcov
                     tools: symfony
                     extensions: ast
 
-            -   name: Get Composer Cache Directory
-                id: composer-cache
-                run: |
-                    echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            -   name: Cache Composer's dependencies
-                uses: actions/cache@v2.1.7
-                with:
-                    path: ${{ steps.composer-cache.outputs.dir }}
-                    key: php-composer-dependencies-cache
-
             -   name: Install Composer deps
-                run: |
-                    composer update --no-interaction
+                uses: ramsey/composer-install@v2
+                with:
+                    composer-options: --no-scripts
 
             -   name: Run Composer
                 run: |

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -14,7 +16,7 @@ namespace SerendipityHQ\Component\ValueObjects\Currency\Bridge\Doctrine;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Money\Currency;
-use Safe\Exceptions\StringsException;
+
 use function Safe\sprintf;
 
 /**
@@ -35,37 +37,29 @@ final class CurrencyType extends Type
         return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
         return 3;
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @psalm-suppress MixedArgument
-     *
-     * @return Currency|string|null
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?Currency
     {
-        if (null === $value || '' === $value) {
-            return $value;
+        if (is_string($value) && '' !== $value) {
+            $value = new Currency($value);
         }
 
-        return new Currency($value);
+        if (false === $value instanceof Currency) {
+            $value = null;
+        }
+
+        return $value;
     }
 
     /**
-     * {@inheritDoc}
-     *
      * @param Currency|string|null $value
-     *
-     * @throws \InvalidArgumentException
-     * @throws StringsException
      *
      * @return Currency|string|null
      * @psalm-suppress DocblockTypeContradiction
@@ -87,17 +81,11 @@ final class CurrencyType extends Type
         return $value;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return ! parent::requiresSQLCommentHint($platform);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getName(): string
     {
         return self::NAME;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -19,8 +21,7 @@ use SerendipityHQ\Component\ValueObjects\Money\Bridge\Doctrine\MoneyType;
 
 final class MoneyTypeTest extends TestCase
 {
-    /** @var MoneyType */
-    private $type;
+    private MoneyType $type;
 
     /**
      * @var AbstractPlatform&MockObject

@@ -16,9 +16,6 @@ namespace SerendipityHQ\Component\ValueObjects\Address\Bridge\Symfony\Form\DataT
 use SerendipityHQ\Component\ValueObjects\Address\Bridge\Doctrine\AddressEmbeddable;
 use Symfony\Component\Form\DataTransformerInterface;
 
-/**
- * {@inheritDoc}
- */
 final class AddressTransformer implements DataTransformerInterface
 {
     /**
@@ -41,8 +38,6 @@ final class AddressTransformer implements DataTransformerInterface
      * Creates the AddressEmbeddable from the array.
      *
      * @param AddressEmbeddable|array<string,string|null>|null $address
-     *
-     * @throws \InvalidArgumentException
      */
     public function reverseTransform($address): ?AddressEmbeddable
     {

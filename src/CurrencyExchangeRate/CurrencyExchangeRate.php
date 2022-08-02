@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Serendipity HQ Value Objects Component.
  *
@@ -12,13 +14,9 @@
 namespace SerendipityHQ\Component\ValueObjects\CurrencyExchangeRate;
 
 use Money\Currency;
-use Safe\Exceptions\StringsException;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
-/**
- * {@inheritDoc}
- */
 final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 {
     use ComplexValueObjectTrait {
@@ -26,17 +24,10 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
     use DisableWritingMethodsTrait;
 
-    /** @var float */
-    private $exchangeRate;
-
-    /** @var \DateTimeInterface|null */
-    private $exchangeRateDate;
-
-    /** @var Currency */
-    private $from;
-
-    /** @var Currency */
-    private $to;
+    private float $exchangeRate;
+    private ?\DateTimeInterface $exchangeRateDate;
+    private Currency $from;
+    private Currency $to;
 
     /**
      * Constructor.
@@ -60,40 +51,39 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @psalm-suppress InvalidOperand
      */
+    public function __toString(): string
+    {
+        $string       = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
+        $exchangeRate = $this->getExchangeRateDate();
+        if (null !== $exchangeRate) {
+            $string .= ' on ' . $exchangeRate->format('Y-m-d H:i:s');
+        }
+
+        return $string;
+    }
+
     public function getExchangeRate(): float
     {
         return $this->exchangeRate;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getExchangeRateDate(): ?\DateTimeInterface
     {
         return $this->exchangeRateDate;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getFrom(): Currency
     {
         return $this->from;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getTo(): Currency
     {
         return $this->to;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function toString(array $options = []): string
     {
         return $this->__toString();
@@ -101,8 +91,6 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
 
     /**
      * Set the conversion rate of the currency.
-     *
-     * @throws StringsException
      */
     protected function setExchangeRate(float $exchangeRate): void
     {
@@ -131,21 +119,5 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     protected function setTo(Currency $to): void
     {
         $this->to = $to;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @psalm-suppress InvalidOperand
-     */
-    public function __toString(): string
-    {
-        $string       = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
-        $exchangeRate = $this->getExchangeRateDate();
-        if (null !== $exchangeRate) {
-            $string .= ' on ' . $exchangeRate->format('Y-m-d H:i:s');
-        }
-
-        return $string;
     }
 }

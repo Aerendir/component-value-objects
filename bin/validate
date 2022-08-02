@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
 vendor/bin/rector process --dry-run &&
-vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
+vendor-bin/phpcs/vendor/bin/php-cs-fixer fix --allow-risky yes --dry-run -v &&
 vendor/bin//phpstan analyse &&
-vendor/bin/phan --dead-code-detection &&
-vendor/bin/psalm --find-unused-psalm-suppress &&
-vendor/bin/phpunit --prepend var/xdebug-filter.php --coverage-html var/coverage/html &&
+vendor-bin/phan/vendor/bin/phan --dead-code-detection &&
+vendor-bin/phpunit/vendor/bin/psalm --find-unused-psalm-suppress &&
+vendor-bin/phpunit/vendor/bin/phpunit --prepend var/xdebug-filter.php --coverage-html var/coverage/html &&
 symfony security:check &&
 composer validate --strict --no-check-lock

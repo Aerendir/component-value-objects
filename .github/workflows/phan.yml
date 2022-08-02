@@ -2,6 +2,12 @@ name: Phan
 
 on: [ push ]
 
+# Cancels all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name.
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     phan:
         runs-on: ${{ matrix.os }}
@@ -12,46 +18,51 @@ jobs:
                 php: [ '7.4', '8.0', '8.1' ]
                 symfony: [ '~4.4', '~5.4', '~6.0' ]
 
+                exclude:
+                    - php: '7.4'
+                      symfony: '~6.0'
+
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2.4.0
+                uses: actions/checkout@v3
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.16.0
+                uses: shivammathur/setup-php@2.21.1
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none # disable xdebug, pcov
                     extensions: ast
 
-            -   name: Get Composer Cache Directory
-                id: composer-cache
-                run: |
-                    echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            -   name: Cache Composer's dependencies
-                uses: actions/cache@v2.1.7
-                with:
-                    path: ${{ steps.composer-cache.outputs.dir }}
-                    key: php-composer-dependencies-cache
-
             -   name: Fix Symfony version
                 run: |
                     composer req symfony/flex --no-update
                     composer config extra.symfony.require "${{ matrix.symfony }}"
+                    composer config --no-plugins allow-plugins.symfony/flex true
 
             -   name: Remove Rector
                 run: |
                     composer rem rector/rector --dev --no-update
 
             -   name: Install Composer deps
-                # Do not install all bin deps, but individually install the required ones
+                uses: ramsey/composer-install@v2
+                with:
+                    composer-options: --no-scripts
+
+            -   name: Update Composer deps (with Flex)
                 # The second update is to make Flex able to do its job
                 run: |
                     composer update --no-interaction --no-scripts
-                    composer update --no-interaction --no-scripts
-                    composer bin phan update
-                    composer bin phpunit update
+
+            -   name: Install Composer bin PHPUnit
+                uses: ramsey/composer-install@v2
+                with:
+                    working-directory: './vendor-bin/phpunit'
+
+            -   name: Install Composer bin Phan
+                uses: ramsey/composer-install@v2
+                with:
+                    working-directory: './vendor-bin/phan'
 
             -   name: Run Phan
                 run: |
-                    ./vendor/bin/phan --no-progress-bar --dead-code-detection
+                    ./vendor-bin/phan/vendor/bin/phan --no-progress-bar --dead-code-detection --load-baseline .baseline-phan.php
