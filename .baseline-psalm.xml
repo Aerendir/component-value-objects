@@ -54,6 +54,11 @@
       <code>$other-&gt;getBaseAmount()</code>
       <code>\strtoupper($currency)</code>
     </ArgumentTypeCoercion>
+    <DeprecatedFunction occurrences="3">
+      <code>sprintf('The value must be numeric. You passed "%s".', $baseAmount)</code>
+      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
+      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
+    </DeprecatedFunction>
   </file>
   <file src="src/Uri/Bridge/Doctrine/UriType.php">
     <DeprecatedFunction occurrences="2">

@@ -10,8 +10,8 @@
 return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 160+ occurrences
+    // PhanDeprecatedFunction : 10+ occurrences
     // PhanRedefinedExtendedClass : 10+ occurrences
-    // PhanDeprecatedFunction : 9 occurrences
     // PhanUndeclaredMethod : 7 occurrences
     // PhanTypeMismatchArgumentProbablyReal : 1 occurrence
     // PhanTypeMismatchReturnSuperType : 1 occurrence
@@ -22,6 +22,7 @@ return [
         'src/Email/Bridge/Doctrine/EmailType.php' => ['PhanDeprecatedFunction'],
         'src/Email/Email.php' => ['PhanDeprecatedFunction'],
         'src/Money/Bridge/Doctrine/MoneyType.php' => ['PhanDeprecatedFunction'],
+        'src/Money/Money.php' => ['PhanDeprecatedFunction'],
         'src/Uri/Bridge/Doctrine/UriType.php' => ['PhanDeprecatedFunction', 'PhanTypeMismatchReturnSuperType'],
         'src/Uri/Uri.php' => ['PhanDeprecatedFunction'],
         'tests/Address/AddressTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
