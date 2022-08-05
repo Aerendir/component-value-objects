@@ -11,13 +11,19 @@ return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 160+ occurrences
     // PhanRedefinedExtendedClass : 10+ occurrences
+    // PhanDeprecatedFunction : 9 occurrences
     // PhanUndeclaredMethod : 7 occurrences
     // PhanTypeMismatchArgumentProbablyReal : 1 occurrence
     // PhanTypeMismatchReturnSuperType : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
-        'src/Uri/Bridge/Doctrine/UriType.php' => ['PhanTypeMismatchReturnSuperType'],
+        'src/Currency/Bridge/Doctrine/CurrencyType.php' => ['PhanDeprecatedFunction'],
+        'src/Email/Bridge/Doctrine/EmailType.php' => ['PhanDeprecatedFunction'],
+        'src/Email/Email.php' => ['PhanDeprecatedFunction'],
+        'src/Money/Bridge/Doctrine/MoneyType.php' => ['PhanDeprecatedFunction'],
+        'src/Uri/Bridge/Doctrine/UriType.php' => ['PhanDeprecatedFunction', 'PhanTypeMismatchReturnSuperType'],
+        'src/Uri/Uri.php' => ['PhanDeprecatedFunction'],
         'tests/Address/AddressTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Address/Bridge/Symfony/Form/Type/AddressTypeTest.php' => ['PhanUndeclaredStaticMethod'],
         'tests/Email/Bridge/Doctrine/EmailTypeTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
