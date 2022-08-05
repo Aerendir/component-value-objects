@@ -56,11 +56,6 @@ parameters:
 			path: src/Ip/Ip.php
 
 		-
-			message: "#^Function sprintf is unsafe to use\\. It can return FALSE instead of throwing an exception\\. Please add 'use function Safe\\\\sprintf;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library\\.$#"
-			count: 3
-			path: src/Money/Money.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Money\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
 			path: src/Money/Money.php

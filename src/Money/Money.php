@@ -21,6 +21,8 @@ use Money\Parser\DecimalMoneyParser;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
+use function Safe\sprintf;
+
 /**
  * The class doesn't extend the base money object has it has private properties and methods that make difficult the
  * integration.

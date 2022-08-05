@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.24.0@06dd975cb55d36af80f242561738f16c5f58264f">
+<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
   <file src="src/Common/ComplexValueObjectInterface.php">
     <MissingReturnType occurrences="1">
       <code>getValueObject</code>
@@ -23,7 +23,27 @@
       <code>$value</code>
     </MissingParamType>
   </file>
+  <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
+    <DeprecatedFunction occurrences="1">
+      <code>sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)</code>
+    </DeprecatedFunction>
+  </file>
+  <file src="src/Email/Bridge/Doctrine/EmailType.php">
+    <DeprecatedFunction occurrences="2">
+      <code>sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)</code>
+      <code>sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)</code>
+    </DeprecatedFunction>
+  </file>
+  <file src="src/Email/Email.php">
+    <DeprecatedFunction occurrences="2">
+      <code>sprintf('%s@%s', $this-&gt;mailBox, $this-&gt;host)</code>
+      <code>sprintf('The passed value "%s" does not look like an email.', $value)</code>
+    </DeprecatedFunction>
+  </file>
   <file src="src/Money/Bridge/Doctrine/MoneyType.php">
+    <DeprecatedFunction occurrences="1">
+      <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)</code>
+    </DeprecatedFunction>
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
@@ -34,13 +54,25 @@
       <code>$other-&gt;getBaseAmount()</code>
       <code>\strtoupper($currency)</code>
     </ArgumentTypeCoercion>
+    <DeprecatedFunction occurrences="3">
+      <code>sprintf('The value must be numeric. You passed "%s".', $baseAmount)</code>
+      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
+      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
+    </DeprecatedFunction>
   </file>
   <file src="src/Uri/Bridge/Doctrine/UriType.php">
+    <DeprecatedFunction occurrences="2">
+      <code>sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)</code>
+      <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)</code>
+    </DeprecatedFunction>
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
   </file>
   <file src="src/Uri/Uri.php">
+    <DeprecatedFunction occurrences="1">
+      <code>sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri))</code>
+    </DeprecatedFunction>
     <DocblockTypeContradiction occurrences="1">
       <code>\gettype($uri)</code>
     </DocblockTypeContradiction>
