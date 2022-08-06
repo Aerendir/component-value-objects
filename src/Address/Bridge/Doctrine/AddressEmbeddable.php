@@ -20,6 +20,7 @@ use SerendipityHQ\Component\ValueObjects\Address\AddressInterface;
 /**
  * @ORM\Embeddable
  */
+#[ORM\Embeddable]
 class AddressEmbeddable extends Address
 {
     /**
