@@ -10,6 +10,7 @@
 return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 160+ occurrences
+    // PhanCompatibleNamedArgument : 20+ occurrences
     // PhanDeprecatedFunction : 10+ occurrences
     // PhanRedefinedExtendedClass : 10+ occurrences
     // PhanUndeclaredMethod : 7 occurrences
@@ -18,6 +19,7 @@ return [
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
+        'src/Address/Address.php' => ['PhanCompatibleNamedArgument'],
         'src/Currency/Bridge/Doctrine/CurrencyType.php' => ['PhanDeprecatedFunction'],
         'src/Email/Bridge/Doctrine/EmailType.php' => ['PhanDeprecatedFunction'],
         'src/Email/Email.php' => ['PhanDeprecatedFunction'],
