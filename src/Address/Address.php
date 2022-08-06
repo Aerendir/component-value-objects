@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
@@ -44,6 +45,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="country_code", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'country_code', type: Types::STRING, nullable: true)]
     protected $countryCode;
 
     /**
@@ -53,6 +55,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="administrative_area", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'administrative_area', type: Types::STRING, nullable: true)]
     protected $administrativeArea;
 
     /**
@@ -62,6 +65,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="locality", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'locality', type: Types::STRING, nullable: true)]
     protected $locality;
 
     /**
@@ -71,6 +75,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="dependent_locality", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'dependent_locality', type: Types::STRING, nullable: true)]
     protected $dependentLocality;
 
     /**
@@ -80,6 +85,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="postal_code", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'postal_code', type: Types::STRING, nullable: true)]
     protected $postalCode;
 
     /**
@@ -89,6 +95,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="street", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'street', type: Types::STRING, nullable: true)]
     protected $street;
 
     /**
@@ -98,6 +105,7 @@ class Address implements AddressInterface
      *
      * @ORM\Column(name="extra_line", type="string", nullable=true)
      */
+    #[ORM\Column(name: 'extra_line', type: Types::STRING, nullable: true)]
     protected $extraLine;
 
     public function __construct(array $values)
