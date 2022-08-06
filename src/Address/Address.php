@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
+// @phan-suppress-next-line PhanUnreferencedUseNormal
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
