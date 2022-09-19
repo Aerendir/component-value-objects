@@ -62,6 +62,7 @@ final class CurrencyType extends Type
      * @param Currency|string|null $value
      *
      * @return Currency|string|null
+     *
      * @psalm-suppress DocblockTypeContradiction
      * @psalm-suppress MixedArgument
      */

@@ -61,7 +61,9 @@ final class UriTest extends TestCase
 
     /**
      * @suppress PhanNoopNew
+     *
      * @psalm-suppress InvalidScalarArgument
+     *
      * @suppress PhanTypeMismatchArgument
      */
     public function testUriThrowsAnExceptionIfUriIsNotNullStringOrUriObject(): void

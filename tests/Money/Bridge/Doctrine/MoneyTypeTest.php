@@ -25,6 +25,7 @@ final class MoneyTypeTest extends TestCase
 
     /**
      * @var AbstractPlatform&MockObject
+     *
      * @suppress PhanWriteOnlyPrivateProperty
      */
     private $platform;
