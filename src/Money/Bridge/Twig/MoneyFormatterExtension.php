@@ -36,6 +36,7 @@ final class MoneyFormatterExtension extends AbstractExtension
 
     /**
      * @return TwigFilter[]
+     *
      * @psalm-suppress MixedArgumentTypeCoercion
      */
     public function getFilters(): array
