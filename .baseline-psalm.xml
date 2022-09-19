@@ -27,12 +27,20 @@
     <DeprecatedFunction occurrences="1">
       <code>sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)</code>
     </DeprecatedFunction>
+    <DeprecatedMethod occurrences="2">
+      <code>getVarcharTypeDeclarationSQL</code>
+      <code>parent::requiresSQLCommentHint($platform)</code>
+    </DeprecatedMethod>
   </file>
   <file src="src/Email/Bridge/Doctrine/EmailType.php">
     <DeprecatedFunction occurrences="2">
       <code>sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)</code>
       <code>sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)</code>
     </DeprecatedFunction>
+    <DeprecatedMethod occurrences="2">
+      <code>getVarcharTypeDeclarationSQL</code>
+      <code>parent::requiresSQLCommentHint($platform)</code>
+    </DeprecatedMethod>
   </file>
   <file src="src/Email/Email.php">
     <DeprecatedFunction occurrences="2">
@@ -44,6 +52,10 @@
     <DeprecatedFunction occurrences="1">
       <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)</code>
     </DeprecatedFunction>
+    <DeprecatedMethod occurrences="2">
+      <code>getVarcharTypeDeclarationSQL</code>
+      <code>parent::requiresSQLCommentHint($platform)</code>
+    </DeprecatedMethod>
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
@@ -65,6 +77,10 @@
       <code>sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)</code>
       <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)</code>
     </DeprecatedFunction>
+    <DeprecatedMethod occurrences="2">
+      <code>getVarcharTypeDeclarationSQL</code>
+      <code>parent::requiresSQLCommentHint($platform)</code>
+    </DeprecatedMethod>
     <MissingParamType occurrences="1">
       <code>$value</code>
     </MissingParamType>
