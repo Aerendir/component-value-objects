@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
+<files psalm-version="5.0.0@4e177bf0c9f03c17d2fbfd83b7cc9c47605274d8">
+  <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
+    <MissingTemplateParam occurrences="1">
+      <code>DataTransformerInterface</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Common/ComplexValueObjectInterface.php">
     <MissingReturnType occurrences="1">
       <code>getValueObject</code>
     </MissingReturnType>
   </file>
   <file src="src/Common/ComplexValueObjectTrait.php">
-    <MissingPropertyType occurrences="1">
+    <MissingPropertyType occurrences="3">
+      <code>$valueObject</code>
+      <code>$valueObject</code>
       <code>$valueObject</code>
     </MissingPropertyType>
     <MissingReturnType occurrences="1">
@@ -60,6 +67,11 @@
       <code>$value</code>
     </MissingParamType>
   </file>
+  <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
+    <MissingTemplateParam occurrences="1">
+      <code>DataTransformerInterface</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Money/Money.php">
     <ArgumentTypeCoercion occurrences="3">
       <code>$other-&gt;getBaseAmount()</code>
@@ -98,16 +110,9 @@
       <code>(string) $this-&gt;number</code>
     </RedundantCast>
   </file>
-  <file src="tests/Money/MoneyTest.php">
-    <UndefinedInterfaceMethod occurrences="8">
-      <code>getBaseAmount</code>
-      <code>getBaseAmount</code>
-      <code>getCurrency</code>
-      <code>getCurrency</code>
-      <code>getCurrency</code>
-      <code>getCurrency</code>
-      <code>getHumanAmount</code>
-      <code>getHumanAmount</code>
-    </UndefinedInterfaceMethod>
+  <file src="tests/Uri/UriTest.php">
+    <InvalidArgument occurrences="1">
+      <code>$test</code>
+    </InvalidArgument>
   </file>
 </files>
