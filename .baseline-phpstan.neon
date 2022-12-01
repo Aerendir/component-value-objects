@@ -16,6 +16,11 @@ parameters:
 			path: src/Address/Address.php
 
 		-
+			message: "#^Class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Address\\\\Bridge\\\\Symfony\\\\Form\\\\DataTransformer\\\\AddressTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: TValue, TTransformedValue$#"
+			count: 1
+			path: src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php
+
+		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Common\\\\ComplexValueObjectInterface\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Common/ComplexValueObjectInterface.php
@@ -54,6 +59,11 @@ parameters:
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Ip\\\\Ip\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
 			path: src/Ip/Ip.php
+
+		-
+			message: "#^Class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Bridge\\\\Symfony\\\\Form\\\\DataTransformer\\\\MoneyTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: TValue, TTransformedValue$#"
+			count: 1
+			path: src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php
 
 		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Money\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
