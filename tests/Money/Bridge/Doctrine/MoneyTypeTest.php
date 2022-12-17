@@ -28,7 +28,7 @@ final class MoneyTypeTest extends TestCase
      *
      * @suppress PhanWriteOnlyPrivateProperty
      */
-    private $platform;
+    private MockObject $platform;
 
     protected function setUp(): void
     {

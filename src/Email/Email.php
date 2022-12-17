@@ -25,9 +25,7 @@ final class Email implements EmailInterface
 
     private string $email;
     private string $mailBox;
-
-    /** @var string */
-    private $host;
+    private string $host;
 
     /**
      * @param string $value The email to set in the object

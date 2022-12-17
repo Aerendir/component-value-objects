@@ -23,5 +23,6 @@ return static function (RectorConfig $rectorConfig): void {
 
     $toSkip   = SerendipityHQ::buildToSkip(SerendipityHQ::SHQ_LIBRARY_SKIP);
     $toSkip[] = \Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector::class;
+    $toSkip[] = \Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector::class;
     $rectorConfig->skip($toSkip);
 };
