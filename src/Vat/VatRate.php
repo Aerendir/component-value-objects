@@ -28,11 +28,8 @@ final class VatRate implements VatRateInterface
     ];
 
     /** @var string The country for which this object represents the VAT */
-    private $countryCode;
+    private string $countryCode;
 
-    /**
-     * @param string $countryCode
-     */
     public function __construct($countryCode)
     {
         if (false === \array_key_exists($countryCode, self::COUNTRIES)) {

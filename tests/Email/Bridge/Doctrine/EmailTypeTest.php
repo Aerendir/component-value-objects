@@ -31,7 +31,7 @@ final class EmailTypeTest extends TestCase
     private EmailType $type;
 
     /** @var AbstractPlatform&MockObject */
-    private $platform;
+    private MockObject $platform;
 
     protected function setUp(): void
     {
@@ -89,6 +89,8 @@ final class EmailTypeTest extends TestCase
 
     /**
      * @suppress PhanTypeMismatchArgumentProbablyReal
+     *
+     * @return never
      */
     public function testConvertToDatabaseValueValidatesEmail(): void
     {

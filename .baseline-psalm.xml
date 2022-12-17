@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.0.0@4e177bf0c9f03c17d2fbfd83b7cc9c47605274d8">
+<files psalm-version="5.2.0@fb685a16df3050d4c18d8a4100fe83abe6458cba">
   <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
     <MissingTemplateParam occurrences="1">
       <code>DataTransformerInterface</code>
@@ -50,6 +50,9 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Email/Email.php">
+    <ConstructorSignatureMismatch occurrences="1">
+      <code>$value</code>
+    </ConstructorSignatureMismatch>
     <DeprecatedFunction occurrences="2">
       <code>sprintf('%s@%s', $this-&gt;mailBox, $this-&gt;host)</code>
       <code>sprintf('The passed value "%s" does not look like an email.', $value)</code>
@@ -109,6 +112,17 @@
     <RedundantCast occurrences="1">
       <code>(string) $this-&gt;number</code>
     </RedundantCast>
+  </file>
+  <file src="src/Vat/VatRate.php">
+    <ConstructorSignatureMismatch occurrences="2">
+      <code>$countryCode</code>
+      <code>$countryCode</code>
+    </ConstructorSignatureMismatch>
+  </file>
+  <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
+    <InvalidReturnType occurrences="1">
+      <code>never</code>
+    </InvalidReturnType>
   </file>
   <file src="tests/Uri/UriTest.php">
     <InvalidArgument occurrences="1">
