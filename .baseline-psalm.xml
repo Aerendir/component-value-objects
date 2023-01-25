@@ -1,131 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.2.0@fb685a16df3050d4c18d8a4100fe83abe6458cba">
+<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
   <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
-    <MissingTemplateParam occurrences="1">
+    <MissingTemplateParam>
       <code>DataTransformerInterface</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Common/ComplexValueObjectInterface.php">
-    <MissingReturnType occurrences="1">
+    <MissingReturnType>
       <code>getValueObject</code>
     </MissingReturnType>
   </file>
   <file src="src/Common/ComplexValueObjectTrait.php">
-    <MissingPropertyType occurrences="3">
+    <MissingPropertyType>
       <code>$valueObject</code>
       <code>$valueObject</code>
       <code>$valueObject</code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="1">
+    <MissingReturnType>
       <code>getValueObject</code>
     </MissingReturnType>
   </file>
   <file src="src/Common/DisableWritingMethodsTrait.php">
-    <MissingParamType occurrences="1">
+    <MissingParamType>
       <code>$value</code>
     </MissingParamType>
   </file>
   <file src="src/Common/ValueObjectInterface.php">
-    <MissingParamType occurrences="1">
+    <MissingParamType>
       <code>$value</code>
     </MissingParamType>
   </file>
   <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
-    <DeprecatedFunction occurrences="1">
+    <DeprecatedFunction>
       <code>sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)</code>
     </DeprecatedFunction>
-    <DeprecatedMethod occurrences="2">
+    <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
   </file>
   <file src="src/Email/Bridge/Doctrine/EmailType.php">
-    <DeprecatedFunction occurrences="2">
+    <DeprecatedFunction>
       <code>sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)</code>
       <code>sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)</code>
     </DeprecatedFunction>
-    <DeprecatedMethod occurrences="2">
+    <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
   </file>
   <file src="src/Email/Email.php">
-    <ConstructorSignatureMismatch occurrences="1">
-      <code>$value</code>
-    </ConstructorSignatureMismatch>
-    <DeprecatedFunction occurrences="2">
+    <DeprecatedFunction>
       <code>sprintf('%s@%s', $this-&gt;mailBox, $this-&gt;host)</code>
       <code>sprintf('The passed value "%s" does not look like an email.', $value)</code>
     </DeprecatedFunction>
   </file>
   <file src="src/Money/Bridge/Doctrine/MoneyType.php">
-    <DeprecatedFunction occurrences="1">
+    <DeprecatedFunction>
       <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)</code>
     </DeprecatedFunction>
-    <DeprecatedMethod occurrences="2">
+    <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
-    <MissingParamType occurrences="1">
+    <MissingParamType>
       <code>$value</code>
     </MissingParamType>
   </file>
   <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
-    <MissingTemplateParam occurrences="1">
+    <MissingTemplateParam>
       <code>DataTransformerInterface</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Money/Money.php">
-    <ArgumentTypeCoercion occurrences="3">
+    <ArgumentTypeCoercion>
       <code>$other-&gt;getBaseAmount()</code>
       <code>$other-&gt;getBaseAmount()</code>
       <code>\strtoupper($currency)</code>
     </ArgumentTypeCoercion>
-    <DeprecatedFunction occurrences="3">
+    <DeprecatedFunction>
       <code>sprintf('The value must be numeric. You passed "%s".', $baseAmount)</code>
       <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
       <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
     </DeprecatedFunction>
   </file>
   <file src="src/Uri/Bridge/Doctrine/UriType.php">
-    <DeprecatedFunction occurrences="2">
+    <DeprecatedFunction>
       <code>sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)</code>
       <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)</code>
     </DeprecatedFunction>
-    <DeprecatedMethod occurrences="2">
+    <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
-    <MissingParamType occurrences="1">
+    <MissingParamType>
       <code>$value</code>
     </MissingParamType>
   </file>
   <file src="src/Uri/Uri.php">
-    <DeprecatedFunction occurrences="1">
+    <DeprecatedFunction>
       <code>sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri))</code>
     </DeprecatedFunction>
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction>
       <code>\gettype($uri)</code>
     </DocblockTypeContradiction>
   </file>
   <file src="src/Vat/VatNumber.php">
-    <RedundantCast occurrences="1">
+    <RedundantCast>
       <code>(string) $this-&gt;number</code>
     </RedundantCast>
   </file>
-  <file src="src/Vat/VatRate.php">
-    <ConstructorSignatureMismatch occurrences="2">
-      <code>$countryCode</code>
-      <code>$countryCode</code>
-    </ConstructorSignatureMismatch>
-  </file>
   <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
-    <InvalidReturnType occurrences="1">
+    <InvalidReturnType>
       <code>never</code>
     </InvalidReturnType>
   </file>
   <file src="tests/Uri/UriTest.php">
-    <InvalidArgument occurrences="1">
+    <InvalidArgument>
       <code>$test</code>
     </InvalidArgument>
   </file>
