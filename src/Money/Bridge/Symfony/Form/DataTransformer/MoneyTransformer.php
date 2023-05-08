@@ -39,7 +39,7 @@ final class MoneyTransformer implements DataTransformerInterface
      */
     public function transform($money): ?string
     {
-        if (null === $money) {
+        if ( ! $money instanceof MoneyInterface) {
             return null;
         }
 

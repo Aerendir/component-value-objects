@@ -27,7 +27,7 @@ final class AddressTransformer implements DataTransformerInterface
      */
     public function transform($address): ?array
     {
-        if (null === $address) {
+        if ( ! $address instanceof AddressEmbeddable) {
             return null;
         }
 

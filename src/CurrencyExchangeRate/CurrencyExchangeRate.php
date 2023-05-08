@@ -57,7 +57,7 @@ final class CurrencyExchangeRate implements CurrencyExchangeRateInterface
     {
         $string       = '1 ' . $this->getFrom() . ' is equal to ' . $this->getExchangeRate() . ' ' . $this->getTo();
         $exchangeRate = $this->getExchangeRateDate();
-        if (null !== $exchangeRate) {
+        if ($exchangeRate instanceof \DateTimeInterface) {
             $string .= ' on ' . $exchangeRate->format('Y-m-d H:i:s');
         }
 

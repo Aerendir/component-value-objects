@@ -53,7 +53,7 @@ final class MoneyFormatterExtension extends AbstractExtension
 
     public function localizeMoneyFilter(?Money $money, string $locale = self::DEFAULT_LOCALE): ?string
     {
-        if (null === $money) {
+        if ( ! $money instanceof Money) {
             return null;
         }
 
