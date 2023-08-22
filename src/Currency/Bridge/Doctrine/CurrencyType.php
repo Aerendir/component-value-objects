@@ -44,6 +44,8 @@ final class CurrencyType extends Type
 
     /**
      * @psalm-suppress MixedArgument
+     *
+     * @param mixed $value
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Currency
     {

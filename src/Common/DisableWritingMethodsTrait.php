@@ -20,6 +20,8 @@ trait DisableWritingMethodsTrait
 {
     /**
      * @see {@link ValueObjectInterface}
+     *
+     * @param mixed $value
      */
     public function __set(string $field, $value): void
     {

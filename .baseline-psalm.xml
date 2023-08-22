@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
+<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
     <MissingTemplateParam>
       <code>DataTransformerInterface</code>
@@ -20,19 +20,9 @@
       <code>getValueObject</code>
     </MissingReturnType>
   </file>
-  <file src="src/Common/DisableWritingMethodsTrait.php">
-    <MissingParamType>
-      <code>$value</code>
-    </MissingParamType>
-  </file>
-  <file src="src/Common/ValueObjectInterface.php">
-    <MissingParamType>
-      <code>$value</code>
-    </MissingParamType>
-  </file>
   <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
     <DeprecatedFunction>
-      <code>sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)</code>
+      <code><![CDATA[sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)]]></code>
     </DeprecatedFunction>
     <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
@@ -41,8 +31,8 @@
   </file>
   <file src="src/Email/Bridge/Doctrine/EmailType.php">
     <DeprecatedFunction>
-      <code>sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)</code>
-      <code>sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)</code>
+      <code><![CDATA[sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)]]></code>
+      <code><![CDATA[sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)]]></code>
     </DeprecatedFunction>
     <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
@@ -51,21 +41,18 @@
   </file>
   <file src="src/Email/Email.php">
     <DeprecatedFunction>
-      <code>sprintf('%s@%s', $this-&gt;mailBox, $this-&gt;host)</code>
-      <code>sprintf('The passed value "%s" does not look like an email.', $value)</code>
+      <code><![CDATA[sprintf('%s@%s', $this->mailBox, $this->host)]]></code>
+      <code><![CDATA[sprintf('The passed value "%s" does not look like an email.', $value)]]></code>
     </DeprecatedFunction>
   </file>
   <file src="src/Money/Bridge/Doctrine/MoneyType.php">
     <DeprecatedFunction>
-      <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)</code>
+      <code><![CDATA[sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)]]></code>
     </DeprecatedFunction>
     <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
-    <MissingParamType>
-      <code>$value</code>
-    </MissingParamType>
   </file>
   <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
     <MissingTemplateParam>
@@ -74,32 +61,29 @@
   </file>
   <file src="src/Money/Money.php">
     <ArgumentTypeCoercion>
-      <code>$other-&gt;getBaseAmount()</code>
-      <code>$other-&gt;getBaseAmount()</code>
+      <code><![CDATA[$other->getBaseAmount()]]></code>
+      <code><![CDATA[$other->getBaseAmount()]]></code>
       <code>\strtoupper($currency)</code>
     </ArgumentTypeCoercion>
     <DeprecatedFunction>
-      <code>sprintf('The value must be numeric. You passed "%s".', $baseAmount)</code>
-      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
-      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
+      <code><![CDATA[sprintf('The value must be numeric. You passed "%s".', $baseAmount)]]></code>
+      <code><![CDATA[sprintf('This is not a %s object.', BaseMoney::class)]]></code>
+      <code><![CDATA[sprintf('This is not a %s object.', BaseMoney::class)]]></code>
     </DeprecatedFunction>
   </file>
   <file src="src/Uri/Bridge/Doctrine/UriType.php">
     <DeprecatedFunction>
-      <code>sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)</code>
-      <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)</code>
+      <code><![CDATA[sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)]]></code>
+      <code><![CDATA[sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)]]></code>
     </DeprecatedFunction>
     <DeprecatedMethod>
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
-    <MissingParamType>
-      <code>$value</code>
-    </MissingParamType>
   </file>
   <file src="src/Uri/Uri.php">
     <DeprecatedFunction>
-      <code>sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri))</code>
+      <code><![CDATA[sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri))]]></code>
     </DeprecatedFunction>
     <DocblockTypeContradiction>
       <code>\gettype($uri)</code>
@@ -107,7 +91,7 @@
   </file>
   <file src="src/Vat/VatNumber.php">
     <RedundantCast>
-      <code>(string) $this-&gt;number</code>
+      <code><![CDATA[(string) $this->number]]></code>
     </RedundantCast>
   </file>
   <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
