@@ -51,6 +51,8 @@ final class EmailType extends Type
 
     /**
      * @psalm-suppress MixedArgument
+     *
+     * @param mixed $value
      */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Email
     {

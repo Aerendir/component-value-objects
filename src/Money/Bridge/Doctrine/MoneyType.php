@@ -45,6 +45,8 @@ final class MoneyType extends Type
     /**
      * @psalm-suppress MixedArgument
      *
+     * @param mixed $value
+     *
      * @return mixed|Money|string|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
