@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Address\\\\Address\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Address/Address.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Address\\\\Address\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Address/Address.php
@@ -26,16 +21,6 @@ parameters:
 			path: src/Common/ComplexValueObjectInterface.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Common\\\\ValueObjectInterface\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Common/ValueObjectInterface.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\CurrencyExchangeRate\\\\CurrencyExchangeRate\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/CurrencyExchangeRate/CurrencyExchangeRate.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\CurrencyExchangeRate\\\\CurrencyExchangeRate\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/CurrencyExchangeRate/CurrencyExchangeRate.php
@@ -51,24 +36,9 @@ parameters:
 			path: src/Email/Bridge/Doctrine/EmailType.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Email\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Email/Email.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Ip\\\\Ip\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Ip/Ip.php
-
-		-
 			message: "#^Class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Bridge\\\\Symfony\\\\Form\\\\DataTransformer\\\\MoneyTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: TValue, TTransformedValue$#"
 			count: 1
 			path: src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Money\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Money/Money.php
 
 		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Money\\\\Money\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
@@ -91,11 +61,6 @@ parameters:
 			path: src/Money/Money.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Payment\\\\Payment\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Payment/Payment.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Payment\\\\Payment\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Payment/Payment.php
@@ -106,11 +71,6 @@ parameters:
 			path: src/Payment/Payment.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Phone\\\\Phone\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Phone/Phone.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Phone\\\\Phone\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Phone/Phone.php
@@ -119,11 +79,6 @@ parameters:
 			message: "#^Property SerendipityHQ\\\\Component\\\\ValueObjects\\\\Phone\\\\Phone\\:\\:\\$valueObject has no type specified\\.$#"
 			count: 1
 			path: src/Phone/Phone.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tax\\\\Tax\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Tax/Tax.php
 
 		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tax\\\\Tax\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
@@ -141,16 +96,6 @@ parameters:
 			path: src/Uri/Bridge/Doctrine/UriType.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\Uri\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Uri/Uri.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatNumber\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Vat/VatNumber.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatNumber\\:\\:getValueObject\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Vat/VatNumber.php
@@ -159,11 +104,6 @@ parameters:
 			message: "#^Property SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatNumber\\:\\:\\$valueObject has no type specified\\.$#"
 			count: 1
 			path: src/Vat/VatNumber.php
-
-		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatRate\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
-			count: 1
-			path: src/Vat/VatRate.php
 
 		-
 			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
