@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
+<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
   <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
     <MissingTemplateParam>
       <code>DataTransformerInterface</code>
@@ -19,6 +19,16 @@
     <MissingReturnType>
       <code>getValueObject</code>
     </MissingReturnType>
+  </file>
+  <file src="src/Common/DisableWritingMethodsTrait.php">
+    <MissingParamType>
+      <code>$value</code>
+    </MissingParamType>
+  </file>
+  <file src="src/Common/ValueObjectInterface.php">
+    <MissingParamType>
+      <code>$value</code>
+    </MissingParamType>
   </file>
   <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
     <DeprecatedFunction>
@@ -53,6 +63,9 @@
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
+    <MissingParamType>
+      <code>$value</code>
+    </MissingParamType>
   </file>
   <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
     <MissingTemplateParam>
@@ -80,6 +93,9 @@
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
+    <MissingParamType>
+      <code>$value</code>
+    </MissingParamType>
   </file>
   <file src="src/Uri/Uri.php">
     <DeprecatedFunction>

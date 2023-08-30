@@ -44,8 +44,6 @@ final class UriType extends Type
     }
 
     /**
-     * @param mixed $value
-     *
      * @return string|Uri|null
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
