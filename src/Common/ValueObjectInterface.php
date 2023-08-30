@@ -34,8 +34,6 @@ interface ValueObjectInterface
      *     {
      *         // Body MUST BE EMPTY
      *     }
-     *
-     * @param mixed $value
      */
     public function __set(string $field, $value): void;
 
