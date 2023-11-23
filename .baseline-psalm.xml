@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591">
   <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
     <MissingTemplateParam>
       <code>DataTransformerInterface</code>
@@ -38,6 +38,9 @@
       <code>getVarcharTypeDeclarationSQL</code>
       <code>parent::requiresSQLCommentHint($platform)</code>
     </DeprecatedMethod>
+    <NoValue>
+      <code>$value</code>
+    </NoValue>
   </file>
   <file src="src/Email/Bridge/Doctrine/EmailType.php">
     <DeprecatedFunction>
@@ -66,6 +69,9 @@
     <MissingParamType>
       <code>$value</code>
     </MissingParamType>
+    <NoValue>
+      <code>$value</code>
+    </NoValue>
   </file>
   <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
     <MissingTemplateParam>
@@ -96,6 +102,9 @@
     <MissingParamType>
       <code>$value</code>
     </MissingParamType>
+    <NoValue>
+      <code>$value</code>
+    </NoValue>
   </file>
   <file src="src/Uri/Uri.php">
     <DeprecatedFunction>
