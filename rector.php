@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\Core\ValueObject\PhpVersion;
+use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector;
+use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 use SerendipityHQ\Integration\Rector\SerendipityHQ;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -22,7 +24,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->import(SerendipityHQ::SHQ_LIBRARY);
 
     $toSkip   = SerendipityHQ::buildToSkip(SerendipityHQ::SHQ_LIBRARY_SKIP);
-    $toSkip[] = \Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector::class;
-    $toSkip[] = \Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector::class;
+    $toSkip[] = TypedPropertyFromAssignsRector::class;
+    $toSkip[] = AddParamTypeFromPropertyTypeRector::class;
     $rectorConfig->skip($toSkip);
 };
