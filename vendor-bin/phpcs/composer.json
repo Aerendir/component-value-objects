@@ -1,6 +1,6 @@
 {
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "3.47.0",
+        "friendsofphp/php-cs-fixer": "3.47.1",
         "serendipity_hq/phpcs-config": "1.2.5"
     }
 }
