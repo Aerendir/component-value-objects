@@ -1,6 +1,6 @@
 {
     "require-dev": {
-        "phpunit/phpunit": "9.6.15",
+        "phpunit/phpunit": "9.6.16",
         "psalm/plugin-phpunit": "0.18.4",
         "symfony/phpunit-bridge": "7.0.2",
         "vimeo/psalm": "5.20.0"
