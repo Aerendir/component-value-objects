@@ -2,7 +2,7 @@
     "require-dev": {
         "phpunit/phpunit": "9.6.17",
         "psalm/plugin-phpunit": "0.18.4",
-        "symfony/phpunit-bridge": "7.0.3",
+        "symfony/phpunit-bridge": "7.0.4",
         "vimeo/psalm": "5.22.0"
     },
     "config": {
