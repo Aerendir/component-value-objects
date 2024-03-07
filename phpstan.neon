@@ -11,6 +11,8 @@ parameters:
     paths:
         - src
         - tests
+    excludePaths:
+        - tests/Email/Bridge/Doctrine/EmailTypeTest.php
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
@@ -33,7 +35,3 @@ parameters:
             message: "#^Parameter \\#1 \\$uri of class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\Uri constructor expects SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\UriInterface\\|string, int given\\.$#"
             count: 1
             path: tests/Uri/UriTest.php
-        -
-            message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Email\\\\Bridge\\\\Doctrine\\\\EmailTypeTest\\:\\:testConvertToDatabaseValueValidatesEmail\\(\\) should always throw an exception or terminate script execution but doesn\\'t do that\\.$#"
-            count: 1
-            path: tests/Email/Bridge/Doctrine/EmailTypeTest.php

@@ -13,7 +13,7 @@ return [
     // PhanCompatibleNamedArgument : 20+ occurrences
     // PhanDeprecatedFunction : 20+ occurrences
     // PhanRedefinedExtendedClass : 10+ occurrences
-    // PhanUndeclaredMethod : 7 occurrences
+    // PhanUndeclaredMethod : 5 occurrences
     // PhanTypeMismatchArgumentProbablyReal : 1 occurrence
     // PhanTypeMismatchReturnSuperType : 1 occurrence
 
@@ -37,7 +37,7 @@ return [
         'tests/Money/MoneyTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Payment/PaymentTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Phone/PhoneTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
-        'tests/Tax/TaxTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
+        'tests/Tax/TaxTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Uri/UriTest.php' => ['PhanRedefinedExtendedClass', 'PhanTypeMismatchArgumentProbablyReal', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
         'tests/Vat/VatNumberTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Vat/VatRateTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
