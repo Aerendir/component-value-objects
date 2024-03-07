@@ -41,7 +41,7 @@ jobs:
                     composer config --no-plugins allow-plugins.symfony/flex true
 
             -   name: Install Composer deps
-                uses: ramsey/composer-install@v2
+                uses: ramsey/composer-install@v3
                 with:
                     composer-options: --no-scripts
 
@@ -51,7 +51,7 @@ jobs:
                     composer update --no-interaction --no-scripts
 
             -   name: Install Composer bin PHPUnit
-                uses: ramsey/composer-install@v2
+                uses: ramsey/composer-install@v3
                 with:
                     working-directory: './vendor-bin/phpunit'
 
