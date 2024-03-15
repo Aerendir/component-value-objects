@@ -1,97 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.26.0@6998fabb2bf528b65777bf9941920888d23c03ac">
+<files psalm-version="5.23.1@8471a896ccea3526b26d082f4461eeea467f10a4">
+  <file src="src/Address/Bridge/Symfony/Form/DataTransformer/AddressTransformer.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DataTransformerInterface]]></code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Common/ComplexValueObjectInterface.php">
-    <MissingReturnType occurrences="1">
-      <code>getValueObject</code>
+    <MissingReturnType>
+      <code><![CDATA[getValueObject]]></code>
     </MissingReturnType>
   </file>
   <file src="src/Common/ComplexValueObjectTrait.php">
-    <MissingPropertyType occurrences="1">
-      <code>$valueObject</code>
+    <MissingPropertyType>
+      <code><![CDATA[$valueObject]]></code>
+      <code><![CDATA[$valueObject]]></code>
+      <code><![CDATA[$valueObject]]></code>
     </MissingPropertyType>
-    <MissingReturnType occurrences="1">
-      <code>getValueObject</code>
+    <MissingReturnType>
+      <code><![CDATA[getValueObject]]></code>
     </MissingReturnType>
   </file>
   <file src="src/Common/DisableWritingMethodsTrait.php">
-    <MissingParamType occurrences="1">
-      <code>$value</code>
+    <MissingParamType>
+      <code><![CDATA[$value]]></code>
     </MissingParamType>
   </file>
   <file src="src/Common/ValueObjectInterface.php">
-    <MissingParamType occurrences="1">
-      <code>$value</code>
+    <MissingParamType>
+      <code><![CDATA[$value]]></code>
     </MissingParamType>
   </file>
   <file src="src/Currency/Bridge/Doctrine/CurrencyType.php">
-    <DeprecatedFunction occurrences="1">
-      <code>sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type)]]></code>
     </DeprecatedFunction>
+    <DeprecatedMethod>
+      <code><![CDATA[getVarcharTypeDeclarationSQL]]></code>
+      <code><![CDATA[parent::requiresSQLCommentHint($platform)]]></code>
+    </DeprecatedMethod>
+    <NoValue>
+      <code><![CDATA[$value]]></code>
+    </NoValue>
   </file>
   <file src="src/Email/Bridge/Doctrine/EmailType.php">
-    <DeprecatedFunction occurrences="2">
-      <code>sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)</code>
-      <code>sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value)]]></code>
+      <code><![CDATA[sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value)]]></code>
     </DeprecatedFunction>
+    <DeprecatedMethod>
+      <code><![CDATA[getVarcharTypeDeclarationSQL]]></code>
+      <code><![CDATA[parent::requiresSQLCommentHint($platform)]]></code>
+    </DeprecatedMethod>
   </file>
   <file src="src/Email/Email.php">
-    <DeprecatedFunction occurrences="2">
-      <code>sprintf('%s@%s', $this-&gt;mailBox, $this-&gt;host)</code>
-      <code>sprintf('The passed value "%s" does not look like an email.', $value)</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('%s@%s', $this->mailBox, $this->host)]]></code>
+      <code><![CDATA[sprintf('The passed value "%s" does not look like an email.', $value)]]></code>
     </DeprecatedFunction>
   </file>
   <file src="src/Money/Bridge/Doctrine/MoneyType.php">
-    <DeprecatedFunction occurrences="1">
-      <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type)]]></code>
     </DeprecatedFunction>
-    <MissingParamType occurrences="1">
-      <code>$value</code>
+    <DeprecatedMethod>
+      <code><![CDATA[getVarcharTypeDeclarationSQL]]></code>
+      <code><![CDATA[parent::requiresSQLCommentHint($platform)]]></code>
+    </DeprecatedMethod>
+    <MissingParamType>
+      <code><![CDATA[$value]]></code>
     </MissingParamType>
+    <NoValue>
+      <code><![CDATA[$value]]></code>
+    </NoValue>
+  </file>
+  <file src="src/Money/Bridge/Symfony/Form/DataTransformer/MoneyTransformer.php">
+    <MissingTemplateParam>
+      <code><![CDATA[DataTransformerInterface]]></code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Money/Bridge/Twig/MoneyFormatterExtension.php">
+    <TooManyArguments>
+      <code><![CDATA[new IntlMoneyFormatter($formatter, $this->currencies)]]></code>
+    </TooManyArguments>
   </file>
   <file src="src/Money/Money.php">
-    <ArgumentTypeCoercion occurrences="3">
-      <code>$other-&gt;getBaseAmount()</code>
-      <code>$other-&gt;getBaseAmount()</code>
-      <code>\strtoupper($currency)</code>
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$other->getBaseAmount()]]></code>
+      <code><![CDATA[$other->getBaseAmount()]]></code>
+      <code><![CDATA[\strtoupper($currency)]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedFunction occurrences="3">
-      <code>sprintf('The value must be numeric. You passed "%s".', $baseAmount)</code>
-      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
-      <code>sprintf('This is not a %s object.', BaseMoney::class)</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('The value must be numeric. You passed "%s".', $baseAmount)]]></code>
+      <code><![CDATA[sprintf('This is not a %s object.', BaseMoney::class)]]></code>
+      <code><![CDATA[sprintf('This is not a %s object.', BaseMoney::class)]]></code>
     </DeprecatedFunction>
+    <TooManyArguments>
+      <code><![CDATA[new BaseMoney($other->getBaseAmount(), $other->getCurrency())]]></code>
+      <code><![CDATA[new BaseMoney($other->getBaseAmount(), $other->getCurrency())]]></code>
+      <code><![CDATA[new BaseMoney($this->baseAmount, $this->currency)]]></code>
+      <code><![CDATA[new DecimalMoneyFormatter($currencies)]]></code>
+      <code><![CDATA[new DecimalMoneyParser($currencies)]]></code>
+    </TooManyArguments>
   </file>
   <file src="src/Uri/Bridge/Doctrine/UriType.php">
-    <DeprecatedFunction occurrences="2">
-      <code>sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)</code>
-      <code>sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type)]]></code>
+      <code><![CDATA[sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type)]]></code>
     </DeprecatedFunction>
-    <MissingParamType occurrences="1">
-      <code>$value</code>
+    <DeprecatedMethod>
+      <code><![CDATA[getVarcharTypeDeclarationSQL]]></code>
+      <code><![CDATA[parent::requiresSQLCommentHint($platform)]]></code>
+    </DeprecatedMethod>
+    <MissingParamType>
+      <code><![CDATA[$value]]></code>
     </MissingParamType>
+    <NoValue>
+      <code><![CDATA[$value]]></code>
+    </NoValue>
   </file>
   <file src="src/Uri/Uri.php">
-    <DeprecatedFunction occurrences="1">
-      <code>sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri))</code>
+    <DeprecatedFunction>
+      <code><![CDATA[sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri))]]></code>
     </DeprecatedFunction>
-    <DocblockTypeContradiction occurrences="1">
-      <code>\gettype($uri)</code>
+    <DocblockTypeContradiction>
+      <code><![CDATA[\gettype($uri)]]></code>
     </DocblockTypeContradiction>
   </file>
   <file src="src/Vat/VatNumber.php">
-    <RedundantCast occurrences="1">
-      <code>(string) $this-&gt;number</code>
+    <RedundantCast>
+      <code><![CDATA[(string) $this->number]]></code>
     </RedundantCast>
   </file>
-  <file src="tests/Money/MoneyTest.php">
-    <UndefinedInterfaceMethod occurrences="8">
-      <code>getBaseAmount</code>
-      <code>getBaseAmount</code>
-      <code>getCurrency</code>
-      <code>getCurrency</code>
-      <code>getCurrency</code>
-      <code>getCurrency</code>
-      <code>getHumanAmount</code>
-      <code>getHumanAmount</code>
-    </UndefinedInterfaceMethod>
+  <file src="tests/Email/Bridge/Doctrine/EmailTypeTest.php">
+    <InvalidReturnType>
+      <code><![CDATA[never]]></code>
+    </InvalidReturnType>
+  </file>
+  <file src="tests/Uri/UriTest.php">
+    <InvalidArgument>
+      <code><![CDATA[$test]]></code>
+    </InvalidArgument>
   </file>
 </files>

@@ -10,14 +10,16 @@
 return [
     // # Issue statistics:
     // PhanUndeclaredStaticMethod : 160+ occurrences
-    // PhanDeprecatedFunction : 10+ occurrences
+    // PhanCompatibleNamedArgument : 20+ occurrences
+    // PhanDeprecatedFunction : 20+ occurrences
     // PhanRedefinedExtendedClass : 10+ occurrences
-    // PhanUndeclaredMethod : 7 occurrences
+    // PhanUndeclaredMethod : 5 occurrences
     // PhanTypeMismatchArgumentProbablyReal : 1 occurrence
     // PhanTypeMismatchReturnSuperType : 1 occurrence
 
     // Currently, file_suppressions and directory_suppressions are the only supported suppressions
     'file_suppressions' => [
+        'src/Address/Address.php' => ['PhanCompatibleNamedArgument'],
         'src/Currency/Bridge/Doctrine/CurrencyType.php' => ['PhanDeprecatedFunction'],
         'src/Email/Bridge/Doctrine/EmailType.php' => ['PhanDeprecatedFunction'],
         'src/Email/Email.php' => ['PhanDeprecatedFunction'],
@@ -35,7 +37,7 @@ return [
         'tests/Money/MoneyTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Payment/PaymentTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Phone/PhoneTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
-        'tests/Tax/TaxTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
+        'tests/Tax/TaxTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Uri/UriTest.php' => ['PhanRedefinedExtendedClass', 'PhanTypeMismatchArgumentProbablyReal', 'PhanUndeclaredMethod', 'PhanUndeclaredStaticMethod'],
         'tests/Vat/VatNumberTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],
         'tests/Vat/VatRateTest.php' => ['PhanRedefinedExtendedClass', 'PhanUndeclaredStaticMethod'],

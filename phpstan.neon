@@ -11,6 +11,8 @@ parameters:
     paths:
         - src
         - tests
+    excludePaths:
+        - tests/Email/Bridge/Doctrine/EmailTypeTest.php
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:

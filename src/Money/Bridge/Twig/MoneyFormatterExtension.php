@@ -36,6 +36,7 @@ final class MoneyFormatterExtension extends AbstractExtension
 
     /**
      * @return TwigFilter[]
+     *
      * @psalm-suppress MixedArgumentTypeCoercion
      */
     public function getFilters(): array
@@ -52,7 +53,7 @@ final class MoneyFormatterExtension extends AbstractExtension
 
     public function localizeMoneyFilter(?Money $money, string $locale = self::DEFAULT_LOCALE): ?string
     {
-        if (null === $money) {
+        if ( ! $money instanceof Money) {
             return null;
         }
 

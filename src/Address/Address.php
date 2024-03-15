@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace SerendipityHQ\Component\ValueObjects\Address;
 
+// @phan-suppress-next-line PhanUnreferencedUseNormal
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
@@ -41,72 +42,58 @@ class Address implements AddressInterface
     /**
      * The two-letter country code.
      *
-     * @var string
-     *
      * @ORM\Column(name="country_code", type="string", nullable=true)
      */
     #[ORM\Column(name: 'country_code', type: Types::STRING, nullable: true)]
-    protected $countryCode;
+    protected ?string $countryCode = null;
 
     /**
      * The top-level administrative subdivision of the country.
      *
-     * @var string
-     *
      * @ORM\Column(name="administrative_area", type="string", nullable=true)
      */
     #[ORM\Column(name: 'administrative_area', type: Types::STRING, nullable: true)]
-    protected $administrativeArea;
+    protected ?string $administrativeArea = null;
 
     /**
      * The locality (i.e. city).
      *
-     * @var string
-     *
      * @ORM\Column(name="locality", type="string", nullable=true)
      */
     #[ORM\Column(name: 'locality', type: Types::STRING, nullable: true)]
-    protected $locality;
+    protected ?string $locality = null;
 
     /**
      * The dependent locality (i.e. neighbourhood).
      *
-     * @var string
-     *
      * @ORM\Column(name="dependent_locality", type="string", nullable=true)
      */
     #[ORM\Column(name: 'dependent_locality', type: Types::STRING, nullable: true)]
-    protected $dependentLocality;
+    protected ?string $dependentLocality = null;
 
     /**
      * The postal code.
      *
-     * @var string
-     *
      * @ORM\Column(name="postal_code", type="string", nullable=true)
      */
     #[ORM\Column(name: 'postal_code', type: Types::STRING, nullable: true)]
-    protected $postalCode;
+    protected ?string $postalCode = null;
 
     /**
      * The first line of the address block.
      *
-     * @var string
-     *
      * @ORM\Column(name="street", type="string", nullable=true)
      */
     #[ORM\Column(name: 'street', type: Types::STRING, nullable: true)]
-    protected $street;
+    protected ?string $street = null;
 
     /**
      * The second line of the address block.
      *
-     * @var string
-     *
      * @ORM\Column(name="extra_line", type="string", nullable=true)
      */
     #[ORM\Column(name: 'extra_line', type: Types::STRING, nullable: true)]
-    protected $extraLine;
+    protected ?string $extraLine = null;
 
     public function __construct(array $values)
     {

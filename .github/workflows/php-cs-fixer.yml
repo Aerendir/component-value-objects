@@ -19,22 +19,22 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v3
+                uses: actions/checkout@v4
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.21.1
+                uses: shivammathur/setup-php@2.30.0
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none # disable xdebug, pcov
                     extensions: ast
 
             -   name: Install Composer deps
-                uses: ramsey/composer-install@v2
+                uses: ramsey/composer-install@v3
                 with:
                     composer-options: --no-scripts
 
             -   name: Install Composer bin PHP CS Fixer
-                uses: ramsey/composer-install@v2
+                uses: ramsey/composer-install@v3
                 with:
                     working-directory: './vendor-bin/phpcs'
 

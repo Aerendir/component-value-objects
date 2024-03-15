@@ -25,10 +25,10 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v3
+                uses: actions/checkout@v4
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.21.1
+                uses: shivammathur/setup-php@2.30.0
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: pcov
@@ -41,7 +41,7 @@ jobs:
                     composer config --no-plugins allow-plugins.symfony/flex true
 
             -   name: Install Composer deps
-                uses: ramsey/composer-install@v2
+                uses: ramsey/composer-install@v3
                 with:
                     composer-options: --no-scripts
 
@@ -51,7 +51,7 @@ jobs:
                     composer update --no-interaction --no-scripts
 
             -   name: Install Composer bin PHPUnit
-                uses: ramsey/composer-install@v2
+                uses: ramsey/composer-install@v3
                 with:
                     working-directory: './vendor-bin/phpunit'
 
