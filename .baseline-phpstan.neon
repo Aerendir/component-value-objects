@@ -166,11 +166,6 @@ parameters:
 			path: src/Vat/VatRate.php
 
 		-
-			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"
-			count: 1
-			path: tests/Email/Bridge/Doctrine/EmailTypeTest.php
-
-		-
 			message: "#^Property SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\Bridge\\\\Doctrine\\\\MoneyTypeTest\\:\\:\\$platform is never read, only written\\.$#"
 			count: 1
 			path: tests/Money/Bridge/Doctrine/MoneyTypeTest.php
