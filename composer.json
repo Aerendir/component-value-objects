@@ -29,7 +29,7 @@
         "doctrine/orm": "^2.5",
         "phpstan/phpstan": "1.11.7",
         "phpstan/phpstan-phpunit": "1.4.0",
-        "rector/rector": "1.2.0",
+        "rector/rector": "1.2.1",
         "roave/security-advisories": "dev-master",
         "serendipity_hq/rector-config": "^1.0",
         "symfony/form": "^4.4|^5.4|^6.0",
