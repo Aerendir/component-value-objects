@@ -46,7 +46,7 @@ final class UriType extends Type
     /**
      * @return string|Uri|null
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform):?Uri
     {
         if (null === $value || '' === $value) {
             return $value;
