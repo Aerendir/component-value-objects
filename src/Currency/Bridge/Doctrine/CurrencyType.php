@@ -66,7 +66,7 @@ final class CurrencyType extends Type
      * @psalm-suppress DocblockTypeContradiction
      * @psalm-suppress MixedArgument
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform):?string
     {
         if (null === $value || '' === $value) {
             return $value;
