@@ -1,3 +1,17 @@
+> [!WARNING]
+>
+> # ARCHIVED
+>
+> After many years of honorable service, we have decided to archive this repository.
+>
+> It has been extremely useful in many projects, but the time has come to archive it because it no longer makes sense to continue using it.
+>
+> This was the first library we ever created: the emotional weight is considerable, and the decision has been extremely difficult.
+>
+> However, we realized that there is no longer any point in maintaining it.
+>
+> A post will follow with all the details, alternatives, and instructions on how you can replace this library in your projects.
+
 <p align="center">
     <a href="http://www.serendipityhq.com" target="_blank">
         <img style="max-width: 350px" src="http://www.serendipityhq.com/assets/open-source-projects/Logo-SerendipityHQ-Icon-Text-Purple.png">
