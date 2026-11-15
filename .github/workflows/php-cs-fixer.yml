@@ -15,31 +15,26 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ ubuntu-latest ]
-                php: [ '7.4' ]
+                php: [ '8.2' ]
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v4
+                uses: actions/checkout@v7
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.32.0
+                uses: shivammathur/setup-php@2.40.0
                 with:
                     php-version: ${{ matrix.php }}
                     coverage: none # disable xdebug, pcov
                     extensions: ast
 
-            -   name: Remove Roave Security Advisories
-                # It conflicts with every PHP version out of security support, and Composer blocks vulnerable packages on its own
-                run: |
-                    composer rem roave/security-advisories --dev --no-update
-
             -   name: Install Composer deps
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     composer-options: --no-scripts
 
             -   name: Install Composer bin PHP CS Fixer
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     working-directory: './vendor-bin/phpcs'
 
