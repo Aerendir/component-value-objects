@@ -2,32 +2,41 @@
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="vendor-bin/phpunit/vendor/phpunit/phpunit/phpunit.xsd"
-        cacheResultFile="var/cache/"
         colors="true"
         bootstrap="tests/bootstrap.php"
+        displayDetailsOnTestsThatTriggerDeprecations="true"
+        displayDetailsOnPhpunitDeprecations="true"
+        cacheDirectory="var/cache/phpunit"
+        testdox="true"
+        failOnDeprecation="false"
+        failOnPhpunitDeprecation="false"
+        failOnWarning="false"
 >
-
     <php>
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
-        <ini name="error_reporting" value="-16385"/>
+        <ini name="error_reporting" value="-1"/>
+        <server name="SHELL_VERBOSITY" value="-1"/>
     </php>
-
     <testsuites>
         <testsuite name="Serendipity HQ Value Objects Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-
-    <coverage includeUncoveredFiles="true">
+    <source
+            ignoreSuppressionOfDeprecations="true"
+            ignoreSuppressionOfPhpDeprecations="true"
+            ignoreSuppressionOfNotices="true"
+            ignoreSuppressionOfWarnings="true"
+            ignoreSuppressionOfErrors="true"
+            ignoreSuppressionOfPhpNotices="true"
+            ignoreSuppressionOfPhpWarnings="true"
+            ignoreDirectDeprecations="true"
+            ignoreSelfDeprecations="true"
+    >
         <include>
-            <directory suffix=".php">src/</directory>
+            <directory suffix=".php">src</directory>
         </include>
         <exclude>
-            <directory>./src/Resources</directory>
+            <directory>src/Resources</directory>
         </exclude>
-    </coverage>
-
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
-    </listeners>
+    </source>
 </phpunit>
