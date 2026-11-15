@@ -20,7 +20,7 @@ declare(strict_types=1);
 use Phan\Issue;
 
 return [
-    'target_php_version'                          => '7.4',
+    'target_php_version'                          => '8.2',
     'minimum_severity'                            => Issue::SEVERITY_LOW,
 
     // A list of directories that should be parsed for class and

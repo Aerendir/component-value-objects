@@ -15,24 +15,37 @@ jobs:
             fail-fast: false
             matrix:
                 os: [ ubuntu-latest ]
-                # When you change a version here, change it also in the SonarCloud if condition
-                php: [ '7.4', '8.0', '8.1' ]
-                symfony: [ '~4.4', '~5.4', '~6.0' ]
+                php: [ '8.2', '8.3', '8.4', '8.5' ]
+                symfony: [ '~6.4', '~7.4', '~8.0' ]
+                dependency-versions: [ lowest, highest ]
 
                 exclude:
-                    - php: '7.4'
-                      symfony: '~6.0'
+                    -   php: '8.2'
+                        symfony: '~8.0'
+                    -   php: '8.3'
+                        symfony: '~8.0'
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v4
+                uses: actions/checkout@v7
 
             -   name: Setup PHP
-                uses: shivammathur/setup-php@2.32.0
+                uses: shivammathur/setup-php@2.40.0
                 with:
                     php-version: ${{ matrix.php }}
-                    coverage: pcov
+                    coverage: none # disable xdebug, pcov
                     extensions: ast
+
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: |
+                    echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+            -   name: Cache Composer's dependencies
+                uses: actions/cache@v6
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: php-composer-dependencies-cache
 
             -   name: Fix Symfony version
                 run: |
@@ -41,31 +54,24 @@ jobs:
                     composer config --no-plugins allow-plugins.symfony/flex true
 
             -   name: Install Composer deps
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     composer-options: --no-scripts
 
             -   name: Update Composer deps (with Flex)
                 # The second update is to make Flex able to do its job
                 run: |
-                    composer update --no-interaction --no-scripts
+                    if [ "${{ matrix.dependency-versions }}" == "lowest" ]; then
+                        composer update --no-interaction --no-scripts --prefer-lowest
+                    else
+                        composer update --no-interaction --no-scripts
+                    fi
 
             -   name: Install Composer bin PHPUnit
-                uses: ramsey/composer-install@v3
+                uses: ramsey/composer-install@v4
                 with:
                     working-directory: './vendor-bin/phpunit'
 
             -   name: Run PHPunit
                 run: |
-                    ./vendor-bin/phpunit/vendor/bin/phpunit --coverage-clover var/coverage/clover.xml
-
-            -   name: Change paths in clover.xml
-                run: |
-                    sed -i 's+/home/runner/work/component-value-objects/component-value-objects+/github/workspace+g' ./var/coverage/clover.xml
-
-            -   name: Sonarcloud
-                if: github.ref == 'refs/heads/dev'
-                uses: sonarsource/sonarcloud-github-action@master
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                    ./vendor-bin/phpunit/vendor/bin/phpunit

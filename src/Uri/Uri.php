@@ -17,8 +17,6 @@ use Laminas\Uri\Exception\InvalidArgumentException;
 use Laminas\Uri\Uri as BaseUri;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
-use function Safe\sprintf;
-
 /**
  * Default implementation of an Uri value obeject.
  */
@@ -49,7 +47,7 @@ final class Uri implements UriInterface
             $this->setQuery($uri->getQuery());
             $this->setFragment($uri->getFragment());
         } elseif (null !== $uri) {
-            throw new InvalidArgumentException(sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri)));
+            throw new InvalidArgumentException(\sprintf('Expecting a string or a URI object, received "%s"', \is_object($uri) ? \get_class($uri) : \gettype($uri)));
         }
     }
 

@@ -21,8 +21,6 @@ use Money\Parser\DecimalMoneyParser;
 use SerendipityHQ\Component\ValueObjects\Common\ComplexValueObjectTrait;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
-use function Safe\sprintf;
-
 /**
  * The class doesn't extend the base money object has it has private properties and methods that make difficult the
  * integration.
@@ -118,7 +116,7 @@ final class Money implements MoneyInterface
     public function getBaseAmount(): string
     {
         if (false === $this->valueObject instanceof BaseMoney) {
-            throw new \LogicException(sprintf('This is not a %s object.', BaseMoney::class));
+            throw new \LogicException(\sprintf('This is not a %s object.', BaseMoney::class));
         }
 
         return $this->valueObject->getAmount();
@@ -127,7 +125,7 @@ final class Money implements MoneyInterface
     public function getCurrency(): Currency
     {
         if (false === $this->valueObject instanceof BaseMoney) {
-            throw new \LogicException(sprintf('This is not a %s object.', BaseMoney::class));
+            throw new \LogicException(\sprintf('This is not a %s object.', BaseMoney::class));
         }
 
         return $this->valueObject->getCurrency();
@@ -186,7 +184,7 @@ final class Money implements MoneyInterface
     protected function setBaseAmount($baseAmount): void
     {
         if (false === is_numeric($baseAmount)) {
-            throw new \InvalidArgumentException(sprintf('The value must be numeric. You passed "%s".', $baseAmount));
+            throw new \InvalidArgumentException(\sprintf('The value must be numeric. You passed "%s".', $baseAmount));
         }
 
         $this->baseAmount = (string) $baseAmount;

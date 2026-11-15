@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <psalm
-    phpVersion="7.4"
+    phpVersion="8.2"
     cacheDirectory="./var/cache/psalm"
     checkForThrowsDocblock="true"
     hideExternalErrors="true"
@@ -11,6 +11,7 @@
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="vendor-bin/phpunit/vendor/vimeo/psalm/config.xsd"
     errorBaseline=".baseline-psalm.xml"
+    findUnusedCode="false"
 >
     <projectFiles>
         <directory name="src"/>
@@ -26,7 +27,12 @@
         <RedundantConditionGivenDocblockType errorLevel="suppress" />
         <RedundantIdentityWithTrue errorLevel="suppress" />
 
+        <!-- The #[\Override] attribute exists only from PHP 8.3, and this library supports PHP 8.2 -->
+        <MissingOverrideAttribute errorLevel="suppress" />
+
         <!-- Specific to this library -->
+        <!-- AddressEmbeddable is meant to be extended by the applications that use it -->
+        <ClassMustBeFinal errorLevel="suppress" />
         <ImplicitToStringCast errorLevel="suppress" />
         <MoreSpecificImplementedParamType errorLevel="suppress" />
         <ParamNameMismatch errorLevel="suppress" />

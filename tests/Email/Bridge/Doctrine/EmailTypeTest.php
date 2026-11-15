@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace SerendipityHQ\Component\ValueObjects\Tests\Email\Bridge\Doctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\Type;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use SerendipityHQ\Component\ValueObjects\Email\Bridge\Doctrine\EmailType;
@@ -35,14 +34,8 @@ final class EmailTypeTest extends TestCase
 
     protected function setUp(): void
     {
-        if (false === Type::hasType(EmailType::NAME)) {
-            Type::addType(EmailType::NAME, EmailType::class);
-        }
-
-        /** @var EmailType $type */
-        $type           = Type::getType(EmailType::NAME);
-        $this->type     = $type;
-        $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
+        $this->type     = new EmailType();
+        $this->platform = $this->createMock(AbstractPlatform::class);
     }
 
     public function testGetName(): void

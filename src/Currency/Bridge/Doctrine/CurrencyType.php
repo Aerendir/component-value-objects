@@ -17,13 +17,6 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Money\Currency;
 
-use function Safe\sprintf;
-
-/**
- * A custom datatype to persist a Currency Value Object with Doctrine.
- *
- * @author Adamo Crespi <hello@aerendir.me>
- */
 final class CurrencyType extends Type
 {
     /** @var string */
@@ -42,48 +35,39 @@ final class CurrencyType extends Type
         return 3;
     }
 
-    /**
-     * @psalm-suppress MixedArgument
-     */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?Currency
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?Currency
     {
-        if (is_string($value) && '' !== $value) {
-            $value = new Currency($value);
+        if ($value instanceof Currency) {
+            return $value;
         }
 
-        if (false === $value instanceof Currency) {
-            $value = null;
+        if (\is_string($value) && '' !== $value) {
+            return new Currency($value);
         }
 
-        return $value;
+        return null;
     }
 
-    /**
-     * @param Currency|string|null $value
-     *
-     * @return Currency|string|null
-     *
-     * @psalm-suppress DocblockTypeContradiction
-     * @psalm-suppress MixedArgument
-     */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform):?string
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return $value;
         }
 
         if ( ! $value instanceof Currency) {
-            $type = \is_object($value) ? \get_class($value) : \gettype($value);
-
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \Money\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(\sprintf('You have to pass an object of kind \\Money\\Currency to use the Doctrine type CurrencyType. "%s" passed instead.', \get_debug_type($value)));
         }
 
-        return (string) $value;
+        return $value->getCode();
     }
 
+    /**
+     * Asks DBAL 3 to put the type in the column comment, so the schema tool can tell
+     * the column from a plain string. DBAL 4 no longer calls this method.
+     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
-        return ! parent::requiresSQLCommentHint($platform);
+        return true;
     }
 
     public function getName(): string

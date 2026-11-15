@@ -19,8 +19,6 @@ use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
 
-use function Safe\sprintf;
-
 /**
  * A custom datatype to persist an Email Value Object with Doctrine.
  *
@@ -49,24 +47,24 @@ final class EmailType extends Type
         return 255;
     }
 
-    /**
-     * @psalm-suppress MixedArgument
-     */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?Email
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?Email
     {
         if (null === $value || '' === $value) {
             return null;
         }
 
+        if ($value instanceof Email) {
+            return $value;
+        }
+
+        if ( ! \is_string($value)) {
+            throw new \InvalidArgumentException(\sprintf('An email field accepts only valid email addresses, as "string" or as "%s". "%s" given.', Email::class, \get_debug_type($value)));
+        }
+
         return new Email($value);
     }
 
-    /**
-     * @param Email|string|null $value
-     *
-     * @psalm-suppress DocblockTypeContradiction
-     */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return null;
@@ -77,14 +75,14 @@ final class EmailType extends Type
         }
 
         if (false === \is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value));
+            throw new \InvalidArgumentException(\sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class));
         }
 
         // Validate the $value as a valid email
         $validator = new EmailValidator();
 
         if ( ! $validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
+            throw new \InvalidArgumentException(\sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
         }
 
         // The value is automatically transformed into a string thans to the __toString() method
@@ -92,11 +90,14 @@ final class EmailType extends Type
     }
 
     /**
+     * Asks DBAL 3 to put the type in the column comment, so the schema tool can tell
+     * the column from a plain string. DBAL 4 no longer calls this method.
+     *
      * @codeCoverageIgnore
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
-        return ! parent::requiresSQLCommentHint($platform);
+        return true;
     }
 
     public function getName(): string

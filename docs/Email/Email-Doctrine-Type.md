@@ -4,7 +4,7 @@
 
 # How to use Email as a Doctrine type
 
-*NOTE: You can read more about Doctrine's Embeddables here: [Types](https://www.doctrine-project.org/projects/doctrine-dbal/en/2.10/reference/types.html)*
+*NOTE: You can read more about Doctrine's Embeddables here: [Types](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/types.html)*
 
 To use the Doctrine's type, you have to follow those steps:
 
