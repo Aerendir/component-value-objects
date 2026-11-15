@@ -30,7 +30,7 @@
         "phpstan/phpstan-phpunit": "1.4.0",
         "rector/rector": "1.2.10",
         "roave/security-advisories": "dev-master",
-        "serendipity_hq/rector-config": "^1.0",
+        "serendipity_hq/rector-config": "1.1.13",
         "symfony/form": "^4.4|^5.4|^6.0",
         "symfony/var-dumper": "^4.4|^5.4|^6.0",
         "twig/intl-extra": "^2.12|^3.0"

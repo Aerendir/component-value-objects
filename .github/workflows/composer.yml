@@ -29,6 +29,11 @@ jobs:
                     tools: symfony
                     extensions: ast
 
+            -   name: Remove Roave Security Advisories
+                # It conflicts with every PHP version out of security support, and Composer blocks vulnerable packages on its own
+                run: |
+                    composer rem roave/security-advisories --dev --no-update
+
             -   name: Install Composer deps
                 uses: ramsey/composer-install@v3
                 with:
