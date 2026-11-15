@@ -45,7 +45,7 @@ final class MoneyType extends Type
      *
      * @return mixed|Money|string|null
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform):?Money
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?Money
     {
         if (null === $value || '' === $value || false === is_string($value)) {
             return $value;
