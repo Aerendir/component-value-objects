@@ -19,9 +19,6 @@ use Money\Currency;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
-/**
- * A custom datatype to persist a Money Value Object with Doctrine.
- */
 final class MoneyType extends Type
 {
     /** @var string */
@@ -41,54 +38,52 @@ final class MoneyType extends Type
     }
 
     /**
-     * @psalm-suppress MixedArgument
-     *
-     * @return mixed|Money|string|null
+     * The database holds "<base amount>-<currency code>": the amount can be negative, so
+     * the currency is what follows the last dash.
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?Money
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?Money
     {
-        if (null === $value || '' === $value || false === is_string($value)) {
+        if ($value instanceof Money) {
             return $value;
         }
 
-        $objects  = \explode('-', $value);
-        $currency = $objects[1];
-
-        if (is_string($currency) && '' !== $currency) {
-            $currency = new Currency($currency);
-        }
-
-        if (false === $currency instanceof Currency) {
+        if ( ! \is_string($value) || '' === $value) {
             return null;
         }
 
-        return new Money([MoneyInterface::BASE_AMOUNT => (int) $objects[0], MoneyInterface::CURRENCY => $currency]);
+        $separator = \strrpos($value, '-');
+        if (false === $separator) {
+            return null;
+        }
+
+        $currency = \substr($value, $separator + 1);
+        if ('' === $currency) {
+            return null;
+        }
+
+        return new Money([MoneyInterface::BASE_AMOUNT => (int) \substr($value, 0, $separator), MoneyInterface::CURRENCY => new Currency($currency)]);
     }
 
-    /**
-     * @param Money|string|null $value
-     *
-     * @psalm-suppress DocblockTypeContradiction
-     * @psalm-suppress MixedArgument
-     */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return $value;
         }
 
         if ( ! $value instanceof Money) {
-            $type = \is_object($value) ? \get_class($value) : \gettype($value);
-
-            throw new \InvalidArgumentException(\sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(\sprintf('You have to pass an object of kind \\SerendipityHQ\\Component\\ValueObjects\\Money\\Money to use the Doctrine type MoneyType. "%s" passed instead.', \get_debug_type($value)));
         }
 
         return $value->getBaseAmount() . '-' . $value->getCurrency()->getCode();
     }
 
+    /**
+     * Asks DBAL 3 to put the type in the column comment, so the schema tool can tell
+     * the column from a plain string. DBAL 4 no longer calls this method.
+     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
-        return ! parent::requiresSQLCommentHint($platform);
+        return true;
     }
 
     public function getName(): string

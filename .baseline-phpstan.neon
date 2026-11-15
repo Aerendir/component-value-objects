@@ -46,11 +46,6 @@ parameters:
 			path: src/CurrencyExchangeRate/CurrencyExchangeRate.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of class SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Email constructor expects string, mixed given\\.$#"
-			count: 1
-			path: src/Email/Bridge/Doctrine/EmailType.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Email\\\\Email\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
 			path: src/Email/Email.php
@@ -136,11 +131,6 @@ parameters:
 			path: src/Tax/Tax.php
 
 		-
-			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\Bridge\\\\Doctrine\\\\UriType\\:\\:convertToPHPValue\\(\\) should return SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\Uri\\|string\\|null but returns SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\UriInterface\\.$#"
-			count: 1
-			path: src/Uri/Bridge/Doctrine/UriType.php
-
-		-
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Uri\\\\Uri\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
 			path: src/Uri/Uri.php
@@ -164,11 +154,6 @@ parameters:
 			message: "#^Method SerendipityHQ\\\\Component\\\\ValueObjects\\\\Vat\\\\VatRate\\:\\:__set\\(\\) has parameter \\$value with no type specified\\.$#"
 			count: 1
 			path: src/Vat/VatRate.php
-
-		-
-			message: "#^Property SerendipityHQ\\\\Component\\\\ValueObjects\\\\Tests\\\\Money\\\\Bridge\\\\Doctrine\\\\MoneyTypeTest\\:\\:\\$platform is never read, only written\\.$#"
-			count: 1
-			path: tests/Money/Bridge/Doctrine/MoneyTypeTest.php
 
 		-
 			message: "#^Return type of call to method PHPUnit\\\\Framework\\\\TestCase\\:\\:createMock\\(\\) contains unresolvable type\\.$#"

@@ -18,11 +18,6 @@ use Doctrine\DBAL\Types\Type;
 use SerendipityHQ\Component\ValueObjects\Uri\Uri;
 use SerendipityHQ\Component\ValueObjects\Uri\UriInterface;
 
-/**
- * A custom datatype to persist an Uri Value Object with Doctrine.
- *
- * @author Adamo Crespi <hello@aerendir.me>
- */
 final class UriType extends Type
 {
     /** @var string */
@@ -41,52 +36,43 @@ final class UriType extends Type
         return 255;
     }
 
-    /**
-     * @return string|Uri|null
-     */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?Uri
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?Uri
     {
         if (null === $value || '' === $value) {
+            return null;
+        }
+
+        if ($value instanceof Uri) {
             return $value;
         }
 
-        if (\is_string($value)) {
-            $value = new Uri($value);
+        if ( ! \is_string($value) && ! $value instanceof UriInterface) {
+            throw new \RuntimeException(\sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', \get_debug_type($value)));
         }
 
-        if ( ! $value instanceof UriInterface) {
-            $type = \is_object($value) ? \get_class($value) : \gettype($value);
-
-            throw new \RuntimeException(\sprintf('Impossible to transform the given value of type "%s" into an UriInterface object.', $type));
-        }
-
-        return $value;
+        return new Uri($value);
     }
 
-    /**
-     * @param string|UriInterface|null $value
-     *
-     * @psalm-suppress DocblockTypeContradiction
-     * @psalm-suppress MixedArgument
-     */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
     {
         if (null === $value || '' === $value) {
             return $value;
         }
 
         if ( ! $value instanceof UriInterface) {
-            $type = \is_object($value) ? \get_class($value) : \gettype($value);
-
-            throw new \InvalidArgumentException(\sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Uri\UriInterface to use the Doctrine type UriType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(\sprintf('You have to pass an object of kind \\SerendipityHQ\\Component\\ValueObjects\\Uri\\UriInterface to use the Doctrine type UriType. "%s" passed instead.', \get_debug_type($value)));
         }
 
         return $value->__toString();
     }
 
+    /**
+     * Asks DBAL 3 to put the type in the column comment, so the schema tool can tell
+     * the column from a plain string. DBAL 4 no longer calls this method.
+     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
-        return ! parent::requiresSQLCommentHint($platform);
+        return true;
     }
 
     public function getName(): string
