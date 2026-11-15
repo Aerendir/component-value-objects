@@ -27,15 +27,15 @@
 </p>
 <p>
     Supports:
-    <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
-    <a title="Tested with Symfony ^5.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^5.4" src="https://img.shields.io/badge/Symfony-%5E5.4-333?style=flat-square&logo=symfony" /></a>
-    <a title="Tested with Symfony ^6.0" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^6.0" src="https://img.shields.io/badge/Symfony-%5E6.0-333?style=flat-square&logo=symfony" /></a>
+    <a title="Supports Symfony ^6.4" href="https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster"><img title="Supports Symfony ^6.4" src="https://img.shields.io/badge/Symfony-%5E6.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Supports Symfony ^7.4" href="https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster"><img title="Supports Symfony ^7.4" src="https://img.shields.io/badge/Symfony-%5E7.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Supports Symfony ^8.0" href="https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster"><img title="Supports Symfony ^8.0" src="https://img.shields.io/badge/Symfony-%5E8.0-333?style=flat-square&logo=symfony" /></a>
 </p>
 <p>
     Tested with:
-    <a title="Tested with Symfony ^4.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^4.4" src="https://img.shields.io/badge/Symfony-%5E4.4-333?style=flat-square&logo=symfony" /></a>
-    <a title="Tested with Symfony ^5.4" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^5.4" src="https://img.shields.io/badge/Symfony-%5E5.4-333?style=flat-square&logo=symfony" /></a>
-    <a title="Tested with Symfony ^6.0" href="https://github.com/Aerendir/component-value-objects/actions"><img title="Tested with Symfony ^6.0" src="https://img.shields.io/badge/Symfony-%5E6.0-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^6.4" href="https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster"><img title="Tested with Symfony ^6.4" src="https://img.shields.io/badge/Symfony-%5E6.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^7.4" href="https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster"><img title="Tested with Symfony ^7.4" src="https://img.shields.io/badge/Symfony-%5E7.4-333?style=flat-square&logo=symfony" /></a>
+    <a title="Tested with Symfony ^8.0" href="https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster"><img title="Tested with Symfony ^8.0" src="https://img.shields.io/badge/Symfony-%5E8.0-333?style=flat-square&logo=symfony" /></a>
 </p>
 <p align="center">
     <a href="https://www.php.net/manual/en/book.intl.php"><img src="https://img.shields.io/badge/Suggests-ext--intl-%238892BF?style=flat-square&logo=php"></a>
@@ -54,13 +54,13 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=sqale_index)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Aerendir_component-value-objects&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Aerendir_component-value-objects)
 
-[![Phan](https://github.com/Aerendir/component-value-objects/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
-[![PHPStan](https://github.com/Aerendir/component-value-objects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
-[![PSalm](https://github.com/Aerendir/component-value-objects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
-[![PHPUnit](https://github.com/Aerendir/component-value-objects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
-[![Composer](https://github.com/Aerendir/component-value-objects/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
-[![PHP CS Fixer](https://github.com/Aerendir/component-value-objects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
-[![Rector](https://github.com/Aerendir/component-value-objects/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Adev)
+[![Phan](https://github.com/Aerendir/component-value-objects/workflows/Phan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
+[![PHPStan](https://github.com/Aerendir/component-value-objects/workflows/PHPStan/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
+[![PSalm](https://github.com/Aerendir/component-value-objects/workflows/PSalm/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
+[![PHPUnit](https://github.com/Aerendir/component-value-objects/workflows/PHPunit/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
+[![Composer](https://github.com/Aerendir/component-value-objects/workflows/Composer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
+[![PHP CS Fixer](https://github.com/Aerendir/component-value-objects/workflows/PHP%20CS%20Fixer/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
+[![Rector](https://github.com/Aerendir/component-value-objects/workflows/Rector/badge.svg)](https://github.com/Aerendir/component-value-objects/actions?query=branch%3Amaster)
 
 ## Features
 
