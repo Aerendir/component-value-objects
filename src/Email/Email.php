@@ -17,8 +17,6 @@ use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
 use SerendipityHQ\Component\ValueObjects\Common\DisableWritingMethodsTrait;
 
-use function Safe\sprintf;
-
 final class Email implements EmailInterface
 {
     use DisableWritingMethodsTrait;
@@ -35,7 +33,7 @@ final class Email implements EmailInterface
         $validator = new EmailValidator();
 
         if ( ! $validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(sprintf('The passed value "%s" does not look like an email.', $value));
+            throw new \InvalidArgumentException(\sprintf('The passed value "%s" does not look like an email.', $value));
         }
 
         $this->email = $value;
@@ -45,7 +43,7 @@ final class Email implements EmailInterface
 
     public function __toString(): string
     {
-        return sprintf('%s@%s', $this->mailBox, $this->host);
+        return \sprintf('%s@%s', $this->mailBox, $this->host);
     }
 
     public function getEmail(): string

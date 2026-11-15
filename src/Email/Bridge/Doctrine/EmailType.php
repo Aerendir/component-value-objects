@@ -19,8 +19,6 @@ use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
 use SerendipityHQ\Component\ValueObjects\Email\Email;
 
-use function Safe\sprintf;
-
 /**
  * A custom datatype to persist an Email Value Object with Doctrine.
  *
@@ -77,14 +75,14 @@ final class EmailType extends Type
         }
 
         if (false === \is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class, $value));
+            throw new \InvalidArgumentException(\sprintf('An email field accepts only valid email addresses, as "string" or as "%s".', Email::class));
         }
 
         // Validate the $value as a valid email
         $validator = new EmailValidator();
 
         if ( ! $validator->isValid($value, new RFCValidation())) {
-            throw new \InvalidArgumentException(sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
+            throw new \InvalidArgumentException(\sprintf('An email field accepts only valid email addresses. The value "%s" is not a valid email.', $value));
         }
 
         // The value is automatically transformed into a string thans to the __toString() method

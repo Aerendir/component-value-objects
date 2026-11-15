@@ -19,8 +19,6 @@ use Money\Currency;
 use SerendipityHQ\Component\ValueObjects\Money\Money;
 use SerendipityHQ\Component\ValueObjects\Money\MoneyInterface;
 
-use function Safe\sprintf;
-
 /**
  * A custom datatype to persist a Money Value Object with Doctrine.
  */
@@ -82,7 +80,7 @@ final class MoneyType extends Type
         if ( ! $value instanceof Money) {
             $type = \is_object($value) ? \get_class($value) : \gettype($value);
 
-            throw new \InvalidArgumentException(sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
+            throw new \InvalidArgumentException(\sprintf('You have to pass an object of kind \SerendipityHQ\Component\ValueObjects\Money\Money to use the Doctrine type MoneyType. "%s" passed instead.', $type));
         }
 
         return $value->getBaseAmount() . '-' . $value->getCurrency()->getCode();
